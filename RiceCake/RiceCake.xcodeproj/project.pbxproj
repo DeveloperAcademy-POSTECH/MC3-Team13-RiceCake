@@ -61,13 +61,21 @@
 			children = (
 				34A18415288044F7004B58E3 /* AppDelegate.swift */,
 				34A18417288044F7004B58E3 /* SceneDelegate.swift */,
-				34A1841B288044F7004B58E3 /* Main.storyboard */,
-				34A1842C288048E6004B58E3 /* HomeViewController.swift */,
+				34A1843028804C3D004B58E3 /* HomeView */,
 				34A1841E288044F8004B58E3 /* Assets.xcassets */,
 				34A18420288044F8004B58E3 /* LaunchScreen.storyboard */,
 				34A18423288044F8004B58E3 /* Info.plist */,
 			);
 			path = RiceCake;
+			sourceTree = "<group>";
+		};
+		34A1843028804C3D004B58E3 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				34A1841B288044F7004B58E3 /* Main.storyboard */,
+				34A1842C288048E6004B58E3 /* HomeViewController.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

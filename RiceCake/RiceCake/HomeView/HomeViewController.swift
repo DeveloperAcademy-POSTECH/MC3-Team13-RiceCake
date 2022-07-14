@@ -13,4 +13,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    @IBAction func startButtonTapped(_ sender: UIButton) {
+        
+    }
 }
