@@ -11,7 +11,7 @@ Apple Developer Academy @ POSTECH, Afternoon Session MC3/Team-13
 
 
 ## :people_hugging: Authors
-- [@Seodam](https://github.com/seodam-hst) | [@Seodam](https://github.com/seodam-hst)
+- [@Seodam](https://github.com/seodam-hst) |
 
 ## :framed_picture: Demo
 
