@@ -29,6 +29,9 @@
                                     <imageReference key="image" image="backButton" symbolScale="default"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UK2-e0-r1X"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nD5-IS-oBd">
                                 <rect key="frame" x="85" y="20" width="767" height="353"/>

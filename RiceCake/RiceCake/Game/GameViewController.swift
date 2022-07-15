@@ -13,4 +13,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    @IBAction func backButton(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
 }
