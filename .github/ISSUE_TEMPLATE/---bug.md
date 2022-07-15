@@ -3,7 +3,7 @@ name: "\U0001F41E BUG"
 about: 버그를 고칠 수 있게 알려주세요.
 title: "[BUG]"
 labels: bug
-assignees: bee712, David-ShinDJ, seunghoonkim34, JungYunseong, Eunbi-Cho, seodam-hst
+assignees: bee712, David-ShinDJ, Eunbi-Cho, JungYunseong, seodam-hst, seunghoonkim34
 
 ---
 
@@ -25,7 +25,7 @@ assignees: bee712, David-ShinDJ, seunghoonkim34, JungYunseong, Eunbi-Cho, seodam
 **스크린샷**
 버그가 발생한 장면을 이미지로 남겨주세요.
 
-(업로드할 이미지를 드래그 앤 드롭)
+(업로드할 이미지를 드래그 앤 드롭해주세요.)
 
 **버그가 발생한 기종**
 * 기종: [예: iPhone SE]
