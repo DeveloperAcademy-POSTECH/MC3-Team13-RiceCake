@@ -42,6 +42,8 @@ class StageViewController: UIViewController {
         dataSource.apply(snapshot)
         
         collectionView.collectionViewLayout = layout()
+        
+        collectionView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,5 +100,14 @@ class StageViewController: UIViewController {
         
         let indexPath = IndexPath(item: index, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+}
+
+extension StageViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "GameView", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
