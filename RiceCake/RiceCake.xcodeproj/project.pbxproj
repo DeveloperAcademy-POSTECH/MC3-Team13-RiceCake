@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18415288044F7004B58E3 /* AppDelegate.swift */; };
 		34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18417288044F7004B58E3 /* SceneDelegate.swift */; };
-		34A1841A288044F7004B58E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18419288044F7004B58E3 /* ViewController.swift */; };
 		34A1841D288044F7004B58E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A1841B288044F7004B58E3 /* Main.storyboard */; };
 		34A1841F288044F8004B58E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A1841E288044F8004B58E3 /* Assets.xcassets */; };
 		34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A18420288044F8004B58E3 /* LaunchScreen.storyboard */; };
 		34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 34A1842A28804642004B58E3 /* .swiftlint.yml */; };
+		34A1842D288048E6004B58E3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A1842C288048E6004B58E3 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		34A18412288044F7004B58E3 /* RiceCake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiceCake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A18415288044F7004B58E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A18417288044F7004B58E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		34A18419288044F7004B58E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		34A1841C288044F7004B58E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34A1841E288044F8004B58E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34A18421288044F8004B58E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34A18423288044F8004B58E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34A1842A28804642004B58E3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		34A1842C288048E6004B58E3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +61,21 @@
 			children = (
 				34A18415288044F7004B58E3 /* AppDelegate.swift */,
 				34A18417288044F7004B58E3 /* SceneDelegate.swift */,
-				34A18419288044F7004B58E3 /* ViewController.swift */,
-				34A1841B288044F7004B58E3 /* Main.storyboard */,
+				34A1843028804C3D004B58E3 /* HomeView */,
 				34A1841E288044F8004B58E3 /* Assets.xcassets */,
 				34A18420288044F8004B58E3 /* LaunchScreen.storyboard */,
 				34A18423288044F8004B58E3 /* Info.plist */,
 			);
 			path = RiceCake;
+			sourceTree = "<group>";
+		};
+		34A1843028804C3D004B58E3 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				34A1841B288044F7004B58E3 /* Main.storyboard */,
+				34A1842C288048E6004B58E3 /* HomeViewController.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,9 +172,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34A1841A288044F7004B58E3 /* ViewController.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,
 				34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */,
+				34A1842D288048E6004B58E3 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
