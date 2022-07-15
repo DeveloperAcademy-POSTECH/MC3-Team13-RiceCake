@@ -64,7 +64,7 @@ class StageViewController: UIViewController {
         section.interGroupSpacing = 90
         section.orthogonalScrollingBehavior = .groupPagingCentered
         
-        section.visibleItemsInvalidationHandler = { [self] (item, offset, env) in
+        section.visibleItemsInvalidationHandler = { [self] (_, offset, _) in
             self.index = Int((offset.x + 654) / 465)
             if self.index > lists.count - 1 {
             } else {
