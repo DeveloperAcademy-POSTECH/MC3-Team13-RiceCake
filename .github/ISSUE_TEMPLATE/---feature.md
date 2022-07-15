@@ -1,5 +1,5 @@
 ---
-name: "\U0001F4A1 Feature"
+name: "\U0001F4A1 FEATURE"
 about: Feature 작업 사항을 입력해주세요.
 title: "[FEAT]"
 labels: enhancement
