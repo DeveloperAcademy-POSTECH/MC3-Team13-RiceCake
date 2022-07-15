@@ -63,6 +63,9 @@
                             <constraint firstItem="nD5-IS-oBd" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Zpt-dX-pAt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="storyView" destination="0Mg-3h-lsX" id="SbM-qz-YDU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
