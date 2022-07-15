@@ -1,6 +1,6 @@
 ---
 name: "\U0001F4A1 FEATURE"
-about: Feature 작업 사항을 입력해주세요.
+about: Feature 작업 사항을 알려주세요.
 title: "[FEAT]"
 labels: enhancement
 assignees: bee712, David-ShinDJ, Eunbi-Cho, JungYunseong, seodam-hst, seunghoonkim34
