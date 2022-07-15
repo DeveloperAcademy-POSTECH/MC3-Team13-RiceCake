@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="retina6_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -14,7 +14,7 @@
             <objects>
                 <viewController storyboardIdentifier="GameViewController" id="Y6W-OH-hqX" customClass="GameViewController" customModule="RiceCake" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdY-4E-rdd">
@@ -34,15 +34,21 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nD5-IS-oBd">
-                                <rect key="frame" x="85" y="20" width="767" height="353"/>
+                                <rect key="frame" x="165.33333333333331" y="20" width="513.33333333333348" height="329"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mg-3h-lsX" customClass="SKView">
-                                        <rect key="frame" x="0.0" y="0.0" width="373.5" height="353"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="246.66666666666666" height="329"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="0Mg-3h-lsX" secondAttribute="height" multiplier="3:4" id="KWf-co-xE5"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZA-S9-Tjt">
-                                        <rect key="frame" x="393.5" y="0.0" width="373.5" height="353"/>
+                                        <rect key="frame" x="266.66666666666663" y="0.0" width="246.66666666666663" height="329"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="oZA-S9-Tjt" secondAttribute="height" multiplier="3:4" id="cSQ-l7-wNF"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -54,8 +60,7 @@
                             <constraint firstItem="TdY-4E-rdd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="20" id="O7e-iE-Mco"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nD5-IS-oBd" secondAttribute="bottom" constant="20" id="QwS-54-JFJ"/>
                             <constraint firstItem="nD5-IS-oBd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Y7J-1C-mZz"/>
-                            <constraint firstItem="nD5-IS-oBd" firstAttribute="leading" secondItem="TdY-4E-rdd" secondAttribute="trailing" constant="20" id="bmf-X5-xpx"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nD5-IS-oBd" secondAttribute="trailing" id="tI3-uG-5lL"/>
+                            <constraint firstItem="nD5-IS-oBd" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Zpt-dX-pAt"/>
                         </constraints>
                     </view>
                 </viewController>
