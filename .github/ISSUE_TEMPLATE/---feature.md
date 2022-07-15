@@ -13,7 +13,7 @@ assignees: bee712, David-ShinDJ, Eunbi-Cho, JungYunseong, seodam-hst, seunghoonk
 **작업 내용**
 작업해야할 목록을 입력해주세요.
 
--[ ] 작업
+- [ ] 작업
 
 **참고할 내용**
 작업에 참고할 사항을 입력해주세요.
