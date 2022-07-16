@@ -9,7 +9,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    private var touchAreaNode : SKShapeNode?
+    private var touchAreaNode: SKShapeNode?
     
     var player: SKSpriteNode = SKSpriteNode()
     
@@ -32,39 +32,37 @@ class GameScene: SKScene {
         }
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
+    func touchDown(atPoint pos: CGPoint) {
         
         let movementSpeed = 200.0
-        let x = pos.x - player.position.x
-        let y = pos.y - player.position.y
-        let distance = sqrt(x * x + y * y)
+        let xPosition = pos.x - player.position.x
+        let yPosition = pos.y - player.position.y
+        let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
         
         player.run(SKAction.move(to: pos, duration: distance / movementSpeed))
         
-        if let n = self.touchAreaNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.black
-            self.addChild(n)
+        if let node = self.touchAreaNode?.copy() as! SKShapeNode? {
+            node.position = pos
+            node.strokeColor = SKColor.black
+            self.addChild(node)
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
-    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
