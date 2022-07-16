@@ -6,7 +6,6 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 class GameScene: SKScene {
     
@@ -17,8 +16,8 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         player = SKSpriteNode(imageNamed: "player")
-        player.size = CGSize(width: 40, height: 60)
-        player.position = CGPoint(x: 195, y: 173)
+        player.size = CGSize(width: 20, height: 30)
+        player.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         self.addChild(player)
         
         // Create shape node to use during mouse interaction
@@ -27,7 +26,6 @@ class GameScene: SKScene {
         
         if let spinnyNode = self.spinnyNode {
             spinnyNode.lineWidth = 2.5
-            
             spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
             spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
                                               SKAction.fadeOut(withDuration: 0.5),

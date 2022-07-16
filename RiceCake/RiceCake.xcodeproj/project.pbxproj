@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3425053E28815D1000A8B6AF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3425053C28815D1000A8B6AF /* GameScene.swift */; };
-		3425053F28815D1000A8B6AF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3425053D28815D1000A8B6AF /* GameScene.sks */; };
 		34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18415288044F7004B58E3 /* AppDelegate.swift */; };
 		34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18417288044F7004B58E3 /* SceneDelegate.swift */; };
 		34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A18420288044F8004B58E3 /* LaunchScreen.storyboard */; };
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		3425053C28815D1000A8B6AF /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		3425053D28815D1000A8B6AF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		34A18412288044F7004B58E3 /* RiceCake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiceCake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A18415288044F7004B58E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A18417288044F7004B58E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				34B638D228811EE300760FD8 /* GameViewController.swift */,
-				3425053D28815D1000A8B6AF /* GameScene.sks */,
 				3425053C28815D1000A8B6AF /* GameScene.swift */,
 				34B638D328811EE300760FD8 /* GameView.storyboard */,
 			);
@@ -181,7 +178,6 @@
 				34B638D028811E2C00760FD8 /* Main.storyboard in Resources */,
 				34B638C428811CBB00760FD8 /* Assets.xcassets in Resources */,
 				34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */,
-				3425053F28815D1000A8B6AF /* GameScene.sks in Resources */,
 				34B638C628811CBB00760FD8 /* Stage.storyboard in Resources */,
 				34B638D528811EE300760FD8 /* GameView.storyboard in Resources */,
 			);
