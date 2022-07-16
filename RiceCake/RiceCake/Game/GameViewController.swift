@@ -5,7 +5,6 @@
 //  Created by Jung Yunseong on 2022/07/15.
 //
 
-import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
