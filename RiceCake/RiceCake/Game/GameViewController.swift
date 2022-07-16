@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
         let scene: GameScene = GameScene(size: storyView.frame.size)
         storyView.presentScene(scene)
     }
+    
     @IBAction func backButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }

@@ -9,7 +9,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    private var spinnyNode : SKShapeNode?
+    private var touchAreaNode : SKShapeNode?
     
     var player: SKSpriteNode = SKSpriteNode()
     
@@ -21,13 +21,12 @@ class GameScene: SKScene {
         self.addChild(player)
         
         // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.01
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        self.touchAreaNode = SKShapeNode.init(circleOfRadius: 4)
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
+        if let touchAreaNode = self.touchAreaNode {
+            touchAreaNode.lineWidth = 1.5
+            touchAreaNode.run(SKAction.scale(to: 2, duration: 0.5))
+            touchAreaNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
@@ -37,17 +36,15 @@ class GameScene: SKScene {
     func touchDown(atPoint pos : CGPoint) {
         
         let movementSpeed = 200.0
-        
         let x = pos.x - player.position.x
         let y = pos.y - player.position.y
-        
         let distance = sqrt(x * x + y * y)
         
         player.run(SKAction.move(to: pos, duration: distance / movementSpeed))
         
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+        if let n = self.touchAreaNode?.copy() as! SKShapeNode? {
             n.position = pos
-            n.strokeColor = SKColor.green
+            n.strokeColor = SKColor.black
             self.addChild(n)
         }
     }
