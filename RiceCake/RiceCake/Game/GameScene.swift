@@ -11,7 +11,7 @@ class GameScene: SKScene {
     
     private var touchArea: SKShapeNode?
     
-    var player: SKSpriteNode = SKSpriteNode()
+    var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
     
     override func didMove(to view: SKView) {
         createEnvironment()
@@ -57,13 +57,16 @@ class GameScene: SKScene {
         let busSeat = SKSpriteNode(imageNamed: "busSeat")
         busSeat.size = CGSize(width: self.size.width, height: self.size.height)
         busSeat.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busSeat.zPosition =  Layer.busFrame
+        busSeat.zPosition =  Layer.busSeat
         self.addChild(busSeat)
         
         let busPoll = SKSpriteNode(imageNamed: "busPoll")
         busPoll.size = CGSize(width: self.size.width, height: self.size.height)
         busPoll.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busPoll.zPosition =  Layer.busFrame
+        busPoll.zPosition =  Layer.busPoll
+        
+//        busPoll.physicsBody?.affectedByGravity = false
+        
         self.addChild(busPoll)
     }
     
@@ -71,10 +74,15 @@ class GameScene: SKScene {
         let playerWidth = 20
         let playerHeight = 30
         
-        player = SKSpriteNode(imageNamed: "player")
         player.size = CGSize(width: playerWidth, height: playerHeight)
         player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
         player.zPosition = Layer.player
+        
+//        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: playerWidth, height: playerHeight))
+//        player.physicsBody?.categoryBitMask = PhysicsCategory.player
+//        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPoll | PhysicsCategory.busSeat
+//        player.physicsBody?.collisionBitMask = PhysicsCategory.busFrame
+//        player.physicsBody?.isDynamic = false
         
         self.addChild(player)
     }
@@ -98,6 +106,24 @@ class GameScene: SKScene {
         let xPosition = pos.x - player.position.x
         let yPosition = pos.y - player.position.y
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
+        
+        let radians = atan2(-xPosition, yPosition)
+        let degrees = radians * 180 / .pi
+        
+        switch degrees {
+        case -45...45:
+            player.texture = SKTexture(imageNamed: "playerBack")
+            print("위")
+        case 45...135:
+            player.texture = SKTexture(imageNamed: "playerLeft")
+            print("왼")
+        case -135 ... -45:
+            player.texture = SKTexture(imageNamed: "playerRight")
+            print("우")
+        default:
+            player.texture = SKTexture(imageNamed: "playerFront")
+            print("아래")
+        }
         
         player.run(SKAction.move(to: pos, duration: distance / movementSpeed))
         
