@@ -20,7 +20,9 @@ class GameViewController: UIViewController {
         storyView.presentScene(scene)
         
         // https://stackoverflow.com/questions/24038215/how-to-navigate-from-one-view-controller-to-another-using-swift
-        let busSeatMissionVC = UIStoryboard.init(name: "BusSeatMission", bundle: Bundle.main).instantiateViewController(withIdentifier: "BusSeatMissionVC") as! BusSeatMissionViewController
+        let busSeatMissionVC = UIStoryboard.init(name: "BusSeatMission",
+                                                 bundle: Bundle.main)
+            .instantiateViewController(withIdentifier: "BusSeatMissionVC") as! BusSeatMissionViewController
         self.view.addSubview(missionView)
         busSeatMissionVC.view.frame = self.view.bounds
         missionView.addSubview(busSeatMissionVC.view)
