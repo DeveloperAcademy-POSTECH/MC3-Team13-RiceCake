@@ -11,7 +11,7 @@ class GameScene: SKScene {
     
     private var touchArea: SKShapeNode?
     
-    var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
+    var player: SKSpriteNode = SKSpriteNode(imageNamed: "playerFront")
     
     override func didMove(to view: SKView) {
         createEnvironment()
