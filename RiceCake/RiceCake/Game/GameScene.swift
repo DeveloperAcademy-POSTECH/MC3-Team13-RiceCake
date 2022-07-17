@@ -9,7 +9,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    private var touchAreaNode: SKShapeNode?
+    private var touchArea: SKShapeNode?
     
     var player: SKSpriteNode = SKSpriteNode()
     
@@ -17,7 +17,7 @@ class GameScene: SKScene {
         createEnvironment()
         setUpBus()
         createPlayer()
-        createTouchAreaNode()
+        createTouchArea()
     }
     
     func createEnvironment() {
@@ -30,7 +30,7 @@ class GameScene: SKScene {
             road.anchorPoint = CGPoint.zero
             road.size = CGSize(width: self.size.width, height: self.size.height + 1)
             road.position = CGPoint(x: 0, y: CGFloat(index) * self.size.height)
-            road.zPosition = 1
+            road.zPosition = Layer.road
             
             addChild(road)
             
@@ -45,47 +45,63 @@ class GameScene: SKScene {
         let busFloor = SKSpriteNode(imageNamed: "busFloor")
         busFloor.size = CGSize(width: self.size.width, height: self.size.height)
         busFloor.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busFloor.zPosition =  1
+        busFloor.zPosition =  Layer.busFloor
         self.addChild(busFloor)
         
         let busFrame = SKSpriteNode(imageNamed: "busFrame")
         busFrame.size = CGSize(width: self.size.width, height: self.size.height)
         busFrame.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busFrame.zPosition =  3
+        busFrame.zPosition =  Layer.busFrame
         self.addChild(busFrame)
+        
+        let busSeat = SKSpriteNode(imageNamed: "busSeat")
+        busSeat.size = CGSize(width: self.size.width, height: self.size.height)
+        busSeat.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        busSeat.zPosition =  Layer.busFrame
+        self.addChild(busSeat)
+        
+        let busPoll = SKSpriteNode(imageNamed: "busPoll")
+        busPoll.size = CGSize(width: self.size.width, height: self.size.height)
+        busPoll.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        busPoll.zPosition =  Layer.busFrame
+        self.addChild(busPoll)
     }
     
     func createPlayer() {
+        let playerWidth = 20
+        let playerHeight = 30
+        
         player = SKSpriteNode(imageNamed: "player")
-        player.size = CGSize(width: 20, height: 30)
-        player.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        player.zPosition = 2
+        player.size = CGSize(width: playerWidth, height: playerHeight)
+        player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
+        player.zPosition = Layer.player
+        
         self.addChild(player)
     }
     
-    func createTouchAreaNode() {
-        self.touchAreaNode = SKShapeNode.init(circleOfRadius: 4)
+    func createTouchArea() {
+        self.touchArea = SKShapeNode.init(circleOfRadius: 4)
         
-        if let touchAreaNode = self.touchAreaNode {
-            touchAreaNode.lineWidth = 1.5
-            touchAreaNode.run(SKAction.scale(to: 2, duration: 0.5))
-            touchAreaNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
+        if let touchArea = self.touchArea {
+            touchArea.lineWidth = 1.5
+            touchArea.run(SKAction.scale(to: 2, duration: 0.5))
+            touchArea.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
-            touchAreaNode.zPosition = 3
+            touchArea.zPosition = Layer.touchArea
         }
     }
     
     func touchDown(atPoint pos: CGPoint) {
         
-        let movementSpeed = 100.0
+        let movementSpeed = 80.0
         let xPosition = pos.x - player.position.x
         let yPosition = pos.y - player.position.y
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
         
         player.run(SKAction.move(to: pos, duration: distance / movementSpeed))
         
-        if let node = self.touchAreaNode?.copy() as! SKShapeNode? {
+        if let node = self.touchArea?.copy() as! SKShapeNode? {
             node.position = pos
             node.strokeColor = SKColor.black
             self.addChild(node)
