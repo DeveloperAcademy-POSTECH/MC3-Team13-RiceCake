@@ -14,9 +14,45 @@ class GameScene: SKScene {
     var player: SKSpriteNode = SKSpriteNode()
     
     override func didMove(to view: SKView) {
-        createPlayer()
         createEnvironment()
+        setUpBus()
+        createPlayer()
         createTouchAreaNode()
+    }
+    
+    func createEnvironment() {
+        let envAtlas = SKTextureAtlas(named: "Environment")
+        let roadTexture = envAtlas.textureNamed("road")
+        let roadRepeatNum = Int(ceil(self.size.height / self.size.height))
+        
+        for index in 0...roadRepeatNum {
+            let road = SKSpriteNode(texture: roadTexture)
+            road.anchorPoint = CGPoint.zero
+            road.size = CGSize(width: self.size.width, height: self.size.height + 1)
+            road.position = CGPoint(x: 0, y: CGFloat(index) * self.size.height)
+            road.zPosition = 1
+            
+            addChild(road)
+            
+            let moveDown = SKAction.moveBy(x: 0, y: -self.size.height, duration: 10)
+            let moveReset = SKAction.moveBy(x: 0, y: self.size.height, duration: 0)
+            let moveSequence = SKAction.sequence([moveDown, moveReset])
+            road.run(SKAction.repeatForever(moveSequence))
+        }
+    }
+    
+    func setUpBus() {
+        let busFloor = SKSpriteNode(imageNamed: "busFloor")
+        busFloor.size = CGSize(width: self.size.width, height: self.size.height)
+        busFloor.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        busFloor.zPosition =  1
+        self.addChild(busFloor)
+        
+        let busFrame = SKSpriteNode(imageNamed: "busFrame")
+        busFrame.size = CGSize(width: self.size.width, height: self.size.height)
+        busFrame.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        busFrame.zPosition =  3
+        self.addChild(busFrame)
     }
     
     func createPlayer() {
@@ -25,13 +61,6 @@ class GameScene: SKScene {
         player.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         player.zPosition = 2
         self.addChild(player)
-    }
-    
-    func createEnvironment() {
-        let background = SKSpriteNode(color: .gray, size: CGSize(width: self.size.width, height: self.size.height))
-        background.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        background.zPosition = 1
-        self.addChild(background)
     }
     
     func createTouchAreaNode() {
@@ -49,7 +78,7 @@ class GameScene: SKScene {
     
     func touchDown(atPoint pos: CGPoint) {
         
-        let movementSpeed = 200.0
+        let movementSpeed = 100.0
         let xPosition = pos.x - player.position.x
         let yPosition = pos.y - player.position.y
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
