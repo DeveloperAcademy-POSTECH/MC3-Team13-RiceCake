@@ -11,8 +11,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "playerFront")
-//    var descriptionLabel = SKLabelNode()
+    var hintString: String = "" {
+        didSet {
+            descriptionLabel.text = hintString
+        }
+    }
+    var descriptionLabel = SKLabelNode()
     
+    // MARK: Sprites Alignment
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         
@@ -20,6 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setUpBus()
         createPlayer()
         createTouchArea()
+        createDescription()
     }
     
     func createEnvironment() {
@@ -97,13 +104,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(player)
     }
     
-//    func createDescription() {
-//        descriptionLabel = SKLabelNode(fontNamed: "AppleGothic")
-//        descriptionLabel.fontSize = 24
-//        descriptionLabel.fontColor = .white
-//        descriptionLabel.position = CGPoint(x: self.size.width, y: self.size.height - 10)
-//        descriptionLabel.zPosition =
-//    }
+    func createDescription() {
+        descriptionLabel = SKLabelNode(fontNamed: "AppleGothic")
+        descriptionLabel.fontSize = 18
+        descriptionLabel.fontColor = .white
+        descriptionLabel.position = CGPoint(x: self.size.width - 10, y: self.size.height - 20)
+        descriptionLabel.zPosition = Layer.descriptionLabel
+        descriptionLabel.horizontalAlignmentMode = .right
+        descriptionLabel.text = hintString
+        self.addChild(descriptionLabel)
+    }
+    
+    func createTouchArea() {
+        self.touchArea = SKShapeNode.init(circleOfRadius: 4)
+        
+        if let touchArea = self.touchArea {
+            touchArea.lineWidth = 1.5
+            touchArea.run(SKAction.scale(to: 2, duration: 0.5))
+            touchArea.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
+                                              SKAction.fadeOut(withDuration: 0.5),
+                                              SKAction.removeFromParent()]))
+            touchArea.zPosition = Layer.touchArea
+        }
+    }
+    
+    // MARK: Game Algorithm
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
+    }
     
     func didBegin(_ contact: SKPhysicsContact) {
         var collideBody = SKPhysicsBody()
@@ -118,25 +146,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch collideType {
         case PhysicsCategory.busFrame:
             print("버스 프레임과 부딪혔습니다.")
-        case PhysicsCategory.busPoll:
-            print("Bus Poll Mission 시작!")
         case PhysicsCategory.busSeat:
+            hintString = "Bus Seat Mission"
             print("Bus Seat Mission 시작!")
+        case PhysicsCategory.busPoll:
+            hintString = "Bus Poll Mission"
+            print("Bus Poll Mission 시작!")
         default:
             break
-        }
-    }
-    
-    func createTouchArea() {
-        self.touchArea = SKShapeNode.init(circleOfRadius: 4)
-        
-        if let touchArea = self.touchArea {
-            touchArea.lineWidth = 1.5
-            touchArea.run(SKAction.scale(to: 2, duration: 0.5))
-            touchArea.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-            touchArea.zPosition = Layer.touchArea
         }
     }
     
@@ -171,10 +188,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.strokeColor = SKColor.black
             self.addChild(node)
         }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
     
     override func update(_ currentTime: TimeInterval) {

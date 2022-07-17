@@ -15,6 +15,7 @@ struct Layer {
     static let busFrame: CGFloat = 4
     static let player: CGFloat = 5
     static let touchArea: CGFloat = 6
+    static let descriptionLabel: CGFloat = 10
 }
 
 struct PhysicsCategory {
