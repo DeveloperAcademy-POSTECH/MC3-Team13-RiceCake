@@ -3,7 +3,7 @@ name: "\U0001F527 REFACTOR"
 about: 리팩토링할 부분을 알려주세요.
 title: "[REFACTOR]"
 labels: refactoring
-assignees: bee712, David-ShinDJ, Eunbi-Cho, JungYunseong, seodam-hst, seunghoonkim34
+assignees: ''
 
 ---
 
