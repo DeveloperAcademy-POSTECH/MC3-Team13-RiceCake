@@ -7,13 +7,15 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var touchArea: SKShapeNode?
-    
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "playerFront")
+//    var descriptionLabel = SKLabelNode()
     
     override func didMove(to view: SKView) {
+        self.physicsWorld.contactDelegate = self
+        
         createEnvironment()
         setUpBus()
         createPlayer()
@@ -31,8 +33,7 @@ class GameScene: SKScene {
             road.size = CGSize(width: self.size.width, height: self.size.height + 1)
             road.position = CGPoint(x: 0, y: CGFloat(index) * self.size.height)
             road.zPosition = Layer.road
-            
-            addChild(road)
+            self.addChild(road)
             
             let moveDown = SKAction.moveBy(x: 0, y: -self.size.height, duration: 10)
             let moveReset = SKAction.moveBy(x: 0, y: self.size.height, duration: 0)
@@ -46,27 +47,37 @@ class GameScene: SKScene {
         busFloor.size = CGSize(width: self.size.width, height: self.size.height)
         busFloor.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         busFloor.zPosition =  Layer.busFloor
-        self.addChild(busFloor)
         
         let busFrame = SKSpriteNode(imageNamed: "busFrame")
         busFrame.size = CGSize(width: self.size.width, height: self.size.height)
         busFrame.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         busFrame.zPosition =  Layer.busFrame
-        self.addChild(busFrame)
+        busFrame.physicsBody = SKPhysicsBody(texture: busFrame.texture!, size: self.size)
+        busFrame.physicsBody?.categoryBitMask = PhysicsCategory.busFrame
+        busFrame.physicsBody?.affectedByGravity = false
+        busFrame.physicsBody?.isDynamic = false
         
         let busSeat = SKSpriteNode(imageNamed: "busSeat")
         busSeat.size = CGSize(width: self.size.width, height: self.size.height)
         busSeat.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         busSeat.zPosition =  Layer.busSeat
-        self.addChild(busSeat)
+        busSeat.physicsBody = SKPhysicsBody(texture: busSeat.texture!, size: self.size)
+        busSeat.physicsBody?.categoryBitMask = PhysicsCategory.busSeat
+        busSeat.physicsBody?.affectedByGravity = false
+        busSeat.physicsBody?.isDynamic = false
         
         let busPoll = SKSpriteNode(imageNamed: "busPoll")
         busPoll.size = CGSize(width: self.size.width, height: self.size.height)
         busPoll.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         busPoll.zPosition =  Layer.busPoll
+        busPoll.physicsBody = SKPhysicsBody(texture: busPoll.texture!, size: self.size)
+        busPoll.physicsBody?.categoryBitMask = PhysicsCategory.busPoll
+        busPoll.physicsBody?.affectedByGravity = false
+        busPoll.physicsBody?.isDynamic = false
         
-//        busPoll.physicsBody?.affectedByGravity = false
-        
+        self.addChild(busFloor)
+        self.addChild(busFrame)
+        self.addChild(busSeat)
         self.addChild(busPoll)
     }
     
@@ -77,14 +88,43 @@ class GameScene: SKScene {
         player.size = CGSize(width: playerWidth, height: playerHeight)
         player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
         player.zPosition = Layer.player
-        
-//        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: playerWidth, height: playerHeight))
-//        player.physicsBody?.categoryBitMask = PhysicsCategory.player
-//        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPoll | PhysicsCategory.busSeat
-//        player.physicsBody?.collisionBitMask = PhysicsCategory.busFrame
-//        player.physicsBody?.isDynamic = false
-        
+        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: playerWidth, height: playerHeight))
+        player.physicsBody?.categoryBitMask = PhysicsCategory.player
+        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPoll | PhysicsCategory.busSeat
+        player.physicsBody?.collisionBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPoll | PhysicsCategory.busSeat
+        player.physicsBody?.affectedByGravity = false
+        player.physicsBody?.isDynamic = true
         self.addChild(player)
+    }
+    
+//    func createDescription() {
+//        descriptionLabel = SKLabelNode(fontNamed: "AppleGothic")
+//        descriptionLabel.fontSize = 24
+//        descriptionLabel.fontColor = .white
+//        descriptionLabel.position = CGPoint(x: self.size.width, y: self.size.height - 10)
+//        descriptionLabel.zPosition =
+//    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        var collideBody = SKPhysicsBody()
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            collideBody = contact.bodyB
+        } else {
+            collideBody = contact.bodyA
+        }
+        
+        let collideType = collideBody.categoryBitMask
+        switch collideType {
+        case PhysicsCategory.busFrame:
+            print("버스 프레임과 부딪혔습니다.")
+        case PhysicsCategory.busPoll:
+            print("Bus Poll Mission 시작!")
+        case PhysicsCategory.busSeat:
+            print("Bus Seat Mission 시작!")
+        default:
+            break
+        }
     }
     
     func createTouchArea() {
@@ -106,23 +146,22 @@ class GameScene: SKScene {
         let xPosition = pos.x - player.position.x
         let yPosition = pos.y - player.position.y
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
-        
         let radians = atan2(-xPosition, yPosition)
         let degrees = radians * 180 / .pi
         
         switch degrees {
         case -45...45:
             player.texture = SKTexture(imageNamed: "playerBack")
-            print("위")
+            print("터치영역이 플레이어 기준 위쪽입니다.")
         case 45...135:
             player.texture = SKTexture(imageNamed: "playerLeft")
-            print("왼")
+            print("터치영역이 플레이어 기준 왼쪽입니다.")
         case -135 ... -45:
             player.texture = SKTexture(imageNamed: "playerRight")
-            print("우")
+            print("터치영역이 플레이어 기준 오른쪽입니다.")
         default:
             player.texture = SKTexture(imageNamed: "playerFront")
-            print("아래")
+            print("터치영역이 플레이어 기준 아래쪽입니다.")
         }
         
         player.run(SKAction.move(to: pos, duration: distance / movementSpeed))

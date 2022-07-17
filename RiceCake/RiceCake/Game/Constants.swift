@@ -18,8 +18,8 @@ struct Layer {
 }
 
 struct PhysicsCategory {
-    static let player: UInt32 = 0 * 1 << 0  // 1
-    static let busFrame: UInt32 = 0 * 1 << 1  // 2
-    static let busPoll: UInt32 = 0 * 1 << 2  // 4
-    static let busSeat: UInt32 = 0 * 1 << 3  // 8
+    static let player: UInt32 = 0x1 << 0
+    static let busFrame: UInt32 = 0x1 << 1
+    static let busPoll: UInt32 = 0x1 << 2
+    static let busSeat: UInt32 = 0x1 << 3
 }
