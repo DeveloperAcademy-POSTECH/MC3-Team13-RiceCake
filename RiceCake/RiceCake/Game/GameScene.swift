@@ -74,7 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         busSeat.physicsBody?.affectedByGravity = false
         busSeat.physicsBody?.isDynamic = false
         
-        let busPoll = SKSpriteNode(imageNamed: "busPoll")
+        let busPoll = SKSpriteNode(imageNamed: "busPole")
         busPoll.size = CGSize(width: self.size.width, height: self.size.height)
         busPoll.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         busPoll.zPosition =  Layer.busPoll
