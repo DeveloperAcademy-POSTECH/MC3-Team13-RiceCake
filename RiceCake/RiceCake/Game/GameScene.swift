@@ -16,11 +16,10 @@ enum GameState {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    let shakeKey = "RemoveShakeKey"
-    
     private var touchArea: SKShapeNode?
     var gameState = GameState.playing
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
+    var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var hintString: String = "" {
         didSet {
             descriptionLabel.text = hintString
@@ -35,6 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createEnvironment()
         setUpBus()
         createPlayer()
+        createSeatMissionPlayer()
         createTouchArea()
         createDescription()
     }
@@ -51,10 +51,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             road.size = CGSize(width: self.size.width, height: self.size.height + 1)
             road.position = CGPoint(x: 0, y: CGFloat(index) * self.size.height)
             road.zPosition = Layer.road
-            road.physicsBody = SKPhysicsBody(texture: road.texture!, size: self.size)
-            road.physicsBody?.categoryBitMask = PhysicsCategory.road
-            road.physicsBody?.affectedByGravity = false
-            road.physicsBody?.isDynamic = false
             self.addChild(road)
             
             let moveDown = SKAction.moveBy(x: 0, y: -self.size.height, duration: 10)
@@ -110,13 +106,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
         player.zPosition = Layer.player
         player.zRotation = 1.5
-        player.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(playerWidth / 2))
+        player.physicsBody = SKPhysicsBody(circleOfRadius: 8)
         player.physicsBody?.categoryBitMask = PhysicsCategory.player
-        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat | PhysicsCategory.road
-        player.physicsBody?.collisionBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat
+        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat
+        player.physicsBody?.collisionBitMask = PhysicsCategory.busPole
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.isDynamic = true
         self.addChild(player)
+    }
+    
+    func createSeatMissionPlayer() {
+        let shakeLeft = SKAction.move(to: CGPoint(x: self.size.width * 3/11 - 1, y: self.size.height * 5/11), duration: 0.2)
+        let shakeRight = SKAction.move(to: CGPoint(x: self.size.width * 3/11 + 1, y: self.size.height * 5/11), duration: 0.2)
+        let shakePlayer = SKAction.sequence([shakeLeft, shakeRight])
+        let playerWidth = 20
+
+        seatMissionPlayer.size = CGSize(width: playerWidth, height: playerWidth - 5)
+        seatMissionPlayer.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
+        seatMissionPlayer.zPosition = Layer.player
+        seatMissionPlayer.zRotation = 0
+        seatMissionPlayer.run(SKAction.repeatForever(shakePlayer))
+        seatMissionPlayer.isHidden = true
+        
+        self.addChild(seatMissionPlayer)
     }
     
     func createDescription() {
@@ -165,6 +177,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("버스 프레임과 부딪혔습니다.")
         case PhysicsCategory.busSeat:
             player.isPaused = true
+            player.isHidden = true
+            seatMissionPlayer.isHidden = false
             hintString = "Bus Seat Mission"
             gameState = .busSeatMission
             print("Bus Seat Mission 시작!")
@@ -186,7 +200,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
         let radians = atan2(-xPosition, yPosition)
         
+        hintString = ""
         player.isPaused = false
+        player.isHidden = false
+        seatMissionPlayer.isHidden = true
         player.zRotation = radians
         player.run(SKAction.move(to: pos, duration: distance / movementSpeed))
         
