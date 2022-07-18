@@ -10,7 +10,7 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var touchArea: SKShapeNode?
-    var player: SKSpriteNode = SKSpriteNode(imageNamed: "playerFront")
+    var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var hintString: String = "" {
         didSet {
             descriptionLabel.text = hintString
@@ -91,11 +91,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createPlayer() {
         let playerWidth = 20
-        let playerHeight = 30
+        let playerHeight = 15
         
         player.size = CGSize(width: playerWidth, height: playerHeight)
         player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
         player.zPosition = Layer.player
+        player.zRotation = 1.5
         player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: playerWidth, height: playerHeight))
         player.physicsBody?.categoryBitMask = PhysicsCategory.player
         player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat
@@ -123,10 +124,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             touchArea.lineWidth = 1.5
             touchArea.run(SKAction.scale(to: 2, duration: 0.5))
             touchArea.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
+                                             SKAction.fadeOut(withDuration: 0.5),
+                                             SKAction.removeFromParent()]))
             touchArea.zPosition = Layer.touchArea
         }
+    }
+    
+    func setupJoystic() {
+        
     }
     
     // MARK: Game Algorithm
@@ -162,38 +167,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // 터치가 발생할 때 실행할 코드들을 정의 합니다.
     func touchDown(atPoint pos: CGPoint) {
         
-        let movementSpeed = 80.0
+        let movementSpeed = 50.0
         let xPosition = pos.x - player.position.x
         let yPosition = pos.y - player.position.y
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
         let radians = atan2(-xPosition, yPosition)
-        let degrees = radians * 180 / .pi
         
-        switch degrees {
-        case -45...45:
-            player.texture = SKTexture(imageNamed: "playerBack")
-            print("터치영역이 플레이어 기준 위쪽입니다.")
-        case 45...135:
-            player.texture = SKTexture(imageNamed: "playerLeft")
-            print("터치영역이 플레이어 기준 왼쪽입니다.")
-        case -135 ... -45:
-            player.texture = SKTexture(imageNamed: "playerRight")
-            print("터치영역이 플레이어 기준 오른쪽입니다.")
-        default:
-            player.texture = SKTexture(imageNamed: "playerFront")
-            print("터치영역이 플레이어 기준 아래쪽입니다.")
-        }
-        
+        player.isPaused = false
+        player.zRotation = radians
         player.run(SKAction.move(to: pos, duration: distance / movementSpeed))
+        
+        // ActionList파일의 walking action을 가져옵니다.
+        guard let walkingBySKS = SKAction(named: "walking") else { return }
+        player.run(walkingBySKS)
         
         if let node = self.touchArea?.copy() as! SKShapeNode? {
             node.position = pos
             node.strokeColor = SKColor.black
             self.addChild(node)
         }
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
     }
 }
