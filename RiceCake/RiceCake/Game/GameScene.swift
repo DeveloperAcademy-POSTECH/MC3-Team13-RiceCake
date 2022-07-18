@@ -54,12 +54,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let busFloor = SKSpriteNode(imageNamed: "busFloor")
         busFloor.size = CGSize(width: self.size.width, height: self.size.height)
         busFloor.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busFloor.zPosition =  Layer.busFloor
+        busFloor.zPosition = Layer.busFloor
         
         let busFrame = SKSpriteNode(imageNamed: "busFrame")
         busFrame.size = CGSize(width: self.size.width, height: self.size.height)
         busFrame.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busFrame.zPosition =  Layer.busFrame
+        busFrame.zPosition = Layer.busFrame
         busFrame.physicsBody = SKPhysicsBody(texture: busFrame.texture!, size: self.size)
         busFrame.physicsBody?.categoryBitMask = PhysicsCategory.busFrame
         busFrame.physicsBody?.affectedByGravity = false
@@ -68,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let busSeat = SKSpriteNode(imageNamed: "busSeat")
         busSeat.size = CGSize(width: self.size.width, height: self.size.height)
         busSeat.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busSeat.zPosition =  Layer.busSeat
+        busSeat.zPosition = Layer.busSeat
         busSeat.physicsBody = SKPhysicsBody(texture: busSeat.texture!, size: self.size)
         busSeat.physicsBody?.categoryBitMask = PhysicsCategory.busSeat
         busSeat.physicsBody?.affectedByGravity = false
@@ -77,9 +77,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let busPoll = SKSpriteNode(imageNamed: "busPole")
         busPoll.size = CGSize(width: self.size.width, height: self.size.height)
         busPoll.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busPoll.zPosition =  Layer.busPoll
+        busPoll.zPosition = Layer.busPole
         busPoll.physicsBody = SKPhysicsBody(texture: busPoll.texture!, size: self.size)
-        busPoll.physicsBody?.categoryBitMask = PhysicsCategory.busPoll
+        busPoll.physicsBody?.categoryBitMask = PhysicsCategory.busPole
         busPoll.physicsBody?.affectedByGravity = false
         busPoll.physicsBody?.isDynamic = false
         
@@ -98,8 +98,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.zPosition = Layer.player
         player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: playerWidth, height: playerHeight))
         player.physicsBody?.categoryBitMask = PhysicsCategory.player
-        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPoll | PhysicsCategory.busSeat
-        player.physicsBody?.collisionBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPoll | PhysicsCategory.busSeat
+        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat
+        player.physicsBody?.collisionBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.isDynamic = true
         self.addChild(player)
@@ -151,9 +151,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case PhysicsCategory.busSeat:
             hintString = "Bus Seat Mission"
             print("Bus Seat Mission 시작!")
-        case PhysicsCategory.busPoll:
-            hintString = "Bus Poll Mission"
-            print("Bus Poll Mission 시작!")
+        case PhysicsCategory.busPole:
+            hintString = "Bus Pole Mission"
+            print("Bus Pole Mission 시작!")
         default:
             break
         }
