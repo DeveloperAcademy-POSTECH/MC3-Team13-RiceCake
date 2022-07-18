@@ -7,9 +7,19 @@
 
 import SpriteKit
 
+enum GameState {
+    case playing
+    case busSeatMission
+    case busPoleMission
+    case end
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    let shakeKey = "RemoveShakeKey"
+    
     private var touchArea: SKShapeNode?
+    var gameState = GameState.playing
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var hintString: String = "" {
         didSet {
@@ -41,6 +51,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             road.size = CGSize(width: self.size.width, height: self.size.height + 1)
             road.position = CGPoint(x: 0, y: CGFloat(index) * self.size.height)
             road.zPosition = Layer.road
+            road.physicsBody = SKPhysicsBody(texture: road.texture!, size: self.size)
+            road.physicsBody?.categoryBitMask = PhysicsCategory.road
+            road.physicsBody?.affectedByGravity = false
+            road.physicsBody?.isDynamic = false
             self.addChild(road)
             
             let moveDown = SKAction.moveBy(x: 0, y: -self.size.height, duration: 10)
@@ -91,15 +105,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createPlayer() {
         let playerWidth = 20
-        let playerHeight = 15
         
-        player.size = CGSize(width: playerWidth, height: playerHeight)
+        player.size = CGSize(width: playerWidth, height: playerWidth - 5)
         player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
         player.zPosition = Layer.player
         player.zRotation = 1.5
-        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: playerWidth, height: playerHeight))
+        player.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(playerWidth / 2))
         player.physicsBody?.categoryBitMask = PhysicsCategory.player
-        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat
+        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat | PhysicsCategory.road
         player.physicsBody?.collisionBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.isDynamic = true
@@ -130,10 +143,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func setupJoystic() {
-        
-    }
-    
     // MARK: Game Algorithm
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
@@ -152,11 +161,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collideType = collideBody.categoryBitMask
         switch collideType {
         case PhysicsCategory.busFrame:
+            player.isPaused = true
             print("버스 프레임과 부딪혔습니다.")
         case PhysicsCategory.busSeat:
+            player.isPaused = true
             hintString = "Bus Seat Mission"
+            gameState = .busSeatMission
             print("Bus Seat Mission 시작!")
         case PhysicsCategory.busPole:
+            player.isPaused = true
             hintString = "Bus Pole Mission"
             print("Bus Pole Mission 시작!")
         default:
