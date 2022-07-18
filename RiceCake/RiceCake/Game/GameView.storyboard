@@ -62,6 +62,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="missionView" destination="oZA-S9-Tjt" id="zy6-IA-vq6"/>
                         <outlet property="storyView" destination="0Mg-3h-lsX" id="SbM-qz-YDU"/>
                     </connections>
                 </viewController>
