@@ -42,6 +42,7 @@ class StageViewController: UIViewController {
         dataSource.apply(snapshot)
         
         collectionView.collectionViewLayout = layout()
+        collectionView.alwaysBounceVertical = false
         
         collectionView.delegate = self
     }
