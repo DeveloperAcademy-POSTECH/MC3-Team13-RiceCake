@@ -205,11 +205,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.isHidden = false
         seatMissionPlayer.isHidden = true
         player.zRotation = radians
-        player.run(SKAction.move(to: pos, duration: distance / movementSpeed))
         
         // ActionList파일의 walking action을 가져옵니다.
         guard let walkingBySKS = SKAction(named: "walking") else { return }
         player.run(walkingBySKS)
+        
+        let movePlayer = SKAction.move(to: pos, duration: distance / movementSpeed)
+        guard let stopPlayer = SKAction(named: "standing") else { return }
+        player.run(SKAction.sequence([movePlayer, stopPlayer]))
         
         if let node = self.touchArea?.copy() as! SKShapeNode? {
             node.position = pos
