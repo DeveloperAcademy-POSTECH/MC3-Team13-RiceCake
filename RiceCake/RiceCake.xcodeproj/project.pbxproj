@@ -24,6 +24,7 @@
 		34C16E2E288424DD0050F469 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C16E2D288424DD0050F469 /* Constants.swift */; };
 		F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */; };
 		F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */; };
+		F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		34C16E2D288424DD0050F469 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusSeatMission.storyboard; sourceTree = "<group>"; };
 		F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionViewController.swift; sourceTree = "<group>"; };
+		F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */,
 				F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */,
+				F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */,
 			);
 			path = BusSeatMission;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				34B638CF28811E2C00760FD8 /* HomeViewController.swift in Sources */,
 				34C16E2E288424DD0050F469 /* Constants.swift in Sources */,
 				F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */,
+				F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
