@@ -29,6 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createDescription()
     }
     
+    // didMove에 초기화 시킬 Node들을 정의합니다.
     func createEnvironment() {
         let envAtlas = SKTextureAtlas(named: "Environment")
         let roadTexture = envAtlas.textureNamed("road")
@@ -133,6 +134,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
     
+    // 각 Node들 간의 충돌을 감지합니다.
     func didBegin(_ contact: SKPhysicsContact) {
         var collideBody = SKPhysicsBody()
         
@@ -157,6 +159,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // 터치가 발생할 때 실행할 코드들을 정의 합니다.
     func touchDown(atPoint pos: CGPoint) {
         
         let movementSpeed = 80.0
