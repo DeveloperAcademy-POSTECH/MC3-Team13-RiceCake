@@ -18,6 +18,7 @@ enum GameState {
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var touchArea: SKShapeNode?
+    var gameSceneDelegate: GameSceneDelegate?
     var gameState = GameState.playing
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
@@ -177,6 +178,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            player.isPaused = true
             print("버스 프레임과 부딪혔습니다.")
         case PhysicsCategory.busSeat:
+            gameSceneDelegate?.seatMission()
             player.isPaused = true
             player.isHidden = true
             seatMissionPlayer.isHidden = false
@@ -203,6 +205,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
         let radians = atan2(-xPosition, yPosition)
         
+        gameSceneDelegate?.missionCancled()
         hintString = ""
         player.isPaused = false
         player.isHidden = false
@@ -223,4 +226,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
     }
+}
+
+protocol GameSceneDelegate: AnyObject {
+    func seatMission()
+    func missionCancled()
 }
