@@ -8,10 +8,17 @@
 import SpriteKit
 import AudioToolbox
 
+// GameViewController에서 정의된 함수를 가져옵니다.
+protocol GameSceneDelegate: AnyObject {
+    func seatMission()
+    func missionCancled()
+    func poleMission()
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    private var touchArea: SKShapeNode?
     var gameSceneDelegate: GameSceneDelegate?
+    var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var descriptionLabel = SKLabelNode()
@@ -21,7 +28,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // MARK: Sprites Alignment
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         
@@ -32,7 +38,78 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createTouchArea()
         createDescription()
     }
-    // didMove에 초기화 시킬 Node들을 정의합니다.
+    
+    // MARK: Game 알고리즘을 정의합니다.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
+    }
+    
+    // 각 Node들 간의 충돌을 감지합니다.
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        var collideBody = SKPhysicsBody()
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            collideBody = contact.bodyB
+        } else {
+            collideBody = contact.bodyA
+        }
+        let collideType = collideBody.categoryBitMask
+        // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
+        switch collideType {
+        case PhysicsCategory.busFrame:
+            print("버스 프레임과 부딪혔습니다.")
+            
+        case PhysicsCategory.busSeat:
+            gameSceneDelegate?.seatMission()
+            player.isHidden = true
+            seatMissionPlayer.isHidden = false
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            hintString = "Bus Seat Mission"
+            
+        case PhysicsCategory.busPole:
+            gameSceneDelegate?.poleMission()
+            player.isPaused = true
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            hintString = "Bus Pole Mission"
+            
+        default:
+            break
+        }
+    }
+    
+    // 터치가 발생할 때 실행할 코드들을 정의 합니다.
+    func touchDown(atPoint pos: CGPoint) {
+        
+        let movementSpeed = 50.0
+        let xPosition = pos.x - player.position.x
+        let yPosition = pos.y - player.position.y
+        let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
+        let movePlayer = SKAction.move(to: pos, duration: distance / movementSpeed)
+        let radians = atan2(-xPosition, yPosition)
+        // ActionList파일의 walking과 standing action을 가져옵니다.
+        guard let walkingBySKS = SKAction(named: "walking") else { return }
+        guard let stopPlayer = SKAction(named: "standing") else { return }
+        
+        if let node = self.touchArea?.copy() as! SKShapeNode? {
+            node.position = pos
+            node.strokeColor = SKColor.black
+            self.addChild(node)
+        }
+        
+        gameSceneDelegate?.missionCancled()
+        hintString = ""
+        player.isPaused = false
+        player.isHidden = false
+        seatMissionPlayer.isHidden = true
+        player.zRotation = radians
+        player.run(walkingBySKS)
+        player.run(SKAction.sequence([movePlayer, stopPlayer]))
+    }
+}
+
+// MARK: didMove에 초기화 시킬 Node들을 정의합니다.
+extension GameScene {
+    
     func createEnvironment() {
         let envAtlas = SKTextureAtlas(named: "Environment")
         let roadTexture = envAtlas.textureNamed("road")
@@ -154,74 +231,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             touchArea.zPosition = Layer.touchArea
         }
     }
-    
-    // MARK: Game Algorithm
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
-    }
-    
-    // 각 Node들 간의 충돌을 감지합니다.
-    func didBegin(_ contact: SKPhysicsContact) {
-        var collideBody = SKPhysicsBody()
-        
-        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-            collideBody = contact.bodyB
-        } else {
-            collideBody = contact.bodyA
-        }
-        
-        let collideType = collideBody.categoryBitMask
-        switch collideType {
-        case PhysicsCategory.busFrame:
-            print("버스 프레임과 부딪혔습니다.")
-        case PhysicsCategory.busSeat:
-            gameSceneDelegate?.seatMission()
-            player.isHidden = true
-            seatMissionPlayer.isHidden = false
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            hintString = "Bus Seat Mission"
-        case PhysicsCategory.busPole:
-            gameSceneDelegate?.poleMission()
-            player.isPaused = true
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            hintString = "Bus Pole Mission"
-        default:
-            break
-        }
-    }
-    
-    // 터치가 발생할 때 실행할 코드들을 정의 합니다.
-    func touchDown(atPoint pos: CGPoint) {
-        
-        let movementSpeed = 50.0
-        let xPosition = pos.x - player.position.x
-        let yPosition = pos.y - player.position.y
-        let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
-        let movePlayer = SKAction.move(to: pos, duration: distance / movementSpeed)
-        let radians = atan2(-xPosition, yPosition)
-        // ActionList파일의 walking action을 가져옵니다.
-        guard let walkingBySKS = SKAction(named: "walking") else { return }
-        guard let stopPlayer = SKAction(named: "standing") else { return }
-        
-        if let node = self.touchArea?.copy() as! SKShapeNode? {
-            node.position = pos
-            node.strokeColor = SKColor.black
-            self.addChild(node)
-        }
-        
-        gameSceneDelegate?.missionCancled()
-        hintString = ""
-        player.isPaused = false
-        player.isHidden = false
-        seatMissionPlayer.isHidden = true
-        player.zRotation = radians
-        player.run(walkingBySKS)
-        player.run(SKAction.sequence([movePlayer, stopPlayer]))
-    }
-}
-// GameViewController에서 정의된 함수를 가져옵니다.
-protocol GameSceneDelegate: AnyObject {
-    func seatMission()
-    func missionCancled()
-    func poleMission()
 }
