@@ -8,26 +8,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Bus Pole Mission View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BusPole" id="Y6W-OH-hqX" customClass="BusPoleMissionViewController" customModule="RiceCake" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="m6F-hk-Nk2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="766"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="m5x-5c-9P2">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="383"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doc.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nNT-u5-9DQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="383"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="02V-db-Vch">
+                                                <rect key="frame" x="300" y="0.5" width="300" height="382"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kkx-TJ-29y">
+                                        <rect key="frame" x="0.0" y="383" width="600" height="383"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backButton" translatesAutoresizingMaskIntoConstraints="NO" id="NNz-29-ga7">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="383"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e0a-rS-Dzb">
+                                                <rect key="frame" x="200" y="1.5" width="200" height="380.5"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wake" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ejW-kl-8uH">
+                                                <rect key="frame" x="400" y="0.5" width="200" height="382"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="m6F-hk-Nk2" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Jar-we-DWy"/>
+                            <constraint firstItem="m6F-hk-Nk2" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="N0V-es-zdr"/>
+                            <constraint firstItem="m6F-hk-Nk2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Nc1-Ul-L9J"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="m6F-hk-Nk2" secondAttribute="trailing" id="Wbh-ih-qlD"/>
+                        </constraints>
                     </view>
                     <size key="freeformSize" width="600" height="800"/>
+                    <connections>
+                        <outlet property="image" destination="e0a-rS-Dzb" id="Uti-Rr-ywj"/>
+                        <outlet property="tap" destination="CuC-fB-T4C" id="L06-cM-2C9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="CuC-fB-T4C">
+                    <connections>
+                        <outlet property="delegate" destination="e0a-rS-Dzb" id="eKP-in-dEH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="20" y="79"/>
+            <point key="canvasLocation" x="18.840579710144929" y="78.348214285714278"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <image name="backButton" width="173" height="172"/>
+        <image name="doc.fill" catalog="system" width="115" height="128"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="square.and.arrow.up.circle" catalog="system" width="128" height="121"/>
+        <image name="wake" catalog="system" width="128" height="121"/>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
