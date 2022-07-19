@@ -10,7 +10,7 @@ import SpriteKit
 class GameViewController: UIViewController {
     
     @IBOutlet var storyView: SKView!
-    @IBOutlet var missionView: UIView!
+    @IBOutlet var missionView: SKView!
     
     var isBusMission: Bool = false {
         didSet {
@@ -30,6 +30,20 @@ class GameViewController: UIViewController {
         let scene: GameScene = GameScene(size: storyView.frame.size)
         scene.gameSceneDelegate = self
         storyView.presentScene(scene)
+              
+        // UIKit: BusPoleMissionViewController 연결
+        let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
+        if let child = storyboard.instantiateViewController(identifier: "BusPole") as? BusPoleMissionViewController {
+            addChild(child)
+            missionView.addSubview(child.view)
+            child.didMove(toParent: self)
+            child.view.frame = missionView.bounds
+        }
+        
+        // SpriteKit: Scene을 MissionView에 연결
+        //let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
+        //missionView.presentScene(missionScene)
+        
     }
     
     @IBAction func backButton(_ sender: UIButton) {
