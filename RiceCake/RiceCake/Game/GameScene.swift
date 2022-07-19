@@ -173,22 +173,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collideType = collideBody.categoryBitMask
         switch collideType {
         case PhysicsCategory.busFrame:
-//            player.isPaused = true
             print("버스 프레임과 부딪혔습니다.")
         case PhysicsCategory.busSeat:
             gameSceneDelegate?.seatMission()
-            player.isPaused = true
             player.isHidden = true
             seatMissionPlayer.isHidden = false
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Seat Mission"
-            print("Bus Seat Mission 시작!")
         case PhysicsCategory.busPole:
             gameSceneDelegate?.poleMission()
             player.isPaused = true
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Pole Mission"
-            print("Bus Pole Mission 시작!")
         default:
             break
         }

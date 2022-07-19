@@ -72,7 +72,6 @@ extension GameViewController: GameSceneDelegate {
     func missionCancled() {
         self.isBusMission = false
         self.isPoleMission = false
-        print("busMission이\(isBusMission)상태입니다.  poleMission이\(isPoleMission)상태입니다.")
     }
     
     func poleMission() {
