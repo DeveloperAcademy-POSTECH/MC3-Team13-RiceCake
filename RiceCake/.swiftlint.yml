@@ -24,4 +24,3 @@ excluded: # 예외 파일
 
     - RiceCake/AppDelegate.swift
     - RiceCake/SceneDelegate.swift
-    - RiceCake/Game/GameScene.swift
