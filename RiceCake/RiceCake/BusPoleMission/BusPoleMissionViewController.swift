@@ -27,5 +27,4 @@ class BusPoleMissionViewController: UIViewController {
         }
     }
     
-
 }
