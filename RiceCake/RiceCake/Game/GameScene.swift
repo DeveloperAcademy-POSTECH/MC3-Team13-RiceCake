@@ -106,6 +106,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.isDynamic = true
         self.addChild(player)
+        
+        // 아이의 행동 반경을 버스 내부로 제한
+        let xRange = SKRange(lowerLimit: self.size.width * (1 / 4), upperLimit: self.size.width * (3 / 4))
+        let yRange = SKRange(lowerLimit: 0.0, upperLimit: self.size.height * (5 / 6))
+        let xConstraint = SKConstraint.positionX(xRange)
+        let yConstraint = SKConstraint.positionY(yRange)
+        player.constraints = [ xConstraint, yConstraint ]
     }
     
     func createSeatMissionPlayer() {
