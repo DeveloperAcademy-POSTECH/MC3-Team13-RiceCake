@@ -53,8 +53,7 @@ extension BusSeatMissionScene {
     }
     //
     func drawChildRightHand() {
-        let handHeight = self.size
-            .width / 2
+        let handHeight = self.size.width / 2
         let handWidth = handHeight * (324 / 1000)
         
         childRightHand.size = CGSize(width: handWidth, height: handHeight)
@@ -70,7 +69,7 @@ extension BusSeatMissionScene {
         if sender.state == .began {
             childRightHand.zRotation = 1
         }
-        if sender.state == .ended { 
+        if sender.state == .ended {
             childRightHand.zRotation = 0
         }
     }
