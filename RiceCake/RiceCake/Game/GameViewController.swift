@@ -15,11 +15,24 @@ class GameViewController: UIViewController {
     var isBusMission: Bool = false {
         didSet {
             if isBusMission {
-                // https://stackoverflow.com/questions/24038215/how-to-navigate-from-one-view-controller-to-another-using-swift
-                let busSeatMissionVC = UIStoryboard.init(name: "BusSeatMission", bundle: Bundle.main).instantiateViewController(withIdentifier: "BusSeatMissionVC") as! BusSeatMissionViewController
-                busSeatMissionVC.view.frame = missionView.bounds
-                missionView.addSubview(busSeatMissionVC.view)
-                busSeatMissionVC.didMove(toParent: self)
+                // SpriteKit: Scene을 MissionView에 연결
+                let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
+                missionView.presentScene(missionScene)
+            }
+        }
+    }
+    
+    var isPoleMission: Bool = false {
+        didSet {
+            if isPoleMission {
+                // UIKit: BusPoleMissionViewController 연결
+                let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
+                if let child = storyboard.instantiateViewController(identifier: "BusPole") as? BusPoleMissionViewController {
+                    addChild(child)
+                    missionView.addSubview(child.view)
+                    child.didMove(toParent: self)
+                    child.view.frame = missionView.bounds
+                }
             }
         }
     }
@@ -30,20 +43,6 @@ class GameViewController: UIViewController {
         let scene: GameScene = GameScene(size: storyView.frame.size)
         scene.gameSceneDelegate = self
         storyView.presentScene(scene)
-              
-        // UIKit: BusPoleMissionViewController 연결
-        let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
-        if let child = storyboard.instantiateViewController(identifier: "BusPole") as? BusPoleMissionViewController {
-            addChild(child)
-            missionView.addSubview(child.view)
-            child.didMove(toParent: self)
-            child.view.frame = missionView.bounds
-        }
-        
-        // SpriteKit: Scene을 MissionView에 연결
-        //let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
-        //missionView.presentScene(missionScene)
-        
     }
     
     @IBAction func backButton(_ sender: UIButton) {
@@ -60,5 +59,10 @@ extension GameViewController: GameSceneDelegate {
     func missionCancled() {
         self.isBusMission = false
         print(isBusMission)
+    }
+    
+    func poleMission() {
+        self.isPoleMission = true
+        print(isPoleMission)
     }
 }

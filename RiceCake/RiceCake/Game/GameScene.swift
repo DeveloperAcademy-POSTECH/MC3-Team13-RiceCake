@@ -187,6 +187,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameState = .busSeatMission
             print("Bus Seat Mission 시작!")
         case PhysicsCategory.busPole:
+            gameSceneDelegate?.poleMission()
             player.isPaused = true
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Pole Mission"
@@ -231,4 +232,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 protocol GameSceneDelegate: AnyObject {
     func seatMission()
     func missionCancled()
+    func poleMission()
 }
