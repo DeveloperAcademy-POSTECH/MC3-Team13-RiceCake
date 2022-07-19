@@ -8,26 +8,18 @@
 import SpriteKit
 import AudioToolbox
 
-enum GameState {
-    case playing
-    case busSeatMission
-    case busPoleMission
-    case end
-}
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var touchArea: SKShapeNode?
     var gameSceneDelegate: GameSceneDelegate?
-    var gameState = GameState.playing
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
+    var descriptionLabel = SKLabelNode()
     var hintString: String = "" {
         didSet {
             descriptionLabel.text = hintString
         }
     }
-    var descriptionLabel = SKLabelNode()
     
     // MARK: Sprites Alignment
     override func didMove(to view: SKView) {
@@ -40,7 +32,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createTouchArea()
         createDescription()
     }
-    
     // didMove에 초기화 시킬 Node들을 정의합니다.
     func createEnvironment() {
         let envAtlas = SKTextureAtlas(named: "Environment")
@@ -184,7 +175,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             seatMissionPlayer.isHidden = false
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Seat Mission"
-            gameState = .busSeatMission
             print("Bus Seat Mission 시작!")
         case PhysicsCategory.busPole:
             gameSceneDelegate?.poleMission()
@@ -204,7 +194,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let xPosition = pos.x - player.position.x
         let yPosition = pos.y - player.position.y
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
+        let movePlayer = SKAction.move(to: pos, duration: distance / movementSpeed)
         let radians = atan2(-xPosition, yPosition)
+        // ActionList파일의 walking action을 가져옵니다.
+        guard let walkingBySKS = SKAction(named: "walking") else { return }
+        guard let stopPlayer = SKAction(named: "standing") else { return }
+        
+        if let node = self.touchArea?.copy() as! SKShapeNode? {
+            node.position = pos
+            node.strokeColor = SKColor.black
+            self.addChild(node)
+        }
         
         gameSceneDelegate?.missionCancled()
         hintString = ""
@@ -212,23 +212,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.isHidden = false
         seatMissionPlayer.isHidden = true
         player.zRotation = radians
-        
-        // ActionList파일의 walking action을 가져옵니다.
-        guard let walkingBySKS = SKAction(named: "walking") else { return }
         player.run(walkingBySKS)
-        
-        let movePlayer = SKAction.move(to: pos, duration: distance / movementSpeed)
-        guard let stopPlayer = SKAction(named: "standing") else { return }
         player.run(SKAction.sequence([movePlayer, stopPlayer]))
-        
-        if let node = self.touchArea?.copy() as! SKShapeNode? {
-            node.position = pos
-            node.strokeColor = SKColor.black
-            self.addChild(node)
-        }
     }
 }
-
+// GameViewController에서 정의된 함수를 가져옵니다.
 protocol GameSceneDelegate: AnyObject {
     func seatMission()
     func missionCancled()
