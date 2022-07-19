@@ -27,9 +27,8 @@ class GameViewController: UIViewController {
         busPoleMissionViewController.view.frame = missionView.bounds
         
         // SpriteKit: Scene을 MissionView에 연결
-        //let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
-        //missionView.presentScene(missionScene)
-        
+        // let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
+        // missionView.presentScene(missionScene)
     }
     
     @IBAction func backButton(_ sender: UIButton) {
