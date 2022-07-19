@@ -38,7 +38,7 @@
                                     <backgroundConfiguration key="background" image="leftButton" strokeWidth="0.0"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="leftButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ufD-3D-Pgr"/>
+                                    <action selector="leftButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8tW-No-d7Y"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghe-om-1zg">
@@ -52,7 +52,7 @@
                                     <backgroundConfiguration key="background" image="rightButton"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="rightButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="O1a-Ex-CdL"/>
+                                    <action selector="rightButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="r1d-ut-5dr"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VCV-fY-OeW">
