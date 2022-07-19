@@ -10,7 +10,7 @@ import SpriteKit
 class GameViewController: UIViewController {
     
     @IBOutlet var storyView: SKView!
-    @IBOutlet var missionView: UIView!
+    @IBOutlet var missionView: SKView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +18,8 @@ class GameViewController: UIViewController {
         let scene: GameScene = GameScene(size: storyView.frame.size)
         storyView.presentScene(scene)
         
-        // https://stackoverflow.com/questions/24038215/how-to-navigate-from-one-view-controller-to-another-using-swift
-        let busSeatMissionVC = UIStoryboard.init(name: "BusSeatMission", bundle: Bundle.main).instantiateViewController(withIdentifier: "BusSeatMissionVC") as! BusSeatMissionViewController
-        busSeatMissionVC.view.frame = missionView.bounds
-        missionView.addSubview(busSeatMissionVC.view)
-        busSeatMissionVC.didMove(toParent: self)
+        let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
+        missionView.presentScene(missionScene)
         
     }
     
