@@ -10,8 +10,6 @@ import UIKit
 
 class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDelegate {
     
-    var isTouchingHandle: Bool = false
-    
     // 버스시트 배경, 아이의 손 노드 정의.
     let busSeatMissionBackground = SKSpriteNode(imageNamed: "busSeatMissionBackground")
     var childRightHand: SKSpriteNode = SKSpriteNode(imageNamed: "childRightHand")
@@ -47,10 +45,8 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
     // SKScene 위의 터치 위치가 변했을 때의 작업 정의.
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            if isTouchingHandle == false {
                 // 터치 위치를 따라 아이의 손이 움직이도록 변경
                 childRightHand.position = touch.location(in: self)
-            }
         }
     }
     override func update(_ currentTime: TimeInterval) {
@@ -67,11 +63,8 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
         let collideType = collideBody.categoryBitMask
         
         if collideType == BusSeatPhysicsCategory.CategoryWall {
-            print("Collision with CategoryWall Occured")
-            // 손 사라지게 만들기
+            // 손 대체하기
             childRightHand.isHidden = true
-            //
-            isTouchingHandle = true
             grabbingHand.isHidden = false
         }
     }
