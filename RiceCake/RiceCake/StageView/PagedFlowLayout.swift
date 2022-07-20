@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PaggedFlowLayout: UICollectionViewFlowLayout {
+class PagedFlowLayout: UICollectionViewFlowLayout {
 
     override init() {
         super.init()

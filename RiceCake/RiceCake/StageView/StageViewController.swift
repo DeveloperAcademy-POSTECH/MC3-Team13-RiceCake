@@ -17,7 +17,7 @@ class StageViewController: UIViewController {
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     // 커스텀 레이아웃
-    let flowLayout = PaggedFlowLayout()
+    let flowLayout = PagedFlowLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
