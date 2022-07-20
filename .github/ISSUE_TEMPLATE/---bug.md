@@ -3,7 +3,7 @@ name: "\U0001F41E BUG"
 about: 버그를 고칠 수 있게 알려주세요.
 title: "[BUG]"
 labels: bug
-assignees: bee712, David-ShinDJ, Eunbi-Cho, JungYunseong, seodam-hst, seunghoonkim34
+assignees: ''
 
 ---
 
