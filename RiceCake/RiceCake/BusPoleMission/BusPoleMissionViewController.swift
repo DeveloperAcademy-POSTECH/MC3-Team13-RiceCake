@@ -19,52 +19,54 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
         let busHandleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
         busHandleTapGesture.delegate = self
         
+        let busHandle2TapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        busHandle2TapGesture.delegate = self
+        
+//        let busPoleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+//        busPoleTapGesture.delegate = self
+        
         self.firstBusHandle.addGestureRecognizer(busHandleTapGesture)
-        self.secondBusHandle.addGestureRecognizer(busHandleTapGesture)
+        self.secondBusHandle.addGestureRecognizer(busHandle2TapGesture)
+//        self.frontBusPole.addGestureRecognizer(busPoleTapGesture)
         
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-//        handleTouched()
-//        viewMoved(true)
-        print("")
+        handleTouched()
+        viewMoved(true)
         self.firstBusHandle.endEditing(true)
         self.secondBusHandle.endEditing(true)
         
         return true
     }
     
-//    func handleTouched() {
-//        var frame = childLeftHand.frame
-//        frame.origin = CGPoint(x: 120, y: 456)
-//
-//        UIView.animate(withDuration: 1.0, animations: {
-//            self.childLeftHand.frame = frame
-//        }, completion: { finished in
-//            UIView.animate(withDuration: 1.0) {
-//                self.reset()
-//            }
-//        })
-//    }
+    func handleTouched() {
+        UIView.animate(withDuration: 0.7, animations: {
+            self.childLeftHand.center.y -= self.view.bounds.height/4
+        }, completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 0.7, animations: {
+            self.childLeftHand.center.y += self.view.bounds.height/4
+        }, completion: nil)
+    }
     
-//    func reset() {
-//        childLeftHand.frame = CGRect(x: 120, y: 700, width: 196, height: 588)
-//    }
-    
-//    func viewMoved(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
-//            self.busPoleBackground.center.x -= self.view.bounds.width
-//        }, completion: nil)
-//
-//        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
-//            self.firstBusHandle.center.x -= self.view.bounds.width
-//        }, completion: nil)
-//
-//        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
-//            self.secondBusHandle.center.x -= self.view.bounds.width
-//        }, completion: nil)
-//
-//    }
+    func viewMoved(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
+            self.busPoleBackground.center.x -= self.view.bounds.width
+        }, completion: nil)
+
+        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
+            self.firstBusHandle.center.x -= self.view.bounds.width
+        }, completion: nil)
+
+        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
+            self.secondBusHandle.center.x -= self.view.bounds.width
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
+            self.frontBusPole.center.x -= self.view.bounds.width
+        }, completion: nil)
+
+    }
 }
