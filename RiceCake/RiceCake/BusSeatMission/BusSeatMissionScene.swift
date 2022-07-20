@@ -46,9 +46,17 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate {
 extension BusSeatMissionScene {
     //
     func drawBackground() {
-        busSeatMissionBackground.size = CGSize(width: self.size.width, height: self.size.height)
+        busSeatMissionBackground.size = CGSize(width: self.size.width + 4, height: self.size.height + 4)
         busSeatMissionBackground.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         busSeatMissionBackground.zPosition = BusSeatMissionLayer.busSeatMissionBackground
+        
+        // 흔들림 효과 추가
+        let shakeLeft = SKAction.move(to: CGPoint(x: (self.size.width / 2) - 2, y: (self.size.height / 2) - 2), duration: 0.4)
+        let shakeRight = SKAction.move(to: CGPoint(x: (self.size.width / 2) + 2, y: (self.size.height / 2) + 2), duration: 0.4)
+        let shakeBackground = SKAction.sequence([shakeLeft, shakeRight])
+        busSeatMissionBackground.run(SKAction.repeatForever(shakeBackground))
+        
+        // add to Scene
         self.addChild(busSeatMissionBackground)
     }
     //
