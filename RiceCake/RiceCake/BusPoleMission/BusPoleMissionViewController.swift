@@ -64,24 +64,12 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
     func viewMoved(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
-            self.busPoleBackground.center.x -= self.view.bounds.width
-        }, completion: nil)
+        let images: [UIImageView] = [busPoleBackground, firstBusHandle, secondBusHandle, frontBusPole, childHoldHand]
         
-        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
-            self.firstBusHandle.center.x -= self.view.bounds.width
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
-            self.secondBusHandle.center.x -= self.view.bounds.width
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
-            self.frontBusPole.center.x -= self.view.bounds.width
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
-            self.childHoldHand.center.x -= self.view.bounds.width
-        }, completion: nil)
+        for image in images {
+            UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
+                image.center.x -= self.view.bounds.width
+            }, completion: nil)
+        }
     }
 }
