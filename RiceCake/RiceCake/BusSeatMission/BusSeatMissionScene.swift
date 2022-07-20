@@ -8,16 +8,22 @@
 import SpriteKit
 import UIKit
 
-class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate {
+class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDelegate {
+    
     // 버스시트 배경, 아이의 손 노드 정의.
     let busSeatMissionBackground = SKSpriteNode(imageNamed: "busSeatMissionBackground")
-    var childRightHand: SKSpriteNode = SKSpriteNode(imageNamed: "childRightHand")
+    let childRightHand: SKSpriteNode = SKSpriteNode(imageNamed: "childRightHand")
+    let grabbingHand: SKSpriteNode = SKSpriteNode(imageNamed: "grabbingHand")
+    let seatHandle: SKSpriteNode = SKSpriteNode(imageNamed: "busSeatHandle")
+    
     // Scene이 View에 그려질 때 수행할 작업들을 정의.
     override func didMove(to view: SKView) {
-        // 배경화면 그리기
-        drawBackground()
-        // 아이의 손을 그리고 드래그 제스쳐를 입력
-        drawChildRightHand()
+        self.physicsWorld.contactDelegate = self
+
+        drawBackground() // 배경화면 그리기
+        drawHand() // 움직이는 손 그리기
+        drawGrabbingHand() // 손잡이를 잡은 손 그리기
+        drawSeatHandle() // 좌석 손잡이 그리기
         
         // Long-press 제스쳐를 입력받는 변수를 선언하고 SKView에 추가.
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressHappened(sender:)))
@@ -41,10 +47,25 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        var collideBody = SKPhysicsBody()
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            collideBody = contact.bodyB
+        } else {
+            collideBody = contact.bodyA
+        }
+        let collideType = collideBody.categoryBitMask
+        
+        if collideType == BusSeatPhysicsCategory.CategoryWall {
+            // 손 대체하기
+            childRightHand.isHidden = true
+            grabbingHand.isHidden = false
+        }
+    }
 }
 // override 함수 외에 커스텀 함수들을 extension에 정의.
 extension BusSeatMissionScene {
-    //
     func drawBackground() {
         busSeatMissionBackground.size = CGSize(width: self.size.width + 4, height: self.size.height + 4)
         busSeatMissionBackground.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
@@ -59,19 +80,61 @@ extension BusSeatMissionScene {
         // add to Scene
         self.addChild(busSeatMissionBackground)
     }
-    //
-    func drawChildRightHand() {
-        let handHeight = self.size.width / 2
-        let handWidth = handHeight * (324 / 1000)
+    
+    // MARK: 손잡이로 대체하기
+    func drawSeatHandle() {
+        seatHandle.position = CGPoint(
+            x: self.size.width / 2,
+            y: self.size.height / 2)
+        seatHandle.zPosition = BusSeatMissionLayer.frameWall
+        seatHandle.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "busSeatHandle"), size: self.size)
+        seatHandle.physicsBody?.categoryBitMask = BusSeatPhysicsCategory.CategoryWall
+        seatHandle.physicsBody?.affectedByGravity = false
+        seatHandle.physicsBody?.isDynamic = false
+        
+        self.addChild(seatHandle)
+    }
+    
+    func drawHand() {
+        let handHeight = self.size.height
+        let handWidth = handHeight * (324 / 1600)
         
         childRightHand.size = CGSize(width: handWidth, height: handHeight)
-        childRightHand.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        childRightHand.position = CGPoint(
+            x: self.size.width / 2,
+            y: 0
+        )
         childRightHand.zPosition = BusSeatMissionLayer.playerRightHand
-        
         childRightHand.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: handWidth, height: handHeight))
+        childRightHand.physicsBody?.categoryBitMask = BusSeatPhysicsCategory.CategoryRightHand
+        childRightHand.physicsBody?.contactTestBitMask = BusSeatPhysicsCategory.CategoryWall
         childRightHand.physicsBody?.affectedByGravity = false
+        childRightHand.physicsBody?.isDynamic = true
+        
         self.addChild(childRightHand)
     }
+    
+    func drawGrabbingHand() {
+        grabbingHand.size = CGSize(
+            width: self.size.width,
+            height: self.size.height
+        )
+        grabbingHand.position = CGPoint(
+            x: self.size.width / 2,
+            y: self.size.height / 2
+        )
+        grabbingHand.zPosition = BusSeatMissionLayer.playerRightHand
+        grabbingHand.isHidden = true
+        
+        // 흔들림 효과 추가
+        let shakeLeft = SKAction.move(to: CGPoint(x: (self.size.width / 2) - 2, y: (self.size.height / 2) - 2), duration: 0.4)
+        let shakeRight = SKAction.move(to: CGPoint(x: (self.size.width / 2) + 2, y: (self.size.height / 2) + 2), duration: 0.4)
+        let shakeGrabbingHand = SKAction.sequence([shakeLeft, shakeRight])
+        grabbingHand.run(SKAction.repeatForever(shakeGrabbingHand))
+        
+        self.addChild(grabbingHand)
+    }
+    
     // Long-press 입력 시 수행할 작업 정의
     @objc func longPressHappened(sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
