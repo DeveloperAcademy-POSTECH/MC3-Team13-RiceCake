@@ -19,7 +19,7 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
     // Scene이 View에 그려질 때 수행할 작업들을 정의.
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
-
+        
         drawBackground() // 배경화면 그리기
         drawHand() // 움직이는 손 그리기
         drawGrabbingHand() // 손잡이를 잡은 손 그리기
@@ -27,7 +27,6 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
         
         addLongpressGestureRecognizer() // LongPressGesture 추가
     }
-    
     // SKScene에 터치가 시작되었을 때의 작업 정의.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
@@ -45,7 +44,6 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
-    
     func didBegin(_ contact: SKPhysicsContact) {
         var collideBody = SKPhysicsBody()
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
@@ -61,7 +59,6 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
             grabbingHand.isHidden = false
         }
     }
-    
     // LongPressGesture를 입력받는 변수를 선언하고 SKView에 추가.
     func addLongpressGestureRecognizer() {
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressHappened(sender:)))
@@ -73,10 +70,11 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
     // LongPressGesture 입력 시 수행할 작업 정의
     @objc func longPressHappened(sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
-            childRightHand.zRotation = 1
+            busSeatMissionBackground.isPaused = true
+            grabbingHand.isPaused = true
         }
         if sender.state == .ended {
-            childRightHand.zRotation = 0
+            
         }
     }
 }
