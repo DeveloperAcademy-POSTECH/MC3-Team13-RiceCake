@@ -69,6 +69,5 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
         UIView.animate(withDuration: 1.0, delay: 1.5, options: [.curveEaseOut], animations: {
             self.frontBusPole.center.x -= self.view.bounds.width
         }, completion: nil)
-
     }
 }
