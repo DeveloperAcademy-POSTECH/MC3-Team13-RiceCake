@@ -9,6 +9,7 @@ import SpriteKit
 import UIKit
 
 class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDelegate {
+    var isGrabbingHandle: Bool = false
     
     // SKNode들 생성
     let busSeatMissionBackground = SKSpriteNode(imageNamed: "busSeatMissionBackground")
@@ -55,6 +56,7 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
         
         if collideType == BusSeatPhysicsCategory.CategoryWall {
             // 손 대체하기
+            isGrabbingHandle = true
             childRightHand.isHidden = true
             grabbingHand.isHidden = false
         }
@@ -69,9 +71,17 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
     
     // LongPressGesture 입력 시 수행할 작업 정의
     @objc func longPressHappened(sender: UILongPressGestureRecognizer) {
+        
         if sender.state == .began {
-            busSeatMissionBackground.isPaused = true
-            grabbingHand.isPaused = true
+            if (sender.location(in: view).x > ((view?.frame.size.width ?? 0) * (2 / 4)))
+                && (sender.location(in: view).x < ((view?.frame.size.width ?? 0) * (3 / 4)))
+                && (sender.location(in: view).y > ((view?.frame.size.height ?? 0) * (1 / 5)))
+                && (sender.location(in: view).y < ((view?.frame.size.height ?? 0) * (2 / 5)))
+                && isGrabbingHandle {
+                busSeatMissionBackground.isPaused = true
+                grabbingHand.isPaused = true
+                // MARK: 미션 성공 조건 달성
+            }
         }
         if sender.state == .ended {
             
