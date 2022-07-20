@@ -12,6 +12,7 @@ struct BusSeatMissionLayer {
     static let playerRightHand: CGFloat = 2
     static let frameWall: CGFloat = 3
 }
+
 struct BusSeatPhysicsCategory {
     // 노트 충돌 비트마스크 지정.
     static let CategoryRightHand: UInt32 = 0x1 << 1
