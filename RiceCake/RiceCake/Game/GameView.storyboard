@@ -41,7 +41,7 @@
                                             <constraint firstAttribute="width" secondItem="0Mg-3h-lsX" secondAttribute="height" multiplier="3:4" id="KWf-co-xE5"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZA-S9-Tjt" customClass="SKView">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZA-S9-Tjt" customClass="SKView">
                                         <rect key="frame" x="266.66666666666663" y="0.0" width="246.66666666666663" height="329"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
