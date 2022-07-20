@@ -51,8 +51,7 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
         }
     }
     
-    
-    // childeLeftHand Up & Down animation
+    // childeLeftHand Up & Down 애니메이션
     func childHandUp() {
         UIView.animate(withDuration: 0.7, animations: {
             self.childLeftHand.center.y -= self.view.bounds.height/4
@@ -64,7 +63,7 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
         }, completion: nil)
     }
     
-    // childLeftHand를 제외한 전체 이미지 이동
+    // childLeftHand를 제외한 전체 이미지 이동 및 애니메이션
     func viewMoved(_ animated: Bool) {
         super.viewDidAppear(animated)
         
