@@ -8,11 +8,13 @@
 import UIKit
 
 class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegate {
+    
     @IBOutlet weak var busPoleBackground: UIImageView!
     @IBOutlet weak var firstBusHandle: UIImageView!
     @IBOutlet weak var secondBusHandle: UIImageView!
     @IBOutlet weak var frontBusPole: UIImageView!
     @IBOutlet weak var childLeftHand: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
