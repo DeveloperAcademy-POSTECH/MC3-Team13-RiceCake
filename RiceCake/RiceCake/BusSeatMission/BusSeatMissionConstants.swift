@@ -10,4 +10,5 @@ import SpriteKit
 struct BusSeatMissionLayer {
     static let busSeatMissionBackground: CGFloat = 1
     static let playerRightHand: CGFloat = 2
+    static let frameWall : CGFloat = 3
 }
