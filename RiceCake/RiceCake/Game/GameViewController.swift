@@ -37,6 +37,7 @@ class GameViewController: UIViewController {
                 missionView.addSubview(child.view)
                 child.didMove(toParent: self)
                 child.view.frame = missionView.bounds
+                child.view.clipsToBounds = true
             } else {
                 // UIKit: missionView의 모든 subView를 지웁니다.
                 for view in self.missionView.subviews {
