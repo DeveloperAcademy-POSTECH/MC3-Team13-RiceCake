@@ -39,7 +39,7 @@ class StageViewController: UIViewController {
     
     @IBAction func leftButtonTapped(_ sender: UIButton) {
         if index != 0 {
-            index += -1
+            index -= 1
             stageNameLabel.text = Stage.list[index].stageName
         } else {
             index = 0
