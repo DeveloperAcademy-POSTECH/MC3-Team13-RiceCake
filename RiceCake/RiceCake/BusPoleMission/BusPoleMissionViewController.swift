@@ -10,23 +10,23 @@ import UIKit
 class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var busPoleBackground: UIImageView!
     @IBOutlet weak var firstBusHandle: UIImageView!
+    @IBOutlet weak var secondBusHandle: UIImageView!
     @IBOutlet weak var frontBusPole: UIImageView!
     @IBOutlet weak var childLeftHand: UIImageView!
-    @IBOutlet weak var secondBusHandle: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let busHandleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
-        busHandleTapGesture.delegate = self
+        let firstBusHandleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        firstBusHandleTapGesture.delegate = self
         
-        let busHandle2TapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
-        busHandle2TapGesture.delegate = self
+        let secondBusHandleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        secondBusHandleTapGesture.delegate = self
         
 //        let busPoleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
 //        busPoleTapGesture.delegate = self
         
-        self.firstBusHandle.addGestureRecognizer(busHandleTapGesture)
-        self.secondBusHandle.addGestureRecognizer(busHandle2TapGesture)
+        self.firstBusHandle.addGestureRecognizer(firstBusHandleTapGesture)
+        self.secondBusHandle.addGestureRecognizer(secondBusHandleTapGesture)
 //        self.frontBusPole.addGestureRecognizer(busPoleTapGesture)
         
     }
