@@ -35,12 +35,14 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
  
     }
     
+    // tap gesture에 반응할 함수
     @objc func tappedHandle(_ sender: UITapGestureRecognizer) {
         childHandUp()
         childHandDown()
         sender.view?.tag ?? 0 != 1 ? viewMoved(true) : ()
     }
     
+    // long press gesture에 반응할 함수
     @objc func longPressedBusPole(_ sender: UILongPressGestureRecognizer) {
         childHandUp()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.7) {
@@ -49,18 +51,20 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
         }
     }
     
+    
+    // childeLeftHand Up & Down animation
     func childHandUp() {
         UIView.animate(withDuration: 0.7, animations: {
             self.childLeftHand.center.y -= self.view.bounds.height/4
         }, completion: nil)
     }
-    
     func childHandDown() {
         UIView.animate(withDuration: 0.7, delay: 0.7, animations: {
             self.childLeftHand.center.y += self.view.bounds.height/4
         }, completion: nil)
     }
     
+    // childLeftHand를 제외한 전체 이미지 이동
     func viewMoved(_ animated: Bool) {
         super.viewDidAppear(animated)
         
