@@ -15,6 +15,8 @@ class BusScene: SKScene, SKPhysicsContactDelegate {
     var missionseat: SKNode?
     var missionpole: SKNode?
     var cameraNode: SKCameraNode?
+    var bus: SKNode?
+    
     
     // Boolean
     var missionseatBool = false
@@ -27,7 +29,7 @@ class BusScene: SKScene, SKPhysicsContactDelegate {
     // Splite Engine
     var previousTimeInterval: TimeInterval = 0
     var playerIsFacingRight = true
-    let playerSpeed = 25.0
+    let playerSpeed = 50.0
     
     // Player State
     var playerState: GKStateMachine!
@@ -38,7 +40,7 @@ class BusScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         player = childNode(withName: "player")
-        player?.zPosition = 2
+        bus = childNode(withName: "bus")
         road = childNode(withName: "road")
         missionseat = childNode(withName: "missionseat")
         missionpole = childNode(withName: "missionpole")
@@ -65,7 +67,17 @@ extension BusScene {
     }
     // Touch Down
     func touchDown(atPoint pos: CGPoint) {
-
+        
+        let busxPosition = pos.x - (bus?.position.x)!
+        let busyPosition = pos.y - (bus?.position.y)!
+        let busdistance = sqrt(busxPosition * busxPosition + busyPosition * busyPosition)
+        let busmovePlayer = SKAction.move(to: pos, duration: busdistance / playerSpeed)
+        guard let walkingBySKS = SKAction(named: "walking") else { return }
+        bus?.run(walkingBySKS)
+        guard let busstopPlayer = SKAction(named: "standing") else { return }
+        bus?.run(SKAction.sequence([busmovePlayer, busstopPlayer]))
+        
+        
         let xPosition = pos.x - (player?.position.x)!
         let yPosition = pos.y - (player?.position.y)!
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
