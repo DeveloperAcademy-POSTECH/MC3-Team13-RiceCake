@@ -49,12 +49,21 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // storyView에 GameScene을 띄웁니다..
-        let scene: GameScene = GameScene(size: storyView.frame.size)
-        scene.gameSceneDelegate = self
+//        let scene: GameScene = GameScene(size: storyView.frame.size)
+//        scene.gameSceneDelegate = self
+//        storyView.presentScene(scene)
+//        // missionView에 MissionScene을 띄웁니다.
+//        let missionHintScene: MissionScene = MissionScene(size: missionView.frame.size)
+//        missionView.presentScene(missionHintScene)
+        let scene = SKScene(fileNamed: "BusScene")
+        
+        scene?.scaleMode = .aspectFit
         storyView.presentScene(scene)
-        // missionView에 MissionScene을 띄웁니다.
-        let missionHintScene: MissionScene = MissionScene(size: missionView.frame.size)
-        missionView.presentScene(missionHintScene)
+            
+        storyView.ignoresSiblingOrder = false
+        storyView.showsFPS = true
+        storyView.showsNodeCount = true
+        
     }
     
     @IBAction func backButton(_ sender: UIButton) {
