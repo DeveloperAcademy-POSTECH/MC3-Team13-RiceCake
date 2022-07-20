@@ -16,7 +16,7 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
     let busSeatMissionBackground = SKSpriteNode(imageNamed: "busSeatMissionBackground")
     var childRightHand: SKSpriteNode = SKSpriteNode(imageNamed: "childRightHand")
     var grabbingHand: SKSpriteNode = SKSpriteNode(imageNamed: "grabbingHand")
-    let wall: SKSpriteNode = SKSpriteNode(color: .green, size: CGSize(width: 20, height: 20))
+    let seatHandle: SKSpriteNode = SKSpriteNode(imageNamed: "busSeatHandle")
     
     // Scene이 View에 그려질 때 수행할 작업들을 정의.
     override func didMove(to view: SKView) {
@@ -24,11 +24,13 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
         
         // 배경화면 그리기
         drawBackground()
+        
         // 아이의 손을 그리고 드래그 제스쳐를 입력
         drawHand()
         drawGrabbingHand()
+        
         // 가상의 프레임을 부여
-        framewall()
+        drawSeatHandle()
         
         // Long-press 제스쳐를 입력받는 변수를 선언하고 SKView에 추가.
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressHappened(sender:)))
@@ -92,15 +94,17 @@ extension BusSeatMissionScene {
     }
     
     // MARK: 손잡이로 대체하기
-    func framewall() {
-        wall.position = CGPoint(x: self.size.width / 2, y: self.size.height - 20)
-        wall.zPosition = BusSeatMissionLayer.frameWall
-        wall.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 20, height: 20))
-        wall.physicsBody?.categoryBitMask = BusSeatPhysicsCategory.CategoryWall
-        wall.physicsBody?.affectedByGravity = false
-        wall.physicsBody?.isDynamic = false
+    func drawSeatHandle() {
+        seatHandle.position = CGPoint(
+            x: self.size.width / 2,
+            y: self.size.height / 2)
+        seatHandle.zPosition = BusSeatMissionLayer.frameWall
+        seatHandle.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "busSeatHandle"), size: self.size)
+        seatHandle.physicsBody?.categoryBitMask = BusSeatPhysicsCategory.CategoryWall
+        seatHandle.physicsBody?.affectedByGravity = false
+        seatHandle.physicsBody?.isDynamic = false
         
-        self.addChild(wall)
+        self.addChild(seatHandle)
     }
     
     func drawHand() {
