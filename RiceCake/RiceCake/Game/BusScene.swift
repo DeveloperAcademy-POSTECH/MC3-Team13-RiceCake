@@ -9,14 +9,16 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class BusScene: SKScene, SKPhysicsContactDelegate {
-    var player: SKNode?
+class BusScene: SKScene {
+    var busplayer: SKNode?
     var road: SKNode?
     var missionseat: SKNode?
+    var missionseatNode: SKNode?
     var missionpole: SKNode?
+    var missionpoleNode:SKNode?
     var cameraNode: SKCameraNode?
-    var bus: SKNode?
-    
+    private var touchArea: SKShapeNode?
+    var gameSceneDelegate: GameSceneDelegate?
     
     // Boolean
     var missionseatBool = false
@@ -29,7 +31,7 @@ class BusScene: SKScene, SKPhysicsContactDelegate {
     // Splite Engine
     var previousTimeInterval: TimeInterval = 0
     var playerIsFacingRight = true
-    let playerSpeed = 50.0
+    let playerSpeed = 100.0
     
     // Player State
     var playerState: GKStateMachine!
@@ -39,83 +41,148 @@ class BusScene: SKScene, SKPhysicsContactDelegate {
     
         physicsWorld.contactDelegate = self
         
-        player = childNode(withName: "player")
-        bus = childNode(withName: "bus")
+        busplayer = childNode(withName: "busplayer")
         road = childNode(withName: "road")
         missionseat = childNode(withName: "missionseat")
+        missionseatNode = missionseat?.childNode(withName: "missionseatNode")
         missionpole = childNode(withName: "missionpole")
+        missionpoleNode = missionpole?.childNode(withName: "missionpoleNode")
+        
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
         
         playerState = GKStateMachine(states: [
-        LandingState(playerNode: player!),
-        WalkingState(playerNode: player!),
-        MissioningState(playerNode: player!)])
-//        playerState.enter(LandingState.self)
+        IdleState(playerNode: busplayer!),
+        LandingState(playerNode: busplayer!),
+        WalkingState(playerNode: busplayer!),
+        MissioningState(playerNode: busplayer!)])
         
-        loadRepeat()
+        createTouchArea()
+        
+        stateLanding()
     }
-
 }
 
 // MARK: Touches
 extension BusScene {
-    // Touch Begin
+// Touch Began
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        stateWalking()
         for touch in touches {
             self.touchDown(atPoint: touch.location(in: self))
         }
     }
-    // Touch Down
+// Touch Down
     func touchDown(atPoint pos: CGPoint) {
-        
-        let busxPosition = pos.x - (bus?.position.x)!
-        let busyPosition = pos.y - (bus?.position.y)!
-        let busdistance = sqrt(busxPosition * busxPosition + busyPosition * busyPosition)
-        let busmovePlayer = SKAction.move(to: pos, duration: busdistance / playerSpeed)
-        guard let walkingBySKS = SKAction(named: "walking") else { return }
-        bus?.run(walkingBySKS)
-        guard let busstopPlayer = SKAction(named: "standing") else { return }
-        bus?.run(SKAction.sequence([busmovePlayer, busstopPlayer]))
-        
-        
-        let xPosition = pos.x - (player?.position.x)!
-        let yPosition = pos.y - (player?.position.y)!
+        let xPosition = pos.x - busplayer!.position.x
+        let yPosition = pos.y - busplayer!.position.y
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
         let movePlayer = SKAction.move(to: pos, duration: distance / playerSpeed)
-//
-//        playerState.enter(WalkingState.self)
-//
-        guard let walkingBySKS = SKAction(named: "walking") else { return }
-        player?.run(walkingBySKS)
-        guard let stopPlayer = SKAction(named: "standing") else { return }
-        player?.run(SKAction.sequence([movePlayer, stopPlayer]))
         
+        if let node = self.touchArea?.copy() as! SKShapeNode? {
+            node.position = pos
+            node.strokeColor = SKColor.black
+            self.addChild(node)
+            busplayer?.run(movePlayer)
     }
 
+    }
+    
+}
+// MARK: Player State Change
+extension BusScene {
+    func stateIdle() {
+        playerState.enter(IdleState.self)
+    }
+    
+    func stateLanding() {
+        playerState.enter(LandingState.self)
+    }
+    
+    func stateWalking() {
+        playerState.enter(WalkingState.self)
+    }
+    
+    func stateMissioning() {
+        playerState.enter(MissioningState.self)
+    }
+}
+// MARK: Action
+extension BusScene {
+    func firstMission() {
+        
+    }
 }
 
 // MARK: Game Loop
 extension BusScene {
-    func loadRepeat() {
-        let roadRepeatNum = Int(ceil(self.size.height / self.size.height))
-        
-        for index in 0...roadRepeatNum {
-            if let road = road {
-                road.position = CGPoint(x: 0, y: CGFloat(index) * self.size.height)
-                
-                let moveDown = SKAction.moveBy(x: 0, y: -self.size.height, duration: 5)
-                let moveReset = SKAction.moveBy(x: 0, y: self.size.height, duration: 0)
-                let moveSequence = SKAction.sequence([moveDown, moveReset])
-                road.run(SKAction.repeatForever(moveSequence))
-            }
-        }
-    }
     
     override func update(_ currentTime: TimeInterval) {
         let deltaTime = currentTime - previousTimeInterval
         previousTimeInterval = currentTime
         // Camera
-        cameraNode?.position.x = player!.position.x
+        cameraNode?.position.x = busplayer!.position.x
+        cameraNode?.position.y = busplayer!.position.y
         
+        // Road 무한반복
+        if let road = road {
+            road.position = CGPoint(x:0, y:CGFloat(deltaTime) * self.size.height)
+            let moveDown = SKAction.moveBy(x: 0, y: -self.size.height / 2, duration: 5)
+            let moveReset = SKAction.moveBy(x: 0, y: self.size.height / 2, duration: 0)
+            let moveSeqence = SKAction.sequence([moveDown, moveReset])
+            road.run(SKAction.repeatForever(moveSeqence))
+        }
+        
+        // IdelState 도입
+        
+    }
+}
+
+// MARK: Node 생성 Method
+extension BusScene {
+    func createTouchArea() {
+        self.touchArea = SKShapeNode.init(circleOfRadius: 4)
+        
+        if let touchArea = self.touchArea {
+            touchArea.lineWidth = 1.5
+            touchArea.run(SKAction.scale(to: 2, duration: 0.5))
+            touchArea.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
+                                             SKAction.fadeOut(withDuration: 0.5),
+                                             SKAction.removeFromParent()]))
+            touchArea.zPosition = Layer.touchArea
+        }
+    }
+}
+
+// MARK: Collsion BitMask
+
+extension BusScene: SKPhysicsContactDelegate {
+    
+    struct Collision {
+        
+        enum Masks: Int {
+            case player, seat, pole
+            var bitmask: UInt32 { return 1 << self.rawValue}
+        }
+        
+        let masks: (first: UInt32, second: UInt32)
+        
+        func matches (_ first: Masks, _ second: Masks) -> Bool {
+            return (first.bitmask == masks.first && second.bitmask == masks.second) || (first.bitmask == masks.second && second.bitmask == masks.first)
+        }
+    }
+
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        let collision = Collision(masks: (first:contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
+        
+        if collision.matches(.player, .seat) {
+            missionseatBool = true
+            print("Seat Mission Start")
+        }
+        
+        if collision.matches(.player, .pole) {
+            missionpoleBool = true
+            print("Pole Mission Start")
+        }
     }
 }

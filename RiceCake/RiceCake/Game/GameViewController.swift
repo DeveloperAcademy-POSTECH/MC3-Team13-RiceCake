@@ -57,7 +57,8 @@ class GameViewController: UIViewController {
 //        missionView.presentScene(missionHintScene)
         let scene = SKScene(fileNamed: "BusScene")
         
-        scene?.scaleMode = .aspectFit
+        scene?.scaleMode = .aspectFill
+        
         storyView.presentScene(scene)
             
         storyView.ignoresSiblingOrder = false
