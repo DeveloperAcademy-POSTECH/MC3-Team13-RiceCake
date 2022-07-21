@@ -79,18 +79,13 @@ class GameViewController: UIViewController {
 
 // storyView에 연결된 GameScene에서 사용할 함수를 설정합니다.
 extension GameViewController: GameSceneDelegate {
-    func seatMission() {
-        self.isBusMission = true
+    func seatMission(state: Bool) {
+        self.isBusMission = state
         print(isBusMission)
     }
     
-    func missionCancled() {
-        self.isBusMission = false
-        self.isPoleMission = false
-    }
-    
-    func poleMission() {
-        self.isPoleMission = true
+    func poleMission(state: Bool) {
+        self.isPoleMission = state
         print(isPoleMission)
     }
 }

@@ -10,9 +10,8 @@ import AudioToolbox
 
 // GameViewController에서 정의된 함수를 가져옵니다.
 protocol GameSceneDelegate: AnyObject {
-    func seatMission()
-    func missionCancled()
-    func poleMission()
+    func seatMission(state: Bool)
+    func poleMission(state: Bool)
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -60,14 +59,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("버스 프레임과 부딪혔습니다.")
             
         case PhysicsCategory.busSeat:
-            gameSceneDelegate?.seatMission()
+            gameSceneDelegate?.seatMission(state: true)
             player.isHidden = true
             seatMissionPlayer.isHidden = false
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Seat Mission"
             
         case PhysicsCategory.busPole:
-            gameSceneDelegate?.poleMission()
+            gameSceneDelegate?.poleMission(state: true)
             player.isPaused = true
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Pole Mission"
@@ -96,7 +95,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
         
-        gameSceneDelegate?.missionCancled()
+        gameSceneDelegate?.seatMission(state: false)
+        gameSceneDelegate?.poleMission(state: false)
         hintString = ""
         player.isPaused = false
         player.isHidden = false
