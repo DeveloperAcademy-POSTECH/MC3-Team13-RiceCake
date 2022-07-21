@@ -16,7 +16,7 @@ protocol GameSceneDelegate: AnyObject {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var gameSceneDelegate: GameSceneDelegate?
+    weak var gameSceneDelegate: GameSceneDelegate?
     var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
