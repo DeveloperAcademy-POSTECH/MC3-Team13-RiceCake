@@ -13,9 +13,9 @@ class GameViewController: UIViewController {
     @IBOutlet var missionView: SKView!
     
     // 프로퍼티 옵저버인 didset을 사용하여 프로퍼티 값이 변경되기 직전에 화면을 갱신합니다.
-    var isBusMission: Bool = false {
+    var isSeatMission: Bool = false {
         didSet {
-            if isBusMission {
+            if isSeatMission {
                 // SpriteKit: missionView의 MissionScene을 BusSeatMissionScene으로 변경합니다.
                 let seatMissionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
                 missionView.presentScene(seatMissionScene)
@@ -67,7 +67,7 @@ class GameViewController: UIViewController {
 // GameSceneDelegate를 채택하여 GameScene에서 protocol에 정의된 method들을 구현합니다.
 extension GameViewController: GameSceneDelegate {
     func seatMission(state: Bool) {
-        self.isBusMission = state
+        self.isSeatMission = state
     }
     
     func poleMission(state: Bool) {
