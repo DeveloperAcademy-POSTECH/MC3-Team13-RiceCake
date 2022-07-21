@@ -53,6 +53,20 @@ class GameViewController: UIViewController {
         let scene: GameScene = GameScene(size: storyView.frame.size)
         scene.gameSceneDelegate = self
         storyView.presentScene(scene)
+              
+        // UIKit: BusPoleMissionViewController 연결
+        let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
+        if let child = storyboard.instantiateViewController(identifier: "BusPole") as? BusPoleMissionViewController {
+            addChild(child)
+            missionView.addSubview(child.view)
+            child.didMove(toParent: self)
+            child.view.frame = missionView.bounds
+        }
+        
+        // SpriteKit: Scene을 MissionView에 연결
+        // let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
+        // missionView.presentScene(missionScene)
+
         // missionView에 MissionScene을 띄웁니다.
         let missionHintScene: MissionScene = MissionScene(size: missionView.frame.size)
         missionView.presentScene(missionHintScene)
