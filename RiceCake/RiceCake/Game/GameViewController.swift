@@ -12,7 +12,7 @@ class GameViewController: UIViewController {
     @IBOutlet var storyView: SKView!
     @IBOutlet var missionView: SKView!
     
-    // 프로퍼티 옵저버인 didset을 사용하여 프로퍼티 값이 변경되기 직전에 화면을 갱신합니다.
+    // 프로퍼티 옵저버인 didset을 사용하여 프로퍼티 값이 변경되기 직후에 화면을 갱신합니다.
     var isSeatMission: Bool = false {
         didSet {
             if isSeatMission {
