@@ -28,16 +28,15 @@ class GameViewController: UIViewController {
     
     var isPoleMission: Bool = false {
         didSet {
-            let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
-            let child = storyboard.instantiateViewController(identifier: "BusPole") as! BusPoleMissionViewController
-            
             if isPoleMission {
                 // UIKit: missionView에 BusPoleMissionView를 연결합니다.
-                addChild(child)
-                missionView.addSubview(child.view)
-                child.didMove(toParent: self)
-                child.view.frame = missionView.bounds
-                child.view.clipsToBounds = true
+                let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
+                if let child = storyboard.instantiateViewController(identifier: "BusPole") as? BusPoleMissionViewController {
+                    addChild(child)
+                    missionView.addSubview(child.view)
+                    child.didMove(toParent: self)
+                    child.view.frame = missionView.bounds
+                }
             } else {
                 // UIKit: missionView의 모든 subView를 지웁니다.
                 for view in self.missionView.subviews {
@@ -53,16 +52,7 @@ class GameViewController: UIViewController {
         let scene: GameScene = GameScene(size: storyView.frame.size)
         scene.gameSceneDelegate = self
         storyView.presentScene(scene)
-              
-        // UIKit: BusPoleMissionViewController 연결
-        let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
-        if let child = storyboard.instantiateViewController(identifier: "BusPole") as? BusPoleMissionViewController {
-            addChild(child)
-            missionView.addSubview(child.view)
-            child.didMove(toParent: self)
-            child.view.frame = missionView.bounds
-        }
-        
+                      
         // SpriteKit: Scene을 MissionView에 연결
         // let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
         // missionView.presentScene(missionScene)
