@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3425053E28815D1000A8B6AF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3425053C28815D1000A8B6AF /* GameScene.swift */; };
+		343579F02889B9AD00DB1FB7 /* GameScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343579EF2889B9AD00DB1FB7 /* GameScene+Extension.swift */; };
 		34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18415288044F7004B58E3 /* AppDelegate.swift */; };
 		34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18417288044F7004B58E3 /* SceneDelegate.swift */; };
 		34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A18420288044F8004B58E3 /* LaunchScreen.storyboard */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		3425053C28815D1000A8B6AF /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		343579EF2889B9AD00DB1FB7 /* GameScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Extension.swift"; sourceTree = "<group>"; };
 		34A18412288044F7004B58E3 /* RiceCake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiceCake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A18415288044F7004B58E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A18417288044F7004B58E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				34B638D228811EE300760FD8 /* GameViewController.swift */,
 				3425053C28815D1000A8B6AF /* GameScene.swift */,
+				343579EF2889B9AD00DB1FB7 /* GameScene+Extension.swift */,
 				34F88C342886BE6700BB3DF8 /* MissionScene.swift */,
 				34F88C302885838600BB3DF8 /* ActionList.sks */,
 				34C16E2D288424DD0050F469 /* Constants.swift */,
@@ -264,6 +267,7 @@
 				34B638C728811CBB00760FD8 /* StageModel.swift in Sources */,
 				3425053E28815D1000A8B6AF /* GameScene.swift in Sources */,
 				34B638C528811CBB00760FD8 /* StageCell.swift in Sources */,
+				343579F02889B9AD00DB1FB7 /* GameScene+Extension.swift in Sources */,
 				34B638C828811CBB00760FD8 /* StageViewController.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,
 				34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */,
