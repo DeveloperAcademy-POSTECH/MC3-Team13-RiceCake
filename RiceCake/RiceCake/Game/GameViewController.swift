@@ -53,10 +53,6 @@ class GameViewController: UIViewController {
         scene.gameSceneDelegate = self
         storyView.presentScene(scene)
                       
-        // SpriteKit: Scene을 MissionView에 연결
-        // let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
-        // missionView.presentScene(missionScene)
-
         // missionView에 MissionScene을 띄웁니다.
         let missionHintScene: MissionScene = MissionScene(size: missionView.frame.size)
         missionView.presentScene(missionHintScene)
