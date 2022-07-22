@@ -42,7 +42,7 @@ class GameViewController: UIViewController {
                 // UIKit: missionView의 모든 subView를 지웁니다.
                 for view in self.missionView.subviews {
                      view.removeFromSuperview()
-                 }
+                }
             }
         }
     }

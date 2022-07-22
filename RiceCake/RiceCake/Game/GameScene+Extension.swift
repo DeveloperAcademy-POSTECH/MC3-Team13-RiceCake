@@ -94,6 +94,7 @@ extension GameScene {
     }
     
     // MARK: - Player Node의 속성을 정의합니다.
+    // FIXME: Player에 Constaint를 추가해야 합니다.
     func createPlayer() {
         let playerWidth = 20
         
