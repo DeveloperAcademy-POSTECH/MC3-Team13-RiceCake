@@ -12,7 +12,7 @@ class GameViewController: UIViewController {
     @IBOutlet var storyView: SKView!
     @IBOutlet var missionView: SKView!
     
-    var isBusMission: Bool = false {
+    var isBusMission: Bool = true {
         didSet {
             if isBusMission {
                 // SpriteKit: missionView의 MissionScene을 BusSeatMissionScene으로 변경합니다.
@@ -28,15 +28,15 @@ class GameViewController: UIViewController {
     
     var isPoleMission: Bool = false {
         didSet {
-            let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
-            let child = storyboard.instantiateViewController(identifier: "BusPole") as! BusPoleMissionViewController
-            
             if isPoleMission {
                 // UIKit: missionView에 BusPoleMissionView를 연결합니다.
-                addChild(child)
-                missionView.addSubview(child.view)
-                child.didMove(toParent: self)
-                child.view.frame = missionView.bounds
+                let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
+                if let child = storyboard.instantiateViewController(identifier: "BusPole") as? BusPoleMissionViewController {
+                    addChild(child)
+                    missionView.addSubview(child.view)
+                    child.didMove(toParent: self)
+                    child.view.frame = missionView.bounds
+                }
             } else {
                 // UIKit: missionView의 모든 subView를 지웁니다.
                 for view in self.missionView.subviews {
@@ -48,22 +48,18 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // storyView에 GameScene을 띄웁니다..
-//        let scene: GameScene = GameScene(size: storyView.frame.size)
-//        scene.gameSceneDelegate = self
-//        storyView.presentScene(scene)
-//        // missionView에 MissionScene을 띄웁니다.
-//        let missionHintScene: MissionScene = MissionScene(size: missionView.frame.size)
-//        missionView.presentScene(missionHintScene)
         let scene = SKScene(fileNamed: "BusScene")
-        
         scene?.scaleMode = .aspectFill
-        
+        scene?.delegate = self
         storyView.presentScene(scene)
             
         storyView.ignoresSiblingOrder = false
         storyView.showsFPS = true
         storyView.showsNodeCount = true
+        
+        // missionView에 MissionScene을 띄웁니다.
+        let missionHintScene: MissionScene = MissionScene(size: missionView.frame.size)
+        missionView.presentScene(missionHintScene)
         
     }
     
@@ -72,21 +68,17 @@ class GameViewController: UIViewController {
     }
 }
 
-// storyView에 연결된 GameScene에서 사용할 함수를 설정합니다.
-extension GameViewController: GameSceneDelegate {
+extension GameViewController: BusSceneDelegate {
     func seatMission() {
         self.isBusMission = true
-        print(isBusMission)
-    }
-    
-    func missionCancled() {
-        self.isBusMission = false
-        self.isPoleMission = false
-        print("busMission이\(isBusMission)상태입니다.  poleMission이\(isPoleMission)상태입니다.")
     }
     
     func poleMission() {
         self.isPoleMission = true
-        print(isPoleMission)
     }
+}
+
+protocol BusSceneDelegate: SKSceneDelegate {
+    func seatMission()
+    func poleMission()
 }

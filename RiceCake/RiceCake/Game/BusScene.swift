@@ -15,10 +15,12 @@ class BusScene: SKScene {
     var missionseat: SKNode?
     var missionseatNode: SKNode?
     var missionpole: SKNode?
-    var missionpoleNode:SKNode?
+    var missionpoleNode: SKNode?
     var cameraNode: SKCameraNode?
     private var touchArea: SKShapeNode?
-    var gameSceneDelegate: GameSceneDelegate?
+    
+    // Delegate
+    weak var busDelegate: BusSceneDelegate?
     
     // Boolean
     var missionseatBool = false
@@ -47,8 +49,13 @@ class BusScene: SKScene {
         missionseatNode = missionseat?.childNode(withName: "missionseatNode")
         missionpole = childNode(withName: "missionpole")
         missionpoleNode = missionpole?.childNode(withName: "missionpoleNode")
-        
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
+        
+        missionLabel.position = CGPoint(x: (cameraNode?.position.x)!, y: (cameraNode?.position.y)! + 200)
+        missionLabel.fontColor = UIColor.blue
+        missionLabel.fontSize = 24
+        missionLabel.fontName = "AvenirNext-Bold"
+        cameraNode?.addChild(missionLabel)
         
         playerState = GKStateMachine(states: [
         IdleState(playerNode: busplayer!),
@@ -59,6 +66,7 @@ class BusScene: SKScene {
         createTouchArea()
         
         stateLanding()
+        
     }
 }
 
@@ -108,8 +116,14 @@ extension BusScene {
 }
 // MARK: Action
 extension BusScene {
-    func firstMission() {
-        
+    func loadMissionLabel() {
+        if missionseatBool {
+            missionLabel.text = "Bus Seat Mission"
+        } else if missionpoleBool {
+            missionLabel.text = "Bus Pole Mission"
+        } else {
+            missionLabel.text = "Finding Mission"
+        }
     }
 }
 
@@ -132,7 +146,7 @@ extension BusScene {
             road.run(SKAction.repeatForever(moveSeqence))
         }
         
-        // IdelState 도입
+        loadMissionLabel()
         
     }
 }
@@ -177,12 +191,16 @@ extension BusScene: SKPhysicsContactDelegate {
         
         if collision.matches(.player, .seat) {
             missionseatBool = true
+            self.busDelegate?.seatMission()
             print("Seat Mission Start")
+            loadMissionLabel()
         }
         
         if collision.matches(.player, .pole) {
             missionpoleBool = true
+            self.busDelegate?.poleMission()
             print("Pole Mission Start")
+            loadMissionLabel()
         }
     }
 }
