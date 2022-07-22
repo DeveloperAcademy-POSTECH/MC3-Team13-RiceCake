@@ -48,9 +48,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let scene = SKScene(fileNamed: "BusScene")
+        let scene = BusScene(fileNamed: "BusScene")
         scene?.scaleMode = .aspectFill
-        scene?.delegate = self
+        scene?.busDelegate = self
         storyView.presentScene(scene)
             
         storyView.ignoresSiblingOrder = false
