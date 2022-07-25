@@ -48,7 +48,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backButton" width="40" height="40"/>
+        <image name="backButton" width="173" height="172"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
