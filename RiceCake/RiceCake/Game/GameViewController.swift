@@ -12,9 +12,10 @@ class GameViewController: UIViewController {
     @IBOutlet var storyView: SKView!
     @IBOutlet var missionView: SKView!
     
-    var isBusMission: Bool = false {
+    // 프로퍼티 옵저버인 didset을 사용하여 프로퍼티 값이 변경되기 직후에 화면을 갱신합니다.
+    var isSeatMission: Bool = false {
         didSet {
-            if isBusMission {
+            if isSeatMission {
                 // SpriteKit: missionView의 MissionScene을 BusSeatMissionScene으로 변경합니다.
                 let seatMissionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
                 missionView.presentScene(seatMissionScene)
@@ -41,14 +42,14 @@ class GameViewController: UIViewController {
                 // UIKit: missionView의 모든 subView를 지웁니다.
                 for view in self.missionView.subviews {
                      view.removeFromSuperview()
-                 }
+                }
             }
         }
     }
-    
+    // MARK: - GameView를 초기화 합니다.
     override func viewDidLoad() {
         super.viewDidLoad()
-        // storyView에 GameScene을 띄웁니다..
+        // storyView에 GameScene을 띄웁니다.
         let scene: GameScene = GameScene(size: storyView.frame.size)
         scene.gameSceneDelegate = self
         storyView.presentScene(scene)
@@ -63,15 +64,13 @@ class GameViewController: UIViewController {
     }
 }
 
-// storyView에 연결된 GameScene에서 사용할 함수를 설정합니다.
+// GameSceneDelegate를 채택하여 GameScene에서 protocol에 정의된 method들을 구현합니다.
 extension GameViewController: GameSceneDelegate {
     func seatMission(state: Bool) {
-        self.isBusMission = state
-        print(isBusMission)
+        self.isSeatMission = state
     }
     
     func poleMission(state: Bool) {
         self.isPoleMission = state
-        print(isPoleMission)
     }
 }
