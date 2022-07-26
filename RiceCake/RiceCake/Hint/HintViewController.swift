@@ -11,6 +11,9 @@ class HintViewController: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
     
+    var labelTagNumber: Int = 1
+    var isHintEnd = false
+    
     let testTexts: [String] = ["버스를 탔는데 자리가 하나밖에 없는거야!", "그래서 빈자리에 얼른 가서 앉았어.", "우리 아가.", "흔들려서 힘들지 않았어?"]
     
     override func viewDidLoad() {
@@ -27,6 +30,10 @@ class HintViewController: UIViewController {
         setLabelConstraints(targetLabel: label2, topConstraintView: label1)
         setLabelConstraints(targetLabel: label3, topConstraintView: label2, isLeft: true)
         setLabelConstraints(targetLabel: label4, topConstraintView: label3, isLeft: true)
+        
+        // Tab Gesture Recongnizer 생성
+        let viewTapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(appearLabel(_:)))
+        view.addGestureRecognizer(viewTapped)
 
     }
     
@@ -40,6 +47,7 @@ class HintViewController: UIViewController {
         label.text = text
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 12
+        label.isHidden = viewTag == 1 ? false : true
         self.mainView.addSubview(label)
         
         return label
@@ -51,6 +59,16 @@ class HintViewController: UIViewController {
         targetLabel.topAnchor.constraint(equalTo: isFirst ? topConstraintView.topAnchor : topConstraintView.bottomAnchor, constant: 20).isActive = true
         targetLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10).isActive = isLeft
         targetLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -10).isActive = !isLeft
+    }
+    
+    // TapGesture 인식하면 말풍선이 순서대로 화면에 나옴
+    @objc func appearLabel(_ sender: UITapGestureRecognizer) {
+        if labelTagNumber == testTexts.count {
+            isHintEnd = true
+            // TODO: 다른 view에 isHintEnd 전달
+        }
+        labelTagNumber += 1
+        self.view.viewWithTag(labelTagNumber)?.isHidden = false
     }
 
 }
