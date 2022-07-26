@@ -42,11 +42,13 @@ class HintViewController: UIViewController {
         let label = PaddingLabel()
         label.padding(10, 10, 10, 10)
         label.tag = viewTag
-        label.backgroundColor = isLeft ? .white : .black
-        label.textColor = isLeft ? .black : .white
         label.text = text
+        label.textColor = isLeft ? .black : .white
+        label.backgroundColor = isLeft ? .white : .black
+        label.layer.borderWidth = 1
+        label.layer.borderColor = isLeft ? UIColor.black.cgColor : UIColor.white.cgColor
         label.layer.masksToBounds = true
-        label.layer.cornerRadius = 12
+        label.layer.cornerRadius = 20
         label.isHidden = viewTag == 1 ? false : true
         self.mainView.addSubview(label)
         
