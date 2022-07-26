@@ -13,9 +13,12 @@ class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysic
     var isCheckingMenu: Bool = false
     
     // SKNode들 생성
+    let effectNode = SKEffectNode()
     let orderMilkShakeMissionBackground = SKSpriteNode(imageNamed: "orderMilkShakeMissionBackground")
     let menuBoard: SKSpriteNode = SKSpriteNode(imageNamed: "menuBoard")
-    //    let magnifiedMenuBoard: SKSpriteNode = SKSpriteNode(imageNamed: "grabbingHand")
+    let magnifiedMenuBoard: SKSpriteNode = SKSpriteNode(imageNamed: "busSeatMissionBackground")
+    
+    var recognizer: UITapGestureRecognizer = UITapGestureRecognizer()
     
     // Scene이 View에 그려질 때 수행할 작업들을 정의.
     override func didMove(to view: SKView) {
@@ -23,33 +26,53 @@ class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysic
         
         drawBackground() // 배경 그리기
         drawMenuBoard() // 메뉴판 그리기
-        //        drawMagnifiedMenuBoard() // 손잡이를 잡은 손 그리기
+        drawMagnifiedMenuBoard() // 확대된 메뉴판 그리기
+        
+        // Gesture Recognizer 생성
+        recognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(doubleTapHappened(sender:))
+        )
         
         addDoubleTapGestureRecognizer() // Double-Tap Gesture 추가
     }
     // DoubleTapGesture를 입력받는 변수를 선언하고 SKView에 추가.
     func addDoubleTapGestureRecognizer() {
-        let recognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(doubleTapHappened(sender:))
-        )
         recognizer.numberOfTapsRequired = 2
         recognizer.delegate = self
         view?.addGestureRecognizer(recognizer)
     }
+
     // LongPressGesture 입력 시 수행할 작업 정의
     @objc func doubleTapHappened(sender: UITapGestureRecognizer) {
-        
-        // 미션 성공 조건 달성
-        isCheckingMenu = true
         
         let jumpHeight = viewHeight * (350 / 1600)
         let jumpUpAction = SKAction.moveBy(x: 0, y: jumpHeight, duration: 0.4)
         let jumpDownAction = SKAction.moveBy(x: 0, y: -jumpHeight, duration: 0.4)
         let jumpSequence = SKAction.sequence([jumpDownAction, jumpUpAction])
 
+        recognizer.isEnabled = false
         orderMilkShakeMissionBackground.run(jumpSequence)
-        menuBoard.run(jumpSequence)
+        menuBoard.run(jumpSequence) {
+            self.recognizer.isEnabled = true
+        }
+        
+        // 미션 성공 조건 달성
+        jumpCount += 1
+        menuBoard.alpha += 1/3 // 점프를 할 때마다 메뉴판이 투명도가 점점 감소
+        // TODO: 투명도 효과에서 Blur 효과로 변경하기
+        isCheckingMenu = true
+        
+        if jumpCount == 3 {
+            let fadeInSequence = SKAction.sequence(
+                [SKAction.wait(forDuration: 0.5),
+                 SKAction.fadeIn(withDuration: 1)]
+            )
+            magnifiedMenuBoard.run(fadeInSequence)
+        }
+    }
+    func processFadeInAction() async {
+        
     }
 }
 
@@ -80,7 +103,24 @@ extension OrderMilkShakeMissionScene {
             y: viewHeight / 2 + viewHeight * ( 175 / 1600 )
         )
         menuBoard.zPosition = OrderMilkShakeMissionLayer.menuBoard
+        menuBoard.alpha = 0.0
+        
         self.addChild(menuBoard)
+    }
+    
+    private func drawMagnifiedMenuBoard() {
+        magnifiedMenuBoard.size = CGSize(
+            width: viewWidth,
+            height: viewHeight
+        )
+        magnifiedMenuBoard.position = CGPoint(
+            x: viewWidth / 2,
+            y: viewHeight / 2
+        )
+        magnifiedMenuBoard.zPosition = OrderMilkShakeMissionLayer.magnifiedMenuBoard
+        magnifiedMenuBoard.alpha = 0.0
+        
+        self.addChild(magnifiedMenuBoard)
     }
 }
 
