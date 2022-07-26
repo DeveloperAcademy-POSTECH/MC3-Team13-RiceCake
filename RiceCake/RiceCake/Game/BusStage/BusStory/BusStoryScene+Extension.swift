@@ -8,10 +8,10 @@
 
 import SpriteKit
 
-extension GameScene {
+extension BusStoryScene {
     // MARK: - Game Environment Node들의 속성의 정의합니다.
     func createEnvironment() {
-        let envAtlas = SKTextureAtlas(named: "Environment")
+        let envAtlas = SKTextureAtlas(named: "BusEnvironment")
         let roadTexture = envAtlas.textureNamed("road")
         let roadRepeatNum = Int(ceil(self.size.height / self.size.height))
         
