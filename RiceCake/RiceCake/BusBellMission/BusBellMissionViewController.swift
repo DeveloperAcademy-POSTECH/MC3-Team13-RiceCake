@@ -8,7 +8,8 @@
 import UIKit
 
 class BusBellMissionViewController: UIViewController, UICollisionBehaviorDelegate {
-
+    private var dynamicAnimator: UIDynamicAnimator?
+    
     @IBOutlet weak var busBellMissionBackground: UIImageView!
     @IBOutlet weak var busBell: UIImageView!
     @IBOutlet weak var childLeftHand: UIImageView!
@@ -16,6 +17,11 @@ class BusBellMissionViewController: UIViewController, UICollisionBehaviorDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         childHandUpAndDown()
+        let collisionBehavior = UICollisionBehavior(items: [busBell, childLeftHand])
+        collisionBehavior.collisionDelegate = self
+        collisionBehavior.setTranslatesReferenceBoundsIntoBoundary(with: .zero)
+        collisionBehavior.collisionMode = .everything
+        self.dynamicAnimator?.addBehavior(collisionBehavior)
     }
     
     // 손 위치 반복될 때마다 초기 설정
@@ -39,4 +45,12 @@ class BusBellMissionViewController: UIViewController, UICollisionBehaviorDelegat
             self.childHandUpAndDown()
         })
     }
+    
+    func collisionBehavior(_ behavior: UICollisionBehavior,
+                           beganContactFor item: UIDynamicItem,
+                           withBoundaryIdentifier identifier: NSCopying?,
+                           at position: CGPoint) {
+      print("began contact boundary")
+    }
+    
 }
