@@ -18,6 +18,12 @@
 		34775664288FC4D00049A212 /* CafeStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775663288FC4D00049A212 /* CafeStoryViewController.swift */; };
 		34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775665288FC4D80049A212 /* CafeMissionViewController.swift */; };
 		34775668288FDADF0049A212 /* busStageNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775667288FDADF0049A212 /* busStageNotificationCenter.swift */; };
+		34775671288FE4240049A212 /* BusSeatMissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477566A288FE4240049A212 /* BusSeatMissionScene.swift */; };
+		34775672288FE4240049A212 /* BusSeatMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477566B288FE4240049A212 /* BusSeatMissionConstants.swift */; };
+		34775673288FE4240049A212 /* BusSeatMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477566C288FE4240049A212 /* BusSeatMissionViewController.swift */; };
+		34775674288FE4240049A212 /* BusSeatMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3477566D288FE4240049A212 /* BusSeatMission.storyboard */; };
+		34775675288FE4240049A212 /* BusPoleMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477566F288FE4240049A212 /* BusPoleMissionViewController.swift */; };
+		34775676288FE4240049A212 /* BusPoleMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775670288FE4240049A212 /* BusPoleMission.storyboard */; };
 		34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18415288044F7004B58E3 /* AppDelegate.swift */; };
 		34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18417288044F7004B58E3 /* SceneDelegate.swift */; };
 		34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A18420288044F8004B58E3 /* LaunchScreen.storyboard */; };
@@ -37,12 +43,6 @@
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
 		B2872307288F7DC20015A0B8 /* BusBellMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2872305288F7DC20015A0B8 /* BusBellMissionViewController.swift */; };
 		B287230A288F7E340015A0B8 /* BusBellMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2872309288F7E340015A0B8 /* BusBellMission.storyboard */; };
-		D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */; };
-		D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */; };
-		F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89008E92885835200750905 /* BusSeatMissionConstants.swift */; };
-		F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */; };
-		F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */; };
-		F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +57,12 @@
 		34775663288FC4D00049A212 /* CafeStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeStoryViewController.swift; sourceTree = "<group>"; };
 		34775665288FC4D80049A212 /* CafeMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeMissionViewController.swift; sourceTree = "<group>"; };
 		34775667288FDADF0049A212 /* busStageNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = busStageNotificationCenter.swift; sourceTree = "<group>"; };
+		3477566A288FE4240049A212 /* BusSeatMissionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSeatMissionScene.swift; sourceTree = "<group>"; };
+		3477566B288FE4240049A212 /* BusSeatMissionConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSeatMissionConstants.swift; sourceTree = "<group>"; };
+		3477566C288FE4240049A212 /* BusSeatMissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSeatMissionViewController.swift; sourceTree = "<group>"; };
+		3477566D288FE4240049A212 /* BusSeatMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusSeatMission.storyboard; sourceTree = "<group>"; };
+		3477566F288FE4240049A212 /* BusPoleMissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusPoleMissionViewController.swift; sourceTree = "<group>"; };
+		34775670288FE4240049A212 /* BusPoleMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusPoleMission.storyboard; sourceTree = "<group>"; };
 		34A18412288044F7004B58E3 /* RiceCake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiceCake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A18415288044F7004B58E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A18417288044F7004B58E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,12 +84,6 @@
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
 		B2872305288F7DC20015A0B8 /* BusBellMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusBellMissionViewController.swift; sourceTree = "<group>"; };
 		B2872309288F7E340015A0B8 /* BusBellMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusBellMission.storyboard; sourceTree = "<group>"; };
-		D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusPoleMission.storyboard; sourceTree = "<group>"; };
-		D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusPoleMissionViewController.swift; sourceTree = "<group>"; };
-		F89008E92885835200750905 /* BusSeatMissionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionConstants.swift; sourceTree = "<group>"; };
-		F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusSeatMission.storyboard; sourceTree = "<group>"; };
-		F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionViewController.swift; sourceTree = "<group>"; };
-		F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +103,6 @@
 				34775655288FBFE10049A212 /* BusMission.storyboard */,
 				34775657288FBFED0049A212 /* BusMissionViewController.swift */,
 				34F88C342886BE6700BB3DF8 /* MissionScene.swift */,
-				F8D2B0982883FAF600493132 /* BusSeatMission */,
-				D46A0E312885320E00AD57DF /* BusPoleMission */,
 			);
 			path = BusMission;
 			sourceTree = "<group>";
@@ -143,6 +141,26 @@
 			path = CafeStage;
 			sourceTree = "<group>";
 		};
+		34775669288FE4240049A212 /* BusSeatMission */ = {
+			isa = PBXGroup;
+			children = (
+				3477566A288FE4240049A212 /* BusSeatMissionScene.swift */,
+				3477566B288FE4240049A212 /* BusSeatMissionConstants.swift */,
+				3477566C288FE4240049A212 /* BusSeatMissionViewController.swift */,
+				3477566D288FE4240049A212 /* BusSeatMission.storyboard */,
+			);
+			path = BusSeatMission;
+			sourceTree = "<group>";
+		};
+		3477566E288FE4240049A212 /* BusPoleMission */ = {
+			isa = PBXGroup;
+			children = (
+				3477566F288FE4240049A212 /* BusPoleMissionViewController.swift */,
+				34775670288FE4240049A212 /* BusPoleMission.storyboard */,
+			);
+			path = BusPoleMission;
+			sourceTree = "<group>";
+		};
 		34A18409288044F7004B58E3 = {
 			isa = PBXGroup;
 			children = (
@@ -169,9 +187,6 @@
 				34B638CB28811E2C00760FD8 /* HomeView */,
 				34B638BB28811CBB00760FD8 /* StageView */,
 				34B638D128811EE300760FD8 /* Game */,
-				F8D2B0982883FAF600493132 /* BusSeatMission */,
-				B28722FE288F78A40015A0B8 /* BusBellMission */,
-				D46A0E312885320E00AD57DF /* BusPoleMission */,
 				34B638BA28811CBB00760FD8 /* Assets.xcassets */,
 				34A18423288044F8004B58E3 /* Info.plist */,
 			);
@@ -206,6 +221,9 @@
 				34775659288FC08B0049A212 /* BusStage */,
 				34B638D328811EE300760FD8 /* GameView.storyboard */,
 				34B638D228811EE300760FD8 /* GameViewController.swift */,
+				B28722FE288F78A40015A0B8 /* BusBellMission */,
+				3477566E288FE4240049A212 /* BusPoleMission */,
+				34775669288FE4240049A212 /* BusSeatMission */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -217,26 +235,6 @@
 				B2872305288F7DC20015A0B8 /* BusBellMissionViewController.swift */,
 			);
 			path = BusBellMission;
-			sourceTree = "<group>";
-		};
-		D46A0E312885320E00AD57DF /* BusPoleMission */ = {
-			isa = PBXGroup;
-			children = (
-				D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */,
-				D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */,
-			);
-			path = BusPoleMission;
-			sourceTree = "<group>";
-		};
-		F8D2B0982883FAF600493132 /* BusSeatMission */ = {
-			isa = PBXGroup;
-			children = (
-				F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */,
-				F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */,
-				F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */,
-				F89008E92885835200750905 /* BusSeatMissionConstants.swift */,
-			);
-			path = BusSeatMission;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +297,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */,
-				D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */,
-				F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */,
 				B287230A288F7E340015A0B8 /* BusBellMission.storyboard in Resources */,
 				34775662288FC4C60049A212 /* CafeMission.storyboard in Resources */,
 				34775660288FC4B20049A212 /* CafeStory.storyboard in Resources */,
@@ -309,6 +305,8 @@
 				34B638D028811E2C00760FD8 /* Main.storyboard in Resources */,
 				34B638C428811CBB00760FD8 /* Assets.xcassets in Resources */,
 				34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */,
+				34775674288FE4240049A212 /* BusSeatMission.storyboard in Resources */,
+				34775676288FE4240049A212 /* BusPoleMission.storyboard in Resources */,
 				34B638C628811CBB00760FD8 /* Stage.storyboard in Resources */,
 				34B638D528811EE300760FD8 /* GameView.storyboard in Resources */,
 				34F88C312885838600BB3DF8 /* ActionList.sks in Resources */,
@@ -353,18 +351,18 @@
 				B2872307288F7DC20015A0B8 /* BusBellMissionViewController.swift in Sources */,
 				34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,
+				34775675288FE4240049A212 /* BusPoleMissionViewController.swift in Sources */,
 				34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */,
 				34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */,
 				34B638CF28811E2C00760FD8 /* HomeViewController.swift in Sources */,
-				D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */,
+				34775671288FE4240049A212 /* BusSeatMissionScene.swift in Sources */,
+				34775673288FE4240049A212 /* BusSeatMissionViewController.swift in Sources */,
 				34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */,
 				34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */,
 				34C16E2E288424DD0050F469 /* Constants.swift in Sources */,
 				34775668288FDADF0049A212 /* busStageNotificationCenter.swift in Sources */,
-				F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */,
-				F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */,
 				34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */,
-				F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */,
+				34775672288FE4240049A212 /* BusSeatMissionConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
