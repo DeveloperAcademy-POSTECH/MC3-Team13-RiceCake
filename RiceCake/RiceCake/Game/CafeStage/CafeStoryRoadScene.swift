@@ -1,18 +1,16 @@
 //
-//  GameScene.swift
-//  gameTest
+//  CafeStoryRoadScene.swift
+//  RiceCake
 //
-//  Created by Jung Yunseong on 2022/07/14.
+//  Created by Jung Yunseong on 2022/07/26.
 //
 
 import SpriteKit
-import AudioToolbox
 
-class BusStoryScene: SKScene, SKPhysicsContactDelegate {
+class CafeStoryRoadScene: SKScene {
     
     var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
-    var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var descriptionLabel = SKLabelNode()
     var hintString: String = "" {
         didSet {
@@ -22,12 +20,8 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Node 초기화
     override func didMove(to view: SKView) {
-        self.physicsWorld.contactDelegate = self
         
-        createEnvironment()
-        setUpBus()
         createPlayer()
-        createSeatMissionPlayer()
         createTouchArea()
         createDescription()
     }
@@ -51,14 +45,11 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
         case BusStagePhysicsCategory.busSeat:
             player.isHidden = true
             NotificationCenter.default.post(name: .seatMission, object: nil)
-            seatMissionPlayer.isHidden = false
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Seat Mission"
             
         case BusStagePhysicsCategory.busPole:
             player.isPaused = true
             NotificationCenter.default.post(name: .poleMission, object: nil)
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Pole Mission"
             
         default:
@@ -90,8 +81,6 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
         }
         
         hintString = ""
-        NotificationCenter.default.post(name: .cancelMission, object: nil)
-        seatMissionPlayer.isHidden = true
         player.isPaused = false
         player.isHidden = false
         player.zRotation = radians
