@@ -89,8 +89,11 @@ extension StageViewController: UIScrollViewDelegate {
     
 extension StageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let stage = lists[indexPath.item]
         let storyboard = UIStoryboard(name: "GameView", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        
+        viewController.stage = stage
         
         navigationController?.pushViewController(viewController, animated: true)
     }
