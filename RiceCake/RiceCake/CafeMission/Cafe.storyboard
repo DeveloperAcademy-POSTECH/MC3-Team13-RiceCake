@@ -24,7 +24,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="animation" translatesAutoresizingMaskIntoConstraints="NO" id="0La-CO-M1J">
-                                <rect key="frame" x="248" y="131" width="400" height="194"/>
+                                <rect key="frame" x="248" y="110" width="400" height="194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="animation3" highlightedImage="animation4" translatesAutoresizingMaskIntoConstraints="NO" id="kg5-LI-EI7" userLabel="Animation">
+                                <rect key="frame" x="248" y="110" width="400" height="194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -37,21 +42,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AnimationView" destination="kg5-LI-EI7" id="AY6-G1-XqE"/>
                         <outlet property="GestureTest" destination="0La-CO-M1J" id="HC1-sF-R3I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="DKe-NC-YPg">
-                    <connections>
-                        <action selector="strawSwipe:" destination="Y6W-OH-hqX" id="NfP-qA-Ose"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-23.4375" y="101.44927536231884"/>
         </scene>
     </scenes>
     <resources>
         <image name="animation" width="233" height="223.5"/>
+        <image name="animation3" width="189" height="231"/>
+        <image name="animation4" width="195.5" height="228.5"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
