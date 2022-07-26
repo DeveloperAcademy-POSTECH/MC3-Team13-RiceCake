@@ -33,7 +33,6 @@ class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysic
             target: self,
             action: #selector(doubleTapHappened(sender:))
         )
-        
         addDoubleTapGestureRecognizer() // Double-Tap Gesture 추가
     }
     // DoubleTapGesture를 입력받는 변수를 선언하고 SKView에 추가.
@@ -58,8 +57,7 @@ class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysic
         
         // 미션 성공 조건 달성
         jumpCount += 1
-        menuBoard.alpha += 1/3 // 점프를 할 때마다 메뉴판이 투명도가 점점 감소
-        // TODO: 투명도 효과에서 Blur 효과로 변경하기
+        menuBoard.alpha += 1/3 // 점프를 할 때마다 메뉴판의 투명도가 감소
         isCheckingMenu = true
         
         if jumpCount == 3 {
@@ -88,7 +86,7 @@ extension OrderMilkShakeMissionScene {
         self.addChild(orderMilkShakeMissionBackground)
     }
     
-    // 탁상용 메뉴판 그리기
+    // 메뉴판 그리기
     private func drawMenuBoard() {
         menuBoard.size = CGSize(
             width: viewWidth,
