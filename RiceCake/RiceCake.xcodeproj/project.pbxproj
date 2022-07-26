@@ -17,6 +17,7 @@
 		34775662288FC4C60049A212 /* CafeMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775661288FC4C60049A212 /* CafeMission.storyboard */; };
 		34775664288FC4D00049A212 /* CafeStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775663288FC4D00049A212 /* CafeStoryViewController.swift */; };
 		34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775665288FC4D80049A212 /* CafeMissionViewController.swift */; };
+		34775668288FDADF0049A212 /* busStageNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775667288FDADF0049A212 /* busStageNotificationCenter.swift */; };
 		34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18415288044F7004B58E3 /* AppDelegate.swift */; };
 		34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18417288044F7004B58E3 /* SceneDelegate.swift */; };
 		34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A18420288044F8004B58E3 /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 		34775661288FC4C60049A212 /* CafeMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CafeMission.storyboard; sourceTree = "<group>"; };
 		34775663288FC4D00049A212 /* CafeStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeStoryViewController.swift; sourceTree = "<group>"; };
 		34775665288FC4D80049A212 /* CafeMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeMissionViewController.swift; sourceTree = "<group>"; };
+		34775667288FDADF0049A212 /* busStageNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = busStageNotificationCenter.swift; sourceTree = "<group>"; };
 		34A18412288044F7004B58E3 /* RiceCake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiceCake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A18415288044F7004B58E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A18417288044F7004B58E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		34775659288FC08B0049A212 /* BusStage */ = {
 			isa = PBXGroup;
 			children = (
+				34775667288FDADF0049A212 /* busStageNotificationCenter.swift */,
 				34775650288FBEF20049A212 /* BusStory */,
 				3477564F288FBEDA0049A212 /* BusMission */,
 			);
@@ -339,6 +342,7 @@
 				34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */,
 				34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */,
 				34C16E2E288424DD0050F469 /* Constants.swift in Sources */,
+				34775668288FDADF0049A212 /* busStageNotificationCenter.swift in Sources */,
 				F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */,
 				F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */,
 				34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */,

@@ -50,12 +50,14 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
             
         case PhysicsCategory.busSeat:
             player.isHidden = true
+            NotificationCenter.default.post(name: .seatMission, object: nil)
             seatMissionPlayer.isHidden = false
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Seat Mission"
             
         case PhysicsCategory.busPole:
             player.isPaused = true
+            NotificationCenter.default.post(name: .poleMission, object: nil)
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Pole Mission"
             
@@ -68,7 +70,7 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
-
+    
     func touchDown(atPoint pos: CGPoint) {
         
         let movementSpeed = 50.0
@@ -88,6 +90,7 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
         }
         
         hintString = ""
+        NotificationCenter.default.post(name: .cancelMission, object: nil)
         seatMissionPlayer.isHidden = true
         player.isPaused = false
         player.isHidden = false

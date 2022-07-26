@@ -16,21 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BusMission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWf-As-czF">
-                                <rect key="frame" x="75.5" y="204" width="149" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfT-pH-6OY" customClass="SKView">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oWf-As-czF" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="KtP-RN-esy"/>
-                            <constraint firstItem="oWf-As-czF" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="WQC-xv-2Ft"/>
+                            <constraint firstItem="bfT-pH-6OY" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Ehg-ZY-Md5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="bfT-pH-6OY" secondAttribute="bottom" id="Fcj-ac-GEP"/>
+                            <constraint firstItem="bfT-pH-6OY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="eEQ-l6-Zwl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bfT-pH-6OY" secondAttribute="trailing" id="uZg-vP-wW9"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="300" height="400"/>
+                    <connections>
+                        <outlet property="missionView" destination="bfT-pH-6OY" id="0JY-9u-D5g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
