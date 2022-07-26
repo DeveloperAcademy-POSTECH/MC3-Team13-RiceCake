@@ -16,7 +16,7 @@ class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysic
     let effectNode = SKEffectNode()
     let orderMilkShakeMissionBackground = SKSpriteNode(imageNamed: "orderMilkShakeMissionBackground")
     let menuBoard: SKSpriteNode = SKSpriteNode(imageNamed: "menuBoard")
-    let magnifiedMenuBoard: SKSpriteNode = SKSpriteNode(imageNamed: "busSeatMissionBackground")
+    let magnifiedMenuBoard: SKSpriteNode = SKSpriteNode(imageNamed: "magnifiedMenuBoard")
     
     var recognizer: UITapGestureRecognizer = UITapGestureRecognizer()
     
@@ -42,7 +42,6 @@ class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysic
         recognizer.delegate = self
         view?.addGestureRecognizer(recognizer)
     }
-
     // LongPressGesture 입력 시 수행할 작업 정의
     @objc func doubleTapHappened(sender: UITapGestureRecognizer) {
         
@@ -70,9 +69,6 @@ class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysic
             )
             magnifiedMenuBoard.run(fadeInSequence)
         }
-    }
-    func processFadeInAction() async {
-        
     }
 }
 
