@@ -7,17 +7,18 @@
 
 import Foundation
 import UIKit
+import SpriteKit
 
 struct Stage: Hashable {
     let stageName: String
     let imageName: String
+    let storyViewController: UIViewController
+    let missionViewController: UIViewController
 }
 
 extension Stage {
     static let list: [Stage] = [
-        Stage(stageName: "First Stage", imageName: "bus"),
-        Stage(stageName: "Second Stage", imageName: "bus"),
-        Stage(stageName: "Third Stage", imageName: "bus"),
-        Stage(stageName: "Fourth Stage", imageName: "bus")
+        Stage(stageName: "나 이제 버스도 혼자 탈 수 있다!", imageName: "bus", storyViewController: UIStoryboard(name: "BusPoleMission", bundle: .main).instantiateViewController(identifier: "BusPole"), missionViewController: UIStoryboard(name: "BusPoleMission", bundle: .main).instantiateViewController(identifier: "BusPole")),
+    Stage(stageName: "달콤한 밀크쉐이크", imageName: "bus", storyViewController: UIStoryboard(name: "BusPoleMission", bundle: .main).instantiateViewController(identifier: "BusPole"), missionViewController: UIStoryboard(name: "BusPoleMission", bundle: .main).instantiateViewController(identifier: "BusPole"))
     ]
 }
