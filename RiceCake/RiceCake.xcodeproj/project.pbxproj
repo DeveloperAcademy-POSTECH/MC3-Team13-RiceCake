@@ -35,6 +35,8 @@
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
 		34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C342886BE6700BB3DF8 /* MissionScene.swift */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
+		D4537732289050B100C87076 /* HintView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4537731289050B100C87076 /* HintView.storyboard */; };
+		D4537734289050C200C87076 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4537733289050C200C87076 /* HintViewController.swift */; };
 		D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */; };
 		D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */; };
 		F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89008E92885835200750905 /* BusSeatMissionConstants.swift */; };
@@ -74,6 +76,8 @@
 		34F88C302885838600BB3DF8 /* ActionList.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionList.sks; sourceTree = "<group>"; };
 		34F88C342886BE6700BB3DF8 /* MissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
+		D4537731289050B100C87076 /* HintView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HintView.storyboard; sourceTree = "<group>"; };
+		D4537733289050C200C87076 /* HintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintViewController.swift; sourceTree = "<group>"; };
 		D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusPoleMission.storyboard; sourceTree = "<group>"; };
 		D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusPoleMissionViewController.swift; sourceTree = "<group>"; };
 		F89008E92885835200750905 /* BusSeatMissionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionConstants.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				34B638CB28811E2C00760FD8 /* HomeView */,
 				34B638BB28811CBB00760FD8 /* StageView */,
 				34B638D128811EE300760FD8 /* Game */,
+				D4537735289050CC00C87076 /* Hint */,
 				34B638BA28811CBB00760FD8 /* Assets.xcassets */,
 				34A18423288044F8004B58E3 /* Info.plist */,
 			);
@@ -201,6 +206,15 @@
 				34B638D228811EE300760FD8 /* GameViewController.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		D4537735289050CC00C87076 /* Hint */ = {
+			isa = PBXGroup;
+			children = (
+				D4537731289050B100C87076 /* HintView.storyboard */,
+				D4537733289050C200C87076 /* HintViewController.swift */,
+			);
+			path = Hint;
 			sourceTree = "<group>";
 		};
 		D46A0E312885320E00AD57DF /* BusPoleMission */ = {
@@ -290,6 +304,7 @@
 				34775652288FBF4D0049A212 /* BusStory.storyboard in Resources */,
 				34775656288FBFE10049A212 /* BusMission.storyboard in Resources */,
 				34B638D028811E2C00760FD8 /* Main.storyboard in Resources */,
+				D4537732289050B100C87076 /* HintView.storyboard in Resources */,
 				34B638C428811CBB00760FD8 /* Assets.xcassets in Resources */,
 				34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */,
 				34B638C628811CBB00760FD8 /* Stage.storyboard in Resources */,
@@ -347,6 +362,7 @@
 				F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */,
 				34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */,
 				F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */,
+				D4537734289050C200C87076 /* HintViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
