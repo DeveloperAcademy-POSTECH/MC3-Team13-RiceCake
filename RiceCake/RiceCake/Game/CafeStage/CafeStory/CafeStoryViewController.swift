@@ -14,7 +14,7 @@ class CafeStoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let scene: BusStoryScene = BusStoryScene(size: storyView.frame.size)
+        let scene: CafeStoryRoadScene = CafeStoryRoadScene(size: storyView.frame.size)
         storyView.presentScene(scene)
     }
 }

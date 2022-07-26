@@ -13,14 +13,14 @@
 		34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775653288FBF630049A212 /* BusStoryViewController.swift */; };
 		34775656288FBFE10049A212 /* BusMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775655288FBFE10049A212 /* BusMission.storyboard */; };
 		34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775657288FBFED0049A212 /* BusMissionViewController.swift */; };
-		34775660288FC4B20049A212 /* CafeStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3477565F288FC4B20049A212 /* CafeStory.storyboard */; };
 		34775662288FC4C60049A212 /* CafeMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775661288FC4C60049A212 /* CafeMission.storyboard */; };
-		34775664288FC4D00049A212 /* CafeStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775663288FC4D00049A212 /* CafeStoryViewController.swift */; };
 		34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775665288FC4D80049A212 /* CafeMissionViewController.swift */; };
 		34775668288FDADF0049A212 /* busStageNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775667288FDADF0049A212 /* busStageNotificationCenter.swift */; };
-		34775678289029780049A212 /* CafeStoryRoadScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775677289029780049A212 /* CafeStoryRoadScene.swift */; };
-		3477567A28902A620049A212 /* CafeStoryRoadScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477567928902A620049A212 /* CafeStoryRoadScene+Extension.swift */; };
-		3477567C28902C680049A212 /* CafeStageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477567B28902C680049A212 /* CafeStageConstant.swift */; };
+		3477568628903B7E0049A212 /* CafeStageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568128903B7E0049A212 /* CafeStageConstant.swift */; };
+		3477568728903B7E0049A212 /* CafeStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3477568228903B7E0049A212 /* CafeStory.storyboard */; };
+		3477568828903B7E0049A212 /* CafeStoryRoadScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */; };
+		3477568928903B7E0049A212 /* CafeStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568428903B7E0049A212 /* CafeStoryViewController.swift */; };
+		3477568A28903B7E0049A212 /* CafeStoryRoadScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */; };
 		34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18415288044F7004B58E3 /* AppDelegate.swift */; };
 		34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18417288044F7004B58E3 /* SceneDelegate.swift */; };
 		34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A18420288044F8004B58E3 /* LaunchScreen.storyboard */; };
@@ -53,14 +53,14 @@
 		34775653288FBF630049A212 /* BusStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStoryViewController.swift; sourceTree = "<group>"; };
 		34775655288FBFE10049A212 /* BusMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusMission.storyboard; sourceTree = "<group>"; };
 		34775657288FBFED0049A212 /* BusMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusMissionViewController.swift; sourceTree = "<group>"; };
-		3477565F288FC4B20049A212 /* CafeStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CafeStory.storyboard; sourceTree = "<group>"; };
 		34775661288FC4C60049A212 /* CafeMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CafeMission.storyboard; sourceTree = "<group>"; };
-		34775663288FC4D00049A212 /* CafeStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeStoryViewController.swift; sourceTree = "<group>"; };
 		34775665288FC4D80049A212 /* CafeMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeMissionViewController.swift; sourceTree = "<group>"; };
 		34775667288FDADF0049A212 /* busStageNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = busStageNotificationCenter.swift; sourceTree = "<group>"; };
-		34775677289029780049A212 /* CafeStoryRoadScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeStoryRoadScene.swift; sourceTree = "<group>"; };
-		3477567928902A620049A212 /* CafeStoryRoadScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CafeStoryRoadScene+Extension.swift"; sourceTree = "<group>"; };
-		3477567B28902C680049A212 /* CafeStageConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeStageConstant.swift; sourceTree = "<group>"; };
+		3477568128903B7E0049A212 /* CafeStageConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeStageConstant.swift; sourceTree = "<group>"; };
+		3477568228903B7E0049A212 /* CafeStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CafeStory.storyboard; sourceTree = "<group>"; };
+		3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CafeStoryRoadScene+Extension.swift"; sourceTree = "<group>"; };
+		3477568428903B7E0049A212 /* CafeStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeStoryViewController.swift; sourceTree = "<group>"; };
+		3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeStoryRoadScene.swift; sourceTree = "<group>"; };
 		34A18412288044F7004B58E3 /* RiceCake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiceCake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A18415288044F7004B58E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A18417288044F7004B58E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,15 +137,23 @@
 		3477565A288FC46F0049A212 /* CafeStage */ = {
 			isa = PBXGroup;
 			children = (
-				3477565F288FC4B20049A212 /* CafeStory.storyboard */,
+				3477568028903B7E0049A212 /* CafeStory */,
 				34775661288FC4C60049A212 /* CafeMission.storyboard */,
-				34775663288FC4D00049A212 /* CafeStoryViewController.swift */,
-				34775677289029780049A212 /* CafeStoryRoadScene.swift */,
-				3477567928902A620049A212 /* CafeStoryRoadScene+Extension.swift */,
-				3477567B28902C680049A212 /* CafeStageConstant.swift */,
 				34775665288FC4D80049A212 /* CafeMissionViewController.swift */,
 			);
 			path = CafeStage;
+			sourceTree = "<group>";
+		};
+		3477568028903B7E0049A212 /* CafeStory */ = {
+			isa = PBXGroup;
+			children = (
+				3477568128903B7E0049A212 /* CafeStageConstant.swift */,
+				3477568228903B7E0049A212 /* CafeStory.storyboard */,
+				3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */,
+				3477568428903B7E0049A212 /* CafeStoryViewController.swift */,
+				3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */,
+			);
+			path = CafeStory;
 			sourceTree = "<group>";
 		};
 		34A18409288044F7004B58E3 = {
@@ -292,10 +300,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */,
+				3477568728903B7E0049A212 /* CafeStory.storyboard in Resources */,
 				D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */,
 				F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */,
 				34775662288FC4C60049A212 /* CafeMission.storyboard in Resources */,
-				34775660288FC4B20049A212 /* CafeStory.storyboard in Resources */,
 				34775652288FBF4D0049A212 /* BusStory.storyboard in Resources */,
 				34775656288FBFE10049A212 /* BusMission.storyboard in Resources */,
 				34B638D028811E2C00760FD8 /* Main.storyboard in Resources */,
@@ -338,19 +346,19 @@
 				34B638D428811EE300760FD8 /* GameViewController.swift in Sources */,
 				34B638C728811CBB00760FD8 /* StageModel.swift in Sources */,
 				3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */,
-				34775664288FC4D00049A212 /* CafeStoryViewController.swift in Sources */,
+				3477568928903B7E0049A212 /* CafeStoryViewController.swift in Sources */,
 				34B638C528811CBB00760FD8 /* StageCell.swift in Sources */,
 				343579F02889B9AD00DB1FB7 /* BusStoryScene+Extension.swift in Sources */,
 				34B638C828811CBB00760FD8 /* StageViewController.swift in Sources */,
-				3477567A28902A620049A212 /* CafeStoryRoadScene+Extension.swift in Sources */,
+				3477568A28903B7E0049A212 /* CafeStoryRoadScene.swift in Sources */,
 				34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */,
+				3477568828903B7E0049A212 /* CafeStoryRoadScene+Extension.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,
 				34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */,
-				34775678289029780049A212 /* CafeStoryRoadScene.swift in Sources */,
 				34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */,
 				34B638CF28811E2C00760FD8 /* HomeViewController.swift in Sources */,
 				D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */,
-				3477567C28902C680049A212 /* CafeStageConstant.swift in Sources */,
+				3477568628903B7E0049A212 /* CafeStageConstant.swift in Sources */,
 				34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */,
 				34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */,
 				34C16E2E288424DD0050F469 /* BusStageConstants.swift in Sources */,

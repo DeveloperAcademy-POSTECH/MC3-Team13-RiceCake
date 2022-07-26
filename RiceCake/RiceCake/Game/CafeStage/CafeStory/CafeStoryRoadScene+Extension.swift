@@ -41,7 +41,7 @@ extension CafeStoryRoadScene {
         player.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         player.zPosition = BusStageLayer.player
         player.zRotation = 1.5
-        player.physicsBody = SKPhysicsBody(circleOfRadius: 8)
+//        player.physicsBody = SKPhysicsBody(circleOfRadius: 8)
 //        player.physicsBody?.categoryBitMask =
 //        player.physicsBody?.contactTestBitMask =
 //        player.physicsBody?.collisionBitMask =

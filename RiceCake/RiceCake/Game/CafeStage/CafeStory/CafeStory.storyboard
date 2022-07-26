@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHB-59-Pa5" customClass="SKView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRh-J1-ibU" customClass="SKView">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -24,20 +24,20 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XHB-59-Pa5" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="JT1-lJ-hqB"/>
-                            <constraint firstItem="XHB-59-Pa5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="VeP-RY-wa8"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XHB-59-Pa5" secondAttribute="bottom" id="d7V-Dx-WpZ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XHB-59-Pa5" secondAttribute="trailing" id="ej7-1t-zQ3"/>
+                            <constraint firstItem="nRh-J1-ibU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="VPs-Du-kYs"/>
+                            <constraint firstItem="nRh-J1-ibU" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="fyC-Yw-yeq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nRh-J1-ibU" secondAttribute="bottom" id="kgJ-2r-Jjz"/>
+                            <constraint firstItem="nRh-J1-ibU" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="oH0-9q-4aH"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="300" height="400"/>
                     <connections>
-                        <outlet property="storyView" destination="XHB-59-Pa5" id="iPd-or-3em"/>
+                        <outlet property="storyView" destination="nRh-J1-ibU" id="zyx-01-KbO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="61" y="75"/>
+            <point key="canvasLocation" x="49" y="106"/>
         </scene>
     </scenes>
     <resources>
