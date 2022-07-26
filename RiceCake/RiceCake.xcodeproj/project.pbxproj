@@ -147,8 +147,8 @@
 		3477568028903B7E0049A212 /* CafeStory */ = {
 			isa = PBXGroup;
 			children = (
-				3477568128903B7E0049A212 /* CafeStageConstant.swift */,
 				3477568228903B7E0049A212 /* CafeStory.storyboard */,
+				3477568128903B7E0049A212 /* CafeStageConstant.swift */,
 				3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */,
 				3477568428903B7E0049A212 /* CafeStoryViewController.swift */,
 				3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */,
