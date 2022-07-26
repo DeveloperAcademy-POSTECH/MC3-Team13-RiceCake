@@ -26,6 +26,8 @@
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
 		34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C342886BE6700BB3DF8 /* MissionScene.swift */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
+		B2872307288F7DC20015A0B8 /* BusBellMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2872305288F7DC20015A0B8 /* BusBellMissionViewController.swift */; };
+		B287230A288F7E340015A0B8 /* BusBellMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2872309288F7E340015A0B8 /* BusBellMission.storyboard */; };
 		D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */; };
 		D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */; };
 		F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89008E92885835200750905 /* BusSeatMissionConstants.swift */; };
@@ -56,6 +58,8 @@
 		34F88C302885838600BB3DF8 /* ActionList.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionList.sks; sourceTree = "<group>"; };
 		34F88C342886BE6700BB3DF8 /* MissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
+		B2872305288F7DC20015A0B8 /* BusBellMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusBellMissionViewController.swift; sourceTree = "<group>"; };
+		B2872309288F7E340015A0B8 /* BusBellMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusBellMission.storyboard; sourceTree = "<group>"; };
 		D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusPoleMission.storyboard; sourceTree = "<group>"; };
 		D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusPoleMissionViewController.swift; sourceTree = "<group>"; };
 		F89008E92885835200750905 /* BusSeatMissionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionConstants.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				34B638BB28811CBB00760FD8 /* StageView */,
 				34B638D128811EE300760FD8 /* Game */,
 				F8D2B0982883FAF600493132 /* BusSeatMission */,
+				B28722FE288F78A40015A0B8 /* BusBellMission */,
 				D46A0E312885320E00AD57DF /* BusPoleMission */,
 				34B638BA28811CBB00760FD8 /* Assets.xcassets */,
 				34A18423288044F8004B58E3 /* Info.plist */,
@@ -142,6 +147,15 @@
 				34B638D328811EE300760FD8 /* GameView.storyboard */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		B28722FE288F78A40015A0B8 /* BusBellMission */ = {
+			isa = PBXGroup;
+			children = (
+				B2872305288F7DC20015A0B8 /* BusBellMissionViewController.swift */,
+				B2872309288F7E340015A0B8 /* BusBellMission.storyboard */,
+			);
+			path = BusBellMission;
 			sourceTree = "<group>";
 		};
 		D46A0E312885320E00AD57DF /* BusPoleMission */ = {
@@ -226,6 +240,7 @@
 				34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */,
 				D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */,
 				F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */,
+				B287230A288F7E340015A0B8 /* BusBellMission.storyboard in Resources */,
 				34B638D028811E2C00760FD8 /* Main.storyboard in Resources */,
 				34B638C428811CBB00760FD8 /* Assets.xcassets in Resources */,
 				34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */,
@@ -269,6 +284,7 @@
 				34B638C528811CBB00760FD8 /* StageCell.swift in Sources */,
 				343579F02889B9AD00DB1FB7 /* GameScene+Extension.swift in Sources */,
 				34B638C828811CBB00760FD8 /* StageViewController.swift in Sources */,
+				B2872307288F7DC20015A0B8 /* BusBellMissionViewController.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,
 				34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */,
 				34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */,
