@@ -17,6 +17,7 @@ class HintViewController: UIViewController {
         super.viewDidLoad()
         
         let label1 = createPaddingLabel(text: testTexts[0], viewTag: 1)
+        setLabelConstraints(targetLabel: label1, topConstraintView: mainView, isFirst: true)
 
     }
     
@@ -35,6 +36,13 @@ class HintViewController: UIViewController {
         return label
     }
     
+    // 말풍선에 AutoLayout 적용
+    private func setLabelConstraints(targetLabel: UIView, topConstraintView: UIView, isFirst: Bool = false, isLeft: Bool = false) {
+        targetLabel.translatesAutoresizingMaskIntoConstraints = false
+        targetLabel.topAnchor.constraint(equalTo: isFirst ? topConstraintView.topAnchor : topConstraintView.bottomAnchor, constant: 20).isActive = true
+        targetLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10).isActive = isLeft
+        targetLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -10).isActive = !isLeft
+    }
 
 }
 
