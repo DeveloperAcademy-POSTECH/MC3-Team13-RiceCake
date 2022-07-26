@@ -23,13 +23,14 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
         createPlayer()
         createTouchArea()
         
-        // 카메라 추가
+        // 카메라 노드 추가
         camera = cameraNode
         cameraNode.position.x = self.size.width / 2
         cameraNode.position.y = self.size.height / 2
         self.addChild(cameraNode)
     }
     
+    // 카메라의 세부 움직임을 설정합니다.
     override func update(_ currentTime: CFTimeInterval) {
         if player.position.y <= self.size.height / 2 {
             camera?.position.y = self.size.height / 2
