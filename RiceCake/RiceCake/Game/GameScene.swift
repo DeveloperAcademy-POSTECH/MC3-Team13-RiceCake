@@ -30,6 +30,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Node 초기화
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
+        // 플레이어 위치조정
+        player.position.x = 100
+        player.position.y = 30
         
         createEnvironment()
         setUpBus()
@@ -105,5 +108,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))
+        
     }
 }

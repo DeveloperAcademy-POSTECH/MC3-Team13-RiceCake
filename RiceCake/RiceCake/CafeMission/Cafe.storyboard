@@ -18,19 +18,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MilkShakeMission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzR-Wn-iwt">
-                                <rect key="frame" x="323.5" y="187.5" width="249" height="39"/>
+                                <rect key="frame" x="323.5" y="30" width="249" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="animation" translatesAutoresizingMaskIntoConstraints="NO" id="0La-CO-M1J">
+                                <rect key="frame" x="248" y="131" width="400" height="194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xzR-Wn-iwt" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Pkz-Uz-9CO"/>
-                            <constraint firstItem="xzR-Wn-iwt" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Vkg-Ps-CwR"/>
+                            <constraint firstItem="xzR-Wn-iwt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="Fbx-OJ-bdv"/>
+                            <constraint firstItem="xzR-Wn-iwt" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Y8T-OF-asw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="GestureTest" destination="0La-CO-M1J" id="HC1-sF-R3I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,6 +45,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="animation" width="233" height="223.5"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

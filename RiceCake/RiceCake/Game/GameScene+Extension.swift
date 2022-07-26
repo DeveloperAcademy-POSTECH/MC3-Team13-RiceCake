@@ -99,7 +99,7 @@ extension GameScene {
         let playerWidth = 20
         
         player.size = CGSize(width: playerWidth, height: playerWidth - 5)
-        player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
+//        player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
         player.zPosition = Layer.player
         player.zRotation = 1.5
         player.physicsBody = SKPhysicsBody(circleOfRadius: 8)
