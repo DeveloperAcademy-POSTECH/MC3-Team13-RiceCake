@@ -9,10 +9,32 @@ import UIKit
 
 class HintViewController: UIViewController {
 
+    @IBOutlet weak var mainView: UIView!
+    
+    let testTexts: [String] = ["버스를 탔는데 자리가 하나밖에 없는거야!", "그래서 빈자리에 얼른 가서 앉았어.", "우리 아가.", "흔들려서 힘들지 않았어?"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let label1 = createPaddingLabel(text: testTexts[0], viewTag: 1)
 
     }
+    
+    // Padding이 적용된 UILabel 생성
+    private func createPaddingLabel(text: String, viewTag: Int = 0, isLeft: Bool = false) -> UILabel {
+        let label = PaddingLabel()
+        label.padding(10, 10, 10, 10)
+        label.tag = viewTag
+        label.backgroundColor = isLeft ? .white : .black
+        label.textColor = isLeft ? .black : .white
+        label.text = text
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 12
+        self.mainView.addSubview(label)
+        
+        return label
+    }
+    
 
 }
 

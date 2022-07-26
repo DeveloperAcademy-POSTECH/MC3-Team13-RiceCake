@@ -34,6 +34,9 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="600" height="800"/>
+                    <connections>
+                        <outlet property="mainView" destination="oUw-q5-49H" id="bnq-1B-Qyv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
