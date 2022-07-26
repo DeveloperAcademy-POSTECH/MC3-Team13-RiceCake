@@ -8,15 +8,8 @@
 import SpriteKit
 import AudioToolbox
 
-// GameViewController에서 구현될 method들을 정의합니다.
-protocol GameSceneDelegate: AnyObject {
-    func seatMission(state: Bool)
-    func poleMission(state: Bool)
-}
-
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class BusStoryScene: SKScene, SKPhysicsContactDelegate {
     
-    weak var gameSceneDelegate: GameSceneDelegate?
     var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
@@ -56,14 +49,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("버스 프레임과 부딪혔습니다.")
             
         case PhysicsCategory.busSeat:
-            gameSceneDelegate?.seatMission(state: true)
             player.isHidden = true
             seatMissionPlayer.isHidden = false
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Seat Mission"
             
         case PhysicsCategory.busPole:
-            gameSceneDelegate?.poleMission(state: true)
             player.isPaused = true
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Pole Mission"
@@ -97,11 +88,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         hintString = ""
-        gameSceneDelegate?.seatMission(state: false)
-        gameSceneDelegate?.poleMission(state: false)
+        seatMissionPlayer.isHidden = true
         player.isPaused = false
         player.isHidden = false
-        seatMissionPlayer.isHidden = true
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))

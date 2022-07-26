@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3425053E28815D1000A8B6AF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3425053C28815D1000A8B6AF /* GameScene.swift */; };
-		343579F02889B9AD00DB1FB7 /* GameScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343579EF2889B9AD00DB1FB7 /* GameScene+Extension.swift */; };
+		3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3425053C28815D1000A8B6AF /* BusStoryScene.swift */; };
+		343579F02889B9AD00DB1FB7 /* BusStoryScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343579EF2889B9AD00DB1FB7 /* BusStoryScene+Extension.swift */; };
 		34775652288FBF4D0049A212 /* BusStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775651288FBF4D0049A212 /* BusStory.storyboard */; };
 		34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775653288FBF630049A212 /* BusStoryViewController.swift */; };
 		34775656288FBFE10049A212 /* BusMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775655288FBFE10049A212 /* BusMission.storyboard */; };
@@ -43,8 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3425053C28815D1000A8B6AF /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		343579EF2889B9AD00DB1FB7 /* GameScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Extension.swift"; sourceTree = "<group>"; };
+		3425053C28815D1000A8B6AF /* BusStoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStoryScene.swift; sourceTree = "<group>"; };
+		343579EF2889B9AD00DB1FB7 /* BusStoryScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BusStoryScene+Extension.swift"; sourceTree = "<group>"; };
 		34775651288FBF4D0049A212 /* BusStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusStory.storyboard; sourceTree = "<group>"; };
 		34775653288FBF630049A212 /* BusStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStoryViewController.swift; sourceTree = "<group>"; };
 		34775655288FBFE10049A212 /* BusMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusMission.storyboard; sourceTree = "<group>"; };
@@ -106,8 +106,8 @@
 		34775650288FBEF20049A212 /* BusStory */ = {
 			isa = PBXGroup;
 			children = (
-				3425053C28815D1000A8B6AF /* GameScene.swift */,
-				343579EF2889B9AD00DB1FB7 /* GameScene+Extension.swift */,
+				3425053C28815D1000A8B6AF /* BusStoryScene.swift */,
+				343579EF2889B9AD00DB1FB7 /* BusStoryScene+Extension.swift */,
 				34F88C302885838600BB3DF8 /* ActionList.sks */,
 				34C16E2D288424DD0050F469 /* Constants.swift */,
 				34775651288FBF4D0049A212 /* BusStory.storyboard */,
@@ -325,10 +325,10 @@
 			files = (
 				34B638D428811EE300760FD8 /* GameViewController.swift in Sources */,
 				34B638C728811CBB00760FD8 /* StageModel.swift in Sources */,
-				3425053E28815D1000A8B6AF /* GameScene.swift in Sources */,
+				3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */,
 				34775664288FC4D00049A212 /* CafeStoryViewController.swift in Sources */,
 				34B638C528811CBB00760FD8 /* StageCell.swift in Sources */,
-				343579F02889B9AD00DB1FB7 /* GameScene+Extension.swift in Sources */,
+				343579F02889B9AD00DB1FB7 /* BusStoryScene+Extension.swift in Sources */,
 				34B638C828811CBB00760FD8 /* StageViewController.swift in Sources */,
 				34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,

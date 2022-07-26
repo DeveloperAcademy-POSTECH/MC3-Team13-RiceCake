@@ -16,21 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BusStory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9t-HD-Dpg">
-                                <rect key="frame" x="91" y="204" width="118" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygQ-07-nyB" customClass="SKView">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="e9t-HD-Dpg" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="0W6-jD-8U8"/>
-                            <constraint firstItem="e9t-HD-Dpg" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="tNi-oE-hcH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ygQ-07-nyB" secondAttribute="bottom" id="SQr-e2-c3Q"/>
+                            <constraint firstItem="ygQ-07-nyB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hUz-dP-Zo0"/>
+                            <constraint firstItem="ygQ-07-nyB" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="pOs-IH-aVP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ygQ-07-nyB" secondAttribute="trailing" id="vkF-mZ-jf9"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="300" height="400"/>
+                    <connections>
+                        <outlet property="storyView" destination="ygQ-07-nyB" id="MWC-oT-Xnv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

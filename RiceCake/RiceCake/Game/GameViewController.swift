@@ -5,12 +5,12 @@
 //  Created by Jung Yunseong on 2022/07/15.
 //
 
-import SpriteKit
+import UIKit
 
 class GameViewController: UIViewController {
     
-    @IBOutlet var storyView: SKView!
-    @IBOutlet var missionView: SKView!
+    @IBOutlet var storyView: UIView!
+    @IBOutlet var missionView: UIView!
     
     var stage: Stage = Stage(stageName: "Stage Name", imageName: "", storyViewController: UIViewController(), missionViewController: UIViewController())
     
