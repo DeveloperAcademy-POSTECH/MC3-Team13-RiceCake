@@ -16,8 +16,17 @@ class HintViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 말풍선 생성
         let label1 = createPaddingLabel(text: testTexts[0], viewTag: 1)
+        let label2 = createPaddingLabel(text: testTexts[1], viewTag: 2)
+        let label3 = createPaddingLabel(text: testTexts[2], viewTag: 3, isLeft: true)
+        let label4 = createPaddingLabel(text: testTexts[3], viewTag: 4, isLeft: true)
+        
+        // 말풍선 위치 설정
         setLabelConstraints(targetLabel: label1, topConstraintView: mainView, isFirst: true)
+        setLabelConstraints(targetLabel: label2, topConstraintView: label1)
+        setLabelConstraints(targetLabel: label3, topConstraintView: label2, isLeft: true)
+        setLabelConstraints(targetLabel: label4, topConstraintView: label3, isLeft: true)
 
     }
     
