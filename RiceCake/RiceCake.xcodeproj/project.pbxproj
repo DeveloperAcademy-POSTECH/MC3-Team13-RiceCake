@@ -39,6 +39,7 @@
 		D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */; };
 		F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89008E92885835200750905 /* BusSeatMissionConstants.swift */; };
 		F8B6ED15289007930046E7BD /* OrderMilkShakeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6ED14289007930046E7BD /* OrderMilkShakeScene.swift */; };
+		F8B6ED17289011D10046E7BD /* OrderMilkShakeMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6ED16289011D10046E7BD /* OrderMilkShakeMissionConstants.swift */; };
 		F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */; };
 		F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */; };
 		F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */; };
@@ -79,6 +80,7 @@
 		D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusPoleMissionViewController.swift; sourceTree = "<group>"; };
 		F89008E92885835200750905 /* BusSeatMissionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionConstants.swift; sourceTree = "<group>"; };
 		F8B6ED14289007930046E7BD /* OrderMilkShakeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMilkShakeScene.swift; sourceTree = "<group>"; };
+		F8B6ED16289011D10046E7BD /* OrderMilkShakeMissionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMilkShakeMissionConstants.swift; sourceTree = "<group>"; };
 		F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusSeatMission.storyboard; sourceTree = "<group>"; };
 		F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionViewController.swift; sourceTree = "<group>"; };
 		F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionScene.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				F8B6ED14289007930046E7BD /* OrderMilkShakeScene.swift */,
+				F8B6ED16289011D10046E7BD /* OrderMilkShakeMissionConstants.swift */,
 			);
 			path = OrderMilkShake;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */,
 				F8B6ED15289007930046E7BD /* OrderMilkShakeScene.swift in Sources */,
 				34C16E2E288424DD0050F469 /* Constants.swift in Sources */,
+				F8B6ED17289011D10046E7BD /* OrderMilkShakeMissionConstants.swift in Sources */,
 				34775668288FDADF0049A212 /* busStageNotificationCenter.swift in Sources */,
 				F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */,
 				F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */,
