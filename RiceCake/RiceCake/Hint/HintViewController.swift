@@ -13,23 +13,16 @@ class HintViewController: UIViewController {
     
     var labelTagNumber: Int = 1
     var isHintEnd = false
-    
-    let testTexts: [String] = ["버스를 탔는데 자리가 하나밖에 없는거야!", "그래서 빈자리에 얼른 가서 앉았어.", "우리 아가.", "흔들려서 힘들지 않았어?"]
+    let jsonScript: [MissionHintText] = loadJson("HintScript.json")
+    let testMissionNumber: Int = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 말풍선 생성
-        let label1 = createPaddingLabel(text: testTexts[0], viewTag: 1)
-        let label2 = createPaddingLabel(text: testTexts[1], viewTag: 2)
-        let label3 = createPaddingLabel(text: testTexts[2], viewTag: 3, isLeft: true)
-        let label4 = createPaddingLabel(text: testTexts[3], viewTag: 4, isLeft: true)
-        
-        // 말풍선 위치 설정
-        setLabelConstraints(targetLabel: label1, topConstraintView: mainView, isFirst: true)
-        setLabelConstraints(targetLabel: label2, topConstraintView: label1)
-        setLabelConstraints(targetLabel: label3, topConstraintView: label2, isLeft: true)
-        setLabelConstraints(targetLabel: label4, topConstraintView: label3, isLeft: true)
+        for script in jsonScript[testMissionNumber].content {
+            let label = createPaddingLabel(text: script.text, viewTag: script.id, isLeft: script.isLeft ?? false)
+            setLabelConstraints(targetLabel: label, topConstraintView: ((script.id == 1 ? mainView : view.viewWithTag(script.id-1)) ?? mainView), isFirst: script.id == 1 ? true : false, isLeft: script.isLeft ?? false)
+        }
         
         // Tab Gesture Recongnizer 생성
         let viewTapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(appearLabel(_:)))
@@ -55,17 +48,16 @@ class HintViewController: UIViewController {
         return label
     }
     
-    // 말풍선에 AutoLayout 적용
     private func setLabelConstraints(targetLabel: UIView, topConstraintView: UIView, isFirst: Bool = false, isLeft: Bool = false) {
         targetLabel.translatesAutoresizingMaskIntoConstraints = false
-        targetLabel.topAnchor.constraint(equalTo: isFirst ? topConstraintView.topAnchor : topConstraintView.bottomAnchor, constant: 20).isActive = true
+        targetLabel.topAnchor.constraint(equalTo: isFirst ? mainView.topAnchor : topConstraintView.bottomAnchor, constant: 10).isActive = true
         targetLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10).isActive = isLeft
         targetLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -10).isActive = !isLeft
     }
     
     // TapGesture 인식하면 말풍선이 순서대로 화면에 나옴
     @objc func appearLabel(_ sender: UITapGestureRecognizer) {
-        if labelTagNumber == testTexts.count {
+        if labelTagNumber == jsonScript[testMissionNumber].content.count {
             isHintEnd = true
             // TODO: 다른 view에 isHintEnd 전달
         }
@@ -94,8 +86,8 @@ class PaddingLabel: UILabel {
         var contentSize = super.intrinsicContentSize
         contentSize.height += insets.top + insets.bottom
         contentSize.width += insets.left + insets.right
-        return contentSize
         
+        return contentSize
     }
     
 }
