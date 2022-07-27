@@ -9,25 +9,32 @@ import Foundation
 import UIKit
 
 
-
-
 class BusStationViewController: UIViewController, UIGestureRecognizerDelegate {
-    
-    
     
 //    @IBOutlet weak var buttonImage: UIImageView!
 //    @IBOutlet weak var buttonImage2: UIImageView!
     
     @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet weak var buttonImage2: UIImageView!
+    @IBOutlet weak var background: UIImageView!
     
-    
-    
+    var pinch = UIPinchGestureRecognizer()
+    var recognizerscale:CGFloat = 1.0
+    var maxscale:CGFloat = 2.0
+    var minscale:CGFloat = 1.0
     
 override func viewDidLoad() {
     super.viewDidLoad()
     
-    let config = UIImage.SymbolConfiguration(pointSize: 72)
+    pinch = UIPinchGestureRecognizer(target: self, action: #selector(dopinch(_:)))
+        self.view.addGestureRecognizer(pinch)
+
+    
+    
+   
+    
+    
+let config = UIImage.SymbolConfiguration(pointSize: 72)
     _ = UIImage(systemName: "CheckBusMission.rightseat", withConfiguration: config)
     
     let config2 = UIImage.SymbolConfiguration(pointSize: 72)
@@ -84,6 +91,8 @@ override func viewDidLoad() {
         }, completion: nil)
     }
     
+   
+
     @objc func respondToSwipeGestureMulti(_ gesture: UIGestureRecognizer) {
             if let swipeGesture = gesture as? UISwipeGestureRecognizer {
                 buttonImage.image
@@ -102,6 +111,26 @@ override func viewDidLoad() {
             }
         }
 
+@objc func dopinch(_ pinch: UIPinchGestureRecognizer) {
+    
+    guard background != nil else {return}
+    
+    if pinch.state == .began || pinch.state == .changed{
+        if(recognizerscale < maxscale && pinch.scale > 1.0){
+            background.transform = (background.transform).scaledBy(x: pinch.scale, y: pinch.scale)
+            
+            recognizerscale *= pinch.scale
+            pinch.scale = 1.0
+    }
+        else if(recognizerscale > minscale && pinch.scale < 1.0){
+            background.transform = (background.transform).scaledBy(x: pinch.scale, y: pinch.scale)
+            recognizerscale *= pinch.scale
+            pinch.scale = 1.0
+        }
+//        sender.view?.tag ?? 0 != 1 ? viewMoved(true) : ()
+}
+
+}
 }
 
 

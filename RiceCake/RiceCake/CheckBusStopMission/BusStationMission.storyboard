@@ -57,6 +57,7 @@
                     <value key="contentSizeForViewInPopover" type="size" width="1800" height="800"/>
                     <size key="freeformSize" width="300" height="400"/>
                     <connections>
+                        <outlet property="background" destination="0m6-FS-xoi" id="cNA-hi-rE0"/>
                         <outlet property="buttonImage" destination="WMh-xb-ahh" id="BK5-0P-JGq"/>
                         <outlet property="buttonImage2" destination="iP1-DJ-rON" id="e41-K6-8Mg"/>
                     </connections>
