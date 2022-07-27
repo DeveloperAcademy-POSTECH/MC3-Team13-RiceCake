@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
         updateStoryView()
         updateMissionView()
     }
-    
+    // StageModel에서 각 Stage별 ViewController를 받아와 storyView를 그려줍니다.
     func updateStoryView() {
         let viewController = stage.storyViewController
         
@@ -30,7 +30,7 @@ class GameViewController: UIViewController {
         addChild(viewController)
         storyView.addSubview(viewController.view)
     }
-    
+    // StageModel에서 각 Stage별 ViewController를 받아와 missionView를 그려줍니다.
     func updateMissionView() {
         let viewController = stage.missionViewController
         
