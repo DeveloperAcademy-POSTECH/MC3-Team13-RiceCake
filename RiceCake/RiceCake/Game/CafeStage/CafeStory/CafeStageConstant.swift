@@ -7,6 +7,7 @@
 
 import SpriteKit
 
+// MARK: - CafeRoadScene
 struct CafeStageLayer {
     static let cafeRoad: CGFloat = 1
     static let firstCafe: CGFloat = 2
@@ -22,4 +23,15 @@ struct CafeStagePhysicsCategory {
     static let cafe: UInt32 = 0x1 << 1
     static let firstCafeDoor: UInt32 = 0x1 << 2
     static let secondCafeDoor: UInt32 = 0x1 << 3
+}
+// MARK: - InsideCafeScene
+struct InsideCafeLayer {
+    static let exitDoor: CGFloat = 1
+    static let player: CGFloat = 4
+    static let touchArea: CGFloat = 5
+}
+
+struct InsideCafePhysicsCategory {
+    static let player: UInt32 = 0x1 << 0
+    static let exitDoor: UInt32 = 0x1 << 1
 }
