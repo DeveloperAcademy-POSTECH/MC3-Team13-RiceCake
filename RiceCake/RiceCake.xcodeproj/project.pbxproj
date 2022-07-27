@@ -33,7 +33,7 @@
 		34B638D528811EE300760FD8 /* GameView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638D328811EE300760FD8 /* GameView.storyboard */; };
 		34C16E2E288424DD0050F469 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C16E2D288424DD0050F469 /* Constants.swift */; };
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
-		34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C342886BE6700BB3DF8 /* MissionScene.swift */; };
+		34F88C352886BE6700BB3DF8 /* HintScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C342886BE6700BB3DF8 /* HintScene.swift */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
 		D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */; };
 		D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */; };
@@ -74,7 +74,7 @@
 		34B638D328811EE300760FD8 /* GameView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameView.storyboard; sourceTree = "<group>"; };
 		34C16E2D288424DD0050F469 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		34F88C302885838600BB3DF8 /* ActionList.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionList.sks; sourceTree = "<group>"; };
-		34F88C342886BE6700BB3DF8 /* MissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionScene.swift; sourceTree = "<group>"; };
+		34F88C342886BE6700BB3DF8 /* HintScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
 		D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusPoleMission.storyboard; sourceTree = "<group>"; };
 		D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusPoleMissionViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			children = (
 				34775655288FBFE10049A212 /* BusMission.storyboard */,
 				34775657288FBFED0049A212 /* BusMissionViewController.swift */,
-				34F88C342886BE6700BB3DF8 /* MissionScene.swift */,
+				34F88C342886BE6700BB3DF8 /* HintScene.swift */,
 				F8D2B0982883FAF600493132 /* BusSeatMission */,
 				D46A0E312885320E00AD57DF /* BusPoleMission */,
 			);
@@ -354,7 +354,7 @@
 				34B638CF28811E2C00760FD8 /* HomeViewController.swift in Sources */,
 				D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */,
 				34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */,
-				34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */,
+				34F88C352886BE6700BB3DF8 /* HintScene.swift in Sources */,
 				F8B6ED15289007930046E7BD /* OrderMilkShakeScene.swift in Sources */,
 				34C16E2E288424DD0050F469 /* Constants.swift in Sources */,
 				F8B6ED17289011D10046E7BD /* OrderMilkShakeMissionConstants.swift in Sources */,
