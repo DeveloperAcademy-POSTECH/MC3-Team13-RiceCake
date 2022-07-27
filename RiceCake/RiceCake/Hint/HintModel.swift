@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct StageHint: Codable{
+struct StageHint: Codable {
     let stageId: Int
     let missionHints: [MissionHint]
 }
