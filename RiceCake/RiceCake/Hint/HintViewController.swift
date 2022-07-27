@@ -13,13 +13,13 @@ class HintViewController: UIViewController {
     
     var labelTagNumber: Int = 1
     var isHintEnd = false
-    let jsonScript: [MissionHintText] = loadJson("HintScript.json")
-    let testMissionNumber: Int = 3
+    let jsonScript: [StageHint] = loadJson("HintScript.json")
+    let testMissionNumber: Int = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for script in jsonScript[testMissionNumber].content {
+        for script in jsonScript[0].missionHints[testMissionNumber].content {
             let label = createPaddingLabel(text: script.text, viewTag: script.id, isLeft: script.isLeft ?? false)
             setLabelConstraints(targetLabel: label, topConstraintView: ((script.id == 1 ? mainView : view.viewWithTag(script.id-1)) ?? mainView), isFirst: script.id == 1 ? true : false, isLeft: script.isLeft ?? false)
         }
@@ -57,7 +57,7 @@ class HintViewController: UIViewController {
     
     // TapGesture 인식하면 말풍선이 순서대로 화면에 나옴
     @objc func appearLabel(_ sender: UITapGestureRecognizer) {
-        if labelTagNumber == jsonScript[testMissionNumber].content.count {
+        if labelTagNumber == jsonScript[0].missionHints[testMissionNumber].content.count {
             isHintEnd = true
             // TODO: 다른 view에 isHintEnd 전달
         }
