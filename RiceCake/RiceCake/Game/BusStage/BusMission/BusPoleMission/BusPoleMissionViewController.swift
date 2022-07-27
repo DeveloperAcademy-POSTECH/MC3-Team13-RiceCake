@@ -16,6 +16,8 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
     @IBOutlet weak var childLeftHand: UIImageView!
     @IBOutlet weak var childHoldHand: UIImageView!
     
+    var busPoleTapGesture = UITapGestureRecognizer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +28,7 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
         let secondBusHandleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedHandle(_:)))
         secondBusHandle.addGestureRecognizer(secondBusHandleTapGesture)
         
-        let busPoleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedHandle(_:)))
+        busPoleTapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedHandle(_:)))
         frontBusPole.tag = 1
         frontBusPole.addGestureRecognizer(busPoleTapGesture)
         
@@ -37,6 +39,7 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
     
     // tap gesture에 반응할 함수
     @objc func tappedHandle(_ sender: UITapGestureRecognizer) {
+        busPoleTapGesture.isEnabled = false
         childHandUp()
         childHandDown()
         sender.view?.tag ?? 0 != 1 ? viewMoved(true) : ()
@@ -58,9 +61,12 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
         }, completion: nil)
     }
     func childHandDown() {
-        UIView.animate(withDuration: 0.7, delay: 0.7, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.7) {
             self.childLeftHand.center.y += self.view.bounds.height/4
-        }, completion: nil)
+        } completion: { _ in
+            self.busPoleTapGesture.isEnabled = true
+        }
+
     }
     
     // childLeftHand를 제외한 전체 이미지 이동 및 애니메이션
