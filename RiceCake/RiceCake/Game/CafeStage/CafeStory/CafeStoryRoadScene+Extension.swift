@@ -17,13 +17,13 @@ extension CafeStoryRoadScene {
         
         self.addChild(cafeRoad)
     }
-    
+
     func setUpCafe() {
         let firstCafe = SKSpriteNode(imageNamed: "firstCafe")
         firstCafe.size = CGSize(width: self.size.width, height: self.size.width * 2)
         firstCafe.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         firstCafe.zPosition = CafeStageLayer.firstCafe
-        firstCafe.physicsBody = SKPhysicsBody(texture: firstCafe.texture!, size: self.size)
+        firstCafe.physicsBody = SKPhysicsBody(texture: firstCafe.texture!, size: CGSize(width: self.size.width, height: self.size.width * 2))
         firstCafe.physicsBody?.categoryBitMask = CafeStagePhysicsCategory.cafe
         firstCafe.physicsBody?.affectedByGravity = false
         firstCafe.physicsBody?.isDynamic = false
@@ -32,7 +32,7 @@ extension CafeStoryRoadScene {
         secondCafe.size = CGSize(width: self.size.width, height: self.size.width * 2)
         secondCafe.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         secondCafe.zPosition = CafeStageLayer.secondCafe
-        secondCafe.physicsBody = SKPhysicsBody(texture: secondCafe.texture!, size: self.size)
+        secondCafe.physicsBody = SKPhysicsBody(texture: secondCafe.texture!, size: CGSize(width: self.size.width, height: self.size.width * 2))
         secondCafe.physicsBody?.categoryBitMask = CafeStagePhysicsCategory.cafe
         secondCafe.physicsBody?.affectedByGravity = false
         secondCafe.physicsBody?.isDynamic = false
@@ -41,7 +41,7 @@ extension CafeStoryRoadScene {
         firstCafeDoor.size = CGSize(width: self.size.width, height: self.size.width * 2)
         firstCafeDoor.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         firstCafeDoor.zPosition = CafeStageLayer.firstCafeDoor
-        firstCafeDoor.physicsBody = SKPhysicsBody(texture: firstCafeDoor.texture!, size: self.size)
+        firstCafeDoor.physicsBody = SKPhysicsBody(texture: firstCafeDoor.texture!, size: CGSize(width: self.size.width, height: self.size.width * 2))
         firstCafeDoor.physicsBody?.categoryBitMask = CafeStagePhysicsCategory.firstCafeDoor
         firstCafeDoor.physicsBody?.affectedByGravity = false
         firstCafeDoor.physicsBody?.isDynamic = false
@@ -50,7 +50,7 @@ extension CafeStoryRoadScene {
         secondCafeDoor.size = CGSize(width: self.size.width, height: self.size.width * 2)
         secondCafeDoor.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         secondCafeDoor.zPosition = CafeStageLayer.secondCafeDoor
-        secondCafeDoor.physicsBody = SKPhysicsBody(texture: secondCafeDoor.texture!, size: self.size)
+        secondCafeDoor.physicsBody = SKPhysicsBody(texture: secondCafeDoor.texture!, size: CGSize(width: self.size.width, height: self.size.width * 2))
         secondCafeDoor.physicsBody?.categoryBitMask = CafeStagePhysicsCategory.secondCafeDoor
         secondCafeDoor.physicsBody?.affectedByGravity = false
         secondCafeDoor.physicsBody?.isDynamic = false

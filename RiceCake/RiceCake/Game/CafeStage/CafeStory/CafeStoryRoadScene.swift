@@ -59,11 +59,9 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
             
         case CafeStagePhysicsCategory.firstCafeDoor:
             print("first")
-            player.isPaused = true
             
         case CafeStagePhysicsCategory.secondCafeDoor:
             print("second")
-            player.isPaused = true
             
         default:
             break
@@ -93,7 +91,6 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
         
-        player.isPaused = false
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))
