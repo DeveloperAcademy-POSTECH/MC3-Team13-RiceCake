@@ -55,12 +55,16 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
         // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
         switch collideType {
         case CafeStagePhysicsCategory.cafe:
-            print("카페와  부딪혔습니다.")
+            print("카페와 부딪혔습니다.")
             
         case CafeStagePhysicsCategory.firstCafeDoor:
+            let scene = InsideFirstCafeScene(size: self.size)
+            self.view?.presentScene(scene)
             print("first")
             
         case CafeStagePhysicsCategory.secondCafeDoor:
+            let scene = InsideSecondCafeScene(size: self.size)
+            self.view?.presentScene(scene)
             print("second")
             
         default:
@@ -91,6 +95,7 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
         
+        print(pos)
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))
