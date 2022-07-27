@@ -19,6 +19,7 @@ class HintViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 불러온 Json 파일에서 정보 가져와 말풍선 생성
         for script in jsonScript[0].missionHints[testMissionNumber].content {
             let label = createPaddingLabel(text: script.text, viewTag: script.id, isLeft: script.isLeft ?? false)
             setLabelConstraints(targetLabel: label, topConstraintView: ((script.id == 1 ? mainView : view.viewWithTag(script.id-1)) ?? mainView), isFirst: script.id == 1 ? true : false, isLeft: script.isLeft ?? false)
@@ -48,6 +49,7 @@ class HintViewController: UIViewController {
         return label
     }
     
+    // 말풍선에 AutoLayout 적용
     private func setLabelConstraints(targetLabel: UIView, topConstraintView: UIView, isFirst: Bool = false, isLeft: Bool = false) {
         targetLabel.translatesAutoresizingMaskIntoConstraints = false
         targetLabel.topAnchor.constraint(equalTo: isFirst ? mainView.topAnchor : topConstraintView.bottomAnchor, constant: 10).isActive = true
