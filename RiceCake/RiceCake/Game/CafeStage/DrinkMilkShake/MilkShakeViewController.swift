@@ -29,8 +29,17 @@ class MilkShakeMissionViewController: UIViewController {
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedImage(_:)))
         strawImage.addGestureRecognizer(tapGesture)
         
+        makeCircle()
         
-        // View Drage 위한 Circle 생성
+        let (hMult, vMult) = computeMultipliers(angle: 30)
+        NSLayoutConstraint(item: littleCircle!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -60).isActive = true
+        NSLayoutConstraint(item: littleCircle!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: 110).isActive = true
+        NSLayoutConstraint(item: twinkleCircle!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -120).isActive = true
+        NSLayoutConstraint(item: twinkleCircle!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: -90).isActive = true
+        
+    }
+    // View Drage 위한 Circle 생성
+    func makeCircle() {
         littleCircle = UIView()
         littleCircle.translatesAutoresizingMaskIntoConstraints = false
         littleCircle.backgroundColor = .green
@@ -48,13 +57,6 @@ class MilkShakeMissionViewController: UIViewController {
         
         littleCircle.isHidden = true
         twinkleCircle.isHidden = true
-        
-        let (hMult, vMult) = computeMultipliers(angle: 30)
-        NSLayoutConstraint(item: littleCircle!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -60).isActive = true
-        NSLayoutConstraint(item: littleCircle!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: 110).isActive = true
-        NSLayoutConstraint(item: twinkleCircle!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -120).isActive = true
-        NSLayoutConstraint(item: twinkleCircle!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: -90).isActive = true
-        
     }
     
     // Circle Layout 지정함수
@@ -76,13 +78,11 @@ class MilkShakeMissionViewController: UIViewController {
         return (hall, vowl)
     }
     
-    // Gesture 발생될떄 실행되는 함수정의
+    // Gesture 발생될때 실행되는 함수정의
     @objc func tappedImage(_ sender: UITapGestureRecognizer) {
         strawImage.image = UIImage(named: "straw1")
-        print("Tapped")
     }
-    @objc func longPressedStarw(_ sender: UILongPressGestureRecognizer) {
-        print("LongPressed")
+    @objc func longPressedStraw(_ sender: UILongPressGestureRecognizer) {
         strawImage.animationImages = animatedImages(name: "straw", initNum: 1, endNum: 3)
         strawImage.animationDuration = 3
         strawImage.animationRepeatCount = 0
@@ -96,13 +96,11 @@ class MilkShakeMissionViewController: UIViewController {
     @objc func tappedStraw(_ sender: UITapGestureRecognizer) {
         twinkleCircle.isHidden = false
         strawImage.stopAnimating()
-        print("strawTapped")
         let panGesture:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panStraw(_:)))
         littleCircle?.addGestureRecognizer(panGesture)
     }
     
     @objc func panStraw(_ sender: UIPanGestureRecognizer) {
-        print("paned")
         littleCircle.isHidden = false
         twinkleCircle.isHidden = false
         switch sender.state {
@@ -115,7 +113,6 @@ class MilkShakeMissionViewController: UIViewController {
                                           y: initialCenter.y + translation.y)
         case .ended,
                 .cancelled:
-            print("CircleMoved")
             littleCircle.isHidden = true
             twinkleCircle.isHidden = true
             strawImage.animationImages = animatedImages(name: "straw", initNum: 5, endNum: 8)
