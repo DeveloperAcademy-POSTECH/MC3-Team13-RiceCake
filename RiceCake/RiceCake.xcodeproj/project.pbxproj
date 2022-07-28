@@ -122,7 +122,6 @@
 				34775657288FBFED0049A212 /* BusMissionViewController.swift */,
 				34F88C342886BE6700BB3DF8 /* MissionScene.swift */,
 				F8D2B0982883FAF600493132 /* BusSeatMission */,
-				B367EF122891413400496D21 /* BusStationMission */,
 				D46A0E312885320E00AD57DF /* BusPoleMission */,
 			);
 			path = BusMission;
@@ -202,6 +201,7 @@
 				34A18420288044F8004B58E3 /* LaunchScreen.storyboard */,
 				34B638CB28811E2C00760FD8 /* HomeView */,
 				34B638BB28811CBB00760FD8 /* StageView */,
+				B367EF122891413400496D21 /* BusStationMission */,
 				34B638D128811EE300760FD8 /* Game */,
 				34B638BA28811CBB00760FD8 /* Assets.xcassets */,
 				34A18423288044F8004B58E3 /* Info.plist */,
@@ -245,8 +245,8 @@
 		B367EF122891413400496D21 /* BusStationMission */ = {
 			isa = PBXGroup;
 			children = (
-				B367EF142891413400496D21 /* BusStationMission.storyboard */,
 				B367EF132891413400496D21 /* BusStationViewController.swift */,
+				B367EF142891413400496D21 /* BusStationMission.storyboard */,
 			);
 			path = BusStationMission;
 			sourceTree = "<group>";
