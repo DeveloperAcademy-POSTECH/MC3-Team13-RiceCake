@@ -9,19 +9,27 @@
 /* Begin PBXBuildFile section */
 		3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3425053C28815D1000A8B6AF /* BusStoryScene.swift */; };
 		343579F02889B9AD00DB1FB7 /* BusStoryScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343579EF2889B9AD00DB1FB7 /* BusStoryScene+Extension.swift */; };
+		347332A22891265500859373 /* BusStageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C16E2D288424DD0050F469 /* BusStageConstants.swift */; };
 		34775652288FBF4D0049A212 /* BusStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775651288FBF4D0049A212 /* BusStory.storyboard */; };
 		34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775653288FBF630049A212 /* BusStoryViewController.swift */; };
 		34775656288FBFE10049A212 /* BusMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775655288FBFE10049A212 /* BusMission.storyboard */; };
 		34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775657288FBFED0049A212 /* BusMissionViewController.swift */; };
-		34775660288FC4B20049A212 /* CafeStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3477565F288FC4B20049A212 /* CafeStory.storyboard */; };
 		34775662288FC4C60049A212 /* CafeMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775661288FC4C60049A212 /* CafeMission.storyboard */; };
-		34775664288FC4D00049A212 /* CafeStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775663288FC4D00049A212 /* CafeStoryViewController.swift */; };
 		34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775665288FC4D80049A212 /* CafeMissionViewController.swift */; };
-		34775668288FDADF0049A212 /* busStageNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775667288FDADF0049A212 /* busStageNotificationCenter.swift */; };
+		34775668288FDADF0049A212 /* StageNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34775667288FDADF0049A212 /* StageNotificationCenter.swift */; };
+		3477568628903B7E0049A212 /* CafeStageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568128903B7E0049A212 /* CafeStageConstant.swift */; };
+		3477568728903B7E0049A212 /* CafeStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3477568228903B7E0049A212 /* CafeStory.storyboard */; };
+		3477568828903B7E0049A212 /* CafeStoryRoadScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */; };
+		3477568928903B7E0049A212 /* CafeStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568428903B7E0049A212 /* CafeStoryViewController.swift */; };
+		3477568A28903B7E0049A212 /* CafeStoryRoadScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */; };
 		34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18415288044F7004B58E3 /* AppDelegate.swift */; };
 		34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18417288044F7004B58E3 /* SceneDelegate.swift */; };
 		34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A18420288044F8004B58E3 /* LaunchScreen.storyboard */; };
 		34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 34A1842A28804642004B58E3 /* .swiftlint.yml */; };
+		34B348C92891143B0008A85C /* InsideFirstCafeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348C82891143B0008A85C /* InsideFirstCafeScene.swift */; };
+		34B348CB289114D70008A85C /* InsideFirstCafeScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CA289114D70008A85C /* InsideFirstCafeScene+Extension.swift */; };
+		34B348CD2891251A0008A85C /* InsideSecondCafeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CC2891251A0008A85C /* InsideSecondCafeScene.swift */; };
+		34B348CF2891254C0008A85C /* InsideSecondCafeScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CE2891254C0008A85C /* InsideSecondCafeScene+Extension.swift */; };
 		34B638C428811CBB00760FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B638BA28811CBB00760FD8 /* Assets.xcassets */; };
 		34B638C528811CBB00760FD8 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B638BC28811CBB00760FD8 /* StageCell.swift */; };
 		34B638C628811CBB00760FD8 /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638BD28811CBB00760FD8 /* Stage.storyboard */; };
@@ -31,7 +39,6 @@
 		34B638D028811E2C00760FD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638CD28811E2C00760FD8 /* Main.storyboard */; };
 		34B638D428811EE300760FD8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B638D228811EE300760FD8 /* GameViewController.swift */; };
 		34B638D528811EE300760FD8 /* GameView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638D328811EE300760FD8 /* GameView.storyboard */; };
-		34C16E2E288424DD0050F469 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C16E2D288424DD0050F469 /* Constants.swift */; };
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
 		34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C342886BE6700BB3DF8 /* MissionScene.swift */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
@@ -56,17 +63,24 @@
 		34775653288FBF630049A212 /* BusStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStoryViewController.swift; sourceTree = "<group>"; };
 		34775655288FBFE10049A212 /* BusMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusMission.storyboard; sourceTree = "<group>"; };
 		34775657288FBFED0049A212 /* BusMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusMissionViewController.swift; sourceTree = "<group>"; };
-		3477565F288FC4B20049A212 /* CafeStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CafeStory.storyboard; sourceTree = "<group>"; };
 		34775661288FC4C60049A212 /* CafeMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CafeMission.storyboard; sourceTree = "<group>"; };
-		34775663288FC4D00049A212 /* CafeStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeStoryViewController.swift; sourceTree = "<group>"; };
 		34775665288FC4D80049A212 /* CafeMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeMissionViewController.swift; sourceTree = "<group>"; };
-		34775667288FDADF0049A212 /* busStageNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = busStageNotificationCenter.swift; sourceTree = "<group>"; };
+		34775667288FDADF0049A212 /* StageNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageNotificationCenter.swift; sourceTree = "<group>"; };
+		3477568128903B7E0049A212 /* CafeStageConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeStageConstant.swift; sourceTree = "<group>"; };
+		3477568228903B7E0049A212 /* CafeStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CafeStory.storyboard; sourceTree = "<group>"; };
+		3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CafeStoryRoadScene+Extension.swift"; sourceTree = "<group>"; };
+		3477568428903B7E0049A212 /* CafeStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeStoryViewController.swift; sourceTree = "<group>"; };
+		3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeStoryRoadScene.swift; sourceTree = "<group>"; };
 		34A18412288044F7004B58E3 /* RiceCake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiceCake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A18415288044F7004B58E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A18417288044F7004B58E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		34A18421288044F8004B58E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34A18423288044F8004B58E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34A1842A28804642004B58E3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		34B348C82891143B0008A85C /* InsideFirstCafeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideFirstCafeScene.swift; sourceTree = "<group>"; };
+		34B348CA289114D70008A85C /* InsideFirstCafeScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InsideFirstCafeScene+Extension.swift"; sourceTree = "<group>"; };
+		34B348CC2891251A0008A85C /* InsideSecondCafeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideSecondCafeScene.swift; sourceTree = "<group>"; };
+		34B348CE2891254C0008A85C /* InsideSecondCafeScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InsideSecondCafeScene+Extension.swift"; sourceTree = "<group>"; };
 		34B638BA28811CBB00760FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34B638BC28811CBB00760FD8 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
 		34B638BD28811CBB00760FD8 /* Stage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
@@ -76,7 +90,7 @@
 		34B638CE28811E2C00760FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34B638D228811EE300760FD8 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		34B638D328811EE300760FD8 /* GameView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameView.storyboard; sourceTree = "<group>"; };
-		34C16E2D288424DD0050F469 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		34C16E2D288424DD0050F469 /* BusStageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStageConstants.swift; sourceTree = "<group>"; };
 		34F88C302885838600BB3DF8 /* ActionList.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionList.sks; sourceTree = "<group>"; };
 		34F88C342886BE6700BB3DF8 /* MissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
@@ -123,7 +137,7 @@
 				3425053C28815D1000A8B6AF /* BusStoryScene.swift */,
 				343579EF2889B9AD00DB1FB7 /* BusStoryScene+Extension.swift */,
 				34F88C302885838600BB3DF8 /* ActionList.sks */,
-				34C16E2D288424DD0050F469 /* Constants.swift */,
+				34C16E2D288424DD0050F469 /* BusStageConstants.swift */,
 				34775651288FBF4D0049A212 /* BusStory.storyboard */,
 				34775653288FBF630049A212 /* BusStoryViewController.swift */,
 			);
@@ -133,7 +147,6 @@
 		34775659288FC08B0049A212 /* BusStage */ = {
 			isa = PBXGroup;
 			children = (
-				34775667288FDADF0049A212 /* busStageNotificationCenter.swift */,
 				34775650288FBEF20049A212 /* BusStory */,
 				3477564F288FBEDA0049A212 /* BusMission */,
 			);
@@ -143,13 +156,28 @@
 		3477565A288FC46F0049A212 /* CafeStage */ = {
 			isa = PBXGroup;
 			children = (
-				3477565F288FC4B20049A212 /* CafeStory.storyboard */,
+				3477568028903B7E0049A212 /* CafeStory */,
 				34775661288FC4C60049A212 /* CafeMission.storyboard */,
-				34775663288FC4D00049A212 /* CafeStoryViewController.swift */,
 				34775665288FC4D80049A212 /* CafeMissionViewController.swift */,
 				F8B6ED132890075F0046E7BD /* OrderMilkShake */,
 			);
 			path = CafeStage;
+			sourceTree = "<group>";
+		};
+		3477568028903B7E0049A212 /* CafeStory */ = {
+			isa = PBXGroup;
+			children = (
+				3477568228903B7E0049A212 /* CafeStory.storyboard */,
+				3477568128903B7E0049A212 /* CafeStageConstant.swift */,
+				3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */,
+				3477568428903B7E0049A212 /* CafeStoryViewController.swift */,
+				3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */,
+				34B348C82891143B0008A85C /* InsideFirstCafeScene.swift */,
+				34B348CA289114D70008A85C /* InsideFirstCafeScene+Extension.swift */,
+				34B348CC2891251A0008A85C /* InsideSecondCafeScene.swift */,
+				34B348CE2891254C0008A85C /* InsideSecondCafeScene+Extension.swift */,
+			);
+			path = CafeStory;
 			sourceTree = "<group>";
 		};
 		34A18409288044F7004B58E3 = {
@@ -209,6 +237,7 @@
 		34B638D128811EE300760FD8 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				34775667288FDADF0049A212 /* StageNotificationCenter.swift */,
 				3477565A288FC46F0049A212 /* CafeStage */,
 				34775659288FC08B0049A212 /* BusStage */,
 				34B638D328811EE300760FD8 /* GameView.storyboard */,
@@ -317,10 +346,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */,
+				3477568728903B7E0049A212 /* CafeStory.storyboard in Resources */,
 				D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */,
 				F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */,
 				34775662288FC4C60049A212 /* CafeMission.storyboard in Resources */,
-				34775660288FC4B20049A212 /* CafeStory.storyboard in Resources */,
 				34775652288FBF4D0049A212 /* BusStory.storyboard in Resources */,
 				34775656288FBFE10049A212 /* BusMission.storyboard in Resources */,
 				B367EF182891413400496D21 /* BusStationMission.storyboard in Resources */,
@@ -361,27 +390,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				347332A22891265500859373 /* BusStageConstants.swift in Sources */,
 				34B638D428811EE300760FD8 /* GameViewController.swift in Sources */,
+				34B348C92891143B0008A85C /* InsideFirstCafeScene.swift in Sources */,
 				34B638C728811CBB00760FD8 /* StageModel.swift in Sources */,
 				3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */,
 				34775664288FC4D00049A212 /* CafeStoryViewController.swift in Sources */,
 				B367EF172891413400496D21 /* BusStationViewController.swift in Sources */,
+				3477568928903B7E0049A212 /* CafeStoryViewController.swift in Sources */,
 				34B638C528811CBB00760FD8 /* StageCell.swift in Sources */,
 				B367EF1A2891413400496D21 /* CheckBusStopMissionConstants.swift in Sources */,
 				343579F02889B9AD00DB1FB7 /* BusStoryScene+Extension.swift in Sources */,
 				34B638C828811CBB00760FD8 /* StageViewController.swift in Sources */,
+				3477568A28903B7E0049A212 /* CafeStoryRoadScene.swift in Sources */,
 				34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */,
+				3477568828903B7E0049A212 /* CafeStoryRoadScene+Extension.swift in Sources */,
+				34B348CB289114D70008A85C /* InsideFirstCafeScene+Extension.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,
 				34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */,
 				34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */,
 				34B638CF28811E2C00760FD8 /* HomeViewController.swift in Sources */,
 				D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */,
+				34B348CF2891254C0008A85C /* InsideSecondCafeScene+Extension.swift in Sources */,
+				3477568628903B7E0049A212 /* CafeStageConstant.swift in Sources */,
 				34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */,
 				34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */,
+				34B348CD2891251A0008A85C /* InsideSecondCafeScene.swift in Sources */,
 				F8B6ED15289007930046E7BD /* OrderMilkShakeScene.swift in Sources */,
-				34C16E2E288424DD0050F469 /* Constants.swift in Sources */,
 				F8B6ED17289011D10046E7BD /* OrderMilkShakeMissionConstants.swift in Sources */,
-				34775668288FDADF0049A212 /* busStageNotificationCenter.swift in Sources */,
+				34775668288FDADF0049A212 /* StageNotificationCenter.swift in Sources */,
 				F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */,
 				F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */,
 				B367EF192891413400496D21 /* CheckBusStopMissionScene.swift in Sources */,

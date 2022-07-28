@@ -1,35 +1,44 @@
 //
-//  GameScene.swift
-//  gameTest
+//  CafeStoryRoadScene.swift
+//  RiceCake
 //
-//  Created by Jung Yunseong on 2022/07/14.
+//  Created by Jung Yunseong on 2022/07/26.
 //
 
 import SpriteKit
-import AudioToolbox
 
-class BusStoryScene: SKScene, SKPhysicsContactDelegate {
+class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
+    
+    let cameraNode = SKCameraNode()
     
     var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
-    var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
-    var descriptionLabel = SKLabelNode()
-    var hintString: String = "" {
-        didSet {
-            descriptionLabel.text = hintString
-        }
-    }
     
     // MARK: - Node 초기화
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         
         createEnvironment()
-        setUpBus()
+        setUpCafe()
         createPlayer()
-        createSeatMissionPlayer()
         createTouchArea()
-        createDescription()
+        
+        // 카메라 노드 추가
+        camera = cameraNode
+        cameraNode.position.x = self.size.width / 2
+        cameraNode.position.y = self.size.height / 2
+        self.addChild(cameraNode)
+    }
+    
+    // 카메라의 세부 움직임을 설정합니다.
+    override func update(_ currentTime: CFTimeInterval) {
+        if player.position.y <= self.size.height / 2 {
+            camera?.position.y = self.size.height / 2
+        } else if player.position.y >= self.size.height * 3/4 {
+            camera?.position.y = self.size.height * 3/4
+        } else {
+            camera?.position.y = player.position.y
+        }
     }
     
     // MARK: Game 알고리즘을 정의합니다.
@@ -45,21 +54,18 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
         let collideType = collideBody.categoryBitMask
         // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
         switch collideType {
-        case BusStagePhysicsCategory.busFrame:
-            print("버스 프레임과 부딪혔습니다.")
+        case CafeStagePhysicsCategory.cafe:
+            print("카페와 부딪혔습니다.")
             
-        case BusStagePhysicsCategory.busSeat:
-            player.isHidden = true
-            NotificationCenter.default.post(name: .seatMission, object: nil)
-            seatMissionPlayer.isHidden = false
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            hintString = "Bus Seat Mission"
+        case CafeStagePhysicsCategory.firstCafeDoor:
+            let scene = InsideFirstCafeScene(size: self.size)
+            self.view?.presentScene(scene)
+            print("first")
             
-        case BusStagePhysicsCategory.busPole:
-            player.isPaused = true
-            NotificationCenter.default.post(name: .poleMission, object: nil)
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            hintString = "Bus Pole Mission"
+        case CafeStagePhysicsCategory.secondCafeDoor:
+            let scene = InsideSecondCafeScene(size: self.size)
+            self.view?.presentScene(scene)
+            print("second")
             
         default:
             break
@@ -73,7 +79,7 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
     
     func touchDown(atPoint pos: CGPoint) {
         
-        let movementSpeed = 50.0
+        let movementSpeed = 100.0
         let xPosition = pos.x - player.position.x
         let yPosition = pos.y - player.position.y
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
@@ -89,11 +95,7 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
         
-        hintString = ""
-        NotificationCenter.default.post(name: .cancelMission, object: nil)
-        seatMissionPlayer.isHidden = true
-        player.isPaused = false
-        player.isHidden = false
+        print(pos)
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))
