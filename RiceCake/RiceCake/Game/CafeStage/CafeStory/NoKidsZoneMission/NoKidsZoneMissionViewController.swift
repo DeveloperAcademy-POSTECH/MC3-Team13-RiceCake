@@ -9,21 +9,25 @@ import UIKit
 
 class NoKidsZoneMissionViewController: UIViewController {
 
+    @IBOutlet weak var pannel: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        createSwipeGesture(targetView: pannel, isLeft: true)
+        createSwipeGesture(targetView: pannel, isLeft: false)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func createSwipeGesture(targetView: UIView, isLeft: Bool) {
+        let swipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipePannel(_:)))
+        swipe.direction = isLeft ? .left : .right
+        targetView.addGestureRecognizer(swipe)
     }
-    */
+    
+    @objc func swipePannel(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .left || sender.direction == .right {
+            pannel.image = UIImage(named: "pannelFront.png")
+        }
+    }
 
 }
