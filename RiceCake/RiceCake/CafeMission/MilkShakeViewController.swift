@@ -17,9 +17,6 @@ class MilkShakeMissionViewController: UIViewController {
     
     var initialCenter = CGPoint()
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,8 +25,7 @@ class MilkShakeMissionViewController: UIViewController {
         
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedImage(_:)))
         strawImage.addGestureRecognizer(tapGesture)
-        
-        
+    
         littleCircle = UIView()
         littleCircle.translatesAutoresizingMaskIntoConstraints = false
         littleCircle.backgroundColor = .green

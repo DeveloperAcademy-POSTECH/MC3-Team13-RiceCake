@@ -30,8 +30,8 @@ class BusMissionViewController: UIViewController {
         didSet {
             if isPoleMission {
                 // UIKit: missionView에 BusPoleMissionView를 연결합니다.
-                let storyboard = UIStoryboard(name: "BusPoleMission", bundle: .main)
-                if let child = storyboard.instantiateViewController(identifier: "BusPole") as? BusPoleMissionViewController {
+                let storyboard = UIStoryboard(name: "Cafe", bundle: .main)
+                if let child = storyboard.instantiateViewController(identifier: "Cafe") as? MilkShakeMissionViewController {
                     addChild(child)
                     missionView.addSubview(child.view)
                     child.didMove(toParent: self)
