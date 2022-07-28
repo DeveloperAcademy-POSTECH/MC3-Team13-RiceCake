@@ -16,9 +16,12 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
     @IBOutlet weak var childLeftHand: UIImageView!
     @IBOutlet weak var childHoldHand: UIImageView!
     
+    var soundBrain = SoundBrain() // ViewController 하나씩 생성해야함
+    
     var busPoleTapGesture = UITapGestureRecognizer()
     
     override func viewDidLoad() {
+        soundBrain.getSound(name: "background") // Background Sound Play
         super.viewDidLoad()
         
         // 각 이미지에 gestureRecognizer 적용
@@ -39,6 +42,7 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
     
     // tap gesture에 반응할 함수
     @objc func tappedHandle(_ sender: UITapGestureRecognizer) {
+        soundBrain.pauseSound(name: "background") // Background Sound Stop
         busPoleTapGesture.isEnabled = false
         childHandUp()
         childHandDown()
