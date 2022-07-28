@@ -50,14 +50,14 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
             
         case BusStagePhysicsCategory.busSeat:
             player.isHidden = true
-            NotificationCenter.default.post(name: .drawBusSeatMission, object: nil)
+            NotificationCenter.default.post(name: .seatMission, object: nil)
             seatMissionPlayer.isHidden = false
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Seat Mission"
             
         case BusStagePhysicsCategory.busPole:
             player.isPaused = true
-            NotificationCenter.default.post(name: .drawBusPoleMission, object: nil)
+            NotificationCenter.default.post(name: .poleMission, object: nil)
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Pole Mission"
             
@@ -90,7 +90,7 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
         }
         
         hintString = ""
-        NotificationCenter.default.post(name: .eraseBusMission, object: nil)
+        NotificationCenter.default.post(name: .cancelMission, object: nil)
         seatMissionPlayer.isHidden = true
         player.isPaused = false
         player.isHidden = false

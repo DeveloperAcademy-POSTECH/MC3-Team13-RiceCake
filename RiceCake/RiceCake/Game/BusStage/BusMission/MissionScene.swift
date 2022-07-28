@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class HintScene: SKScene {
+class MissionScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .lightGray
