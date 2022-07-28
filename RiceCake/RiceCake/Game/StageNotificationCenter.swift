@@ -19,8 +19,8 @@ extension Notification.Name {
     static let drawBusSeatHint = Notification.Name("drawBusSeatHint")
     static let drawBusSeatMission = Notification.Name("drawBusSeatMission")
     
-    static let drawBusStopHint = Notification.Name("drawBusStopHint")
-    static let drawBusStopMission = Notification.Name("drawBusStopMission")
+    static let drawBusStationHint = Notification.Name("drawBusStationHint")
+    static let drawBusStationMission = Notification.Name("drawBusStationMission")
     
     static let drawBusBellHint = Notification.Name("drawBusBellHint")
     static let drawBusBellMission = Notification.Name("drawBusBellMission")
@@ -31,5 +31,16 @@ extension Notification.Name {
     static let eraseBusMission = Notification.Name("eraseBusMission")
     
     // CafeStage
+    static let drawCafeEnterHint = Notification.Name("drawCafeEnterHint")
     
+    static let drawCafeNoKidsZoneHint = Notification.Name("drawCafeNoKidsZoneHint")
+    static let drawCafeNoKidsZoneMission = Notification.Name("drawCafeNoKidsZoneMission")
+    
+    static let drawCafeOrderMilkShakeHint = Notification.Name("drawCafeOrderMilkShakeHint")
+    static let drawCafeOrderMilkShakeMission = Notification.Name("drawCafeOrderMilkShakeMission")
+    
+    static let drawCafeDrinkMilkShakeHint = Notification.Name("drawCafeDrinkMilkShakeHint")
+    static let drawCafeDrinkMilkShakeMission = Notification.Name("drawCafeDrinkMilkShakeMission")
+    
+    static let eraseCafeMission = Notification.Name("eraseCafeMission")
 }
