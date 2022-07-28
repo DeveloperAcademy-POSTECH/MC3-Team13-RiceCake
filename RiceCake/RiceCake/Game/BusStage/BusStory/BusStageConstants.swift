@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-struct Layer {
+struct BusStageLayer {
     static let road: CGFloat = 1
     static let busFloor: CGFloat = 2
     static let busSeat: CGFloat = 3
@@ -18,7 +18,7 @@ struct Layer {
     static let descriptionLabel: CGFloat = 10
 }
 
-struct PhysicsCategory {
+struct BusStagePhysicsCategory {
     static let player: UInt32 = 0x1 << 0
     static let busFrame: UInt32 = 0x1 << 1
     static let busPole: UInt32 = 0x1 << 2
