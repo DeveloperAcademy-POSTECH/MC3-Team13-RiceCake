@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HintViewController: UIViewController {
+final class HintViewController: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
     
@@ -30,9 +30,7 @@ class HintViewController: UIViewController {
         }
         
         // Tab Gesture Recongnizer 생성
-        let viewTapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(appearLabel(_:)))
-        view.addGestureRecognizer(viewTapped)
-
+        createTapGesture(targetView: view)
     }
     
     // Padding이 적용된 UILabel 생성
@@ -59,6 +57,11 @@ class HintViewController: UIViewController {
         targetLabel.topAnchor.constraint(equalTo: isFirst ? mainView.topAnchor : topConstraintView.bottomAnchor, constant: 10).isActive = true
         targetLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10).isActive = isLeft
         targetLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -10).isActive = !isLeft
+    }
+    
+    private func createTapGesture(targetView: UIView){
+        let viewTapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(appearLabel(_:)))
+        targetView.addGestureRecognizer(viewTapped)
     }
     
     // TapGesture 인식하면 말풍선이 순서대로 화면에 나옴
