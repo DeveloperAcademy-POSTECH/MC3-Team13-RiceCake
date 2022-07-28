@@ -59,7 +59,7 @@ final class HintViewController: UIViewController {
         targetLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -10).isActive = !isLeft
     }
     
-    private func createTapGesture(targetView: UIView){
+    private func createTapGesture(targetView: UIView) {
         let viewTapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(appearLabel(_:)))
         targetView.addGestureRecognizer(viewTapped)
     }
