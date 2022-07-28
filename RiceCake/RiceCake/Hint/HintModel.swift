@@ -6,10 +6,12 @@
 //
 
 import Foundation
+
 struct StageHint: Codable {
     let stageId: Int
     let missionHints: [MissionHint]
 }
+
 struct MissionHint: Codable, Identifiable {
     let id: Int
     let content: [SpeachBubbles]
