@@ -21,8 +21,12 @@ class HintViewController: UIViewController {
         
         // 불러온 Json 파일에서 정보 가져와 말풍선 생성
         for script in jsonScript[0].missionHints[testMissionNumber].content {
-            let label = createPaddingLabel(text: script.text, viewTag: script.id, isLeft: script.isLeft ?? false)
-            setLabelConstraints(targetLabel: label, topConstraintView: ((script.id == 1 ? mainView : view.viewWithTag(script.id-1)) ?? mainView), isFirst: script.id == 1, isLeft: script.isLeft ?? false)
+            let isFirst: Bool = script.id == 1
+            let isLeft: Bool = script.isLeft ?? false
+            let topConstraintView: UIView = (isFirst ? mainView : view.viewWithTag(script.id-1)) ?? mainView
+            
+            let label = createPaddingLabel(text: script.text, viewTag: script.id, isLeft: isLeft)
+            setLabelConstraints(targetLabel: label, topConstraintView: topConstraintView, isFirst: isFirst, isLeft: isLeft)
         }
         
         // Tab Gesture Recongnizer 생성
