@@ -89,8 +89,12 @@ extension StageViewController: UIScrollViewDelegate {
     
 extension StageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 각 cell별 indexPath를 받아와 stage를 정의합니다.
+        let stage = lists[indexPath.item]
         let storyboard = UIStoryboard(name: "GameView", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        // 위에서 정의한 stage를 GameViewController의 stage변수에 넘겨줍니다.
+        viewController.stage = stage
         
         navigationController?.pushViewController(viewController, animated: true)
     }

@@ -8,15 +8,8 @@
 import SpriteKit
 import AudioToolbox
 
-// GameViewController에서 구현될 method들을 정의합니다.
-protocol GameSceneDelegate: AnyObject {
-    func seatMission(state: Bool)
-    func poleMission(state: Bool)
-}
-
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class BusStoryScene: SKScene, SKPhysicsContactDelegate {
     
-    weak var gameSceneDelegate: GameSceneDelegate?
     var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
     var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
@@ -55,19 +48,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collideType = collideBody.categoryBitMask
         // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
         switch collideType {
-        case PhysicsCategory.busFrame:
+        case BusStagePhysicsCategory.busFrame:
             print("버스 프레임과 부딪혔습니다.")
             
-        case PhysicsCategory.busSeat:
-            gameSceneDelegate?.seatMission(state: true)
+        case BusStagePhysicsCategory.busSeat:
             player.isHidden = true
+            NotificationCenter.default.post(name: .seatMission, object: nil)
             seatMissionPlayer.isHidden = false
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Seat Mission"
             
-        case PhysicsCategory.busPole:
-            gameSceneDelegate?.poleMission(state: true)
+        case BusStagePhysicsCategory.busPole:
             player.isPaused = true
+            NotificationCenter.default.post(name: .poleMission, object: nil)
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Pole Mission"
             
@@ -80,7 +73,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
-
+    
     func touchDown(atPoint pos: CGPoint) {
         
         let movementSpeed = 50.0
@@ -100,11 +93,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         hintString = ""
-        gameSceneDelegate?.seatMission(state: false)
-        gameSceneDelegate?.poleMission(state: false)
+        NotificationCenter.default.post(name: .cancelMission, object: nil)
+        seatMissionPlayer.isHidden = true
         player.isPaused = false
         player.isHidden = false
-        seatMissionPlayer.isHidden = true
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))

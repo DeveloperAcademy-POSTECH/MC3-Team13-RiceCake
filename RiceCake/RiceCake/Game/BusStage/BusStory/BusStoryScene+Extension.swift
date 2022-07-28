@@ -8,10 +8,10 @@
 
 import SpriteKit
 
-extension GameScene {
+extension BusStoryScene {
     // MARK: - Game Environment Node들의 속성의 정의합니다.
     func createEnvironment() {
-        let envAtlas = SKTextureAtlas(named: "Environment")
+        let envAtlas = SKTextureAtlas(named: "BusEnvironment")
         let roadTexture = envAtlas.textureNamed("road")
         let roadRepeatNum = Int(ceil(self.size.height / self.size.height))
         
@@ -20,7 +20,7 @@ extension GameScene {
             road.anchorPoint = CGPoint.zero
             road.size = CGSize(width: self.size.width, height: self.size.height + 1)
             road.position = CGPoint(x: 0, y: CGFloat(index) * self.size.height)
-            road.zPosition = Layer.road
+            road.zPosition = BusStageLayer.road
             self.addChild(road)
             
             let moveDown = SKAction.moveBy(x: 0, y: -self.size.height, duration: 10)
@@ -34,32 +34,32 @@ extension GameScene {
         let busFloor = SKSpriteNode(imageNamed: "busFloor")
         busFloor.size = CGSize(width: self.size.width, height: self.size.height)
         busFloor.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busFloor.zPosition = Layer.busFloor
+        busFloor.zPosition = BusStageLayer.busFloor
         
         let busFrame = SKSpriteNode(imageNamed: "busFrame")
         busFrame.size = CGSize(width: self.size.width, height: self.size.height)
         busFrame.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busFrame.zPosition = Layer.busFrame
+        busFrame.zPosition = BusStageLayer.busFrame
         busFrame.physicsBody = SKPhysicsBody(texture: busFrame.texture!, size: self.size)
-        busFrame.physicsBody?.categoryBitMask = PhysicsCategory.busFrame
+        busFrame.physicsBody?.categoryBitMask = BusStagePhysicsCategory.busFrame
         busFrame.physicsBody?.affectedByGravity = false
         busFrame.physicsBody?.isDynamic = false
         
         let busSeat = SKSpriteNode(imageNamed: "busSeat")
         busSeat.size = CGSize(width: self.size.width, height: self.size.height)
         busSeat.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busSeat.zPosition = Layer.busSeat
+        busSeat.zPosition = BusStageLayer.busSeat
         busSeat.physicsBody = SKPhysicsBody(texture: busSeat.texture!, size: self.size)
-        busSeat.physicsBody?.categoryBitMask = PhysicsCategory.busSeat
+        busSeat.physicsBody?.categoryBitMask = BusStagePhysicsCategory.busSeat
         busSeat.physicsBody?.affectedByGravity = false
         busSeat.physicsBody?.isDynamic = false
         
         let busPoll = SKSpriteNode(imageNamed: "busPole")
         busPoll.size = CGSize(width: self.size.width, height: self.size.height)
         busPoll.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busPoll.zPosition = Layer.busPole
+        busPoll.zPosition = BusStageLayer.busPole
         busPoll.physicsBody = SKPhysicsBody(texture: busPoll.texture!, size: self.size)
-        busPoll.physicsBody?.categoryBitMask = PhysicsCategory.busPole
+        busPoll.physicsBody?.categoryBitMask = BusStagePhysicsCategory.busPole
         busPoll.physicsBody?.affectedByGravity = false
         busPoll.physicsBody?.isDynamic = false
         
@@ -74,7 +74,7 @@ extension GameScene {
         descriptionLabel.fontSize = 18
         descriptionLabel.fontColor = .white
         descriptionLabel.position = CGPoint(x: self.size.width - 10, y: self.size.height - 20)
-        descriptionLabel.zPosition = Layer.descriptionLabel
+        descriptionLabel.zPosition = BusStageLayer.descriptionLabel
         descriptionLabel.horizontalAlignmentMode = .right
         descriptionLabel.text = hintString
         self.addChild(descriptionLabel)
@@ -89,7 +89,7 @@ extension GameScene {
             touchArea.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
                                              SKAction.fadeOut(withDuration: 0.5),
                                              SKAction.removeFromParent()]))
-            touchArea.zPosition = Layer.touchArea
+            touchArea.zPosition = BusStageLayer.touchArea
         }
     }
     
@@ -99,13 +99,13 @@ extension GameScene {
         let playerWidth = 20
         
         player.size = CGSize(width: playerWidth, height: playerWidth - 5)
-//        player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
-        player.zPosition = Layer.player
+        player.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
+        player.zPosition = BusStageLayer.player
         player.zRotation = 1.5
         player.physicsBody = SKPhysicsBody(circleOfRadius: 8)
-        player.physicsBody?.categoryBitMask = PhysicsCategory.player
-        player.physicsBody?.contactTestBitMask = PhysicsCategory.busFrame | PhysicsCategory.busPole | PhysicsCategory.busSeat
-        player.physicsBody?.collisionBitMask = PhysicsCategory.busPole | PhysicsCategory.busFrame
+        player.physicsBody?.categoryBitMask = BusStagePhysicsCategory.player
+        player.physicsBody?.contactTestBitMask = BusStagePhysicsCategory.busFrame | BusStagePhysicsCategory.busPole | BusStagePhysicsCategory.busSeat
+        player.physicsBody?.collisionBitMask = BusStagePhysicsCategory.busPole | BusStagePhysicsCategory.busFrame
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.isDynamic = true
         self.addChild(player)
@@ -126,7 +126,7 @@ extension GameScene {
         
         seatMissionPlayer.size = CGSize(width: playerWidth, height: playerWidth - 5)
         seatMissionPlayer.position = CGPoint(x: self.size.width * 5/7, y: self.size.height * 4/5)
-        seatMissionPlayer.zPosition = Layer.player
+        seatMissionPlayer.zPosition = BusStageLayer.player
         seatMissionPlayer.zRotation = 0
         seatMissionPlayer.run(SKAction.repeatForever(shakePlayer))
         seatMissionPlayer.isHidden = true
