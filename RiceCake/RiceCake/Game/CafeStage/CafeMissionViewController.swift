@@ -8,9 +8,7 @@
 import UIKit
 
 class CafeMissionViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 }

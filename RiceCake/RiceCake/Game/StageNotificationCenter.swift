@@ -28,6 +28,9 @@ extension Notification.Name {
     static let drawBusPoleHint = Notification.Name("drawBusPoleHint")
     static let drawBusPoleMission = Notification.Name("drawBusPoleMission")
     
+    static let drawDrinkHint = Notification.Name("drawDrinkHint")
+    static let drawDrinkMission = Notification.Name("drawDrinkMission")
+    
     static let eraseBusMission = Notification.Name("eraseBusMission")
     // CafeStage
 }
