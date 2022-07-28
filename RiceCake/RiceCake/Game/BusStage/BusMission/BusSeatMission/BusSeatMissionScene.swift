@@ -9,7 +9,6 @@ import SpriteKit
 import UIKit
 import AudioToolbox
 
-
 class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDelegate {
     var isGrabbingHandle: Bool = false
     
@@ -29,12 +28,6 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
         drawSeatHandle() // 좌석 손잡이 그리기
         
         addLongpressGestureRecognizer() // LongPressGesture 추가
-    }
-    // SKScene에 터치가 시작되었을 때의 작업 정의.
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            
-        }
     }
     // SKScene 위의 터치 위치가 변했을 때의 작업 정의.
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -83,7 +76,7 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
                 // MARK: 미션 성공
                 busSeatMissionBackground.isPaused = true
                 grabbingHand.isPaused = true
-                NotificationCenter.default.post(name: .drawBusStationMission, object: nil)
+                NotificationCenter.default.post(name: .drawBusPoleHint, object: nil)
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             }
         }
