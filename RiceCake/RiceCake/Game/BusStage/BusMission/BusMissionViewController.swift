@@ -16,8 +16,18 @@ class BusMissionViewController: UIViewController {
         super.viewDidLoad()
         
         // MARK: Notification Post를 받았을 때 View/Scene을 전환하기
-        NotificationCenter.default.addObserver(self, selector: #selector(drawBusSeatMission), name: .drawBusSeatMission, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(drawBusPoleMission), name: .drawBusPoleMission, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawBusSeatMission),
+            name: .drawBusSeatMission,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawBusPoleMission),
+            name: .drawBusPoleMission,
+            object: nil
+        )
     }
     
     // MARK: 각 힌트, 미션에 해당하는 View/Scene을 그리는 함수들
