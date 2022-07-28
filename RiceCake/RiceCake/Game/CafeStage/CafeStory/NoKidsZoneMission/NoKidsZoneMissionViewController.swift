@@ -9,24 +9,25 @@ import UIKit
 
 class NoKidsZoneMissionViewController: UIViewController {
 
-    @IBOutlet weak var pannel: UIImageView!
+    @IBOutlet weak var panel: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createSwipeGesture(targetView: pannel, isLeft: true)
-        createSwipeGesture(targetView: pannel, isLeft: false)
+        createSwipeGesture(targetView: panel, isLeft: true)
+        createSwipeGesture(targetView: panel, isLeft: false)
     }
     
     private func createSwipeGesture(targetView: UIView, isLeft: Bool) {
-        let swipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipePannel(_:)))
+        let swipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipePanel(_:)))
         swipe.direction = isLeft ? .left : .right
         targetView.addGestureRecognizer(swipe)
     }
     
-    @objc func swipePannel(_ sender: UISwipeGestureRecognizer) {
+    // swipe 제스처 인식 시 판넬 이미지 변경
+    @objc func swipePanel(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .left || sender.direction == .right {
-            pannel.image = UIImage(named: "pannelFront.png")
+            panel.image = UIImage(named: "pannelFront.png")
         }
     }
 
