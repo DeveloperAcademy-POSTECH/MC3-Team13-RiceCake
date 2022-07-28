@@ -47,8 +47,6 @@
 		F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89008E92885835200750905 /* BusSeatMissionConstants.swift */; };
 		F8B6ED15289007930046E7BD /* OrderMilkShakeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6ED14289007930046E7BD /* OrderMilkShakeScene.swift */; };
 		F8B6ED17289011D10046E7BD /* OrderMilkShakeMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6ED16289011D10046E7BD /* OrderMilkShakeMissionConstants.swift */; };
-		F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */; };
-		F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */; };
 		F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,8 +93,6 @@
 		F89008E92885835200750905 /* BusSeatMissionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionConstants.swift; sourceTree = "<group>"; };
 		F8B6ED14289007930046E7BD /* OrderMilkShakeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMilkShakeScene.swift; sourceTree = "<group>"; };
 		F8B6ED16289011D10046E7BD /* OrderMilkShakeMissionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMilkShakeMissionConstants.swift; sourceTree = "<group>"; };
-		F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusSeatMission.storyboard; sourceTree = "<group>"; };
-		F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionViewController.swift; sourceTree = "<group>"; };
 		F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,8 +254,6 @@
 		F8D2B0982883FAF600493132 /* BusSeatMission */ = {
 			isa = PBXGroup;
 			children = (
-				F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */,
-				F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */,
 				F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */,
 				F89008E92885835200750905 /* BusSeatMissionConstants.swift */,
 			);
@@ -328,7 +322,6 @@
 				34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */,
 				3477568728903B7E0049A212 /* CafeStory.storyboard in Resources */,
 				D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */,
-				F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */,
 				34775662288FC4C60049A212 /* CafeMission.storyboard in Resources */,
 				34775652288FBF4D0049A212 /* BusStory.storyboard in Resources */,
 				34775656288FBFE10049A212 /* BusMission.storyboard in Resources */,
@@ -395,7 +388,6 @@
 				F8B6ED15289007930046E7BD /* OrderMilkShakeScene.swift in Sources */,
 				F8B6ED17289011D10046E7BD /* OrderMilkShakeMissionConstants.swift in Sources */,
 				34775668288FDADF0049A212 /* StageNotificationCenter.swift in Sources */,
-				F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */,
 				F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */,
 				34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */,
 				F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */,
