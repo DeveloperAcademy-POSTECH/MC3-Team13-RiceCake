@@ -43,6 +43,7 @@
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
 		B307C15F2892C483000E42BF /* BusStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307C15E2892C483000E42BF /* BusStationViewController.swift */; };
+		B307C1622892CA80000E42BF /* BusStationMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B307C1612892CA80000E42BF /* BusStationMission.storyboard */; };
 		D4537732289050B100C87076 /* HintView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4537731289050B100C87076 /* HintView.storyboard */; };
 		D4537734289050C200C87076 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4537733289050C200C87076 /* HintViewController.swift */; };
 		D453773728910A0A00C87076 /* HintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453773628910A0A00C87076 /* HintModel.swift */; };
@@ -97,6 +98,7 @@
 		34F88C342886BE6700BB3DF8 /* HintScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
 		B307C15E2892C483000E42BF /* BusStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationViewController.swift; sourceTree = "<group>"; };
+		B307C1612892CA80000E42BF /* BusStationMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStationMission.storyboard; sourceTree = "<group>"; };
 		D4537731289050B100C87076 /* HintView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HintView.storyboard; sourceTree = "<group>"; };
 		D4537733289050C200C87076 /* HintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintViewController.swift; sourceTree = "<group>"; };
 		D453773628910A0A00C87076 /* HintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintModel.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				B307C15E2892C483000E42BF /* BusStationViewController.swift */,
+				B307C1612892CA80000E42BF /* BusStationMission.storyboard */,
 			);
 			path = BusStationMission;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */,
+				B307C1622892CA80000E42BF /* BusStationMission.storyboard in Resources */,
 				D453773928910A2900C87076 /* HintScript.json in Resources */,
 				3477568728903B7E0049A212 /* CafeStory.storyboard in Resources */,
 				D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */,
