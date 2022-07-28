@@ -1,15 +1,13 @@
 //
-//  CafeStoryRoadScene.swift
+//  InsideCafeScene.swift
 //  RiceCake
 //
-//  Created by Jung Yunseong on 2022/07/26.
+//  Created by Jung Yunseong on 2022/07/27.
 //
 
 import SpriteKit
 
-class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
-    
-    let cameraNode = SKCameraNode()
+class InsideFirstCafeScene: SKScene, SKPhysicsContactDelegate {
     
     var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
@@ -18,27 +16,14 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         
-        createEnvironment()
-        setUpCafe()
+        createDoor()
         createPlayer()
         createTouchArea()
-        
-        // 카메라 노드 추가
-        camera = cameraNode
-        cameraNode.position.x = self.size.width / 2
-        cameraNode.position.y = self.size.height / 2
-        self.addChild(cameraNode)
     }
     
-    // 카메라의 세부 움직임을 설정합니다.
-    override func update(_ currentTime: CFTimeInterval) {
-        if player.position.y <= self.size.height / 2 {
-            camera?.position.y = self.size.height / 2
-        } else if player.position.y >= self.size.height * 3/4 {
-            camera?.position.y = self.size.height * 3/4
-        } else {
-            camera?.position.y = player.position.y
-        }
+    // 터치가 발생할 때 실행할 코드들을 정의 합니다.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
     
     // MARK: Game 알고리즘을 정의합니다.
@@ -54,27 +39,17 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
         let collideType = collideBody.categoryBitMask
         // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
         switch collideType {
-        case CafeStagePhysicsCategory.cafe:
-            print("카페와 부딪혔습니다.")
-            
-        case CafeStagePhysicsCategory.firstCafeDoor:
-            let scene = InsideFirstCafeScene(size: self.size)
+        case InsideCafePhysicsCategory.exitDoor:
+            let scene = CafeStoryRoadScene(size: self.size)
             self.view?.presentScene(scene)
-            print("first")
-            
-        case CafeStagePhysicsCategory.secondCafeDoor:
-            let scene = InsideSecondCafeScene(size: self.size)
-            self.view?.presentScene(scene)
-            print("second")
+            scene.player.position.x = self.size.width * 3/10
+            scene.player.position.y = self.size.height * 9/40
+            scene.player.zRotation = 3.15
+            print("출입문과 부딪혔습니다.")
             
         default:
             break
         }
-    }
-    
-    // 터치가 발생할 때 실행할 코드들을 정의 합니다.
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
     
     func touchDown(atPoint pos: CGPoint) {
@@ -95,7 +70,6 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
         
-        print(pos)
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))
