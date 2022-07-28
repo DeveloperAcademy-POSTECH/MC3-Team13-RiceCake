@@ -25,7 +25,7 @@
                                             <constraint firstAttribute="width" secondItem="5ci-7E-Izk" secondAttribute="height" multiplier="3:4" id="uLd-E2-WW4"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pannelBack" translatesAutoresizingMaskIntoConstraints="NO" id="1nu-o9-t4h">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="panelBack" translatesAutoresizingMaskIntoConstraints="NO" id="1nu-o9-t4h">
                                         <rect key="frame" x="82.5" y="163.5" width="360" height="473"/>
                                     </imageView>
                                 </subviews>
@@ -53,7 +53,7 @@
                     </view>
                     <size key="freeformSize" width="600" height="800"/>
                     <connections>
-                        <outlet property="pannel" destination="1nu-o9-t4h" id="NU4-Ew-3TK"/>
+                        <outlet property="panel" destination="1nu-o9-t4h" id="weg-kV-JEP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -63,7 +63,7 @@
     </scenes>
     <resources>
         <image name="cafeDoorBackGround" width="600" height="801"/>
-        <image name="pannelBack" width="385" height="473"/>
+        <image name="panelBack" width="385" height="473"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
