@@ -9,6 +9,11 @@ import Foundation
 
 // NotificationCenter에 추가
 extension Notification.Name {
+    // BusStage
+    static let seatMission = Notification.Name("seatMission")
+    static let poleMission = Notification.Name("poleMission")
+    static let cancelMission = Notification.Name("cancelMission")
+    
     static let drawBusEnterHint = Notification.Name("drawBusEnterHint")
     
     static let drawBusSeatHint = Notification.Name("drawBusSeatHint")
@@ -24,4 +29,5 @@ extension Notification.Name {
     static let drawBusPoleMission = Notification.Name("drawBusPoleMission")
     
     static let eraseBusMission = Notification.Name("eraseBusMission")
+    // CafeStage
 }

@@ -1,35 +1,29 @@
 //
-//  GameScene.swift
-//  gameTest
+//  InsideCafeScene.swift
+//  RiceCake
 //
-//  Created by Jung Yunseong on 2022/07/14.
+//  Created by Jung Yunseong on 2022/07/27.
 //
 
 import SpriteKit
-import AudioToolbox
 
-class BusStoryScene: SKScene, SKPhysicsContactDelegate {
+class InsideFirstCafeScene: SKScene, SKPhysicsContactDelegate {
     
     var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
-    var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
-    var descriptionLabel = SKLabelNode()
-    var hintString: String = "" {
-        didSet {
-            descriptionLabel.text = hintString
-        }
-    }
     
     // MARK: - Node 초기화
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         
-        createEnvironment()
-        setUpBus()
+        createDoor()
         createPlayer()
-        createSeatMissionPlayer()
         createTouchArea()
-        createDescription()
+    }
+    
+    // 터치가 발생할 때 실행할 코드들을 정의 합니다.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
     }
     
     // MARK: Game 알고리즘을 정의합니다.
@@ -45,35 +39,22 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
         let collideType = collideBody.categoryBitMask
         // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
         switch collideType {
-        case BusStagePhysicsCategory.busFrame:
-            print("버스 프레임과 부딪혔습니다.")
-            
-        case BusStagePhysicsCategory.busSeat:
-            player.isHidden = true
-            NotificationCenter.default.post(name: .drawBusSeatMission, object: nil)
-            seatMissionPlayer.isHidden = false
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            hintString = "Bus Seat Mission"
-            
-        case BusStagePhysicsCategory.busPole:
-            player.isPaused = true
-            NotificationCenter.default.post(name: .drawBusPoleMission, object: nil)
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            hintString = "Bus Pole Mission"
+        case InsideCafePhysicsCategory.exitDoor:
+            let scene = CafeStoryRoadScene(size: self.size)
+            self.view?.presentScene(scene)
+            scene.player.position.x = self.size.width * 3/10
+            scene.player.position.y = self.size.height * 9/40
+            scene.player.zRotation = 3.15
+            print("출입문과 부딪혔습니다.")
             
         default:
             break
         }
     }
     
-    // 터치가 발생할 때 실행할 코드들을 정의 합니다.
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
-    }
-    
     func touchDown(atPoint pos: CGPoint) {
         
-        let movementSpeed = 50.0
+        let movementSpeed = 100.0
         let xPosition = pos.x - player.position.x
         let yPosition = pos.y - player.position.y
         let distance = sqrt(xPosition * xPosition + yPosition * yPosition)
@@ -89,11 +70,6 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
         
-        hintString = ""
-        NotificationCenter.default.post(name: .eraseBusMission, object: nil)
-        seatMissionPlayer.isHidden = true
-        player.isPaused = false
-        player.isHidden = false
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))
