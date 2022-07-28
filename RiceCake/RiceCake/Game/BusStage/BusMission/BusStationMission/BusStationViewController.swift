@@ -60,17 +60,17 @@ override func viewDidLoad() {
     }
     
     @objc func tappedHandle(_ sender: UISwipeGestureRecognizer) {
-        Leftperson()
-        Rightperson()
+        leftPerson()
+        rightPerson()
     }
     
     //swipe 사람 애니메이션 Animation 값 설정
-    func Leftperson() {
+    func leftPerson() {
         UIView.animate(withDuration: 0.3, animations: {
             self.buttonImage.center.y -= self.view.bounds.height/1.5
         }, completion: nil)
     }
-    func Rightperson() {
+    func rightPerson() {
         UIView.animate(withDuration: 0.3, animations: {
             self.buttonImage2.center.y += self.view.bounds.height/1.5
         }, completion: nil)
