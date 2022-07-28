@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "pannelBack.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
