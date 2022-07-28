@@ -27,7 +27,7 @@ class NoKidsZoneMissionViewController: UIViewController {
     // swipe 제스처 인식 시 판넬 이미지 변경
     @objc func swipePanel(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .left || sender.direction == .right {
-            panel.image = UIImage(named: "pannelFront.png")
+            panel.image = UIImage(named: "panelFront.png")
         }
     }
 
