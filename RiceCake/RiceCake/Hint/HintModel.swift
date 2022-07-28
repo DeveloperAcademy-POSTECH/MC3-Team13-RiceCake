@@ -20,7 +20,7 @@ struct MissionHint: Codable, Identifiable {
 struct SpeachBubbles: Codable, Identifiable {
     let id: Int
     let text: String
-    var isLeft: Bool? = false
+    var isLeft: Bool?
 }
 
 func loadJson<T: Decodable>(_ filename: String) -> T {
