@@ -75,7 +75,7 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
                 // MARK: 미션 성공
                 busSeatMissionBackground.isPaused = true
                 grabbingHand.isPaused = true
-                NotificationCenter.default.post(name: .drawBusPoleHint, object: nil)
+                NotificationCenter.default.post(name: .drawBusStationHint, object: nil)
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             }
         }

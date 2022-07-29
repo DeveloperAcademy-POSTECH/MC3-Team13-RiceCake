@@ -46,6 +46,18 @@ class BusMissionViewController: UIViewController {
             name: .drawBusPoleMission,
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawBusStationHint),
+            name: .drawBusStationHint,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawBusStationMission),
+            name: .drawBusStationMission,
+            object: nil
+        )
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
@@ -60,11 +72,11 @@ class BusMissionViewController: UIViewController {
     @objc func drawBusEnterHint() {
         eraseBusMission()
         // SpriteKit: missionView에 HintScene을 띄웁니다.
-        presentBusHintScene(missionNumber: 0, notificationName: .cancelMission)
+        presentBusHintScene(missionNumber: 0, nextViewNotificationName: .cancelMission) // 이 힌트 이후에는 아무것도 작동하지 않아야 해서 빈 노티 이름을 넣어둠.
     }
     @objc func drawBusSeatHint() {
         eraseBusMission()
-        presentBusHintScene(missionNumber: 1, notificationName: .drawBusSeatMission)
+        presentBusHintScene(missionNumber: 1, nextViewNotificationName: .drawBusSeatMission)
     }
     @objc func drawBusSeatMission() {
         eraseBusMission()
@@ -74,15 +86,23 @@ class BusMissionViewController: UIViewController {
     }
     @objc func drawBusStationHint() {
         eraseBusMission()
-        presentBusHintScene(missionNumber: 2, notificationName: .drawBusStationMission)
+        presentBusHintScene(missionNumber: 2, nextViewNotificationName: .drawBusStationMission)
     }
     @objc func drawBusStationMission() {
         eraseBusMission()
-        presentBusHintScene(missionNumber: 3, notificationName: .drawBusPoleHint)
+        drawUIKitViewOnMissionView(storyboardName: "BusStationMission", storyboardID: "BusStationMission")
     }
+    @objc func drawBusBellHint() {
+        eraseBusMission()
+        presentBusHintScene(missionNumber: 4, nextViewNotificationName: .drawBusBellMission)
+    }
+    @objc func drawBusBellMission() {
+        eraseBusMission()
+        drawUIKitViewOnMissionView(storyboardName: "BusPoleMission", storyboardID: "BusPole")
+    } // TODO: 안나 브랜치 머지 후 내용 수정 필요
     @objc func drawBusPoleHint() {
         eraseBusMission()
-        presentBusHintScene(missionNumber: 4, notificationName: .drawBusPoleMission) 
+        presentBusHintScene(missionNumber: 4, nextViewNotificationName: .drawBusPoleMission)
     }
     @objc func drawBusPoleMission() {
         eraseBusMission()
@@ -99,11 +119,11 @@ class BusMissionViewController: UIViewController {
         let missionHintScene: HintScene = HintScene(size: missionView.frame.size)
         missionView.presentScene(missionHintScene)
     }
-    private func presentBusHintScene(missionNumber: Int, notificationName: NSNotification.Name) {
+    private func presentBusHintScene(missionNumber: Int, nextViewNotificationName: NSNotification.Name) {
         // UIKit: HintView를 불러옵니다.
         let storyboard = UIStoryboard(name: "HintView", bundle: .main)
         if let child: HintViewController = storyboard.instantiateViewController(identifier: "HintViewController") as? HintViewController {
-            child.configure(stageNumber: 0, missionNumber: missionNumber, nextAction: notificationName)
+            child.configure(stageNumber: 0, missionNumber: missionNumber, nextViewNotificationName: nextViewNotificationName)
             child.didMove(toParent: self)
             child.view.frame = missionView.bounds
             addChild(child)
