@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BusStationViewController: UIViewController, UIGestureRecognizerDelegate {
+class BusStationMissionViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // 노드 @IBOutlet 연결
     @IBOutlet weak var buttonImage: UIImageView!
@@ -62,8 +62,9 @@ class BusStationViewController: UIViewController, UIGestureRecognizerDelegate {
                     background.transform = (background.transform).scaledBy(x: pinch.scale, y: pinch.scale)
                     recognizerScale *= pinch.scale
                     pinch.scale = 1.0
-                } else if recognizerScale > 1.99 {
+                } else if recognizerScale > 1.90 {
                     // MARK: 미션 성공
+                    NotificationCenter.default.post(name: .drawBusBellHint, object: nil)
                 }
             }
         }
