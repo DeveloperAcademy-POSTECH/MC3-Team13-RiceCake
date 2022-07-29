@@ -63,7 +63,7 @@ class BusMissionViewController: UIViewController {
     }
     @objc func drawBusSeatMission() {
         eraseBusMission()
-        // SpriteKit: missionView에 BusSeatMissionScene을 띄웁니다.
+        // SKScene: missionView에 BusSeatMissionScene을 띄웁니다.
         let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
         missionView.presentScene(missionScene)
     }
@@ -81,7 +81,6 @@ class BusMissionViewController: UIViewController {
     }
     @objc func drawBusPoleMission() {
         eraseBusMission()
-        // UIKit: missionView에 BusPoleMissionView를 연결합니다.
         drawUIKitViewOnMissionView(storyboardName: "BusPoleMission", storyboardID: "BusPole")
     }
     
@@ -98,7 +97,7 @@ class BusMissionViewController: UIViewController {
     private func presentBusHintScene(missionNumber: Int, notificationName: NSNotification.Name) {
         // UIKit: HintView를 불러옵니다.
         let storyboard = UIStoryboard(name: "HintView", bundle: .main)
-        if let child = storyboard.instantiateViewController(identifier: "HintViewController") as? HintViewController {
+        if let child: HintViewController = storyboard.instantiateViewController(identifier: "HintViewController") as? HintViewController {
             child.configure(stageNumber: 0, missionNumber: missionNumber, nextAction: notificationName)
             child.didMove(toParent: self)
             child.view.frame = missionView.bounds
