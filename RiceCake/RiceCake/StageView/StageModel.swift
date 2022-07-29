@@ -12,7 +12,7 @@ struct Stage: Hashable {
     let imageName: String
     let storyViewController: UIViewController
     let missionViewController: UIViewController
-} 
+}
 
 extension Stage {
     static let list: [Stage] = [
