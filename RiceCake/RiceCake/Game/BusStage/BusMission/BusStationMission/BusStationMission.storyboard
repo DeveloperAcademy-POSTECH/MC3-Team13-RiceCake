@@ -11,7 +11,7 @@
         <!--CheckBusStopMissionViewController-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="BusStationMission" title="CheckBusStopMissionViewController" id="Y6W-OH-hqX" customClass="BusStationViewController" customModule="RiceCake" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BusStationMissionViewController" title="CheckBusStopMissionViewController" id="Y6W-OH-hqX" customClass="BusStationMissionViewController" customModule="RiceCake" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

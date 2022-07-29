@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BusStationViewController: UIViewController, UIGestureRecognizerDelegate {
+class BusStationMissionViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // 노드 @IBOutlet 연결
     @IBOutlet weak var buttonImage: UIImageView!

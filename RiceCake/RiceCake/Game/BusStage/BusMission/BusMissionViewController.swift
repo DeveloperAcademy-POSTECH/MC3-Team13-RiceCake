@@ -90,7 +90,7 @@ class BusMissionViewController: UIViewController {
     }
     @objc func drawBusStationMission() {
         eraseBusMission()
-        drawUIKitViewOnMissionView(storyboardName: "BusStationMission", storyboardID: "BusStationMission")
+        drawUIKitViewOnMissionView(storyboardName: "BusStationMission", storyboardID: "BusStationMissionViewController")
     }
     @objc func drawBusBellHint() {
         eraseBusMission()
@@ -98,15 +98,15 @@ class BusMissionViewController: UIViewController {
     }
     @objc func drawBusBellMission() {
         eraseBusMission()
-        drawUIKitViewOnMissionView(storyboardName: "BusPoleMission", storyboardID: "BusPole")
-    } // TODO: 안나 브랜치 머지 후 내용 수정 필요
+        drawUIKitViewOnMissionView(storyboardName: "BusBellMission", storyboardID: "BusBellMissionViewController")
+    }
     @objc func drawBusPoleHint() {
         eraseBusMission()
         presentBusHintScene(missionNumber: 4, nextViewNotificationName: .drawBusPoleMission)
     }
     @objc func drawBusPoleMission() {
         eraseBusMission()
-        drawUIKitViewOnMissionView(storyboardName: "BusPoleMission", storyboardID: "BusPole")
+        drawUIKitViewOnMissionView(storyboardName: "BusPoleMission", storyboardID: "BusPoleMissionViewController")
     }
     
     // MARK: View/Scene을 더 편하게 그릴 수 있게 도와주는 함수들
