@@ -113,7 +113,7 @@ class CafeMissionViewController: UIViewController {
     // CafeDrinkMilkShake
     @objc func drawCafeDrinkMilkShakeHint() {
         eraseCafeMission()
-        presentCafeHintScene(missionNumber: 3, nextViewNotificationName: .drawCafeDrinkMilkShakeMission)
+        presentCafeHintScene(missionNumber: 3, nextViewNotificationName: .searchForNextMission)
     }
     
     @objc func drawCafeDrinkMilkShakeMission() {
