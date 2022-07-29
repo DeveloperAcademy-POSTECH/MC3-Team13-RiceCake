@@ -13,7 +13,16 @@ class BusStoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("did load")
         
+        let scene: BusStoryScene = BusStoryScene(size: storyView.frame.size)
+        storyView.presentScene(scene)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+        
+        print("did disappear")
         let scene: BusStoryScene = BusStoryScene(size: storyView.frame.size)
         storyView.presentScene(scene)
     }
