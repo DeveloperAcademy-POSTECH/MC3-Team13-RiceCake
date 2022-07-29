@@ -8,6 +8,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="EF_Diary.ttf">
+            <string>EF_Diary</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Stage View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -18,16 +23,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-mm-14u">
-                                <rect key="frame" x="323" y="344" width="250" height="29"/>
+                                <rect key="frame" x="323" y="342" width="250" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Acb-5G-qWn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="EF_Diary" family="EF_다이어리" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0V0-jx-BAX">
-                                <rect key="frame" x="279" y="346.5" width="24" height="24"/>
+                                <rect key="frame" x="279" y="345.5" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="SbA-MM-scX"/>
                                     <constraint firstAttribute="width" constant="24" id="jQR-Cl-PpZ"/>
@@ -42,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghe-om-1zg">
-                                <rect key="frame" x="593" y="346.5" width="24" height="24"/>
+                                <rect key="frame" x="593" y="345.5" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="Ing-oG-EVk"/>
                                     <constraint firstAttribute="height" constant="24" id="N13-7q-HO9"/>
@@ -56,7 +61,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VCV-fY-OeW">
-                                <rect key="frame" x="0.0" y="50" width="896" height="264"/>
+                                <rect key="frame" x="0.0" y="50" width="896" height="262"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="txt-gi-2lw">
                                     <size key="itemSize" width="312" height="204"/>

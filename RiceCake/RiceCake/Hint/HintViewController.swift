@@ -41,6 +41,7 @@ final class HintViewController: UIViewController {
         label.padding(10, 10, 10, 10)
         label.tag = viewTag
         label.text = text
+        label.font = UIFont(name: "EF_Diary", size: 14)
         label.textColor = isLeft ? .black : .white
         label.backgroundColor = isLeft ? .white : .black
         label.layer.borderWidth = 1

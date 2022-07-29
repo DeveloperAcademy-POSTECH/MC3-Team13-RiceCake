@@ -59,6 +59,7 @@
 		631F2A572892D35F009CA059 /* GuideAssetBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A562892D35F009CA059 /* GuideAssetBrain.swift */; };
 		B307C15F2892C483000E42BF /* BusStationMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307C15E2892C483000E42BF /* BusStationMissionViewController.swift */; };
 		B307C1622892CA80000E42BF /* BusStationMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B307C1612892CA80000E42BF /* BusStationMission.storyboard */; };
+		D4050D1F2893AC4B00468787 /* EF_Diary.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4050D1E2893AC4B00468787 /* EF_Diary.ttf */; };
 		D4537732289050B100C87076 /* HintView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4537731289050B100C87076 /* HintView.storyboard */; };
 		D4537734289050C200C87076 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4537733289050C200C87076 /* HintViewController.swift */; };
 		D453773728910A0A00C87076 /* HintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453773628910A0A00C87076 /* HintModel.swift */; };
@@ -129,6 +130,7 @@
 		631F2A562892D35F009CA059 /* GuideAssetBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideAssetBrain.swift; sourceTree = "<group>"; };
 		B307C15E2892C483000E42BF /* BusStationMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationMissionViewController.swift; sourceTree = "<group>"; };
 		B307C1612892CA80000E42BF /* BusStationMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStationMission.storyboard; sourceTree = "<group>"; };
+		D4050D1E2893AC4B00468787 /* EF_Diary.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EF_Diary.ttf; sourceTree = "<group>"; };
 		D4537731289050B100C87076 /* HintView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HintView.storyboard; sourceTree = "<group>"; };
 		D4537733289050C200C87076 /* HintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintViewController.swift; sourceTree = "<group>"; };
 		D453773628910A0A00C87076 /* HintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintModel.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		34A18414288044F7004B58E3 /* RiceCake */ = {
 			isa = PBXGroup;
 			children = (
+				D4050D1D2893AC3000468787 /* Font */,
 				34A18415288044F7004B58E3 /* AppDelegate.swift */,
 				34A18417288044F7004B58E3 /* SceneDelegate.swift */,
 				34A18420288044F8004B58E3 /* LaunchScreen.storyboard */,
@@ -338,6 +341,14 @@
 				B307C1612892CA80000E42BF /* BusStationMission.storyboard */,
 			);
 			path = BusStationMission;
+			sourceTree = "<group>";
+		};
+		D4050D1D2893AC3000468787 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D4050D1E2893AC4B00468787 /* EF_Diary.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		D4537735289050CC00C87076 /* Hint */ = {
@@ -454,6 +465,7 @@
 				631F2A4D2892BB3F009CA059 /* Negative.wav in Resources */,
 				D453773928910A2900C87076 /* HintScript.json in Resources */,
 				3477568728903B7E0049A212 /* CafeStory.storyboard in Resources */,
+				D4050D1F2893AC4B00468787 /* EF_Diary.ttf in Resources */,
 				3487FC892893C1FB004169BA /* BusBellMission.storyboard in Resources */,
 				D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */,
 				631F2A462892BB3F009CA059 /* Gesture5.wav in Resources */,
@@ -509,7 +521,6 @@
 				347332B12892609100859373 /* HintScene.swift in Sources */,
 				347332A22891265500859373 /* BusStageConstants.swift in Sources */,
 				34B638D428811EE300760FD8 /* GameViewController.swift in Sources */,
-				34B348C92891143B0008A85C /* InsideFirstCafeScene.swift in Sources */,
 				631F2A572892D35F009CA059 /* GuideAssetBrain.swift in Sources */,
 				34B638C728811CBB00760FD8 /* StageModel.swift in Sources */,
 				631F2A4F2892BB71009CA059 /* SoundBrain.swift in Sources */,
@@ -690,7 +701,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9G3C2CYQ6Z;
+				DEVELOPMENT_TEAM = 9C6L2Z2R74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -718,7 +729,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9G3C2CYQ6Z;
+				DEVELOPMENT_TEAM = 9C6L2Z2R74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
