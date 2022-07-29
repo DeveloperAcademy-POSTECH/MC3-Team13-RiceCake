@@ -26,12 +26,16 @@ struct CafeStagePhysicsCategory {
 }
 // MARK: - InsideCafeScene
 struct InsideCafeLayer {
-    static let exitDoor: CGFloat = 1
+    static let cafeInterior: CGFloat = 1
+    static let orderStand: CGFloat = 2
+    static let seat: CGFloat = 3
     static let player: CGFloat = 4
     static let touchArea: CGFloat = 5
 }
 
 struct InsideCafePhysicsCategory {
     static let player: UInt32 = 0x1 << 0
-    static let exitDoor: UInt32 = 0x1 << 1
+    static let cafeInterior: UInt32 = 0x1 << 1
+    static let orderStand: UInt32 = 0x1 << 2
+    static let seat: UInt32 = 0x1 << 3
 }

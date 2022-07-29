@@ -50,7 +50,7 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
             
         case BusStagePhysicsCategory.busSeat:
             player.isHidden = true
-            NotificationCenter.default.post(name: .drawBusSeatMission, object: nil)
+            NotificationCenter.default.post(name: .drawBusSeatHint, object: nil)
             seatMissionPlayer.isHidden = false
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             hintString = "Bus Seat Mission"
