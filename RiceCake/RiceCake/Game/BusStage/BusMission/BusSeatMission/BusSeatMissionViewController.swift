@@ -8,7 +8,9 @@
 import UIKit
 
 class BusSeatMissionViewController: UIViewController {
-
+    
+    var soundBrain = SoundBrain()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
