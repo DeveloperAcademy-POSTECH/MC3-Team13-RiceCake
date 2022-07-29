@@ -75,17 +75,18 @@ class BusBellMissionViewController: UIViewController {
         generator.impactOccurred()
         avPlayer.play()
         pauseLayer(layer: layer)
+        NotificationCenter.default.post(name: .drawBusPoleHint, object: nil)
     }
     
     // 3가지 랜덤한 높이의 반복되는 childeLeftHand Up & Down 애니메이션
     func childHandUpAndDown() {
         UIView.animate(withDuration: 0.8, delay: 0, animations: {
             self.childLeftHand.center.y -= self.view.bounds.height * self.childLeftHandPisitions.randomElement()!
-        }, completion: { (_) in
+        }, completion: { _ in
             self.missionSuccessCondition()
             UIView.animate(withDuration: 1.5, delay: 0, animations: {
                 self.childLeftHand.center.y += self.view.bounds.height * self.childLeftHandPisitions.randomElement()!
-            }, completion: { (_) in
+            }, completion: { _ in
                 self.setupChildHand()
                 self.childHandUpAndDown()
             })
