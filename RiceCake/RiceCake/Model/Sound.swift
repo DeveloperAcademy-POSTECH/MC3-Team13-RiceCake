@@ -10,9 +10,9 @@ import AVFoundation
 
 struct Sound {
     var player: AVAudioPlayer
-    let soundName:String
+    let soundName: String
     
-    init(player:AVAudioPlayer, soundName:String) {
+    init(player: AVAudioPlayer, soundName: String) {
         self.player = player
         self.soundName = soundName
     }
@@ -22,7 +22,7 @@ struct Sound {
         do {
             player = try AVAudioPlayer(contentsOf: url!)
                 player.play()
-            } catch  {
+            } catch {
                 print("SoundError \(error)")
             }
         }

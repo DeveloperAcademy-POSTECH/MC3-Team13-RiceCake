@@ -162,4 +162,3 @@ extension BusSeatMissionScene {
         self.addChild(grabbingHand)
     }
 }
-

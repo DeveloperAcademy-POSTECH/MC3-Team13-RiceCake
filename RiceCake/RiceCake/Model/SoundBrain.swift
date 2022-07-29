@@ -22,13 +22,13 @@ struct SoundBrain {
     Sound(player: AVAudioPlayer(), soundName: "background")
     ]
     
-    mutating func getSound(name:String) {
-        var soundNumber = sounds.firstIndex(where: {$0.soundName == name})! ?? 0
+    mutating func getSound(name: String) {
+        let soundNumber = sounds.firstIndex(where: {$0.soundName == name}) ?? 0
         sounds[soundNumber].playSound()
     }
     
-    mutating func pauseSound(name:String) {
-        var soundNumber = sounds.firstIndex(where: {$0.soundName == name})! ?? 0
+    mutating func pauseSound(name: String) {
+        let soundNumber = sounds.firstIndex(where: {$0.soundName == name}) ?? 0
         sounds[soundNumber].stopSound()
     }
 }
