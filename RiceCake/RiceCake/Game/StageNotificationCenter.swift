@@ -12,7 +12,7 @@ extension Notification.Name {
     // BusStage
     static let seatMission = Notification.Name("seatMission")
     static let poleMission = Notification.Name("poleMission")
-    static let cancelMission = Notification.Name("cancelMission")
+    static let searchForNextMission = Notification.Name("cancelMission")
     
     static let drawBusEnterHint = Notification.Name("drawBusEnterHint")
     

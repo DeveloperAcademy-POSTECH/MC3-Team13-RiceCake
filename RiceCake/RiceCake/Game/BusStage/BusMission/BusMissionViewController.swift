@@ -16,12 +16,14 @@ class BusMissionViewController: UIViewController {
         super.viewDidLoad()
         
         // MARK: Notification Post를 받았을 때 View/Scene을 전환하기
+        // BusEnterHint
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(drawBusEnterHint),
             name: .drawBusEnterHint,
             object: nil
         )
+        // BusSeatMission
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(drawBusSeatHint),
@@ -34,18 +36,7 @@ class BusMissionViewController: UIViewController {
             name: .drawBusSeatMission,
             object: nil
         )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(drawBusPoleHint),
-            name: .drawBusPoleHint,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(drawBusPoleMission),
-            name: .drawBusPoleMission,
-            object: nil
-        )
+        // BusStationMission
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(drawBusStationHint),
@@ -56,6 +47,32 @@ class BusMissionViewController: UIViewController {
             self,
             selector: #selector(drawBusStationMission),
             name: .drawBusStationMission,
+            object: nil
+        )
+        // BusBellMission
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawBusBellHint),
+            name: .drawBusBellHint,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawBusBellMission),
+            name: .drawBusBellMission,
+            object: nil
+        )
+        // BusPoleMission
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawBusPoleHint),
+            name: .drawBusPoleHint,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawBusPoleMission),
+            name: .drawBusPoleMission,
             object: nil
         )
     }
@@ -72,7 +89,7 @@ class BusMissionViewController: UIViewController {
     @objc func drawBusEnterHint() {
         eraseBusMission()
         // SpriteKit: missionView에 HintScene을 띄웁니다.
-        presentBusHintScene(missionNumber: 0, nextViewNotificationName: .cancelMission) // 이 힌트 이후에는 아무것도 작동하지 않아야 해서 빈 노티 이름을 넣어둠.
+        presentBusHintScene(missionNumber: 0, nextViewNotificationName: .searchForNextMission) // 이 힌트 이후에는 아무것도 작동하지 않아야 해서 빈 노티 이름을 넣어둠.
     }
     @objc func drawBusSeatHint() {
         eraseBusMission()
@@ -94,7 +111,7 @@ class BusMissionViewController: UIViewController {
     }
     @objc func drawBusBellHint() {
         eraseBusMission()
-        presentBusHintScene(missionNumber: 4, nextViewNotificationName: .drawBusBellMission)
+        presentBusHintScene(missionNumber: 3, nextViewNotificationName: .drawBusBellMission)
     }
     @objc func drawBusBellMission() {
         eraseBusMission()
@@ -102,7 +119,7 @@ class BusMissionViewController: UIViewController {
     }
     @objc func drawBusPoleHint() {
         eraseBusMission()
-        presentBusHintScene(missionNumber: 4, nextViewNotificationName: .drawBusPoleMission)
+        presentBusHintScene(missionNumber: 4, nextViewNotificationName: .searchForNextMission)
     }
     @objc func drawBusPoleMission() {
         eraseBusMission()
