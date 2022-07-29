@@ -16,7 +16,7 @@ final class HintViewController: UIViewController {
     let jsonScript: [StageHint] = loadJson("HintScript.json")
     var stageNumber: Int = 0
     var missionNumber: Int = 0
-    var nextAction: Notification.Name = .drawBusSeatHint
+    var notificationName: Notification.Name = .drawBusSeatHint
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,15 +71,15 @@ final class HintViewController: UIViewController {
         if labelTagNumber == jsonScript[0].missionHints[missionNumber].content.count {
             isHintEnd = true
             // 힌트 종료하고 다음 장면으로 넘어가기
-            NotificationCenter.default.post(name: nextAction, object: nil)
+            NotificationCenter.default.post(name: notificationName, object: nil)
             print("Hint \(missionNumber) is completed")
         }
         labelTagNumber += 1
         self.view.viewWithTag(labelTagNumber)?.isHidden = false
     }
-    func configure(stageNumber: Int, missionNumber: Int, nextAction: Notification.Name) {
+    func configure(stageNumber: Int, missionNumber: Int, nextViewNotificationName: Notification.Name) {
         self.stageNumber = stageNumber
         self.missionNumber = missionNumber
-        self.nextAction = nextAction
+        self.notificationName = nextViewNotificationName
     }
 }
