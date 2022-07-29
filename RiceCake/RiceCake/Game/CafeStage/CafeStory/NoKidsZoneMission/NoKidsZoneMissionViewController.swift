@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoKidsZoneMissionViewController: UIViewController {
+final class NoKidsZoneMissionViewController: UIViewController {
 
     @IBOutlet weak var panel: UIImageView!
     
