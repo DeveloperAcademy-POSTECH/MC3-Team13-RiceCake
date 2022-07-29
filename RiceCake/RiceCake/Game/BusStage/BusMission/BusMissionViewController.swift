@@ -15,9 +15,6 @@ class BusMissionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eraseBusMission()
-        drawBusEnterHint()
-        
         // MARK: Notification Post를 받았을 때 View/Scene을 전환하기
         NotificationCenter.default.addObserver(
             self,
@@ -49,6 +46,14 @@ class BusMissionViewController: UIViewController {
             name: .drawBusPoleMission,
             object: nil
         )
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        drawBusEnterHint()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+        eraseBusMission()
     }
     
     // MARK: 각 힌트, 미션에 해당하는 View/Scene을 그리는 함수들
