@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 final class NoKidsZoneMissionViewController: UIViewController {
 
@@ -28,6 +29,9 @@ final class NoKidsZoneMissionViewController: UIViewController {
     @objc func swipePanel(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .left || sender.direction == .right {
             panel.image = UIImage(named: "panelFront.png")
+            // MARK: 미션 성공
+            NotificationCenter.default.post(name: .drawSearchForAnotherCafeHint, object: nil)
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
     }
 

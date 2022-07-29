@@ -11,7 +11,7 @@
         <!--Milk Shake Mission View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MilkShakeMission" id="Y6W-OH-hqX" customClass="MilkShakeMissionViewController" customModule="RiceCake" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MilkShakeMissionViewController" id="Y6W-OH-hqX" customClass="MilkShakeMissionViewController" customModule="RiceCake" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

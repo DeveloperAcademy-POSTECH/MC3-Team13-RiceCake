@@ -46,9 +46,11 @@ class InsideCafeScene: SKScene, SKPhysicsContactDelegate {
             
         case InsideCafePhysicsCategory.orderStand:
             print("CafeMission")
+            NotificationCenter.default.post(name: .drawCafeOrderMilkShakeMission, object: nil)
             
         case InsideCafePhysicsCategory.seat:
             print("DrinkMilkShake")
+            NotificationCenter.default.post(name: .drawCafeDrinkMilkShakeHint, object: nil)
 
         default:
             break

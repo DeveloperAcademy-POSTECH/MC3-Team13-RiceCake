@@ -16,10 +16,31 @@ class CafeMissionViewController: UIViewController {
         super.viewDidLoad()
         
         // MARK: Notification Post를 받았을 때 View/Scene을 전환하기
+        // CafeNoKidsZone
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawCafeNoKidsZoneHint),
+            name: .drawCafeNoKidsZoneHint,
+            object: nil
+        )
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(drawCafeNoKidsZoneMission),
             name: .drawCafeNoKidsZoneMission,
+            object: nil
+        )
+        // SearchForAnotherCafe
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawSearchForAnotherCafeHint),
+            name: .drawSearchForAnotherCafeHint,
+            object: nil
+        )
+        // CafeOrderMilkShake
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawCafeOrderMilkShakeHint),
+            name: .drawCafeOrderMilkShakeHint,
             object: nil
         )
         NotificationCenter.default.addObserver(
@@ -28,38 +49,56 @@ class CafeMissionViewController: UIViewController {
             name: .drawCafeOrderMilkShakeMission,
             object: nil
         )
+        // CafeDrinkMilkShake
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawCafeDrinkMilkShakeHint),
+            name: .drawCafeDrinkMilkShakeHint,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(drawCafeDrinkMilkShakeMission),
+            name: .drawCafeDrinkMilkShakeMission,
+            object: nil
+        )
     }
     
     // MARK: 각 힌트, 미션에 해당하는 View/Scene을 그리는 함수들
-    @objc func drawCafeEnterHint() {
-        eraseCafeMission()
-        // SpriteKit: missionView에 HintScene을 띄웁니다.
-        presentCafeHintScene()
-    }
+    // CafeNoKidsZone
     @objc func drawCafeNoKidsZoneHint() {
         eraseCafeMission()
-        presentCafeHintScene()
+        presentCafeHintScene(missionNumber: 0, nextViewNotificationName: .drawCafeNoKidsZoneMission)
     }
     @objc func drawCafeNoKidsZoneMission() {
         eraseCafeMission()
-        // SpriteKit: missionView에 CafeOrderMissionScene을 띄웁니다.
-        let missionScene = OrderMilkShakeMissionScene(size: missionView.frame.size)
-        missionView.presentScene(missionScene)
+        drawUIKitViewOnMissionView(storyboardName: "NoKidsZoneMission", storyboardID: "NoKidsZoneMissionViewController")
     }
+    // SearchForAnotherCafe
+    @objc func drawSearchForAnotherCafeHint() {
+        eraseCafeMission()
+        presentCafeHintScene(missionNumber: 1, nextViewNotificationName: .searchForNextMission)
+    }
+    // CafeOrderMilkShake
     @objc func drawCafeOrderMilkShakeHint() {
         eraseCafeMission()
-        presentCafeHintScene()
+        presentCafeHintScene(missionNumber: 2, nextViewNotificationName: .drawCafeOrderMilkShakeMission)
     }
     @objc func drawCafeOrderMilkShakeMission() {
         eraseCafeMission()
-        // UIKit: missionView에 CafePoleMissionView를 연결합니다.
-//        let storyboard = UIStoryboard(name: "CafePoleMission", bundle: .main)
-//        if let child = storyboard.instantiateViewController(identifier: "CafePole") as? CafePoleMissionViewController {
-//            addChild(child)
-//            missionView.addSubview(child.view)
-//            child.didMove(toParent: self)
-//            child.view.frame = missionView.bounds
-//        }
+        // SKScene: missionView에 BusSeatMissionScene을 띄웁니다.
+        let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
+        missionView.presentScene(missionScene)
+    }
+    // CafeDrinkMilkShake
+    @objc func drawCafeDrinkMilkShakeHint() {
+        eraseCafeMission()
+        presentCafeHintScene(missionNumber: 3, nextViewNotificationName: .drawCafeDrinkMilkShakeMission)
+    }
+    @objc func drawCafeDrinkMilkShakeMission() {
+        eraseCafeMission()
+        drawUIKitViewOnMissionView(storyboardName: "MilkShakeMission", storyboardID: "MilkShakeMissionViewController")
+        
     }
     
     // MARK: View/Scene을 더 편하게 그릴 수 있게 도와주는 함수들
@@ -69,8 +108,24 @@ class CafeMissionViewController: UIViewController {
             view.removeFromSuperview()
         }
     }
-    private func presentCafeHintScene() {
-        let missionHintScene: HintScene = HintScene(size: missionView.frame.size)
-        missionView.presentScene(missionHintScene)
+    private func presentCafeHintScene(missionNumber: Int, nextViewNotificationName: NSNotification.Name) {
+        // UIKit: HintView를 불러옵니다.
+        let storyboard = UIStoryboard(name: "HintView", bundle: .main)
+        if let child: HintViewController = storyboard.instantiateViewController(identifier: "HintViewController") as? HintViewController {
+            child.configure(stageNumber: 1, missionNumber: missionNumber, nextViewNotificationName: nextViewNotificationName)
+            child.didMove(toParent: self)
+            child.view.frame = missionView.bounds
+            addChild(child)
+            missionView.addSubview(child.view)
+        }
+    }
+    private func drawUIKitViewOnMissionView(storyboardName: String, storyboardID: String) {
+        // UIKit: missionView에 BusPoleMissionView를 연결합니다.
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let child = storyboard.instantiateViewController(identifier: storyboardID)
+        addChild(child)
+        missionView.addSubview(child.view)
+        child.didMove(toParent: self)
+        child.view.frame = missionView.bounds
     }
 }
