@@ -42,7 +42,6 @@
 		34B638D528811EE300760FD8 /* GameView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638D328811EE300760FD8 /* GameView.storyboard */; };
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
-		D4050D1F2893AC4B00468787 /* EF_Diary.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4050D1E2893AC4B00468787 /* EF_Diary.ttf */; };
 		631F2A38289285A5009CA059 /* MilkShakeMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A36289285A5009CA059 /* MilkShakeMission.storyboard */; };
 		631F2A39289285A5009CA059 /* MilkShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A37289285A5009CA059 /* MilkShakeViewController.swift */; };
 		631F2A452892BB3F009CA059 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3C2892BB3E009CA059 /* background.wav */; };
@@ -60,6 +59,7 @@
 		631F2A572892D35F009CA059 /* GuideAssetBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A562892D35F009CA059 /* GuideAssetBrain.swift */; };
 		B307C15F2892C483000E42BF /* BusStationMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307C15E2892C483000E42BF /* BusStationMissionViewController.swift */; };
 		B307C1622892CA80000E42BF /* BusStationMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B307C1612892CA80000E42BF /* BusStationMission.storyboard */; };
+		D4050D1F2893AC4B00468787 /* EF_Diary.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4050D1E2893AC4B00468787 /* EF_Diary.ttf */; };
 		D4537732289050B100C87076 /* HintView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4537731289050B100C87076 /* HintView.storyboard */; };
 		D4537734289050C200C87076 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4537733289050C200C87076 /* HintViewController.swift */; };
 		D453773728910A0A00C87076 /* HintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453773628910A0A00C87076 /* HintModel.swift */; };
@@ -113,7 +113,6 @@
 		34F88C302885838600BB3DF8 /* ActionList.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionList.sks; sourceTree = "<group>"; };
 		34F88C342886BE6700BB3DF8 /* HintScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
-		D4050D1E2893AC4B00468787 /* EF_Diary.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EF_Diary.ttf; sourceTree = "<group>"; };
 		631F2A36289285A5009CA059 /* MilkShakeMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MilkShakeMission.storyboard; sourceTree = "<group>"; };
 		631F2A37289285A5009CA059 /* MilkShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkShakeViewController.swift; sourceTree = "<group>"; };
 		631F2A3C2892BB3E009CA059 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
@@ -131,6 +130,7 @@
 		631F2A562892D35F009CA059 /* GuideAssetBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideAssetBrain.swift; sourceTree = "<group>"; };
 		B307C15E2892C483000E42BF /* BusStationMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationMissionViewController.swift; sourceTree = "<group>"; };
 		B307C1612892CA80000E42BF /* BusStationMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStationMission.storyboard; sourceTree = "<group>"; };
+		D4050D1E2893AC4B00468787 /* EF_Diary.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EF_Diary.ttf; sourceTree = "<group>"; };
 		D4537731289050B100C87076 /* HintView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HintView.storyboard; sourceTree = "<group>"; };
 		D4537733289050C200C87076 /* HintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintViewController.swift; sourceTree = "<group>"; };
 		D453773628910A0A00C87076 /* HintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintModel.swift; sourceTree = "<group>"; };
@@ -298,14 +298,6 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
-		D4050D1D2893AC3000468787 /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				D4050D1E2893AC4B00468787 /* EF_Diary.ttf */,
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
 		631F2A3528928538009CA059 /* DrinkMilkShake */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +341,14 @@
 				B307C1612892CA80000E42BF /* BusStationMission.storyboard */,
 			);
 			path = BusStationMission;
+			sourceTree = "<group>";
+		};
+		D4050D1D2893AC3000468787 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D4050D1E2893AC4B00468787 /* EF_Diary.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		D4537735289050CC00C87076 /* Hint */ = {
@@ -521,7 +521,6 @@
 				347332B12892609100859373 /* HintScene.swift in Sources */,
 				347332A22891265500859373 /* BusStageConstants.swift in Sources */,
 				34B638D428811EE300760FD8 /* GameViewController.swift in Sources */,
-				34B348C92891143B0008A85C /* InsideFirstCafeScene.swift in Sources */,
 				631F2A572892D35F009CA059 /* GuideAssetBrain.swift in Sources */,
 				34B638C728811CBB00760FD8 /* StageModel.swift in Sources */,
 				631F2A4F2892BB71009CA059 /* SoundBrain.swift in Sources */,
@@ -702,7 +701,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9G3C2CYQ6Z;
+				DEVELOPMENT_TEAM = 9C6L2Z2R74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -730,7 +729,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9G3C2CYQ6Z;
+				DEVELOPMENT_TEAM = 9C6L2Z2R74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
