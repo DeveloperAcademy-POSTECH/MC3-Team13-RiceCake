@@ -50,7 +50,7 @@ class InsideCafeScene: SKScene, SKPhysicsContactDelegate {
             
         case InsideCafePhysicsCategory.seat:
             print("DrinkMilkShake")
-            NotificationCenter.default.post(name: .drawCafeDrinkMilkShakeHint, object: nil)
+            NotificationCenter.default.post(name: .drawCafeDrinkMilkShakeMission, object: nil)
 
         default:
             break

@@ -22,7 +22,7 @@ final class HintViewController: UIViewController {
         super.viewDidLoad()
         
         // 불러온 Json 파일에서 정보 가져와 말풍선 생성
-        for script in jsonScript[0].missionHints[missionNumber].content {
+        for script in jsonScript[stageNumber].missionHints[missionNumber].content {
             let isFirst: Bool = script.id == 1
             let isLeft: Bool = script.isLeft ?? false
             let topConstraintView: UIView = (isFirst ? mainView : view.viewWithTag(script.id-1)) ?? mainView

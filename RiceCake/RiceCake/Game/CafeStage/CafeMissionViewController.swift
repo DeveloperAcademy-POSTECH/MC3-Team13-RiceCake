@@ -77,7 +77,7 @@ class CafeMissionViewController: UIViewController {
     // CafeNoKidsZone
     @objc func drawCafeNoKidsZoneHint() {
         eraseCafeMission()
-        presentCafeHintScene(missionNumber: 0, nextViewNotificationName: .drawCafeNoKidsZoneMission)
+        presentCafeHintScene(missionNumber: 0, nextViewNotificationName: .searchForNextMission)
     }
     @objc func drawCafeNoKidsZoneMission() {
         eraseCafeMission()
@@ -91,12 +91,12 @@ class CafeMissionViewController: UIViewController {
     // CafeOrderMilkShake
     @objc func drawCafeOrderMilkShakeHint() {
         eraseCafeMission()
-        presentCafeHintScene(missionNumber: 2, nextViewNotificationName: .drawCafeOrderMilkShakeMission)
+        presentCafeHintScene(missionNumber: 2, nextViewNotificationName: .searchForNextMission)
     }
     @objc func drawCafeOrderMilkShakeMission() {
         eraseCafeMission()
         // SKScene: missionView에 BusSeatMissionScene을 띄웁니다.
-        let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
+        let missionScene: OrderMilkShakeMissionScene = OrderMilkShakeMissionScene(size: missionView.frame.size)
         missionView.presentScene(missionScene)
     }
     // CafeDrinkMilkShake
