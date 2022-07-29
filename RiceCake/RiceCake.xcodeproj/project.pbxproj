@@ -304,6 +304,8 @@
 				D4050D1E2893AC4B00468787 /* EF_Diary.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
 		631F2A3528928538009CA059 /* DrinkMilkShake */ = {
 			isa = PBXGroup;
 			children = (
