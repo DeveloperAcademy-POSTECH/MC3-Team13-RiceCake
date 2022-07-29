@@ -19,14 +19,23 @@ extension InsideCafeScene {
         cafeInterior.physicsBody?.affectedByGravity = false
         cafeInterior.physicsBody?.isDynamic = false
         
-        let cafeChairs = SKSpriteNode(imageNamed: "cafeChairs")
-        cafeChairs.size = CGSize(width: self.size.width, height: self.size.height)
-        cafeChairs.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        cafeChairs.zPosition = InsideCafeLayer.cafeInterior
-        cafeChairs.physicsBody = SKPhysicsBody(texture: cafeChairs.texture!, size: self.size)
-        cafeChairs.physicsBody?.categoryBitMask = InsideCafePhysicsCategory.cafeInterior
-        cafeChairs.physicsBody?.affectedByGravity = false
-        cafeChairs.physicsBody?.isDynamic = false
+        let cafeLeftChair = SKSpriteNode(imageNamed: "cafeLeftChair")
+        cafeLeftChair.size = CGSize(width: self.size.width, height: self.size.height)
+        cafeLeftChair.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        cafeLeftChair.zPosition = InsideCafeLayer.cafeInterior
+        cafeLeftChair.physicsBody = SKPhysicsBody(texture: cafeLeftChair.texture!, size: self.size)
+        cafeLeftChair.physicsBody?.categoryBitMask = InsideCafePhysicsCategory.cafeInterior
+        cafeLeftChair.physicsBody?.affectedByGravity = false
+        cafeLeftChair.physicsBody?.isDynamic = false
+        
+        let cafeRightChair = SKSpriteNode(imageNamed: "cafeRightChair")
+        cafeRightChair.size = CGSize(width: self.size.width, height: self.size.height)
+        cafeRightChair.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        cafeRightChair.zPosition = InsideCafeLayer.cafeInterior
+        cafeRightChair.physicsBody = SKPhysicsBody(texture: cafeRightChair.texture!, size: self.size)
+        cafeRightChair.physicsBody?.categoryBitMask = InsideCafePhysicsCategory.cafeInterior
+        cafeRightChair.physicsBody?.affectedByGravity = false
+        cafeRightChair.physicsBody?.isDynamic = false
         
         let cafeDecoration = SKSpriteNode(imageNamed: "cafeDecoration")
         cafeDecoration.size = CGSize(width: self.size.width, height: self.size.height)
@@ -38,7 +47,8 @@ extension InsideCafeScene {
         cafeDecoration.physicsBody?.isDynamic = false
         
         self.addChild(cafeInterior)
-        self.addChild(cafeChairs)
+        self.addChild(cafeLeftChair)
+        self.addChild(cafeRightChair)
         self.addChild(cafeDecoration)
     }
     
