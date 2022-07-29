@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class BusStationMissionViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -64,7 +65,10 @@ class BusStationMissionViewController: UIViewController, UIGestureRecognizerDele
                     pinch.scale = 1.0
                 } else if recognizerScale > 1.90 {
                     // MARK: 미션 성공
-                    NotificationCenter.default.post(name: .drawBusBellHint, object: nil)
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        NotificationCenter.default.post(name: .drawBusBellHint, object: nil)
+                    }
                 }
             }
         }

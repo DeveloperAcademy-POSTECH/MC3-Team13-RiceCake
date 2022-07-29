@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -51,6 +52,7 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.7) {
             self.childLeftHand.isHidden = true
             self.childHoldHand.isHidden = false
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
     }
     

@@ -30,8 +30,10 @@ final class NoKidsZoneMissionViewController: UIViewController {
         if sender.direction == .left || sender.direction == .right {
             panel.image = UIImage(named: "panelFront.png")
             // MARK: 미션 성공
-            NotificationCenter.default.post(name: .drawSearchForAnotherCafeHint, object: nil)
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                NotificationCenter.default.post(name: .drawSearchForAnotherCafeHint, object: nil)
+            }
         }
     }
 
