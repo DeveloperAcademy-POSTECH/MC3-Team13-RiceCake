@@ -15,8 +15,10 @@ class InsideCafeScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Node 초기화
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
+        self.backgroundColor = .white
         
-        createDoor()
+        createEnvironment()
+        createMissionArea()
         createPlayer()
         createTouchArea()
     }
@@ -29,7 +31,7 @@ class InsideCafeScene: SKScene, SKPhysicsContactDelegate {
     // MARK: Game 알고리즘을 정의합니다.
     // 각 Node들간의 충돌을 감지합니다.
     func didBegin(_ contact: SKPhysicsContact) {
-        
+
         var collideBody = SKPhysicsBody()
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             collideBody = contact.bodyB
@@ -39,14 +41,15 @@ class InsideCafeScene: SKScene, SKPhysicsContactDelegate {
         let collideType = collideBody.categoryBitMask
         // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
         switch collideType {
-        case InsideCafePhysicsCategory.exitDoor:
-            let scene = CafeStoryRoadScene(size: self.size)
-            self.view?.presentScene(scene)
-            scene.player.position.x = self.size.width * 3/10
-            scene.player.position.y = self.size.height * 3/4
-            scene.player.zRotation = 3.15
-            print("출입문과 부딪혔습니다.")
+        case InsideCafePhysicsCategory.cafeInterior:
+            print("아얏!")
             
+        case InsideCafePhysicsCategory.orderStand:
+            print("CafeMission")
+            
+        case InsideCafePhysicsCategory.seat:
+            print("DrinkMilkShake")
+
         default:
             break
         }

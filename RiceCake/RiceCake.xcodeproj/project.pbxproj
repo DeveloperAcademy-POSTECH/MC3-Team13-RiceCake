@@ -162,8 +162,8 @@
 		3477565A288FC46F0049A212 /* CafeStage */ = {
 			isa = PBXGroup;
 			children = (
-				631F2A3528928538009CA059 /* DrinkMilkShake */,
 				3477568028903B7E0049A212 /* CafeStory */,
+				631F2A3528928538009CA059 /* DrinkMilkShake */,
 				34775661288FC4C60049A212 /* CafeMission.storyboard */,
 				34775665288FC4D80049A212 /* CafeMissionViewController.swift */,
 				F8B6ED132890075F0046E7BD /* OrderMilkShake */,
