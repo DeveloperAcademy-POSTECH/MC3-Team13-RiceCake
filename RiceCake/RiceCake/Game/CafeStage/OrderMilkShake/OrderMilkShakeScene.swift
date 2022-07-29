@@ -66,6 +66,8 @@ class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysic
                  SKAction.fadeIn(withDuration: 1)]
             )
             magnifiedMenuBoard.run(fadeInSequence)
+            // MARK: 미션 성공
+            NotificationCenter.default.post(name: .drawCafeDrinkMilkShakeHint, object: nil)
         }
     }
 }

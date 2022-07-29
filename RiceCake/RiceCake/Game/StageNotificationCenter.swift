@@ -34,10 +34,10 @@ extension Notification.Name {
     static let eraseBusMission = Notification.Name("eraseBusMission")
     
     // CafeStage
-    static let drawCafeEnterHint = Notification.Name("drawCafeEnterHint")
-    
     static let drawCafeNoKidsZoneHint = Notification.Name("drawCafeNoKidsZoneHint")
     static let drawCafeNoKidsZoneMission = Notification.Name("drawCafeNoKidsZoneMission")
+    
+    static let drawSearchForAnotherCafeHint = Notification.Name("drawSearchForAnotherCafeHint")
     
     static let drawCafeOrderMilkShakeHint = Notification.Name("drawCafeOrderMilkShakeHint")
     static let drawCafeOrderMilkShakeMission = Notification.Name("drawCafeOrderMilkShakeMission")

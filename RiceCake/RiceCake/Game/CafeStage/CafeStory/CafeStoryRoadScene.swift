@@ -59,10 +59,12 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
             
         case CafeStagePhysicsCategory.firstCafeDoor:
             player.isPaused = true
+            NotificationCenter.default.post(name: .drawCafeNoKidsZoneMission, object: nil)
             
         case CafeStagePhysicsCategory.secondCafeDoor:
             let scene = InsideCafeScene(size: self.size)
             self.view?.presentScene(scene)
+            NotificationCenter.default.post(name: .drawCafeOrderMilkShakeHint, object: nil)
             
         default:
             break
