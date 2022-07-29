@@ -39,7 +39,6 @@
 		34B638D528811EE300760FD8 /* GameView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638D328811EE300760FD8 /* GameView.storyboard */; };
 		34C16E2E288424DD0050F469 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C16E2D288424DD0050F469 /* Constants.swift */; };
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
-		34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C342886BE6700BB3DF8 /* MissionScene.swift */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
 		B2872307288F7DC20015A0B8 /* BusBellMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2872305288F7DC20015A0B8 /* BusBellMissionViewController.swift */; };
 		B287230A288F7E340015A0B8 /* BusBellMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2872309288F7E340015A0B8 /* BusBellMission.storyboard */; };
@@ -80,7 +79,6 @@
 		34B638D328811EE300760FD8 /* GameView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameView.storyboard; sourceTree = "<group>"; };
 		34C16E2D288424DD0050F469 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		34F88C302885838600BB3DF8 /* ActionList.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionList.sks; sourceTree = "<group>"; };
-		34F88C342886BE6700BB3DF8 /* MissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
 		B2872305288F7DC20015A0B8 /* BusBellMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusBellMissionViewController.swift; sourceTree = "<group>"; };
 		B2872309288F7E340015A0B8 /* BusBellMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusBellMission.storyboard; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			children = (
 				34775655288FBFE10049A212 /* BusMission.storyboard */,
 				34775657288FBFED0049A212 /* BusMissionViewController.swift */,
-				34F88C342886BE6700BB3DF8 /* MissionScene.swift */,
 			);
 			path = BusMission;
 			sourceTree = "<group>";
@@ -358,7 +355,6 @@
 				34775671288FE4240049A212 /* BusSeatMissionScene.swift in Sources */,
 				34775673288FE4240049A212 /* BusSeatMissionViewController.swift in Sources */,
 				34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */,
-				34F88C352886BE6700BB3DF8 /* MissionScene.swift in Sources */,
 				34C16E2E288424DD0050F469 /* Constants.swift in Sources */,
 				34775668288FDADF0049A212 /* busStageNotificationCenter.swift in Sources */,
 				34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */,
@@ -515,7 +511,7 @@
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = BusBellMission;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -543,7 +539,7 @@
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = BusBellMission;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
