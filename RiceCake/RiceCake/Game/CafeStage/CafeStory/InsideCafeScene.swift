@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class InsideSecondCafeScene: SKScene, SKPhysicsContactDelegate {
+class InsideCafeScene: SKScene, SKPhysicsContactDelegate {
     
     var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")

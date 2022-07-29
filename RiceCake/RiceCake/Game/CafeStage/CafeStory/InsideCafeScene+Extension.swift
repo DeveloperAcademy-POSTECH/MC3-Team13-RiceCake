@@ -1,5 +1,5 @@
 //
-//  InsideCafeScene+Extension.swift
+//  InsideSecondCafeScene+Extension.swift
 //  RiceCake
 //
 //  Created by Jung Yunseong on 2022/07/27.
@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-extension InsideFirstCafeScene {
+extension InsideCafeScene {
     // MARK: - Game Environment Node들의 속성의 정의합니다.
     func createDoor() {
         let exitDoor = SKShapeNode.init(circleOfRadius: 10)
@@ -33,7 +33,7 @@ extension InsideFirstCafeScene {
         }
     }
     // MARK: - Player Node의 속성을 정의합니다.
-    // TODO: Player의 Constraints를 설정해야합니다.
+    // TODO: Player의 Constaints를 설정해야합니다.
     func createPlayer() {
         let playerWidth = 40
         
