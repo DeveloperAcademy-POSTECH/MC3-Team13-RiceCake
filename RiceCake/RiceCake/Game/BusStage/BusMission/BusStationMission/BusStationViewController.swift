@@ -21,6 +21,9 @@ class BusStationViewController: UIViewController, UIGestureRecognizerDelegate {
     var maxScale: CGFloat = 2.0
     var minScale: CGFloat = 1.0
     
+    private var isFinishedLeftSwipe: Bool = false
+    private var isFinishedRightSwipe: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,27 +44,31 @@ class BusStationViewController: UIViewController, UIGestureRecognizerDelegate {
     // Swipe Gesture Animation 값 설정
     @objc func swipeToLeftHappened(_ sender: UISwipeGestureRecognizer) {
         movePeopleToLeft()
+        isFinishedLeftSwipe = true
     }
     @objc func swiftToRightHappend(_ sender: UISwipeGestureRecognizer) {
         movePeopleToRight()
+        isFinishedRightSwipe = true
     }
     // Pinch Gesture Animation 값 설정
     @objc func pinchHappened(_ pinch: UIPinchGestureRecognizer) {
         guard background != nil else { return }
-        
-        if pinch.state == .began || pinch.state == .changed {
-            if recognizerScale < maxScale && pinch.scale > 1.0 {
-                background.transform = (background.transform).scaledBy(x: pinch.scale, y: pinch.scale)
-                recognizerScale *= pinch.scale
-                pinch.scale = 1.0
-            } else if recognizerScale > minScale && pinch.scale < 1.0 {
-                background.transform = (background.transform).scaledBy(x: pinch.scale, y: pinch.scale)
-                recognizerScale *= pinch.scale
-                pinch.scale = 1.0
+        if isFinishedLeftSwipe && isFinishedRightSwipe {
+            if pinch.state == .began || pinch.state == .changed {
+                if pinch.scale > 1.0 && recognizerScale < maxScale {
+                    background.transform = (background.transform).scaledBy(x: pinch.scale, y: pinch.scale)
+                    recognizerScale *= pinch.scale
+                    pinch.scale = 1.0
+                } else if pinch.scale < 1.0 && recognizerScale > minScale {
+                    background.transform = (background.transform).scaledBy(x: pinch.scale, y: pinch.scale)
+                    recognizerScale *= pinch.scale
+                    pinch.scale = 1.0
+                } else if recognizerScale > 1.99 {
+                    // MARK: 미션 성공
+                }
             }
         }
     }
-    
     // 사람 Animation 값 설정
     func movePeopleToLeft() {
         UIView.animate(withDuration: 0.3, animations: {
