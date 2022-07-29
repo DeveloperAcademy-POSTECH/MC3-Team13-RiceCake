@@ -6,53 +6,88 @@
 //
 
 import UIKit
+import AVFoundation
 
 class BusBellMissionViewController: UIViewController {
     
     @IBOutlet weak var busBellMissionBackground: UIImageView!
     @IBOutlet weak var busBell: UIImageView!
     @IBOutlet weak var tapRecognizer: UIImageView!
+    @IBOutlet weak var tappedBusBell: UIImageView!
     @IBOutlet weak var childLeftHand: UIImageView!
-    @IBOutlet weak var pushedButton: UIImageView!
     
-    // 3가지 손 위치
-    let childLeftHandPisitions: [CGFloat] = [1, 1.1, 1.3]
+    // 3가지 childLeftHand의 랜덤한 높이를 지정하기 위한 배열
+    let childLeftHandPisitions: [CGFloat] = [1, 1.1, 1.22]
+    let generator = UIImpactFeedbackGenerator(style: .heavy)
+    var avPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let busBellTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedBell(_:)))
+        let busBellTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapBell(_:)))
         tapRecognizer.addGestureRecognizer(busBellTapGesture)
+        tappedBusBell.isHidden = true
+        tapRecognizer.isHidden = true
         
-        self.pushedButton.isHidden = true
-        self.tapRecognizer.isHidden = true
-        childHandUpDown()
+        childHandUpAndDown()
+        audioAsset()
     }
     
-    @objc func tappedBell(_ sender: UITapGestureRecognizer) {
-        self.pushedButton.isHidden = false
-        print("what")
-    }
-    
-    func childHandUpDown() {
-        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut, .autoreverse], animations: { [weak self] in
-            guard let self = self else { return }
-            self.childLeftHand.center.y -= self.view.bounds.height * self.childLeftHandPisitions.randomElement()!
-            if self.childLeftHand.center.y ==  self.view.bounds.height / 0.5 - self.view.bounds.height * 1.3 {
-                self.tapRecognizer.isHidden = false
-                print("ok")
-            }
-        }, completion: {_ in
-            self.setupChildHand()
-            self.childHandUpDown()
-        })
+    // 오디오 세팅
+    func audioAsset() {
+        guard let sound = NSDataAsset(name: "bellSound") else {
+            print("Asset load error"); return
+        }; do {
+            try self.avPlayer = AVAudioPlayer(data: sound.data)
+            self.avPlayer.prepareToPlay()
+        } catch let error as NSError {
+            print("\(error.localizedDescription)")
+        }
     }
     
     // 손 위치 초기 설정
     func setupChildHand() {
         self.childLeftHand.center.y = self.view.bounds.height / 0.5
-        self.pushedButton.isHidden = true
+        self.tappedBusBell.isHidden = true
         self.tapRecognizer.isHidden = true
+    }
+    
+    // 애니메이션 동작 멈추는 함수
+    func pauseLayer(layer: CALayer) {
+        let pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), from: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pausedTime
+    }
+    
+    // 미션 성공 조건 함수
+    func missionSuccessCondition() {
+        if self.childLeftHand.center.y ==  self.view.bounds.height / 0.5 - self.view.bounds.height * 1.22 {
+            self.tapRecognizer.isHidden = false
+        }
+    }
+    
+    // 미션 성공시 실행되는 함수
+    @objc func tapBell(_ sender: UITapGestureRecognizer) {
+        let layer = self.childLeftHand.layer
+        self.tappedBusBell.isHidden = false
+        generator.impactOccurred()
+        avPlayer.play()
+        pauseLayer(layer: layer)
+    }
+    
+    // 3가지 랜덤한 높이의 반복되는 childeLeftHand Up & Down 애니메이션
+    func childHandUpAndDown() {
+        UIView.animate(withDuration: 0.8, delay: 0, animations: {
+            self.childLeftHand.center.y -= self.view.bounds.height * self.childLeftHandPisitions.randomElement()!
+        }, completion: { (_) in
+            self.missionSuccessCondition()
+            UIView.animate(withDuration: 1.5, delay: 0, animations: {
+                self.childLeftHand.center.y += self.view.bounds.height * self.childLeftHandPisitions.randomElement()!
+            }, completion: { (_) in
+                self.setupChildHand()
+                self.childHandUpAndDown()
+            })
+        })
     }
     
 }

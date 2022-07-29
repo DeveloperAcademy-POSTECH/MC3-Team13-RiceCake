@@ -33,7 +33,7 @@
                                     <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushedBell" translatesAutoresizingMaskIntoConstraints="NO" id="FRr-c2-Dg1">
                                         <rect key="frame" x="220" y="232.5" width="160" height="175"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="childLeftHand" translatesAutoresizingMaskIntoConstraints="NO" id="2Ac-nB-bnp">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="childLeftHand" translatesAutoresizingMaskIntoConstraints="NO" id="2Ac-nB-bnp">
                                         <rect key="frame" x="210" y="720" width="180" height="560"/>
                                     </imageView>
                                 </subviews>
@@ -73,8 +73,8 @@
                         <outlet property="busBell" destination="9Kj-Lt-jRs" id="VRX-AX-RI6"/>
                         <outlet property="busBellMissionBackground" destination="1rJ-mH-Yj3" id="WGJ-BD-vty"/>
                         <outlet property="childLeftHand" destination="2Ac-nB-bnp" id="O2i-BI-d90"/>
-                        <outlet property="pushedButton" destination="FRr-c2-Dg1" id="nax-ds-Egn"/>
                         <outlet property="tapRecognizer" destination="YRz-ms-iWP" id="2vF-fg-XOU"/>
+                        <outlet property="tappedBusBell" destination="FRr-c2-Dg1" id="Tgy-Zm-aZp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
