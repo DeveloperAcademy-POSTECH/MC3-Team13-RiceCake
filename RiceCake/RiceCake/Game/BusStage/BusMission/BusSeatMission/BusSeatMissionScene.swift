@@ -10,7 +10,6 @@ import UIKit
 
 class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDelegate {
     var isGrabbingHandle: Bool = false
-    
     // SKNode들 생성
     let busSeatMissionBackground = SKSpriteNode(imageNamed: "busSeatMissionBackground")
     let childRightHand: SKSpriteNode = SKSpriteNode(imageNamed: "childRightHand")
