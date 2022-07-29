@@ -64,6 +64,15 @@ class CafeMissionViewController: UIViewController {
         )
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        drawCafeNoKidsZoneHint()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+        eraseCafeMission()
+    }
+    
     // MARK: 각 힌트, 미션에 해당하는 View/Scene을 그리는 함수들
     // CafeNoKidsZone
     @objc func drawCafeNoKidsZoneHint() {
@@ -120,7 +129,6 @@ class CafeMissionViewController: UIViewController {
         }
     }
     private func drawUIKitViewOnMissionView(storyboardName: String, storyboardID: String) {
-        // UIKit: missionView에 BusPoleMissionView를 연결합니다.
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
         let child = storyboard.instantiateViewController(identifier: storyboardID)
         addChild(child)
