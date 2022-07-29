@@ -36,8 +36,10 @@ class BusBellMissionViewController: UIViewController {
     // 오디오 세팅
     func audioAsset() {
         guard let sound = NSDataAsset(name: "bellSound") else {
-            print("Asset load error"); return
-        }; do {
+            print("Asset load error")
+            return
+        }
+        do {
             try self.avPlayer = AVAudioPlayer(data: sound.data)
             self.avPlayer.prepareToPlay()
         } catch let error as NSError {
@@ -89,5 +91,4 @@ class BusBellMissionViewController: UIViewController {
             })
         })
     }
-    
 }
