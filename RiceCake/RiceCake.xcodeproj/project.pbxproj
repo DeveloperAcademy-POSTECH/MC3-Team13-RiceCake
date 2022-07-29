@@ -298,6 +298,8 @@
 				B307C1612892CA80000E42BF /* BusStationMission.storyboard */,
 			);
 			path = BusStationMission;
+			sourceTree = "<group>";
+		};
 		631F2A3A2892BAB9009CA059 /* Model */ = {
 			isa = PBXGroup;
 			children = (
