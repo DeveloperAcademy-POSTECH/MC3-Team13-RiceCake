@@ -117,6 +117,7 @@ class CafeMissionViewController: UIViewController {
             view.removeFromSuperview()
         }
     }
+    
     private func presentCafeHintScene(missionNumber: Int, nextViewNotificationName: NSNotification.Name) {
         // UIKit: HintView를 불러옵니다.
         let storyboard = UIStoryboard(name: "HintView", bundle: .main)
@@ -128,6 +129,7 @@ class CafeMissionViewController: UIViewController {
             missionView.addSubview(child.view)
         }
     }
+    
     private func drawUIKitViewOnMissionView(storyboardName: String, storyboardID: String) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
         let child = storyboard.instantiateViewController(identifier: storyboardID)

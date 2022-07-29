@@ -18,6 +18,7 @@ class CafeStoryViewController: UIViewController {
         let scene: CafeStoryRoadScene = CafeStoryRoadScene(size: storyView.frame.size)
         storyView.presentScene(scene)
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(false)
         
