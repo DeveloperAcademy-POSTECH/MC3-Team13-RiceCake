@@ -97,7 +97,7 @@ class MilkShakeMissionViewController: UIViewController {
     @objc func tappedStraw(_ sender: UITapGestureRecognizer) {
         blueCircle.isHidden = false
         strawImage.stopAnimating()
-        let panGesture:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panStraw(_:)))
+        let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panStraw(_:)))
         blueCircle?.addGestureRecognizer(panGesture)
     }
     
@@ -126,7 +126,7 @@ class MilkShakeMissionViewController: UIViewController {
     }
     
     // 이미지텍스처 생성함수
-    func animatedImages(name: String, initNum:Int, endNum:Int) -> [UIImage] {
+    func animatedImages(name: String, initNum: Int, endNum: Int) -> [UIImage] {
         var images = [UIImage]()
         for count in initNum...endNum {
             if let image = UIImage(named: "\(name)\(count)") {
