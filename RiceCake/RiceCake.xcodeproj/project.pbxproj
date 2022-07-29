@@ -42,6 +42,8 @@
 		34B638D528811EE300760FD8 /* GameView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638D328811EE300760FD8 /* GameView.storyboard */; };
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
+		B307C15F2892C483000E42BF /* BusStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307C15E2892C483000E42BF /* BusStationViewController.swift */; };
+		B307C1622892CA80000E42BF /* BusStationMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B307C1612892CA80000E42BF /* BusStationMission.storyboard */; };
 		631F2A452892BB3F009CA059 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3C2892BB3E009CA059 /* background.wav */; };
 		631F2A462892BB3F009CA059 /* Gesture5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3D2892BB3E009CA059 /* Gesture5.wav */; };
 		631F2A472892BB3F009CA059 /* Gesture4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3E2892BB3E009CA059 /* Gesture4.wav */; };
@@ -112,6 +114,8 @@
 		34F88C302885838600BB3DF8 /* ActionList.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionList.sks; sourceTree = "<group>"; };
 		34F88C342886BE6700BB3DF8 /* HintScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
+		B307C15E2892C483000E42BF /* BusStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationViewController.swift; sourceTree = "<group>"; };
+		B307C1612892CA80000E42BF /* BusStationMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStationMission.storyboard; sourceTree = "<group>"; };
 		631F2A3C2892BB3E009CA059 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
 		631F2A3D2892BB3E009CA059 /* Gesture5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gesture5.wav; sourceTree = "<group>"; };
 		631F2A3E2892BB3E009CA059 /* Gesture4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gesture4.wav; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				34F88C342886BE6700BB3DF8 /* HintScene.swift */,
 				F8D2B0982883FAF600493132 /* BusSeatMission */,
 				D46A0E312885320E00AD57DF /* BusPoleMission */,
+				B307C15B2892C442000E42BF /* BusStationMission */,
 			);
 			path = BusMission;
 			sourceTree = "<group>";
@@ -286,6 +291,13 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		B307C15B2892C442000E42BF /* BusStationMission */ = {
+			isa = PBXGroup;
+			children = (
+				B307C15E2892C483000E42BF /* BusStationViewController.swift */,
+				B307C1612892CA80000E42BF /* BusStationMission.storyboard */,
+			);
+			path = BusStationMission;
 		631F2A3A2892BAB9009CA059 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */,
+				B307C1622892CA80000E42BF /* BusStationMission.storyboard in Resources */,
 				631F2A4B2892BB3F009CA059 /* Positive.wav in Resources */,
 				631F2A472892BB3F009CA059 /* Gesture4.wav in Resources */,
 				631F2A4D2892BB3F009CA059 /* Negative.wav in Resources */,
@@ -512,6 +525,7 @@
 				34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */,
 				D453773B289268B400C87076 /* PaddingLabel.swift in Sources */,
 				34B638CF28811E2C00760FD8 /* HomeViewController.swift in Sources */,
+				B307C15F2892C483000E42BF /* BusStationViewController.swift in Sources */,
 				D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */,
 				34B348CF2891254C0008A85C /* InsideSecondCafeScene+Extension.swift in Sources */,
 				3477568628903B7E0049A212 /* CafeStageConstant.swift in Sources */,
