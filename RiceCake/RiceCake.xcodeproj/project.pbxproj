@@ -27,10 +27,8 @@
 		34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18417288044F7004B58E3 /* SceneDelegate.swift */; };
 		34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A18420288044F8004B58E3 /* LaunchScreen.storyboard */; };
 		34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 34A1842A28804642004B58E3 /* .swiftlint.yml */; };
-		34B348C92891143B0008A85C /* InsideFirstCafeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348C82891143B0008A85C /* InsideFirstCafeScene.swift */; };
-		34B348CB289114D70008A85C /* InsideFirstCafeScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CA289114D70008A85C /* InsideFirstCafeScene+Extension.swift */; };
-		34B348CD2891251A0008A85C /* InsideSecondCafeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CC2891251A0008A85C /* InsideSecondCafeScene.swift */; };
-		34B348CF2891254C0008A85C /* InsideSecondCafeScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CE2891254C0008A85C /* InsideSecondCafeScene+Extension.swift */; };
+		34B348CD2891251A0008A85C /* InsideCafeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CC2891251A0008A85C /* InsideCafeScene.swift */; };
+		34B348CF2891254C0008A85C /* InsideCafeScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CE2891254C0008A85C /* InsideCafeScene+Extension.swift */; };
 		34B638C428811CBB00760FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B638BA28811CBB00760FD8 /* Assets.xcassets */; };
 		34B638C528811CBB00760FD8 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B638BC28811CBB00760FD8 /* StageCell.swift */; };
 		34B638C628811CBB00760FD8 /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638BD28811CBB00760FD8 /* Stage.storyboard */; };
@@ -80,10 +78,8 @@
 		34A18421288044F8004B58E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34A18423288044F8004B58E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34A1842A28804642004B58E3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		34B348C82891143B0008A85C /* InsideFirstCafeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideFirstCafeScene.swift; sourceTree = "<group>"; };
-		34B348CA289114D70008A85C /* InsideFirstCafeScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InsideFirstCafeScene+Extension.swift"; sourceTree = "<group>"; };
-		34B348CC2891251A0008A85C /* InsideSecondCafeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideSecondCafeScene.swift; sourceTree = "<group>"; };
-		34B348CE2891254C0008A85C /* InsideSecondCafeScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InsideSecondCafeScene+Extension.swift"; sourceTree = "<group>"; };
+		34B348CC2891251A0008A85C /* InsideCafeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideCafeScene.swift; sourceTree = "<group>"; };
+		34B348CE2891254C0008A85C /* InsideCafeScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InsideCafeScene+Extension.swift"; sourceTree = "<group>"; };
 		34B638BA28811CBB00760FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34B638BC28811CBB00760FD8 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
 		34B638BD28811CBB00760FD8 /* Stage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
@@ -179,10 +175,8 @@
 				3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */,
 				3477568428903B7E0049A212 /* CafeStoryViewController.swift */,
 				3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */,
-				34B348C82891143B0008A85C /* InsideFirstCafeScene.swift */,
-				34B348CA289114D70008A85C /* InsideFirstCafeScene+Extension.swift */,
-				34B348CC2891251A0008A85C /* InsideSecondCafeScene.swift */,
-				34B348CE2891254C0008A85C /* InsideSecondCafeScene+Extension.swift */,
+				34B348CC2891251A0008A85C /* InsideCafeScene.swift */,
+				34B348CE2891254C0008A85C /* InsideCafeScene+Extension.swift */,
 			);
 			path = CafeStory;
 			sourceTree = "<group>";
@@ -412,7 +406,6 @@
 				347332B12892609100859373 /* HintScene.swift in Sources */,
 				347332A22891265500859373 /* BusStageConstants.swift in Sources */,
 				34B638D428811EE300760FD8 /* GameViewController.swift in Sources */,
-				34B348C92891143B0008A85C /* InsideFirstCafeScene.swift in Sources */,
 				34B638C728811CBB00760FD8 /* StageModel.swift in Sources */,
 				3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */,
 				3477568928903B7E0049A212 /* CafeStoryViewController.swift in Sources */,
@@ -422,7 +415,6 @@
 				3477568A28903B7E0049A212 /* CafeStoryRoadScene.swift in Sources */,
 				34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */,
 				3477568828903B7E0049A212 /* CafeStoryRoadScene+Extension.swift in Sources */,
-				34B348CB289114D70008A85C /* InsideFirstCafeScene+Extension.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,
 				D453773728910A0A00C87076 /* HintModel.swift in Sources */,
 				34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */,
@@ -430,10 +422,10 @@
 				D453773B289268B400C87076 /* PaddingLabel.swift in Sources */,
 				34B638CF28811E2C00760FD8 /* HomeViewController.swift in Sources */,
 				D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */,
-				34B348CF2891254C0008A85C /* InsideSecondCafeScene+Extension.swift in Sources */,
+				34B348CF2891254C0008A85C /* InsideCafeScene+Extension.swift in Sources */,
 				3477568628903B7E0049A212 /* CafeStageConstant.swift in Sources */,
 				34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */,
-				34B348CD2891251A0008A85C /* InsideSecondCafeScene.swift in Sources */,
+				34B348CD2891251A0008A85C /* InsideCafeScene.swift in Sources */,
 				F8B6ED15289007930046E7BD /* OrderMilkShakeScene.swift in Sources */,
 				F8B6ED17289011D10046E7BD /* OrderMilkShakeMissionConstants.swift in Sources */,
 				D49603162892709300BF5A45 /* NoKidsZoneMissionViewController.swift in Sources */,
