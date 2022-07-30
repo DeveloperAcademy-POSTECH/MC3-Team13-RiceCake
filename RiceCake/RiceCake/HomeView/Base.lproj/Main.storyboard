@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,21 +43,39 @@
                                     <action selector="startButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Rx-El-k0y"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdE-Qc-HS7" userLabel="BackgroundMusic">
+                                <rect key="frame" x="710" y="52" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="LOu-A5-ABy"/>
+                                    <constraint firstAttribute="height" constant="50" id="oZ2-mj-zUP"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="music.note" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backgroundMusic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rbn-bN-Oeb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kdE-Qc-HS7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Cxg-bl-Jts"/>
                             <constraint firstItem="EEV-uV-xo9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ocf-v3-3ru"/>
                             <constraint firstItem="EEV-uV-xo9" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="WeU-1Z-u8e"/>
                             <constraint firstItem="LMj-VO-tY4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ad2-D6-LX3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LMj-VO-tY4" secondAttribute="bottom" constant="30" id="dUo-gO-125"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kdE-Qc-HS7" secondAttribute="trailing" constant="40" id="ge2-vJ-d2b"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wIg-y8-OfK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63" y="20"/>
+            <point key="canvasLocation" x="-63.270142180094787" y="20"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="70f-LR-yoE">
@@ -78,6 +97,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="music.note" catalog="system" width="97" height="128"/>
         <image name="startButton" width="535" height="168"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

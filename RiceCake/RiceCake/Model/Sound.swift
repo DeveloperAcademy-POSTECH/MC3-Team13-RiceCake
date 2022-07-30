@@ -30,4 +30,15 @@ struct Sound {
     mutating func stopSound() {
         player.stop()
     }
+    
+    mutating func playLoopSound() {
+        let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
+        do {
+            player = try AVAudioPlayer(contentsOf: url!)
+            player.numberOfLoops = -1
+                player.play()
+            } catch {
+                print("SoundError \(error)")
+            }
+        }
 }

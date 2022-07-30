@@ -31,4 +31,8 @@ struct SoundBrain {
         let soundNumber = sounds.firstIndex(where: {$0.soundName == name}) ?? 0
         sounds[soundNumber].stopSound()
     }
+    
+    mutating func backgroundSound() {
+        sounds[sounds.count - 1].playLoopSound()
+    }
 }
