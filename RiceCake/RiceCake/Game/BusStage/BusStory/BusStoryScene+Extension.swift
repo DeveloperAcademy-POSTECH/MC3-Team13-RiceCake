@@ -45,7 +45,6 @@ extension BusStoryScene {
         busFrame.physicsBody?.affectedByGravity = false
         busFrame.physicsBody?.isDynamic = false
         
-        let busSeat = SKSpriteNode(imageNamed: "busSeat")
         busSeat.size = CGSize(width: self.size.width, height: self.size.height)
         busSeat.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         busSeat.zPosition = BusStageLayer.busSeat
@@ -54,19 +53,28 @@ extension BusStoryScene {
         busSeat.physicsBody?.affectedByGravity = false
         busSeat.physicsBody?.isDynamic = false
         
-        let busPoll = SKSpriteNode(imageNamed: "busPole")
-        busPoll.size = CGSize(width: self.size.width, height: self.size.height)
-        busPoll.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        busPoll.zPosition = BusStageLayer.busPole
-        busPoll.physicsBody = SKPhysicsBody(texture: busPoll.texture!, size: self.size)
-        busPoll.physicsBody?.categoryBitMask = BusStagePhysicsCategory.busPole
-        busPoll.physicsBody?.affectedByGravity = false
-        busPoll.physicsBody?.isDynamic = false
+        let busPole = SKSpriteNode(imageNamed: "busPole")
+        busPole.size = CGSize(width: self.size.width, height: self.size.height)
+        busPole.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        busPole.zPosition = BusStageLayer.busPole
+        busPole.physicsBody = SKPhysicsBody(texture: busPole.texture!, size: self.size)
+        busPole.physicsBody?.categoryBitMask = BusStagePhysicsCategory.busPole
+        busPole.physicsBody?.affectedByGravity = false
+        busPole.physicsBody?.isDynamic = false
+        
+        busMissionPole.size = CGSize(width: self.size.width, height: self.size.height)
+        busMissionPole.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        busMissionPole.zPosition = BusStageLayer.busPole
+        busMissionPole.physicsBody = SKPhysicsBody(texture: busMissionPole.texture!, size: self.size)
+        busMissionPole.physicsBody?.categoryBitMask = BusStagePhysicsCategory.busPole
+        busMissionPole.physicsBody?.affectedByGravity = false
+        busMissionPole.physicsBody?.isDynamic = false
         
         self.addChild(busFloor)
         self.addChild(busFrame)
         self.addChild(busSeat)
-        self.addChild(busPoll)
+        self.addChild(busPole)
+        self.addChild(busMissionPole)
     }
     
     func createDescription() {
@@ -103,8 +111,8 @@ extension BusStoryScene {
         player.zRotation = 1.5
         player.physicsBody = SKPhysicsBody(circleOfRadius: 8)
         player.physicsBody?.categoryBitMask = BusStagePhysicsCategory.player
-        player.physicsBody?.contactTestBitMask = BusStagePhysicsCategory.busFrame | BusStagePhysicsCategory.busPole | BusStagePhysicsCategory.busSeat
-        player.physicsBody?.collisionBitMask = BusStagePhysicsCategory.busPole | BusStagePhysicsCategory.busFrame
+        player.physicsBody?.contactTestBitMask = BusStagePhysicsCategory.busFrame | BusStagePhysicsCategory.busPole | BusStagePhysicsCategory.busMissionPole | BusStagePhysicsCategory.busSeat
+        player.physicsBody?.collisionBitMask = BusStagePhysicsCategory.busPole | BusStagePhysicsCategory.busMissionPole | BusStagePhysicsCategory.busFrame
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.isDynamic = true
         self.addChild(player)
@@ -131,5 +139,56 @@ extension BusStoryScene {
         seatMissionPlayer.isHidden = true
         
         self.addChild(seatMissionPlayer)
+    }
+    
+    // MARK: - Notification 함수 정의
+    @objc func pauseSeatMissionPlayer() {
+        seatMissionPlayer.isPaused = true
+    }
+    
+    @objc func markBusSeat() {
+        if !isBusSeatMissionCleared {
+            let highlightSeat = SKAction.fadeAlpha(to: 0.5, duration: 0.5)
+            let resetSeat = SKAction.fadeAlpha(to: 1, duration: 0.5)
+            let sequence = SKAction.sequence([highlightSeat, resetSeat])
+            busSeat.run(SKAction.repeatForever(sequence))
+        }
+    }
+    
+    @objc func markBusPole() {
+        if isBusSeatMissionCleared && !isBusPoleMissionCleared {
+            let highlightPole = SKAction.fadeAlpha(to: 0.5, duration: 0.5)
+            let resetPole = SKAction.fadeAlpha(to: 1, duration: 0.5)
+            let sequence = SKAction.sequence([highlightPole, resetPole])
+            busMissionPole.run(SKAction.repeatForever(sequence))
+        }
+    }
+    
+    @objc func busSeatMission() {
+        self.isBusSeatMission = true
+    }
+    
+    @objc func completeSeatMission() {
+        self.isBusSeatMission = false
+        self.isBusSeatMissionCleared = true
+    }
+    
+    @objc func busPoleMission() {
+        if isBusSeatMissionCleared {
+            self.isBusPoleMission = true
+        }
+    }
+    
+    @objc func completePoleMission() {
+        let completePage = SKShapeNode(rect: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        completePage.fillColor = .black
+        completePage.alpha = 0.0
+        completePage.zPosition = BusStageLayer.completePage
+        self.addChild(completePage)
+        
+        self.isBusPoleMissionCleared = true
+        completePage.run(SKAction.fadeAlpha(to: 0.8, duration: 2))
+        descriptionLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        hintString = "Mission Clear"
     }
 }
