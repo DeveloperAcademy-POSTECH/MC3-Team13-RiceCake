@@ -26,8 +26,9 @@ class MilkShakeMissionViewController: UIViewController {
         let longPressedGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressedStraw(_:)))
         strawImage.addGestureRecognizer(longPressedGesture)
         
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedImage(_:)))
-        strawImage.addGestureRecognizer(tapGesture)
+        let tapImage: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedImage(_:)))
+        strawImage.addGestureRecognizer(tapImage)
+        
         
         makeCircle()
         
@@ -54,6 +55,7 @@ class MilkShakeMissionViewController: UIViewController {
         strawView.addSubview(blueCircle)
         blueCircle.widthAnchor.constraint(equalToConstant: 25).isActive = true
         blueCircle.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        blueCircle.isUserInteractionEnabled = true
         
         greenCircle.isHidden = true
         blueCircle.isHidden = true
@@ -89,41 +91,55 @@ class MilkShakeMissionViewController: UIViewController {
         strawImage.animationRepeatCount = 0
         strawImage.image = strawImage.animationImages?.last
         strawImage.startAnimating()
-        let otherTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedStraw(_:)))
-        greenCircle?.addGestureRecognizer(otherTapGesture)
+        let tapGreenCircle: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedGreenCircle(_:)))
+        greenCircle?.addGestureRecognizer(tapGreenCircle)
         greenCircle.isHidden = false
     }
     
-    @objc func tappedStraw(_ sender: UITapGestureRecognizer) {
+    @objc func tappedGreenCircle(_ sender: UITapGestureRecognizer) {
         blueCircle.isHidden = false
+        greenCircle.isHidden = true
         strawImage.stopAnimating()
-        let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panStraw(_:)))
-        blueCircle?.addGestureRecognizer(panGesture)
+        let otherTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedBlueCircle(_:)))
+        blueCircle?.addGestureRecognizer(otherTapGesture)
+        // PanGesture 구현
+//        let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panStraw(_:)))
     }
     
-    @objc func panStraw(_ sender: UIPanGestureRecognizer) {
-        greenCircle.isHidden = false
-        blueCircle.isHidden = false
-        switch sender.state {
-        case .began:
-            initialCenter = greenCircle.center
-        case .changed:
-            let translation = sender.translation(in: view)
-            
-            greenCircle.center = CGPoint(x: initialCenter.x + translation.x,
-                                          y: initialCenter.y + translation.y)
-        case .ended, .cancelled:
-            greenCircle.isHidden = true
-            blueCircle.isHidden = true
-            strawImage.animationImages = animatedImages(name: "straw", initNum: 5, endNum: 8)
-            strawImage.animationDuration = 3
-            strawImage.animationRepeatCount = 0
-            strawImage.image = strawImage.animationImages?.first
-            strawImage.startAnimating()
-        default:
-            break
-        }
+    @objc func tappedBlueCircle(_ sender: UITapGestureRecognizer) {
+        greenCircle.isHidden = true
+        blueCircle.isHidden = true
+        strawImage.animationImages = animatedImages(name: "straw", initNum: 5, endNum: 8)
+        strawImage.animationDuration = 3
+        strawImage.animationRepeatCount = 0
+        strawImage.image = strawImage.animationImages?.first
+        strawImage.startAnimating()
     }
+    // PanGesture 구현
+    
+//    @objc func panStraw(_ sender: UIPanGestureRecognizer) {
+//        greenCircle.isHidden = false
+//        blueCircle.isHidden = false
+//        switch sender.state {
+//        case .began:
+//            initialCenter = greenCircle.center
+//        case .changed:
+//            let translation = sender.translation(in: view)
+//
+//            greenCircle.center = CGPoint(x: initialCenter.x + translation.x,
+//                                          y: initialCenter.y + translation.y)
+//        case .ended, .cancelled:
+//            greenCircle.isHidden = true
+//            blueCircle.isHidden = true
+//            strawImage.animationImages = animatedImages(name: "straw", initNum: 5, endNum: 8)
+//            strawImage.animationDuration = 3
+//            strawImage.animationRepeatCount = 0
+//            strawImage.image = strawImage.animationImages?.first
+//            strawImage.startAnimating()
+//        default:
+//            break
+//        }
+//    }
     
     // 이미지텍스처 생성함수
     func animatedImages(name: String, initNum: Int, endNum: Int) -> [UIImage] {

@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         runTime += 1
-
     }
     @IBAction func backgroundMusic(_ sender: UIButton) {
         if !backgroundMuiscBool {
