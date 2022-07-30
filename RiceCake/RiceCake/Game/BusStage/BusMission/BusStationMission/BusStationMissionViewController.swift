@@ -9,6 +9,13 @@ import UIKit
 import AudioToolbox
 
 class BusStationMissionViewController: UIViewController, UIGestureRecognizerDelegate {
+    // PlaySound
+    var soundBrain = SoundBrain()
+    
+    // GuideView
+    var guideBrain = GuideBrain()
+    var guideUiView: UIView!
+    var guideImageView: UIImageView!
     
     // 노드 @IBOutlet 연결
     @IBOutlet weak var buttonImage: UIImageView!
@@ -27,6 +34,17 @@ class BusStationMissionViewController: UIViewController, UIGestureRecognizerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // GuideView 생성
+        guideUiView = guideBrain.getGuideUiView(name: "swipe")
+        guideImageView = guideBrain.uiViews[guideBrain.guideNumber].guideImageView.imageView
+        self.view.addSubview(guideUiView)
+        guideUiView.addSubview(guideImageView)
+        guideBrain.uiViews[guideBrain.guideNumber].playAnimation()
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 25, yAXis: 200)
+        
+        // soundPlayTimeReset
+        soundBrain.resetSoundTime()
+        
         // Pinch gesture 연결
         pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchHappened(_:)))
         self.view.addGestureRecognizer(pinchRecognizer)
@@ -43,10 +61,20 @@ class BusStationMissionViewController: UIViewController, UIGestureRecognizerDele
     
     // Swipe Gesture Animation 값 설정
     @objc func swipeToLeftHappened(_ sender: UISwipeGestureRecognizer) {
+        if soundBrain.soundPlayTime == 0 {
+            soundBrain.playSound(name: "Gesture5")
+        }
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 120, yAXis: 200)
         movePeopleToLeft()
         isFinishedLeftSwipe = true
     }
     @objc func swiftToRightHappend(_ sender: UISwipeGestureRecognizer) {
+        if soundBrain.soundPlayTime == 1 {
+            soundBrain.playSound(name: "Gesture5")
+        }
+        guideImageView.image = guideBrain.uiViews[guideBrain.guideNumber].changeImage(name: "pinch")
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 80, yAXis: 130)
+        
         movePeopleToRight()
         isFinishedRightSwipe = true
     }
@@ -65,6 +93,10 @@ class BusStationMissionViewController: UIViewController, UIGestureRecognizerDele
                     pinch.scale = 1.0
                 } else if recognizerScale > 1.90 {
                     // MARK: 미션 성공
+                    if soundBrain.soundPlayTime == 2 {
+                        soundBrain.playSound(name: "Gesture4")
+                        guideBrain.uiViews[guideBrain.guideNumber].stopAnimation()
+                    }
                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         NotificationCenter.default.post(name: .drawBusBellHint, object: nil)

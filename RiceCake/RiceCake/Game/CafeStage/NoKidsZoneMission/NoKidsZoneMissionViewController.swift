@@ -12,7 +12,26 @@ final class NoKidsZoneMissionViewController: UIViewController {
 
     @IBOutlet weak var panel: UIImageView!
     
+    // PlaySound
+    var soundBrain = SoundBrain()
+    
+    // GuideView
+    var guideBrain = GuideBrain()
+    var guideUiView: UIView!
+    var guideImageView: UIImageView!
+    
     override func viewDidLoad() {
+        
+        // GuideView 생성
+        guideUiView = guideBrain.getGuideUiView(name: "swipe")
+        guideImageView = guideBrain.uiViews[guideBrain.guideNumber].guideImageView.imageView
+        self.view.addSubview(guideUiView)
+        guideUiView.addSubview(guideImageView)
+        guideBrain.uiViews[guideBrain.guideNumber].playAnimation()
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 70, yAXis: 180)
+        
+        // soundPlayTimeReset
+        soundBrain.resetSoundTime()
         super.viewDidLoad()
         
         createSwipeGesture(targetView: panel, isLeft: true)
@@ -30,6 +49,10 @@ final class NoKidsZoneMissionViewController: UIViewController {
         if sender.direction == .left || sender.direction == .right {
             panel.image = UIImage(named: "panelFront.png")
             // MARK: 미션 성공
+            if soundBrain.soundPlayTime == 0 {
+                soundBrain.playSound(name: "Gesture5")
+                guideBrain.uiViews[guideBrain.guideNumber].stopAnimation()
+            }
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 NotificationCenter.default.post(name: .drawSearchForAnotherCafeHint, object: nil)

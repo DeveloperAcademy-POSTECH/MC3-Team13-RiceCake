@@ -30,7 +30,7 @@ class MilkShakeMissionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // GuideVeiw 생성
+        // GuideView 생성
         guideUiView = guideBrain.getGuideUiView(name: "tap")
         guideImageView = guideBrain.uiViews[guideBrain.guideNumber].guideImageView.imageView
         self.view.addSubview(guideUiView)

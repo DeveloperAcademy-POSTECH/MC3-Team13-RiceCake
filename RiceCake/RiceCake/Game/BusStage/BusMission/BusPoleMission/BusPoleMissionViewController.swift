@@ -10,6 +10,14 @@ import AudioToolbox
 
 class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    // PlaySound
+    var soundBrain = SoundBrain()
+    
+    // GuideView
+    var guideBrain = GuideBrain()
+    var guideUiView: UIView!
+    var guideImageView: UIImageView!
+    
     @IBOutlet weak var busPoleBackground: UIImageView!
     @IBOutlet weak var firstBusHandle: UIImageView!
     @IBOutlet weak var secondBusHandle: UIImageView!
@@ -22,11 +30,22 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // GuideView 생성
+        guideUiView = guideBrain.getGuideUiView(name: "tap")
+        guideImageView = guideBrain.uiViews[guideBrain.guideNumber].guideImageView.imageView
+        self.view.addSubview(guideUiView)
+        guideUiView.addSubview(guideImageView)
+        guideBrain.uiViews[guideBrain.guideNumber].playAnimation()
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 75, yAXis: 20)
+        
+        // soundPlayTimeReset
+        soundBrain.resetSoundTime()
+        
         // 각 이미지에 gestureRecognizer 적용
         let firstBusHandleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedHandle(_:)))
         firstBusHandle.addGestureRecognizer(firstBusHandleTapGesture)
         
-        let secondBusHandleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedHandle(_:)))
+        let secondBusHandleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedHandleSecond(_:)))
         secondBusHandle.addGestureRecognizer(secondBusHandleTapGesture)
         
         busPoleTapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedHandle(_:)))
@@ -40,17 +59,36 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
     
     // tap gesture에 반응할 함수
     @objc func tappedHandle(_ sender: UITapGestureRecognizer) {
+        if soundBrain.soundPlayTime == 0 {
+            soundBrain.playSound(name: "Gesture0")
+            guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 75, yAXis: 80)
+        }
         busPoleTapGesture.isEnabled = false
         childHandUp()
         childHandDown()
         sender.view?.tag ?? 0 != 1 ? viewMoved(true) : ()
     }
-    
+    //MARK: GestureGuide 위치조정을 위해서 Tap함수 하나 더 생성
+    @objc func tappedHandleSecond(_ sender: UITapGestureRecognizer){
+        if soundBrain.soundPlayTime == 1 {
+            soundBrain.playSound(name: "Gesture0")
+            guideImageView.image = guideBrain.uiViews[guideBrain.guideNumber].changeImage(name: "longPressed")
+            guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 75, yAXis: 110)
+        }
+        busPoleTapGesture.isEnabled = false
+        childHandUp()
+        childHandDown()
+        sender.view?.tag ?? 0 != 1 ? viewMoved(true) : ()
+    }
     // long press gesture에 반응할 함수
     @objc func longPressedBusPole(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             busPoleTapGesture.isEnabled = false
             childHandUp()
+            if soundBrain.soundPlayTime == 2 {
+                soundBrain.playSound(name: "Gesture2")
+            }
+            guideBrain.uiViews[guideBrain.guideNumber].stopAnimation()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.7) {
                 self.childLeftHand.isHidden = true
                 self.childHoldHand.isHidden = false

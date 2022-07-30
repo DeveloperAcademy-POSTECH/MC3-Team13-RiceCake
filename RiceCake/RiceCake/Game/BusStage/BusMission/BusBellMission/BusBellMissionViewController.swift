@@ -11,6 +11,14 @@ import AudioToolbox
 
 class BusBellMissionViewController: UIViewController {
     
+    // PlaySound
+    var soundBrain = SoundBrain()
+    
+    // GuideView
+    var guideBrain = GuideBrain()
+    var guideUiView: UIView!
+    var guideImageView: UIImageView!
+    
     @IBOutlet weak var busBellMissionBackground: UIImageView!
     @IBOutlet weak var busBell: UIImageView!
     @IBOutlet weak var tapRecognizer: UIImageView!
@@ -24,6 +32,16 @@ class BusBellMissionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // GuideView 생성
+        guideUiView = guideBrain.getGuideUiView(name: "tap")
+        guideImageView = guideBrain.uiViews[guideBrain.guideNumber].guideImageView.imageView
+        self.view.addSubview(guideUiView)
+        guideUiView.addSubview(guideImageView)
+        guideBrain.uiViews[guideBrain.guideNumber].playAnimation()
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 80, yAXis: 100)
+        
+        // soundPlayTimeReset
+        soundBrain.resetSoundTime()
         
         let busBellTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapBell(_:)))
         tapRecognizer.addGestureRecognizer(busBellTapGesture)
@@ -33,7 +51,7 @@ class BusBellMissionViewController: UIViewController {
         childHandUpAndDown()
         audioAsset()
     }
-    
+    //MARK: SoundBrain사용가능!
     // 오디오 세팅
     func audioAsset() {
         guard let sound = NSDataAsset(name: "bellSound") else {
@@ -71,6 +89,11 @@ class BusBellMissionViewController: UIViewController {
     
     // 미션 성공시 실행되는 함수
     @objc func tapBell(_ sender: UITapGestureRecognizer) {
+        if soundBrain.soundPlayTime == 0 {
+            soundBrain.playSound(name: "Gesture0")
+            guideBrain.uiViews[guideBrain.guideNumber].stopAnimation()
+        }
+        
         let layer = self.childLeftHand.layer
         self.tappedBusBell.isHidden = false
         generator.impactOccurred()

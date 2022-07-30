@@ -207,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				3477568028903B7E0049A212 /* CafeStory */,
+				D49603122892704300BF5A45 /* NoKidsZoneMission */,
 				631F2A3528928538009CA059 /* DrinkMilkShake */,
 				34775661288FC4C60049A212 /* CafeMission.storyboard */,
 				34775665288FC4D80049A212 /* CafeMissionViewController.swift */,
@@ -218,7 +219,6 @@
 		3477568028903B7E0049A212 /* CafeStory */ = {
 			isa = PBXGroup;
 			children = (
-				D49603122892704300BF5A45 /* NoKidsZoneMission */,
 				3477568228903B7E0049A212 /* CafeStory.storyboard */,
 				3477568128903B7E0049A212 /* CafeStageConstant.swift */,
 				3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */,
@@ -726,7 +726,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S5VGQ6HPYR;
-				DEVELOPMENT_TEAM = K6B59X6MS9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -755,7 +754,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S5VGQ6HPYR;
-				DEVELOPMENT_TEAM = K6B59X6MS9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

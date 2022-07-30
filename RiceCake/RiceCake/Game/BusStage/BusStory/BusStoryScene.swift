@@ -68,7 +68,8 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
                 NotificationCenter.default.post(name: .drawBusSeatHint, object: nil)
                 seatMissionPlayer.isHidden = false
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                hintString = "Bus Seat Mission"
+                // TODO: PR 제거해야한다는 의견나옴
+//                hintString = "Bus Seat Mission"
             }
             
         case BusStagePhysicsCategory.busPole:
