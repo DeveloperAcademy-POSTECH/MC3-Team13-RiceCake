@@ -11,16 +11,21 @@ class MilkShakeMissionViewController: UIViewController {
     
     @IBOutlet weak var strawView: UIView!
     @IBOutlet weak var strawImage: UIImageView!
+    // PlaySound
+    var soundBrain = SoundBrain()
     
     // Circle UIVew 변수
     var greenCircle: UIView!
-    var blueCircle: UIView!
+    var greenCircleTwo: UIView!
     
     // 좌표값 생성 변수
     var initialCenter = CGPoint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // soundPlayTimeReset
+        soundBrain.resetSoundTime()
         
         // Gesture생성
         let longPressedGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressedStraw(_:)))
@@ -29,14 +34,13 @@ class MilkShakeMissionViewController: UIViewController {
         let tapImage: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedImage(_:)))
         strawImage.addGestureRecognizer(tapImage)
         
-        
         makeCircle()
         
         let (hMult, vMult) = computeMultipliers(angle: 30)
         NSLayoutConstraint(item: greenCircle!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -60).isActive = true
         NSLayoutConstraint(item: greenCircle!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: 110).isActive = true
-        NSLayoutConstraint(item: blueCircle!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -120).isActive = true
-        NSLayoutConstraint(item: blueCircle!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: -90).isActive = true
+        NSLayoutConstraint(item: greenCircleTwo!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -120).isActive = true
+        NSLayoutConstraint(item: greenCircleTwo!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: -80).isActive = true
         
     }
     // View Drage 위한 Circle 생성
@@ -49,16 +53,16 @@ class MilkShakeMissionViewController: UIViewController {
         greenCircle.heightAnchor.constraint(equalToConstant: 25).isActive = true
         greenCircle.isUserInteractionEnabled = true
         
-        blueCircle = UIView()
-        blueCircle.translatesAutoresizingMaskIntoConstraints = false
-        blueCircle.backgroundColor = .blue
-        strawView.addSubview(blueCircle)
-        blueCircle.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        blueCircle.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        blueCircle.isUserInteractionEnabled = true
+        greenCircleTwo = UIView()
+        greenCircleTwo.translatesAutoresizingMaskIntoConstraints = false
+        greenCircleTwo.backgroundColor = .green
+        strawView.addSubview(greenCircleTwo)
+        greenCircleTwo.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        greenCircleTwo.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        greenCircleTwo.isUserInteractionEnabled = true
         
         greenCircle.isHidden = true
-        blueCircle.isHidden = true
+        greenCircleTwo.isHidden = true
     }
     
     // Circle Layout 지정함수
@@ -66,8 +70,8 @@ class MilkShakeMissionViewController: UIViewController {
         super.viewDidLayoutSubviews()
         greenCircle.layoutIfNeeded()
         greenCircle.layer.cornerRadius = 0.5 * greenCircle.frame.height
-        blueCircle.layoutIfNeeded()
-        blueCircle.layer.cornerRadius = 0.5 * blueCircle.frame.height
+        greenCircleTwo.layoutIfNeeded()
+        greenCircleTwo.layer.cornerRadius = 0.5 * greenCircleTwo.frame.height
     }
     
     // Circle 원형틀 생성함수
@@ -83,9 +87,16 @@ class MilkShakeMissionViewController: UIViewController {
     // Gesture 발생될때 실행되는 함수정의
     @objc func tappedImage(_ sender: UITapGestureRecognizer) {
         strawImage.image = UIImage(named: "straw1")
+        if soundBrain.soundPlayTime == 0 {
+            soundBrain.playSound(name: "Gesture0")
+        }
+        
     }
     
     @objc func longPressedStraw(_ sender: UILongPressGestureRecognizer) {
+        if soundBrain.soundPlayTime == 1 {
+            soundBrain.playSound(name: "Gesture2")
+        }
         strawImage.animationImages = animatedImages(name: "straw", initNum: 1, endNum: 3)
         strawImage.animationDuration = 3
         strawImage.animationRepeatCount = 0
@@ -97,18 +108,24 @@ class MilkShakeMissionViewController: UIViewController {
     }
     
     @objc func tappedGreenCircle(_ sender: UITapGestureRecognizer) {
-        blueCircle.isHidden = false
+        if soundBrain.soundPlayTime == 2 {
+            soundBrain.playSound(name: "Gesture0")
+        }
+        greenCircleTwo.isHidden = false
         greenCircle.isHidden = true
         strawImage.stopAnimating()
-        let otherTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedBlueCircle(_:)))
-        blueCircle?.addGestureRecognizer(otherTapGesture)
+        let otherTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedGreenCircleTwo(_:)))
+        greenCircleTwo?.addGestureRecognizer(otherTapGesture)
         // PanGesture 구현
 //        let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panStraw(_:)))
     }
     
-    @objc func tappedBlueCircle(_ sender: UITapGestureRecognizer) {
+    @objc func tappedGreenCircleTwo(_ sender: UITapGestureRecognizer) {
+        if soundBrain.soundPlayTime == 3 {
+            soundBrain.playSound(name: "Positive")
+        }
         greenCircle.isHidden = true
-        blueCircle.isHidden = true
+        greenCircleTwo.isHidden = true
         strawImage.animationImages = animatedImages(name: "straw", initNum: 5, endNum: 8)
         strawImage.animationDuration = 3
         strawImage.animationRepeatCount = 0

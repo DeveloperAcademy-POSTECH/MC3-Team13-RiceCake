@@ -10,6 +10,9 @@ struct SoundBrain {
     
     var soundNumber = 0
     
+    var soundPlayTime = 0
+    
+    
     var sounds = [
     Sound(player: AVAudioPlayer(), soundName: "Positive"),
     Sound(player: AVAudioPlayer(), soundName: "Negative"),
@@ -22,9 +25,10 @@ struct SoundBrain {
     Sound(player: AVAudioPlayer(), soundName: "background")
     ]
     
-    mutating func getSound(name: String) {
+    mutating func playSound(name: String) {
         let soundNumber = sounds.firstIndex(where: {$0.soundName == name}) ?? 0
         sounds[soundNumber].playSound()
+        soundPlayTime += 1
     }
     
     mutating func pauseSound(name: String) {
@@ -34,5 +38,9 @@ struct SoundBrain {
     
     mutating func backgroundSound() {
         sounds[sounds.count - 1].playLoopSound()
+    }
+    
+    mutating func resetSoundTime() {
+        soundPlayTime = 0
     }
 }
