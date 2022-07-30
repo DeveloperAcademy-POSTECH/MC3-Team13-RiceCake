@@ -75,8 +75,10 @@ class BusSeatMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContac
                 // MARK: 미션 성공
                 busSeatMissionBackground.isPaused = true
                 grabbingHand.isPaused = true
-                NotificationCenter.default.post(name: .drawBusStationHint, object: nil)
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    NotificationCenter.default.post(name: .drawBusStationHint, object: nil)
+                }
             }
         }
         if sender.state == .ended {

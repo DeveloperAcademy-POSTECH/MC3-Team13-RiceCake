@@ -7,6 +7,7 @@
 
 import SpriteKit
 import UIKit
+import AudioToolbox
 
 class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDelegate {
     var jumpCount: Int = 0
@@ -67,7 +68,10 @@ class OrderMilkShakeMissionScene: SKScene, UIGestureRecognizerDelegate, SKPhysic
             )
             magnifiedMenuBoard.run(fadeInSequence)
             // MARK: 미션 성공
-            NotificationCenter.default.post(name: .drawCafeDrinkMilkShakeHint, object: nil)
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                NotificationCenter.default.post(name: .drawCafeDrinkMilkShakeHint, object: nil)
+            }
         }
     }
 }

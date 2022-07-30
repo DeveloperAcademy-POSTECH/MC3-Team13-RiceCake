@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import AudioToolbox
 
 class InsideCafeScene: SKScene, SKPhysicsContactDelegate {
     
@@ -46,10 +47,12 @@ class InsideCafeScene: SKScene, SKPhysicsContactDelegate {
             
         case InsideCafePhysicsCategory.orderStand:
             print("CafeMission")
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             NotificationCenter.default.post(name: .drawCafeOrderMilkShakeMission, object: nil)
             
         case InsideCafePhysicsCategory.seat:
             print("DrinkMilkShake")
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             NotificationCenter.default.post(name: .drawCafeDrinkMilkShakeMission, object: nil)
 
         default:

@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 class BusBellMissionViewController: UIViewController {
     
@@ -75,7 +76,11 @@ class BusBellMissionViewController: UIViewController {
         generator.impactOccurred()
         avPlayer.play()
         pauseLayer(layer: layer)
-        NotificationCenter.default.post(name: .drawBusPoleHint, object: nil)
+        // MARK: 미션 성공
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            NotificationCenter.default.post(name: .drawBusPoleHint, object: nil)
+        }
     }
     
     // 3가지 랜덤한 높이의 반복되는 childeLeftHand Up & Down 애니메이션

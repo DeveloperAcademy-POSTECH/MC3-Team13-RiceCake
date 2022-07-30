@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import AudioToolbox
 
 class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
     
@@ -59,11 +60,13 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
             
         case CafeStagePhysicsCategory.firstCafeDoor:
             player.isPaused = true
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             NotificationCenter.default.post(name: .drawCafeNoKidsZoneMission, object: nil)
             
         case CafeStagePhysicsCategory.secondCafeDoor:
             let scene = InsideCafeScene(size: self.size)
             self.view?.presentScene(scene)
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             NotificationCenter.default.post(name: .drawCafeOrderMilkShakeHint, object: nil)
             
         default:
