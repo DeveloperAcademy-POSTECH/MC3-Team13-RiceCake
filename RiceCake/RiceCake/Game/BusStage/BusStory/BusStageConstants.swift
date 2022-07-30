@@ -22,5 +22,6 @@ struct BusStagePhysicsCategory {
     static let player: UInt32 = 0x1 << 0
     static let busFrame: UInt32 = 0x1 << 1
     static let busPole: UInt32 = 0x1 << 2
-    static let busSeat: UInt32 = 0x1 << 3
+    static let busMissionPole: UInt32 = 0x1 << 3
+    static let busSeat: UInt32 = 0x1 << 4
 }

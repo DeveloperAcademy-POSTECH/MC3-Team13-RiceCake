@@ -55,6 +55,7 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
                 self.childLeftHand.isHidden = true
                 self.childHoldHand.isHidden = false
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                NotificationCenter.default.post(name: .endBusPoleMission, object: nil)
             }
         }
     }

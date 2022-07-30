@@ -26,6 +26,7 @@ extension Notification.Name {
     // Bus Pole Mission
     static let drawBusPoleHint = Notification.Name("drawBusPoleHint")
     static let drawBusPoleMission = Notification.Name("drawBusPoleMission")
+    static let endBusPoleMission = Notification.Name("endBusPoleMission")
     // Erase Mission
     static let eraseBusMission = Notification.Name("eraseBusMission")
     
