@@ -44,6 +44,8 @@
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
 		6310C3F72894EE10005870C9 /* PrologaueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6310C3F52894EE10005870C9 /* PrologaueViewController.swift */; };
 		6310C3F82894EE10005870C9 /* Prologaue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6310C3F62894EE10005870C9 /* Prologaue.storyboard */; };
+		6310C3FA289519F3005870C9 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6310C3F9289519F3005870C9 /* GuideView.swift */; };
+		6310C3FC28951A0D005870C9 /* GuideBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6310C3FB28951A0D005870C9 /* GuideBrain.swift */; };
 		631F2A38289285A5009CA059 /* MilkShakeMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A36289285A5009CA059 /* MilkShakeMission.storyboard */; };
 		631F2A39289285A5009CA059 /* MilkShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A37289285A5009CA059 /* MilkShakeViewController.swift */; };
 		631F2A452892BB3F009CA059 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3C2892BB3E009CA059 /* background.wav */; };
@@ -57,8 +59,6 @@
 		631F2A4D2892BB3F009CA059 /* Negative.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A442892BB3E009CA059 /* Negative.wav */; };
 		631F2A4F2892BB71009CA059 /* SoundBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A4E2892BB71009CA059 /* SoundBrain.swift */; };
 		631F2A512892BBB5009CA059 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A502892BBB5009CA059 /* Sound.swift */; };
-		631F2A552892D348009CA059 /* GuideAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A542892D348009CA059 /* GuideAsset.swift */; };
-		631F2A572892D35F009CA059 /* GuideAssetBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A562892D35F009CA059 /* GuideAssetBrain.swift */; };
 		B307C15F2892C483000E42BF /* BusStationMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307C15E2892C483000E42BF /* BusStationMissionViewController.swift */; };
 		B307C1622892CA80000E42BF /* BusStationMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B307C1612892CA80000E42BF /* BusStationMission.storyboard */; };
 		D4050D1F2893AC4B00468787 /* EF_Diary.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4050D1E2893AC4B00468787 /* EF_Diary.ttf */; };
@@ -117,6 +117,8 @@
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
 		6310C3F52894EE10005870C9 /* PrologaueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrologaueViewController.swift; sourceTree = "<group>"; };
 		6310C3F62894EE10005870C9 /* Prologaue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Prologaue.storyboard; sourceTree = "<group>"; };
+		6310C3F9289519F3005870C9 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
+		6310C3FB28951A0D005870C9 /* GuideBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideBrain.swift; sourceTree = "<group>"; };
 		631F2A36289285A5009CA059 /* MilkShakeMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MilkShakeMission.storyboard; sourceTree = "<group>"; };
 		631F2A37289285A5009CA059 /* MilkShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkShakeViewController.swift; sourceTree = "<group>"; };
 		631F2A3C2892BB3E009CA059 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
@@ -130,8 +132,6 @@
 		631F2A442892BB3E009CA059 /* Negative.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Negative.wav; sourceTree = "<group>"; };
 		631F2A4E2892BB71009CA059 /* SoundBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBrain.swift; sourceTree = "<group>"; };
 		631F2A502892BBB5009CA059 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
-		631F2A542892D348009CA059 /* GuideAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideAsset.swift; sourceTree = "<group>"; };
-		631F2A562892D35F009CA059 /* GuideAssetBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideAssetBrain.swift; sourceTree = "<group>"; };
 		B307C15E2892C483000E42BF /* BusStationMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationMissionViewController.swift; sourceTree = "<group>"; };
 		B307C1612892CA80000E42BF /* BusStationMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStationMission.storyboard; sourceTree = "<group>"; };
 		D4050D1E2893AC4B00468787 /* EF_Diary.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EF_Diary.ttf; sourceTree = "<group>"; };
@@ -326,8 +326,8 @@
 			children = (
 				631F2A4E2892BB71009CA059 /* SoundBrain.swift */,
 				631F2A502892BBB5009CA059 /* Sound.swift */,
-				631F2A542892D348009CA059 /* GuideAsset.swift */,
-				631F2A562892D35F009CA059 /* GuideAssetBrain.swift */,
+				6310C3F9289519F3005870C9 /* GuideView.swift */,
+				6310C3FB28951A0D005870C9 /* GuideBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -536,7 +536,6 @@
 				347332B12892609100859373 /* HintScene.swift in Sources */,
 				347332A22891265500859373 /* BusStageConstants.swift in Sources */,
 				34B638D428811EE300760FD8 /* GameViewController.swift in Sources */,
-				631F2A572892D35F009CA059 /* GuideAssetBrain.swift in Sources */,
 				34B638C728811CBB00760FD8 /* StageModel.swift in Sources */,
 				631F2A4F2892BB71009CA059 /* SoundBrain.swift in Sources */,
 				3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */,
@@ -546,6 +545,7 @@
 				34B638C828811CBB00760FD8 /* StageViewController.swift in Sources */,
 				3477568A28903B7E0049A212 /* CafeStoryRoadScene.swift in Sources */,
 				34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */,
+				6310C3FA289519F3005870C9 /* GuideView.swift in Sources */,
 				3477568828903B7E0049A212 /* CafeStoryRoadScene+Extension.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,
 				3487FC882893C1FB004169BA /* BusBellMissionViewController.swift in Sources */,
@@ -568,9 +568,9 @@
 				34775668288FDADF0049A212 /* StageNotificationCenter.swift in Sources */,
 				F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */,
 				34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */,
-				631F2A552892D348009CA059 /* GuideAsset.swift in Sources */,
 				F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */,
 				D4537734289050C200C87076 /* HintViewController.swift in Sources */,
+				6310C3FC28951A0D005870C9 /* GuideBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

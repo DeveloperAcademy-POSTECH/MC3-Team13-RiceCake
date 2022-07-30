@@ -14,6 +14,11 @@ class MilkShakeMissionViewController: UIViewController {
     // PlaySound
     var soundBrain = SoundBrain()
     
+    //GuideView
+    var guideBrain = GuideBrain()
+    var guideUiView: UIView!
+    var guideImageView: UIImageView!
+    
     // Circle UIVew 변수
     var greenCircle: UIView!
     var greenCircleTwo: UIView!
@@ -23,6 +28,14 @@ class MilkShakeMissionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // GuideVeiw 생성
+        guideUiView = guideBrain.getGuideUiView(name: "tap")
+        guideImageView = guideBrain.uiViews[guideBrain.guideNumber].guideImageView.imageView
+        self.view.addSubview(guideUiView)
+        guideUiView.addSubview(guideImageView)
+        guideBrain.uiViews[guideBrain.guideNumber].playAnimation()
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 40, yAXis: 40)
         
         // soundPlayTimeReset
         soundBrain.resetSoundTime()
@@ -90,7 +103,8 @@ class MilkShakeMissionViewController: UIViewController {
         if soundBrain.soundPlayTime == 0 {
             soundBrain.playSound(name: "Gesture0")
         }
-        
+        guideImageView.image = guideBrain.uiViews[guideBrain.guideNumber].changeImage(name:"swipe")
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 60, yAXis: 60)
     }
     
     @objc func longPressedStraw(_ sender: UILongPressGestureRecognizer) {
