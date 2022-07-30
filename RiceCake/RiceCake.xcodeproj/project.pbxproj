@@ -42,6 +42,8 @@
 		34B638D528811EE300760FD8 /* GameView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638D328811EE300760FD8 /* GameView.storyboard */; };
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
+		6310C3F72894EE10005870C9 /* PrologaueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6310C3F52894EE10005870C9 /* PrologaueViewController.swift */; };
+		6310C3F82894EE10005870C9 /* Prologaue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6310C3F62894EE10005870C9 /* Prologaue.storyboard */; };
 		631F2A38289285A5009CA059 /* MilkShakeMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A36289285A5009CA059 /* MilkShakeMission.storyboard */; };
 		631F2A39289285A5009CA059 /* MilkShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A37289285A5009CA059 /* MilkShakeViewController.swift */; };
 		631F2A452892BB3F009CA059 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3C2892BB3E009CA059 /* background.wav */; };
@@ -113,6 +115,8 @@
 		34F88C302885838600BB3DF8 /* ActionList.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionList.sks; sourceTree = "<group>"; };
 		34F88C342886BE6700BB3DF8 /* HintScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
+		6310C3F52894EE10005870C9 /* PrologaueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrologaueViewController.swift; sourceTree = "<group>"; };
+		6310C3F62894EE10005870C9 /* Prologaue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Prologaue.storyboard; sourceTree = "<group>"; };
 		631F2A36289285A5009CA059 /* MilkShakeMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MilkShakeMission.storyboard; sourceTree = "<group>"; };
 		631F2A37289285A5009CA059 /* MilkShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkShakeViewController.swift; sourceTree = "<group>"; };
 		631F2A3C2892BB3E009CA059 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		34A18414288044F7004B58E3 /* RiceCake */ = {
 			isa = PBXGroup;
 			children = (
+				6310C3F42894EE01005870C9 /* PrologueView */,
 				D4050D1D2893AC3000468787 /* Font */,
 				34A18415288044F7004B58E3 /* AppDelegate.swift */,
 				34A18417288044F7004B58E3 /* SceneDelegate.swift */,
@@ -296,6 +301,15 @@
 				34B638D228811EE300760FD8 /* GameViewController.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		6310C3F42894EE01005870C9 /* PrologueView */ = {
+			isa = PBXGroup;
+			children = (
+				6310C3F62894EE10005870C9 /* Prologaue.storyboard */,
+				6310C3F52894EE10005870C9 /* PrologaueViewController.swift */,
+			);
+			path = PrologueView;
 			sourceTree = "<group>";
 		};
 		631F2A3528928538009CA059 /* DrinkMilkShake */ = {
@@ -477,6 +491,7 @@
 				34B638D028811E2C00760FD8 /* Main.storyboard in Resources */,
 				631F2A482892BB3F009CA059 /* Gesture3.wav in Resources */,
 				D49603142892706300BF5A45 /* NoKidsZoneMission.storyboard in Resources */,
+				6310C3F82894EE10005870C9 /* Prologaue.storyboard in Resources */,
 				D4537732289050B100C87076 /* HintView.storyboard in Resources */,
 				631F2A4A2892BB3F009CA059 /* Gesture0.wav in Resources */,
 				631F2A492892BB3F009CA059 /* Gesture2.wav in Resources */,
@@ -539,6 +554,7 @@
 				34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */,
 				34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */,
 				D453773B289268B400C87076 /* PaddingLabel.swift in Sources */,
+				6310C3F72894EE10005870C9 /* PrologaueViewController.swift in Sources */,
 				34B638CF28811E2C00760FD8 /* HomeViewController.swift in Sources */,
 				B307C15F2892C483000E42BF /* BusStationMissionViewController.swift in Sources */,
 				D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */,

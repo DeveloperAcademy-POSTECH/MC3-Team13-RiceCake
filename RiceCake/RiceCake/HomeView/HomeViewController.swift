@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeViewController: UIViewController {
     
+    @AppStorage("runCount") private var runTime = 0
     var soundBrain: SoundBrain = SoundBrain()
     var backgroundMuiscBool: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        runTime += 1
 
     }
     @IBAction func backgroundMusic(_ sender: UIButton) {
@@ -29,8 +32,15 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Stage", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "StageViewController") as! StageViewController
-        navigationController?.pushViewController(viewController, animated: true)
+        if runTime < 2 {
+                let storyboard = UIStoryboard(name: "Prologaue", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "PrologaueViewController") as! PrologaueViewController
+                navigationController?.pushViewController(viewController, animated: true)
+                navigationController?.isNavigationBarHidden = true
+            } else {
+                let storyboard = UIStoryboard(name: "Stage", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "StageViewController") as! StageViewController
+                navigationController?.pushViewController(viewController, animated: true)
+            }
     }
 }
