@@ -12,7 +12,7 @@ class GuideBrain {
     var guideNumber = 0
     
     var uiViews = [
-    GuideUiview(uiView: UIView(), guideImageView: GuideImageView(imageView: UIImageView(image: UIImage(named: "tap")),     imageViewWidth: 100, imageViewHeight: 100), uiViewName: "tap"),
+    GuideUiview(uiView: UIView(), guideImageView: GuideImageView(imageView: UIImageView(image: UIImage(named: "tap")), imageViewWidth: 100, imageViewHeight: 100), uiViewName: "tap"),
     GuideUiview(uiView: UIView(), guideImageView: GuideImageView(imageView: UIImageView(image: UIImage(named: "doubletap")), imageViewWidth: 100, imageViewHeight: 100), uiViewName: "doubletap"),
     GuideUiview(uiView: UIView(), guideImageView: GuideImageView(imageView: UIImageView(image: UIImage(named: "longPressed")), imageViewWidth: 100, imageViewHeight: 100), uiViewName: "longPressed"),
     GuideUiview(uiView: UIView(), guideImageView: GuideImageView(imageView: UIImageView(image: UIImage(named: "pan")), imageViewWidth: 100, imageViewHeight: 100), uiViewName: "pan"),

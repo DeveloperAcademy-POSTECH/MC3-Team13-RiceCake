@@ -27,13 +27,19 @@ class GuideUiview {
         })
     }
     
+    func stopAnimation() {
+        UIView.animate(withDuration: 0.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.uiView.isHidden = true
+        }, completion: nil)
+    }
+    
     func changePosition(xAxis: CGFloat, yAXis: CGFloat) {
         self.uiView.frame.origin.x = xAxis
         self.uiView.frame.origin.y = yAXis
     }
     
     func changeImage(name: String) -> UIImage? {
-        self.guideImageView.imageView = UIImageView(image:UIImage(named: name))
+        self.guideImageView.imageView = UIImageView(image: UIImage(named: name))
         let changeImageView = self.guideImageView.imageView.image ?? UIImage(named: "tap")
         return changeImageView
     }

@@ -14,14 +14,15 @@ class MilkShakeMissionViewController: UIViewController {
     // PlaySound
     var soundBrain = SoundBrain()
     
-    //GuideView
+    // GuideView
     var guideBrain = GuideBrain()
     var guideUiView: UIView!
     var guideImageView: UIImageView!
     
-    // Circle UIVew 변수
-    var greenCircle: UIView!
-    var greenCircleTwo: UIView!
+    // Gesture Point UIVew 변수
+    var tapGesturePoint: UIView!
+    var otehrTapGesturePoint: UIView!
+    var longPressedPoint: UIView!
     
     // 좌표값 생성 변수
     var initialCenter = CGPoint()
@@ -35,56 +36,64 @@ class MilkShakeMissionViewController: UIViewController {
         self.view.addSubview(guideUiView)
         guideUiView.addSubview(guideImageView)
         guideBrain.uiViews[guideBrain.guideNumber].playAnimation()
-        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 40, yAXis: 40)
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 70, yAXis: 70)
         
         // soundPlayTimeReset
         soundBrain.resetSoundTime()
         
         // Gesture생성
-        let longPressedGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressedStraw(_:)))
-        strawImage.addGestureRecognizer(longPressedGesture)
         
         let tapImage: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedImage(_:)))
         strawImage.addGestureRecognizer(tapImage)
         
-        makeCircle()
+        // Make Gesture Point
+        makeGesturePoint()
         
         let (hMult, vMult) = computeMultipliers(angle: 30)
-        NSLayoutConstraint(item: greenCircle!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -60).isActive = true
-        NSLayoutConstraint(item: greenCircle!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: 110).isActive = true
-        NSLayoutConstraint(item: greenCircleTwo!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -120).isActive = true
-        NSLayoutConstraint(item: greenCircleTwo!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: -80).isActive = true
+        NSLayoutConstraint(item: tapGesturePoint!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -60).isActive = true
+        NSLayoutConstraint(item: tapGesturePoint!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: 115).isActive = true
+        NSLayoutConstraint(item: otehrTapGesturePoint!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -120).isActive = true
+        NSLayoutConstraint(item: otehrTapGesturePoint!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: -75).isActive = true
+        NSLayoutConstraint(item: longPressedPoint!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -140).isActive = true
+        NSLayoutConstraint(item: longPressedPoint!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: 15).isActive = true
         
     }
     // View Drage 위한 Circle 생성
-    func makeCircle() {
-        greenCircle = UIView()
-        greenCircle.translatesAutoresizingMaskIntoConstraints = false
-        greenCircle.backgroundColor = .green
-        strawView.addSubview(greenCircle)
-        greenCircle.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        greenCircle.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        greenCircle.isUserInteractionEnabled = true
+    func makeGesturePoint() {
+        tapGesturePoint = UIView()
+        tapGesturePoint.translatesAutoresizingMaskIntoConstraints = false
+        tapGesturePoint.backgroundColor = .none
+        strawView.addSubview(tapGesturePoint)
+        tapGesturePoint.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        tapGesturePoint.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        tapGesturePoint.isUserInteractionEnabled = true
         
-        greenCircleTwo = UIView()
-        greenCircleTwo.translatesAutoresizingMaskIntoConstraints = false
-        greenCircleTwo.backgroundColor = .green
-        strawView.addSubview(greenCircleTwo)
-        greenCircleTwo.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        greenCircleTwo.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        greenCircleTwo.isUserInteractionEnabled = true
+        otehrTapGesturePoint = UIView()
+        otehrTapGesturePoint.translatesAutoresizingMaskIntoConstraints = false
+        otehrTapGesturePoint.backgroundColor = .none
+        strawView.addSubview(otehrTapGesturePoint)
+        otehrTapGesturePoint.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        otehrTapGesturePoint.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        otehrTapGesturePoint.isUserInteractionEnabled = true
         
-        greenCircle.isHidden = true
-        greenCircleTwo.isHidden = true
+        longPressedPoint = UIView()
+        longPressedPoint.translatesAutoresizingMaskIntoConstraints = false
+        longPressedPoint.backgroundColor = .none
+        strawView.addSubview(longPressedPoint)
+        longPressedPoint.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        longPressedPoint.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        longPressedPoint.isUserInteractionEnabled = true
     }
     
-    // Circle Layout 지정함수
+    // GesturePoint Layout 지정함수
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        greenCircle.layoutIfNeeded()
-        greenCircle.layer.cornerRadius = 0.5 * greenCircle.frame.height
-        greenCircleTwo.layoutIfNeeded()
-        greenCircleTwo.layer.cornerRadius = 0.5 * greenCircleTwo.frame.height
+        tapGesturePoint.layoutIfNeeded()
+        tapGesturePoint.layer.cornerRadius = 0.7 * tapGesturePoint.frame.height
+        otehrTapGesturePoint.layoutIfNeeded()
+        otehrTapGesturePoint.layer.cornerRadius = 0.7 * otehrTapGesturePoint.frame.height
+        longPressedPoint.layoutIfNeeded()
+        longPressedPoint.layer.cornerRadius = 0.7 * otehrTapGesturePoint.frame.height
     }
     
     // Circle 원형틀 생성함수
@@ -103,8 +112,10 @@ class MilkShakeMissionViewController: UIViewController {
         if soundBrain.soundPlayTime == 0 {
             soundBrain.playSound(name: "Gesture0")
         }
-        guideImageView.image = guideBrain.uiViews[guideBrain.guideNumber].changeImage(name:"swipe")
-        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 60, yAXis: 60)
+        let longPressedGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressedStraw(_:)))
+        longPressedPoint.addGestureRecognizer(longPressedGesture)
+        guideImageView.image = guideBrain.uiViews[guideBrain.guideNumber].changeImage(name: "longPressed")
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 60, yAXis: 90)
     }
     
     @objc func longPressedStraw(_ sender: UILongPressGestureRecognizer) {
@@ -116,61 +127,35 @@ class MilkShakeMissionViewController: UIViewController {
         strawImage.animationRepeatCount = 0
         strawImage.image = strawImage.animationImages?.last
         strawImage.startAnimating()
-        let tapGreenCircle: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedGreenCircle(_:)))
-        greenCircle?.addGestureRecognizer(tapGreenCircle)
-        greenCircle.isHidden = false
+        let tapGreenCircle: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedFirstPoint(_:)))
+        tapGesturePoint?.addGestureRecognizer(tapGreenCircle)
+        guideImageView.image = guideBrain.uiViews[guideBrain.guideNumber].changeImage(name: "tap")
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 150, yAXis: 220)
     }
     
-    @objc func tappedGreenCircle(_ sender: UITapGestureRecognizer) {
+    @objc func tappedFirstPoint(_ sender: UITapGestureRecognizer) {
         if soundBrain.soundPlayTime == 2 {
             soundBrain.playSound(name: "Gesture0")
         }
-        greenCircleTwo.isHidden = false
-        greenCircle.isHidden = true
         strawImage.stopAnimating()
-        let otherTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedGreenCircleTwo(_:)))
-        greenCircleTwo?.addGestureRecognizer(otherTapGesture)
+        let otherTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedSecondPoint(_:)))
+        otehrTapGesturePoint?.addGestureRecognizer(otherTapGesture)
+        guideBrain.uiViews[guideBrain.guideNumber].changePosition(xAxis: 80, yAXis: 20)
         // PanGesture 구현
 //        let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panStraw(_:)))
     }
     
-    @objc func tappedGreenCircleTwo(_ sender: UITapGestureRecognizer) {
+    @objc func tappedSecondPoint(_ sender: UITapGestureRecognizer) {
         if soundBrain.soundPlayTime == 3 {
-            soundBrain.playSound(name: "Positive")
+            soundBrain.playSound(name: "Gesture0")
+            guideBrain.uiViews[guideBrain.guideNumber].stopAnimation()
         }
-        greenCircle.isHidden = true
-        greenCircleTwo.isHidden = true
         strawImage.animationImages = animatedImages(name: "straw", initNum: 5, endNum: 8)
         strawImage.animationDuration = 3
         strawImage.animationRepeatCount = 0
         strawImage.image = strawImage.animationImages?.first
         strawImage.startAnimating()
     }
-    // PanGesture 구현
-    
-//    @objc func panStraw(_ sender: UIPanGestureRecognizer) {
-//        greenCircle.isHidden = false
-//        blueCircle.isHidden = false
-//        switch sender.state {
-//        case .began:
-//            initialCenter = greenCircle.center
-//        case .changed:
-//            let translation = sender.translation(in: view)
-//
-//            greenCircle.center = CGPoint(x: initialCenter.x + translation.x,
-//                                          y: initialCenter.y + translation.y)
-//        case .ended, .cancelled:
-//            greenCircle.isHidden = true
-//            blueCircle.isHidden = true
-//            strawImage.animationImages = animatedImages(name: "straw", initNum: 5, endNum: 8)
-//            strawImage.animationDuration = 3
-//            strawImage.animationRepeatCount = 0
-//            strawImage.image = strawImage.animationImages?.first
-//            strawImage.startAnimating()
-//        default:
-//            break
-//        }
-//    }
     
     // 이미지텍스처 생성함수
     func animatedImages(name: String, initNum: Int, endNum: Int) -> [UIImage] {

@@ -88,7 +88,6 @@ extension InsideCafeScene {
         }
     }
     // MARK: - Player Node의 속성을 정의합니다.
-    // TODO: Player의 Constaints를 설정해야합니다.
     func createPlayer() {
         let playerWidth = 40
         
