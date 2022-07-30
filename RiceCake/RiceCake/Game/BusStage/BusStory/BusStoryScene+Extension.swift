@@ -171,5 +171,7 @@ extension BusStoryScene {
     
     @objc func completePoleMission() {
         self.isBusSeatMissionCleared = true
+        descriptionLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        hintString = "Mission Clear"
     }
 }
