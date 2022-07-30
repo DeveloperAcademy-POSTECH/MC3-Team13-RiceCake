@@ -10,6 +10,8 @@ import SpriteKit
 class BusMissionViewController: UIViewController {
     
     @IBOutlet var missionView: SKView!
+    var isBusSeatMissionCleared: Bool = false
+    var isBusPoleMissionCleared: Bool = false
     
     // MARK: - BusMissionView를 초기화 합니다.
     override func viewDidLoad() {
@@ -21,6 +23,7 @@ class BusMissionViewController: UIViewController {
         notificationBusStationMission()
         notificationBusBellMission()
         notificationBusPoleMission()
+        checkCompleteMission()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,8 +112,10 @@ extension BusMissionViewController {
     @objc func drawBusSeatMission() {
         eraseBusMission()
         // SKScene: missionView에 BusSeatMissionScene을 띄웁니다.
-        let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
-        missionView.presentScene(missionScene)
+        if !isBusSeatMissionCleared {
+            let missionScene: BusSeatMissionScene = BusSeatMissionScene(size: missionView.frame.size)
+            missionView.presentScene(missionScene)
+        }
     }
     
     // BusStationMission
@@ -185,9 +190,27 @@ extension BusMissionViewController {
     @objc func drawBusPoleHint() {
         eraseBusMission()
         presentBusHintScene(missionNumber: 4, nextViewNotificationName: .searchForNextMission)
+        isBusSeatMissionCleared = true
     }
     @objc func drawBusPoleMission() {
+        if isBusSeatMissionCleared && !isBusPoleMissionCleared {
+            eraseBusMission()
+            drawUIKitViewOnMissionView(storyboardName: "BusPoleMission", storyboardID: "BusPoleMissionViewController")
+        }
+    }
+    // check Complete Mission
+    func checkCompleteMission() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(endBusPoleMission),
+            name: .endBusPoleMission,
+            object: nil
+        )
+    }
+    
+    @objc func endBusPoleMission() {
+        isBusPoleMissionCleared = true
         eraseBusMission()
-        drawUIKitViewOnMissionView(storyboardName: "BusPoleMission", storyboardID: "BusPoleMissionViewController")
+        drawUIKitViewOnMissionView(storyboardName: "BusMissionComplete", storyboardID: "BusMissionCompleteViewController")
     }
 }

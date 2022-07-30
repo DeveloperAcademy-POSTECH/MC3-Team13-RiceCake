@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3425053C28815D1000A8B6AF /* BusStoryScene.swift */; };
 		343579F02889B9AD00DB1FB7 /* BusStoryScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343579EF2889B9AD00DB1FB7 /* BusStoryScene+Extension.swift */; };
+		34484FC0289555C000E92710 /* BusMissionComplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34484FBF289555C000E92710 /* BusMissionComplete.storyboard */; };
+		34484FC2289555D000E92710 /* BusMissionCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34484FC1289555D000E92710 /* BusMissionCompleteViewController.swift */; };
 		347332A22891265500859373 /* BusStageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C16E2D288424DD0050F469 /* BusStageConstants.swift */; };
 		347332B12892609100859373 /* HintScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C342886BE6700BB3DF8 /* HintScene.swift */; };
 		34775652288FBF4D0049A212 /* BusStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775651288FBF4D0049A212 /* BusStory.storyboard */; };
@@ -78,6 +80,8 @@
 /* Begin PBXFileReference section */
 		3425053C28815D1000A8B6AF /* BusStoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStoryScene.swift; sourceTree = "<group>"; };
 		343579EF2889B9AD00DB1FB7 /* BusStoryScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BusStoryScene+Extension.swift"; sourceTree = "<group>"; };
+		34484FBF289555C000E92710 /* BusMissionComplete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusMissionComplete.storyboard; sourceTree = "<group>"; };
+		34484FC1289555D000E92710 /* BusMissionCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusMissionCompleteViewController.swift; sourceTree = "<group>"; };
 		34775651288FBF4D0049A212 /* BusStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusStory.storyboard; sourceTree = "<group>"; };
 		34775653288FBF630049A212 /* BusStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStoryViewController.swift; sourceTree = "<group>"; };
 		34775655288FBFE10049A212 /* BusMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusMission.storyboard; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 		3477564F288FBEDA0049A212 /* BusMission */ = {
 			isa = PBXGroup;
 			children = (
+				34484FBF289555C000E92710 /* BusMissionComplete.storyboard */,
+				34484FC1289555D000E92710 /* BusMissionCompleteViewController.swift */,
 				34775655288FBFE10049A212 /* BusMission.storyboard */,
 				34775657288FBFED0049A212 /* BusMissionViewController.swift */,
 				34F88C342886BE6700BB3DF8 /* HintScene.swift */,
@@ -478,6 +484,7 @@
 				631F2A482892BB3F009CA059 /* Gesture3.wav in Resources */,
 				D49603142892706300BF5A45 /* NoKidsZoneMission.storyboard in Resources */,
 				D4537732289050B100C87076 /* HintView.storyboard in Resources */,
+				34484FC0289555C000E92710 /* BusMissionComplete.storyboard in Resources */,
 				631F2A4A2892BB3F009CA059 /* Gesture0.wav in Resources */,
 				631F2A492892BB3F009CA059 /* Gesture2.wav in Resources */,
 				631F2A452892BB3F009CA059 /* background.wav in Resources */,
@@ -554,6 +561,7 @@
 				34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */,
 				631F2A552892D348009CA059 /* GuideAsset.swift in Sources */,
 				F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */,
+				34484FC2289555D000E92710 /* BusMissionCompleteViewController.swift in Sources */,
 				D4537734289050C200C87076 /* HintViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

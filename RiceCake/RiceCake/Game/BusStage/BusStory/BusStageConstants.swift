@@ -15,6 +15,7 @@ struct BusStageLayer {
     static let busFrame: CGFloat = 4
     static let player: CGFloat = 5
     static let touchArea: CGFloat = 6
+    static let completePage: CGFloat = 9
     static let descriptionLabel: CGFloat = 10
 }
 

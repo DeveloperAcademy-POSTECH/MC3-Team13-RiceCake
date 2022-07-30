@@ -165,12 +165,30 @@ extension BusStoryScene {
         }
     }
     
+    @objc func busSeatMission() {
+        self.isBusSeatMission = true
+    }
+    
     @objc func completeSeatMission() {
+        self.isBusSeatMission = false
         self.isBusSeatMissionCleared = true
     }
     
+    @objc func busPoleMission() {
+        if isBusSeatMissionCleared {
+            self.isBusPoleMission = true
+        }
+    }
+    
     @objc func completePoleMission() {
-        self.isBusSeatMissionCleared = true
+        let completePage = SKShapeNode(rect: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        completePage.fillColor = .black
+        completePage.alpha = 0.0
+        completePage.zPosition = BusStageLayer.completePage
+        self.addChild(completePage)
+        
+        self.isBusPoleMissionCleared = true
+        completePage.run(SKAction.fadeAlpha(to: 0.8, duration: 2))
         descriptionLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         hintString = "Mission Clear"
     }
