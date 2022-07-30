@@ -34,7 +34,7 @@ class BusMissionViewController: UIViewController {
     }
     
     // MARK: View/Scene을 더 편하게 그릴 수 있게 도와주는 함수들
-    private func eraseBusMission() {
+    @objc private func eraseBusMission() {
         // UIKit: missionView의 모든 subView를 지웁니다.
         for view in self.missionView.subviews {
             view.removeFromSuperview()

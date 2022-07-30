@@ -23,6 +23,7 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Node 초기화
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(drawBusStationHint), name: .drawBusStationHint, object: nil)
         
         createEnvironment()
         setUpBus()
@@ -45,9 +46,6 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
         let collideType = collideBody.categoryBitMask
         // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
         switch collideType {
-        case BusStagePhysicsCategory.busFrame:
-            print("버스 프레임과 부딪혔습니다.")
-            
         case BusStagePhysicsCategory.busSeat:
             player.isHidden = true
             NotificationCenter.default.post(name: .drawBusSeatHint, object: nil)
@@ -97,5 +95,9 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))
+    }
+    
+    @objc func drawBusStationHint() {
+        seatMissionPlayer.isPaused = true
     }
 }
