@@ -78,14 +78,15 @@ extension BusStoryScene {
     }
     
     func createDescription() {
-        descriptionLabel = SKLabelNode(fontNamed: "AppleGothic")
-        descriptionLabel.fontSize = 18
-        descriptionLabel.fontColor = .white
-        descriptionLabel.position = CGPoint(x: self.size.width - 10, y: self.size.height - 20)
-        descriptionLabel.zPosition = BusStageLayer.descriptionLabel
-        descriptionLabel.horizontalAlignmentMode = .right
-        descriptionLabel.text = hintString
-        self.addChild(descriptionLabel)
+        endingLabel = SKLabelNode(fontNamed: "AppleGothic")
+        endingLabel.fontSize = 18
+        endingLabel.fontColor = .white
+        endingLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        endingLabel.zPosition = BusStageLayer.endingLabel
+        endingLabel.horizontalAlignmentMode = .right
+        endingLabel.text = ""
+        
+        self.addChild(endingLabel)
     }
     
     func createTouchArea() {
@@ -143,6 +144,17 @@ extension BusStoryScene {
     }
     
     // MARK: - Notification 함수 정의
+    func notificationSetting() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pauseSeatMissionPlayer), name: .drawBusStationHint, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(markBusSeat), name: .searchForNextMission, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(busSeatMission), name: .drawBusSeatHint, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(completeSeatMission), name: .drawBusPoleHint, object: nil
+        )
+        NotificationCenter.default.addObserver(self, selector: #selector(markBusPole), name: .searchForNextMission, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(busPoleMission), name: .drawBusPoleMission, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(completePoleMission), name: .endBusPoleMission, object: nil)
+    }
+    
     @objc func pauseSeatMissionPlayer() {
         seatMissionPlayer.isPaused = true
     }
@@ -187,9 +199,9 @@ extension BusStoryScene {
         completePage.zPosition = BusStageLayer.completePage
         self.addChild(completePage)
         
+        endingLabel.text = "Mission Clear"
+        
         self.isBusPoleMissionCleared = true
         completePage.run(SKAction.fadeAlpha(to: 0.8, duration: 2))
-        descriptionLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        hintString = "Mission Clear"
     }
 }
