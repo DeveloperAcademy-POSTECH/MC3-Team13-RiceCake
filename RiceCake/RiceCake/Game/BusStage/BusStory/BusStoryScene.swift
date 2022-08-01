@@ -20,25 +20,17 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
     var isBusSeatMission: Bool = false
     var isBusPoleMissionCleared: Bool = false
     var isBusPoleMission: Bool = false
-    var descriptionLabel = SKLabelNode()
-    var hintString: String = "" {
-        didSet {
-            descriptionLabel.text = hintString
-        }
-    }
+    var endingLabel = SKLabelNode()
     
     // MARK: - Node 초기화
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
+        notificationSetting()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(pauseSeatMissionPlayer), name: .drawBusStationHint, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(markBusSeat), name: .searchForNextMission, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(busSeatMission), name: .drawBusSeatHint, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(completeSeatMission), name: .drawBusPoleHint, object: nil
-        )
-        NotificationCenter.default.addObserver(self, selector: #selector(markBusPole), name: .searchForNextMission, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(busPoleMission), name: .drawBusPoleMission, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(completePoleMission), name: .endBusPoleMission, object: nil)
+        self.isBusSeatMission = false
+        self.isBusPoleMission = false
+        self.isBusSeatMissionCleared = false
+        self.isBusPoleMissionCleared = false
         
         createEnvironment()
         setUpBus()
@@ -68,7 +60,6 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
                 NotificationCenter.default.post(name: .drawBusSeatHint, object: nil)
                 seatMissionPlayer.isHidden = false
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                hintString = "Bus Seat Mission"
             }
             
         case BusStagePhysicsCategory.busPole:
@@ -77,11 +68,6 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
                 busMissionPole.run(SKAction.repeatForever(SKAction.fadeAlpha(to: 1, duration: 1)))
                 NotificationCenter.default.post(name: .drawBusPoleMission, object: nil)
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                if !isBusSeatMissionCleared {
-                    hintString = "아직 내릴 정류장이 아닙니다"
-                } else {
-                    hintString = "Bus Pole Mision"
-                }
             }
             
         default:
@@ -114,7 +100,6 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
         
-        hintString = ""
         player.isPaused = false
         NotificationCenter.default.post(name: .eraseBusMission, object: nil)
         seatMissionPlayer.isHidden = true

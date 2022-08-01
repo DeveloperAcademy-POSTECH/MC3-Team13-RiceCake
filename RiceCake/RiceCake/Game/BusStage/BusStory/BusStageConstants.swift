@@ -16,7 +16,7 @@ struct BusStageLayer {
     static let player: CGFloat = 5
     static let touchArea: CGFloat = 6
     static let completePage: CGFloat = 9
-    static let descriptionLabel: CGFloat = 10
+    static let endingLabel: CGFloat = 10
 }
 
 struct BusStagePhysicsCategory {

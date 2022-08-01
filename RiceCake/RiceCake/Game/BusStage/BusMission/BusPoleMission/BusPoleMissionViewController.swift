@@ -55,6 +55,8 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
                 self.childLeftHand.isHidden = true
                 self.childHoldHand.isHidden = false
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 NotificationCenter.default.post(name: .endBusPoleMission, object: nil)
             }
         }

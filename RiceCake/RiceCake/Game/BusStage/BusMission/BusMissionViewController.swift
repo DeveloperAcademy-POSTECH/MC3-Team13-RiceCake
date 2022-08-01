@@ -34,6 +34,8 @@ class BusMissionViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(false)
         eraseBusMission()
+        self.isBusSeatMissionCleared = false
+        self.isBusPoleMissionCleared = false
     }
     
     // MARK: View/Scene을 더 편하게 그릴 수 있게 도와주는 함수들
