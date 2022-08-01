@@ -12,25 +12,16 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="CafeMissionViewController" id="Y6W-OH-hqX" customClass="CafeMissionViewController" customModule="RiceCake" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CafeMission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P74-KE-gXG">
-                                <rect key="frame" x="70" y="204" width="160" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="P74-KE-gXG" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="7pd-eB-57T"/>
-                            <constraint firstItem="P74-KE-gXG" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="Kbm-tx-uiC"/>
-                        </constraints>
                     </view>
                     <size key="freeformSize" width="300" height="400"/>
+                    <connections>
+                        <outlet property="missionView" destination="5EZ-qb-Rvc" id="k9l-ld-17C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,13 +14,15 @@ final class HintViewController: UIViewController {
     var labelTagNumber: Int = 1
     var isHintEnd = false
     let jsonScript: [StageHint] = loadJson("HintScript.json")
-    let testMissionNumber: Int = 4
+    var stageNumber: Int = 0
+    var missionNumber: Int = 0
+    var notificationName: Notification.Name = .drawBusSeatHint
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 불러온 Json 파일에서 정보 가져와 말풍선 생성
-        for script in jsonScript[0].missionHints[testMissionNumber].content {
+        for script in jsonScript[stageNumber].missionHints[missionNumber].content {
             let isFirst: Bool = script.id == 1
             let isLeft: Bool = script.isLeft ?? false
             let topConstraintView: UIView = (isFirst ? mainView : view.viewWithTag(script.id-1)) ?? mainView
@@ -39,6 +41,7 @@ final class HintViewController: UIViewController {
         label.padding(10, 10, 10, 10)
         label.tag = viewTag
         label.text = text
+        label.font = UIFont(name: "EF_Diary", size: 14)
         label.textColor = isLeft ? .black : .white
         label.backgroundColor = isLeft ? .white : .black
         label.layer.borderWidth = 1
@@ -66,12 +69,18 @@ final class HintViewController: UIViewController {
     
     // TapGesture 인식하면 말풍선이 순서대로 화면에 나옴
     @objc func appearLabel(_ sender: UITapGestureRecognizer) {
-        if labelTagNumber == jsonScript[0].missionHints[testMissionNumber].content.count {
+        if labelTagNumber == jsonScript[0].missionHints[missionNumber].content.count {
             isHintEnd = true
-            // TODO: 다른 view에 isHintEnd 전달
+            // 힌트 종료하고 다음 장면으로 넘어가기
+            NotificationCenter.default.post(name: notificationName, object: nil)
+            print("Hint \(missionNumber) is completed")
         }
         labelTagNumber += 1
         self.view.viewWithTag(labelTagNumber)?.isHidden = false
     }
-
+    func configure(stageNumber: Int, missionNumber: Int, nextViewNotificationName: Notification.Name) {
+        self.stageNumber = stageNumber
+        self.missionNumber = missionNumber
+        self.notificationName = nextViewNotificationName
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -47,10 +48,17 @@ class BusPoleMissionViewController: UIViewController, UIGestureRecognizerDelegat
     
     // long press gesture에 반응할 함수
     @objc func longPressedBusPole(_ sender: UILongPressGestureRecognizer) {
-        childHandUp()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.7) {
-            self.childLeftHand.isHidden = true
-            self.childHoldHand.isHidden = false
+        if sender.state == .began {
+            busPoleTapGesture.isEnabled = false
+            childHandUp()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.7) {
+                self.childLeftHand.isHidden = true
+                self.childHoldHand.isHidden = false
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                NotificationCenter.default.post(name: .endBusPoleMission, object: nil)
+            }
         }
     }
     

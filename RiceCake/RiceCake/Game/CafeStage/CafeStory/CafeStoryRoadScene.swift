@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import AudioToolbox
 
 class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
     
@@ -55,17 +56,18 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
         // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
         switch collideType {
         case CafeStagePhysicsCategory.cafe:
-            print("카페와 부딪혔습니다.")
+            print("아얏!")
             
         case CafeStagePhysicsCategory.firstCafeDoor:
-            let scene = InsideFirstCafeScene(size: self.size)
-            self.view?.presentScene(scene)
-            print("first")
+            player.isPaused = true
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            NotificationCenter.default.post(name: .drawCafeNoKidsZoneMission, object: nil)
             
         case CafeStagePhysicsCategory.secondCafeDoor:
-            let scene = InsideSecondCafeScene(size: self.size)
+            let scene = InsideCafeScene(size: self.size)
             self.view?.presentScene(scene)
-            print("second")
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            NotificationCenter.default.post(name: .drawCafeOrderMilkShakeHint, object: nil)
             
         default:
             break
@@ -95,7 +97,7 @@ class CafeStoryRoadScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
         
-        print(pos)
+        player.isPaused = false
         player.zRotation = radians
         player.run(walkingBySKS)
         player.run(SKAction.sequence([movePlayer, stopPlayer]))

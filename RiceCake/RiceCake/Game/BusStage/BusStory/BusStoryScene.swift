@@ -10,19 +10,27 @@ import AudioToolbox
 
 class BusStoryScene: SKScene, SKPhysicsContactDelegate {
     
+    let seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
+    let busSeat = SKSpriteNode(imageNamed: "busSeat")
+    let busMissionPole = SKSpriteNode(imageNamed: "busMissionPole")
+    
     var touchArea: SKShapeNode?
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
-    var seatMissionPlayer: SKSpriteNode = SKSpriteNode(imageNamed: "player1")
-    var descriptionLabel = SKLabelNode()
-    var hintString: String = "" {
-        didSet {
-            descriptionLabel.text = hintString
-        }
-    }
+    var isBusSeatMissionCleared: Bool = false
+    var isBusSeatMission: Bool = false
+    var isBusPoleMissionCleared: Bool = false
+    var isBusPoleMission: Bool = false
+    var endingLabel = SKLabelNode()
     
     // MARK: - Node 초기화
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
+        notificationSetting()
+        
+        self.isBusSeatMission = false
+        self.isBusPoleMission = false
+        self.isBusSeatMissionCleared = false
+        self.isBusPoleMissionCleared = false
         
         createEnvironment()
         setUpBus()
@@ -45,21 +53,22 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
         let collideType = collideBody.categoryBitMask
         // Node간의 접촉을 감지하여 실행할 코드들을 정의 합니다.
         switch collideType {
-        case BusStagePhysicsCategory.busFrame:
-            print("버스 프레임과 부딪혔습니다.")
-            
         case BusStagePhysicsCategory.busSeat:
-            player.isHidden = true
-            NotificationCenter.default.post(name: .drawBusSeatMission, object: nil)
-            seatMissionPlayer.isHidden = false
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            hintString = "Bus Seat Mission"
+            if !isBusSeatMissionCleared {
+                player.isHidden = true
+                busSeat.run(SKAction.repeatForever(SKAction.fadeAlpha(to: 1, duration: 1)))
+                NotificationCenter.default.post(name: .drawBusSeatHint, object: nil)
+                seatMissionPlayer.isHidden = false
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            }
             
         case BusStagePhysicsCategory.busPole:
-            player.isPaused = true
-            NotificationCenter.default.post(name: .drawBusPoleMission, object: nil)
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            hintString = "Bus Pole Mission"
+            if !isBusPoleMissionCleared {
+                player.isPaused = true
+                busMissionPole.run(SKAction.repeatForever(SKAction.fadeAlpha(to: 1, duration: 1)))
+                NotificationCenter.default.post(name: .drawBusPoleMission, object: nil)
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            }
             
         default:
             break
@@ -68,7 +77,9 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
     
     // 터치가 발생할 때 실행할 코드들을 정의 합니다.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
+        if !isBusPoleMissionCleared && !isBusSeatMission && !isBusPoleMission {
+            for touch in touches { self.touchDown(atPoint: touch.location(in: self)) }
+        }
     }
     
     func touchDown(atPoint pos: CGPoint) {
@@ -89,10 +100,9 @@ class BusStoryScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(node)
         }
         
-        hintString = ""
+        player.isPaused = false
         NotificationCenter.default.post(name: .eraseBusMission, object: nil)
         seatMissionPlayer.isHidden = true
-        player.isPaused = false
         player.isHidden = false
         player.zRotation = radians
         player.run(walkingBySKS)

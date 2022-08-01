@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3425053C28815D1000A8B6AF /* BusStoryScene.swift */; };
 		343579F02889B9AD00DB1FB7 /* BusStoryScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343579EF2889B9AD00DB1FB7 /* BusStoryScene+Extension.swift */; };
+		34484FC0289555C000E92710 /* BusMissionComplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34484FBF289555C000E92710 /* BusMissionComplete.storyboard */; };
+		34484FC2289555D000E92710 /* BusMissionCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34484FC1289555D000E92710 /* BusMissionCompleteViewController.swift */; };
 		347332A22891265500859373 /* BusStageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C16E2D288424DD0050F469 /* BusStageConstants.swift */; };
 		347332B12892609100859373 /* HintScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C342886BE6700BB3DF8 /* HintScene.swift */; };
 		34775652288FBF4D0049A212 /* BusStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34775651288FBF4D0049A212 /* BusStory.storyboard */; };
@@ -23,14 +25,14 @@
 		3477568828903B7E0049A212 /* CafeStoryRoadScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */; };
 		3477568928903B7E0049A212 /* CafeStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568428903B7E0049A212 /* CafeStoryViewController.swift */; };
 		3477568A28903B7E0049A212 /* CafeStoryRoadScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */; };
+		3487FC882893C1FB004169BA /* BusBellMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3487FC862893C1FB004169BA /* BusBellMissionViewController.swift */; };
+		3487FC892893C1FB004169BA /* BusBellMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3487FC872893C1FB004169BA /* BusBellMission.storyboard */; };
 		34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18415288044F7004B58E3 /* AppDelegate.swift */; };
 		34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A18417288044F7004B58E3 /* SceneDelegate.swift */; };
 		34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A18420288044F8004B58E3 /* LaunchScreen.storyboard */; };
 		34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 34A1842A28804642004B58E3 /* .swiftlint.yml */; };
-		34B348C92891143B0008A85C /* InsideFirstCafeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348C82891143B0008A85C /* InsideFirstCafeScene.swift */; };
-		34B348CB289114D70008A85C /* InsideFirstCafeScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CA289114D70008A85C /* InsideFirstCafeScene+Extension.swift */; };
-		34B348CD2891251A0008A85C /* InsideSecondCafeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CC2891251A0008A85C /* InsideSecondCafeScene.swift */; };
-		34B348CF2891254C0008A85C /* InsideSecondCafeScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CE2891254C0008A85C /* InsideSecondCafeScene+Extension.swift */; };
+		34B348CD2891251A0008A85C /* InsideCafeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CC2891251A0008A85C /* InsideCafeScene.swift */; };
+		34B348CF2891254C0008A85C /* InsideCafeScene+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B348CE2891254C0008A85C /* InsideCafeScene+Extension.swift */; };
 		34B638C428811CBB00760FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34B638BA28811CBB00760FD8 /* Assets.xcassets */; };
 		34B638C528811CBB00760FD8 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B638BC28811CBB00760FD8 /* StageCell.swift */; };
 		34B638C628811CBB00760FD8 /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638BD28811CBB00760FD8 /* Stage.storyboard */; };
@@ -42,8 +44,24 @@
 		34B638D528811EE300760FD8 /* GameView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B638D328811EE300760FD8 /* GameView.storyboard */; };
 		34F88C312885838600BB3DF8 /* ActionList.sks in Resources */ = {isa = PBXBuildFile; fileRef = 34F88C302885838600BB3DF8 /* ActionList.sks */; };
 		34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */; };
-		B307C15F2892C483000E42BF /* BusStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307C15E2892C483000E42BF /* BusStationViewController.swift */; };
+		631F2A38289285A5009CA059 /* MilkShakeMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A36289285A5009CA059 /* MilkShakeMission.storyboard */; };
+		631F2A39289285A5009CA059 /* MilkShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A37289285A5009CA059 /* MilkShakeViewController.swift */; };
+		631F2A452892BB3F009CA059 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3C2892BB3E009CA059 /* background.wav */; };
+		631F2A462892BB3F009CA059 /* Gesture5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3D2892BB3E009CA059 /* Gesture5.wav */; };
+		631F2A472892BB3F009CA059 /* Gesture4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3E2892BB3E009CA059 /* Gesture4.wav */; };
+		631F2A482892BB3F009CA059 /* Gesture3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A3F2892BB3E009CA059 /* Gesture3.wav */; };
+		631F2A492892BB3F009CA059 /* Gesture2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A402892BB3E009CA059 /* Gesture2.wav */; };
+		631F2A4A2892BB3F009CA059 /* Gesture0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A412892BB3E009CA059 /* Gesture0.wav */; };
+		631F2A4B2892BB3F009CA059 /* Positive.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A422892BB3E009CA059 /* Positive.wav */; };
+		631F2A4C2892BB3F009CA059 /* Gesture1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A432892BB3E009CA059 /* Gesture1.wav */; };
+		631F2A4D2892BB3F009CA059 /* Negative.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631F2A442892BB3E009CA059 /* Negative.wav */; };
+		631F2A4F2892BB71009CA059 /* SoundBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A4E2892BB71009CA059 /* SoundBrain.swift */; };
+		631F2A512892BBB5009CA059 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A502892BBB5009CA059 /* Sound.swift */; };
+		631F2A552892D348009CA059 /* GuideAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A542892D348009CA059 /* GuideAsset.swift */; };
+		631F2A572892D35F009CA059 /* GuideAssetBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F2A562892D35F009CA059 /* GuideAssetBrain.swift */; };
+		B307C15F2892C483000E42BF /* BusStationMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307C15E2892C483000E42BF /* BusStationMissionViewController.swift */; };
 		B307C1622892CA80000E42BF /* BusStationMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B307C1612892CA80000E42BF /* BusStationMission.storyboard */; };
+		D4050D1F2893AC4B00468787 /* EF_Diary.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4050D1E2893AC4B00468787 /* EF_Diary.ttf */; };
 		D4537732289050B100C87076 /* HintView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4537731289050B100C87076 /* HintView.storyboard */; };
 		D4537734289050C200C87076 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4537733289050C200C87076 /* HintViewController.swift */; };
 		D453773728910A0A00C87076 /* HintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453773628910A0A00C87076 /* HintModel.swift */; };
@@ -51,17 +69,19 @@
 		D453773B289268B400C87076 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453773A289268B400C87076 /* PaddingLabel.swift */; };
 		D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */; };
 		D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */; };
+		D49603142892706300BF5A45 /* NoKidsZoneMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49603132892706300BF5A45 /* NoKidsZoneMission.storyboard */; };
+		D49603162892709300BF5A45 /* NoKidsZoneMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49603152892709300BF5A45 /* NoKidsZoneMissionViewController.swift */; };
 		F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89008E92885835200750905 /* BusSeatMissionConstants.swift */; };
 		F8B6ED15289007930046E7BD /* OrderMilkShakeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6ED14289007930046E7BD /* OrderMilkShakeScene.swift */; };
 		F8B6ED17289011D10046E7BD /* OrderMilkShakeMissionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6ED16289011D10046E7BD /* OrderMilkShakeMissionConstants.swift */; };
-		F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */; };
-		F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */; };
 		F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3425053C28815D1000A8B6AF /* BusStoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStoryScene.swift; sourceTree = "<group>"; };
 		343579EF2889B9AD00DB1FB7 /* BusStoryScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BusStoryScene+Extension.swift"; sourceTree = "<group>"; };
+		34484FBF289555C000E92710 /* BusMissionComplete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusMissionComplete.storyboard; sourceTree = "<group>"; };
+		34484FC1289555D000E92710 /* BusMissionCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusMissionCompleteViewController.swift; sourceTree = "<group>"; };
 		34775651288FBF4D0049A212 /* BusStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusStory.storyboard; sourceTree = "<group>"; };
 		34775653288FBF630049A212 /* BusStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStoryViewController.swift; sourceTree = "<group>"; };
 		34775655288FBFE10049A212 /* BusMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusMission.storyboard; sourceTree = "<group>"; };
@@ -74,16 +94,16 @@
 		3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CafeStoryRoadScene+Extension.swift"; sourceTree = "<group>"; };
 		3477568428903B7E0049A212 /* CafeStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeStoryViewController.swift; sourceTree = "<group>"; };
 		3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeStoryRoadScene.swift; sourceTree = "<group>"; };
+		3487FC862893C1FB004169BA /* BusBellMissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusBellMissionViewController.swift; sourceTree = "<group>"; };
+		3487FC872893C1FB004169BA /* BusBellMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusBellMission.storyboard; sourceTree = "<group>"; };
 		34A18412288044F7004B58E3 /* RiceCake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiceCake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A18415288044F7004B58E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A18417288044F7004B58E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		34A18421288044F8004B58E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34A18423288044F8004B58E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34A1842A28804642004B58E3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		34B348C82891143B0008A85C /* InsideFirstCafeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideFirstCafeScene.swift; sourceTree = "<group>"; };
-		34B348CA289114D70008A85C /* InsideFirstCafeScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InsideFirstCafeScene+Extension.swift"; sourceTree = "<group>"; };
-		34B348CC2891251A0008A85C /* InsideSecondCafeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideSecondCafeScene.swift; sourceTree = "<group>"; };
-		34B348CE2891254C0008A85C /* InsideSecondCafeScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InsideSecondCafeScene+Extension.swift"; sourceTree = "<group>"; };
+		34B348CC2891251A0008A85C /* InsideCafeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideCafeScene.swift; sourceTree = "<group>"; };
+		34B348CE2891254C0008A85C /* InsideCafeScene+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InsideCafeScene+Extension.swift"; sourceTree = "<group>"; };
 		34B638BA28811CBB00760FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34B638BC28811CBB00760FD8 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
 		34B638BD28811CBB00760FD8 /* Stage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
@@ -97,8 +117,24 @@
 		34F88C302885838600BB3DF8 /* ActionList.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActionList.sks; sourceTree = "<group>"; };
 		34F88C342886BE6700BB3DF8 /* HintScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintScene.swift; sourceTree = "<group>"; };
 		34F88C362886EED000BB3DF8 /* PagedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedFlowLayout.swift; sourceTree = "<group>"; };
-		B307C15E2892C483000E42BF /* BusStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationViewController.swift; sourceTree = "<group>"; };
+		631F2A36289285A5009CA059 /* MilkShakeMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MilkShakeMission.storyboard; sourceTree = "<group>"; };
+		631F2A37289285A5009CA059 /* MilkShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilkShakeViewController.swift; sourceTree = "<group>"; };
+		631F2A3C2892BB3E009CA059 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
+		631F2A3D2892BB3E009CA059 /* Gesture5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gesture5.wav; sourceTree = "<group>"; };
+		631F2A3E2892BB3E009CA059 /* Gesture4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gesture4.wav; sourceTree = "<group>"; };
+		631F2A3F2892BB3E009CA059 /* Gesture3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gesture3.wav; sourceTree = "<group>"; };
+		631F2A402892BB3E009CA059 /* Gesture2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gesture2.wav; sourceTree = "<group>"; };
+		631F2A412892BB3E009CA059 /* Gesture0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gesture0.wav; sourceTree = "<group>"; };
+		631F2A422892BB3E009CA059 /* Positive.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Positive.wav; sourceTree = "<group>"; };
+		631F2A432892BB3E009CA059 /* Gesture1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Gesture1.wav; sourceTree = "<group>"; };
+		631F2A442892BB3E009CA059 /* Negative.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Negative.wav; sourceTree = "<group>"; };
+		631F2A4E2892BB71009CA059 /* SoundBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBrain.swift; sourceTree = "<group>"; };
+		631F2A502892BBB5009CA059 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		631F2A542892D348009CA059 /* GuideAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideAsset.swift; sourceTree = "<group>"; };
+		631F2A562892D35F009CA059 /* GuideAssetBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideAssetBrain.swift; sourceTree = "<group>"; };
+		B307C15E2892C483000E42BF /* BusStationMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationMissionViewController.swift; sourceTree = "<group>"; };
 		B307C1612892CA80000E42BF /* BusStationMission.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStationMission.storyboard; sourceTree = "<group>"; };
+		D4050D1E2893AC4B00468787 /* EF_Diary.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EF_Diary.ttf; sourceTree = "<group>"; };
 		D4537731289050B100C87076 /* HintView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HintView.storyboard; sourceTree = "<group>"; };
 		D4537733289050C200C87076 /* HintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintViewController.swift; sourceTree = "<group>"; };
 		D453773628910A0A00C87076 /* HintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintModel.swift; sourceTree = "<group>"; };
@@ -106,11 +142,11 @@
 		D453773A289268B400C87076 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		D46A0E2F288531CA00AD57DF /* BusPoleMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusPoleMission.storyboard; sourceTree = "<group>"; };
 		D46A0E322885324E00AD57DF /* BusPoleMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusPoleMissionViewController.swift; sourceTree = "<group>"; };
+		D49603132892706300BF5A45 /* NoKidsZoneMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoKidsZoneMission.storyboard; sourceTree = "<group>"; };
+		D49603152892709300BF5A45 /* NoKidsZoneMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoKidsZoneMissionViewController.swift; sourceTree = "<group>"; };
 		F89008E92885835200750905 /* BusSeatMissionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionConstants.swift; sourceTree = "<group>"; };
 		F8B6ED14289007930046E7BD /* OrderMilkShakeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMilkShakeScene.swift; sourceTree = "<group>"; };
 		F8B6ED16289011D10046E7BD /* OrderMilkShakeMissionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMilkShakeMissionConstants.swift; sourceTree = "<group>"; };
-		F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusSeatMission.storyboard; sourceTree = "<group>"; };
-		F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionViewController.swift; sourceTree = "<group>"; };
 		F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSeatMissionScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,9 +164,12 @@
 		3477564F288FBEDA0049A212 /* BusMission */ = {
 			isa = PBXGroup;
 			children = (
+				34484FBF289555C000E92710 /* BusMissionComplete.storyboard */,
+				34484FC1289555D000E92710 /* BusMissionCompleteViewController.swift */,
 				34775655288FBFE10049A212 /* BusMission.storyboard */,
 				34775657288FBFED0049A212 /* BusMissionViewController.swift */,
 				34F88C342886BE6700BB3DF8 /* HintScene.swift */,
+				3487FC852893C1FB004169BA /* BusBellMission */,
 				F8D2B0982883FAF600493132 /* BusSeatMission */,
 				D46A0E312885320E00AD57DF /* BusPoleMission */,
 				B307C15B2892C442000E42BF /* BusStationMission */,
@@ -164,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				3477568028903B7E0049A212 /* CafeStory */,
+				631F2A3528928538009CA059 /* DrinkMilkShake */,
 				34775661288FC4C60049A212 /* CafeMission.storyboard */,
 				34775665288FC4D80049A212 /* CafeMissionViewController.swift */,
 				F8B6ED132890075F0046E7BD /* OrderMilkShake */,
@@ -174,17 +214,25 @@
 		3477568028903B7E0049A212 /* CafeStory */ = {
 			isa = PBXGroup;
 			children = (
+				D49603122892704300BF5A45 /* NoKidsZoneMission */,
 				3477568228903B7E0049A212 /* CafeStory.storyboard */,
 				3477568128903B7E0049A212 /* CafeStageConstant.swift */,
 				3477568328903B7E0049A212 /* CafeStoryRoadScene+Extension.swift */,
 				3477568428903B7E0049A212 /* CafeStoryViewController.swift */,
 				3477568528903B7E0049A212 /* CafeStoryRoadScene.swift */,
-				34B348C82891143B0008A85C /* InsideFirstCafeScene.swift */,
-				34B348CA289114D70008A85C /* InsideFirstCafeScene+Extension.swift */,
-				34B348CC2891251A0008A85C /* InsideSecondCafeScene.swift */,
-				34B348CE2891254C0008A85C /* InsideSecondCafeScene+Extension.swift */,
+				34B348CC2891251A0008A85C /* InsideCafeScene.swift */,
+				34B348CE2891254C0008A85C /* InsideCafeScene+Extension.swift */,
 			);
 			path = CafeStory;
+			sourceTree = "<group>";
+		};
+		3487FC852893C1FB004169BA /* BusBellMission */ = {
+			isa = PBXGroup;
+			children = (
+				3487FC862893C1FB004169BA /* BusBellMissionViewController.swift */,
+				3487FC872893C1FB004169BA /* BusBellMission.storyboard */,
+			);
+			path = BusBellMission;
 			sourceTree = "<group>";
 		};
 		34A18409288044F7004B58E3 = {
@@ -207,6 +255,7 @@
 		34A18414288044F7004B58E3 /* RiceCake */ = {
 			isa = PBXGroup;
 			children = (
+				D4050D1D2893AC3000468787 /* Font */,
 				34A18415288044F7004B58E3 /* AppDelegate.swift */,
 				34A18417288044F7004B58E3 /* SceneDelegate.swift */,
 				34A18420288044F8004B58E3 /* LaunchScreen.storyboard */,
@@ -214,6 +263,8 @@
 				34B638BB28811CBB00760FD8 /* StageView */,
 				34B638D128811EE300760FD8 /* Game */,
 				D4537735289050CC00C87076 /* Hint */,
+				631F2A3A2892BAB9009CA059 /* Model */,
+				631F2A3B2892BB3E009CA059 /* Sounds */,
 				34B638BA28811CBB00760FD8 /* Assets.xcassets */,
 				34A18423288044F8004B58E3 /* Info.plist */,
 			);
@@ -253,13 +304,57 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		631F2A3528928538009CA059 /* DrinkMilkShake */ = {
+			isa = PBXGroup;
+			children = (
+				631F2A36289285A5009CA059 /* MilkShakeMission.storyboard */,
+				631F2A37289285A5009CA059 /* MilkShakeViewController.swift */,
+			);
+			path = DrinkMilkShake;
+			sourceTree = "<group>";
+		};
+		631F2A3A2892BAB9009CA059 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				631F2A4E2892BB71009CA059 /* SoundBrain.swift */,
+				631F2A502892BBB5009CA059 /* Sound.swift */,
+				631F2A542892D348009CA059 /* GuideAsset.swift */,
+				631F2A562892D35F009CA059 /* GuideAssetBrain.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		631F2A3B2892BB3E009CA059 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				631F2A3C2892BB3E009CA059 /* background.wav */,
+				631F2A3D2892BB3E009CA059 /* Gesture5.wav */,
+				631F2A3E2892BB3E009CA059 /* Gesture4.wav */,
+				631F2A3F2892BB3E009CA059 /* Gesture3.wav */,
+				631F2A402892BB3E009CA059 /* Gesture2.wav */,
+				631F2A412892BB3E009CA059 /* Gesture0.wav */,
+				631F2A422892BB3E009CA059 /* Positive.wav */,
+				631F2A432892BB3E009CA059 /* Gesture1.wav */,
+				631F2A442892BB3E009CA059 /* Negative.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		B307C15B2892C442000E42BF /* BusStationMission */ = {
 			isa = PBXGroup;
 			children = (
-				B307C15E2892C483000E42BF /* BusStationViewController.swift */,
+				B307C15E2892C483000E42BF /* BusStationMissionViewController.swift */,
 				B307C1612892CA80000E42BF /* BusStationMission.storyboard */,
 			);
 			path = BusStationMission;
+			sourceTree = "<group>";
+		};
+		D4050D1D2893AC3000468787 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D4050D1E2893AC4B00468787 /* EF_Diary.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		D4537735289050CC00C87076 /* Hint */ = {
@@ -283,6 +378,15 @@
 			path = BusPoleMission;
 			sourceTree = "<group>";
 		};
+		D49603122892704300BF5A45 /* NoKidsZoneMission */ = {
+			isa = PBXGroup;
+			children = (
+				D49603132892706300BF5A45 /* NoKidsZoneMission.storyboard */,
+				D49603152892709300BF5A45 /* NoKidsZoneMissionViewController.swift */,
+			);
+			path = NoKidsZoneMission;
+			sourceTree = "<group>";
+		};
 		F8B6ED132890075F0046E7BD /* OrderMilkShake */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,8 +399,6 @@
 		F8D2B0982883FAF600493132 /* BusSeatMission */ = {
 			isa = PBXGroup;
 			children = (
-				F8D2B0992883FB1100493132 /* BusSeatMission.storyboard */,
-				F8D2B09B2883FBDB00493132 /* BusSeatMissionViewController.swift */,
 				F8F7ECC428857845003D6939 /* BusSeatMissionScene.swift */,
 				F89008E92885835200750905 /* BusSeatMissionConstants.swift */,
 			);
@@ -364,15 +466,28 @@
 			files = (
 				34A1842B28804642004B58E3 /* .swiftlint.yml in Resources */,
 				B307C1622892CA80000E42BF /* BusStationMission.storyboard in Resources */,
+				631F2A4B2892BB3F009CA059 /* Positive.wav in Resources */,
+				631F2A472892BB3F009CA059 /* Gesture4.wav in Resources */,
+				631F2A4D2892BB3F009CA059 /* Negative.wav in Resources */,
 				D453773928910A2900C87076 /* HintScript.json in Resources */,
 				3477568728903B7E0049A212 /* CafeStory.storyboard in Resources */,
+				D4050D1F2893AC4B00468787 /* EF_Diary.ttf in Resources */,
+				3487FC892893C1FB004169BA /* BusBellMission.storyboard in Resources */,
 				D46A0E30288531CA00AD57DF /* BusPoleMission.storyboard in Resources */,
-				F8D2B09A2883FB1100493132 /* BusSeatMission.storyboard in Resources */,
+				631F2A462892BB3F009CA059 /* Gesture5.wav in Resources */,
+				631F2A38289285A5009CA059 /* MilkShakeMission.storyboard in Resources */,
 				34775662288FC4C60049A212 /* CafeMission.storyboard in Resources */,
 				34775652288FBF4D0049A212 /* BusStory.storyboard in Resources */,
 				34775656288FBFE10049A212 /* BusMission.storyboard in Resources */,
+				631F2A4C2892BB3F009CA059 /* Gesture1.wav in Resources */,
 				34B638D028811E2C00760FD8 /* Main.storyboard in Resources */,
+				631F2A482892BB3F009CA059 /* Gesture3.wav in Resources */,
+				D49603142892706300BF5A45 /* NoKidsZoneMission.storyboard in Resources */,
 				D4537732289050B100C87076 /* HintView.storyboard in Resources */,
+				34484FC0289555C000E92710 /* BusMissionComplete.storyboard in Resources */,
+				631F2A4A2892BB3F009CA059 /* Gesture0.wav in Resources */,
+				631F2A492892BB3F009CA059 /* Gesture2.wav in Resources */,
+				631F2A452892BB3F009CA059 /* background.wav in Resources */,
 				34B638C428811CBB00760FD8 /* Assets.xcassets in Resources */,
 				34A18422288044F8004B58E3 /* LaunchScreen.storyboard in Resources */,
 				34B638C628811CBB00760FD8 /* Stage.storyboard in Resources */,
@@ -409,11 +524,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				631F2A512892BBB5009CA059 /* Sound.swift in Sources */,
 				347332B12892609100859373 /* HintScene.swift in Sources */,
 				347332A22891265500859373 /* BusStageConstants.swift in Sources */,
 				34B638D428811EE300760FD8 /* GameViewController.swift in Sources */,
-				34B348C92891143B0008A85C /* InsideFirstCafeScene.swift in Sources */,
+				631F2A572892D35F009CA059 /* GuideAssetBrain.swift in Sources */,
 				34B638C728811CBB00760FD8 /* StageModel.swift in Sources */,
+				631F2A4F2892BB71009CA059 /* SoundBrain.swift in Sources */,
 				3425053E28815D1000A8B6AF /* BusStoryScene.swift in Sources */,
 				3477568928903B7E0049A212 /* CafeStoryViewController.swift in Sources */,
 				34B638C528811CBB00760FD8 /* StageCell.swift in Sources */,
@@ -422,26 +539,29 @@
 				3477568A28903B7E0049A212 /* CafeStoryRoadScene.swift in Sources */,
 				34775654288FBF630049A212 /* BusStoryViewController.swift in Sources */,
 				3477568828903B7E0049A212 /* CafeStoryRoadScene+Extension.swift in Sources */,
-				34B348CB289114D70008A85C /* InsideFirstCafeScene+Extension.swift in Sources */,
 				34A18416288044F7004B58E3 /* AppDelegate.swift in Sources */,
+				3487FC882893C1FB004169BA /* BusBellMissionViewController.swift in Sources */,
 				D453773728910A0A00C87076 /* HintModel.swift in Sources */,
+				631F2A39289285A5009CA059 /* MilkShakeViewController.swift in Sources */,
 				34F88C372886EED000BB3DF8 /* PagedFlowLayout.swift in Sources */,
 				34A18418288044F7004B58E3 /* SceneDelegate.swift in Sources */,
 				D453773B289268B400C87076 /* PaddingLabel.swift in Sources */,
 				34B638CF28811E2C00760FD8 /* HomeViewController.swift in Sources */,
-				B307C15F2892C483000E42BF /* BusStationViewController.swift in Sources */,
+				B307C15F2892C483000E42BF /* BusStationMissionViewController.swift in Sources */,
 				D46A0E332885324E00AD57DF /* BusPoleMissionViewController.swift in Sources */,
-				34B348CF2891254C0008A85C /* InsideSecondCafeScene+Extension.swift in Sources */,
+				34B348CF2891254C0008A85C /* InsideCafeScene+Extension.swift in Sources */,
 				3477568628903B7E0049A212 /* CafeStageConstant.swift in Sources */,
 				34775658288FBFED0049A212 /* BusMissionViewController.swift in Sources */,
-				34B348CD2891251A0008A85C /* InsideSecondCafeScene.swift in Sources */,
+				34B348CD2891251A0008A85C /* InsideCafeScene.swift in Sources */,
 				F8B6ED15289007930046E7BD /* OrderMilkShakeScene.swift in Sources */,
 				F8B6ED17289011D10046E7BD /* OrderMilkShakeMissionConstants.swift in Sources */,
+				D49603162892709300BF5A45 /* NoKidsZoneMissionViewController.swift in Sources */,
 				34775668288FDADF0049A212 /* StageNotificationCenter.swift in Sources */,
-				F8D2B09C2883FBDB00493132 /* BusSeatMissionViewController.swift in Sources */,
 				F89008EA2885835200750905 /* BusSeatMissionConstants.swift in Sources */,
 				34775666288FC4D80049A212 /* CafeMissionViewController.swift in Sources */,
+				631F2A552892D348009CA059 /* GuideAsset.swift in Sources */,
 				F8F7ECC528857845003D6939 /* BusSeatMissionScene.swift in Sources */,
+				34484FC2289555D000E92710 /* BusMissionCompleteViewController.swift in Sources */,
 				D4537734289050C200C87076 /* HintViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,7 +709,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9G3C2CYQ6Z;
+				DEVELOPMENT_TEAM = K6B59X6MS9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -617,7 +737,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9G3C2CYQ6Z;
+				DEVELOPMENT_TEAM = K6B59X6MS9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiceCake/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

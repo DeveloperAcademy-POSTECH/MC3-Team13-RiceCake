@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bus Bell Mission View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="BusBellMissionViewController" id="Y6W-OH-hqX" customClass="BusBellMissionViewController" customModule="RiceCake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ehj-j2-7Ez">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="busBellMissionBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1rJ-mH-Yj3">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" translatesAutoresizingMaskIntoConstraints="NO" id="9Kj-Lt-jRs">
+                                        <rect key="frame" x="220" y="232.5" width="160" height="175"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" translatesAutoresizingMaskIntoConstraints="NO" id="YRz-ms-iWP">
+                                        <rect key="frame" x="220" y="232.5" width="160" height="175"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushedBell" translatesAutoresizingMaskIntoConstraints="NO" id="FRr-c2-Dg1">
+                                        <rect key="frame" x="220" y="232.5" width="160" height="175"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="childLeftHand" translatesAutoresizingMaskIntoConstraints="NO" id="2Ac-nB-bnp">
+                                        <rect key="frame" x="210" y="720" width="180" height="560"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="1rJ-mH-Yj3" firstAttribute="leading" secondItem="Ehj-j2-7Ez" secondAttribute="leading" id="5AN-GQ-Pff"/>
+                                    <constraint firstItem="YRz-ms-iWP" firstAttribute="width" secondItem="Ehj-j2-7Ez" secondAttribute="height" multiplier="4:20" id="BXN-3G-NcE"/>
+                                    <constraint firstItem="YRz-ms-iWP" firstAttribute="centerX" secondItem="Ehj-j2-7Ez" secondAttribute="centerX" id="Ec3-0X-fBe"/>
+                                    <constraint firstItem="9Kj-Lt-jRs" firstAttribute="centerY" secondItem="Ehj-j2-7Ez" secondAttribute="centerY" multiplier="0.8" id="K63-gj-gbX"/>
+                                    <constraint firstItem="9Kj-Lt-jRs" firstAttribute="centerX" secondItem="Ehj-j2-7Ez" secondAttribute="centerX" id="LZd-AS-JlN"/>
+                                    <constraint firstAttribute="trailing" secondItem="1rJ-mH-Yj3" secondAttribute="trailing" id="Mbf-Qj-V1b"/>
+                                    <constraint firstItem="9Kj-Lt-jRs" firstAttribute="width" secondItem="Ehj-j2-7Ez" secondAttribute="height" multiplier="4:20" id="UCp-nf-FJv"/>
+                                    <constraint firstItem="YRz-ms-iWP" firstAttribute="centerY" secondItem="Ehj-j2-7Ez" secondAttribute="centerY" multiplier="0.8" id="eWG-Nw-Bpm"/>
+                                    <constraint firstItem="2Ac-nB-bnp" firstAttribute="centerX" secondItem="Ehj-j2-7Ez" secondAttribute="centerX" id="iLZ-ZP-qLB"/>
+                                    <constraint firstItem="FRr-c2-Dg1" firstAttribute="width" secondItem="Ehj-j2-7Ez" secondAttribute="height" multiplier="4:20" id="nub-jS-1UV"/>
+                                    <constraint firstAttribute="bottom" secondItem="1rJ-mH-Yj3" secondAttribute="bottom" id="ocb-2g-QO6"/>
+                                    <constraint firstItem="2Ac-nB-bnp" firstAttribute="centerY" secondItem="Ehj-j2-7Ez" secondAttribute="centerY" multiplier="2.5" id="pjB-oB-FIy"/>
+                                    <constraint firstItem="2Ac-nB-bnp" firstAttribute="height" secondItem="Ehj-j2-7Ez" secondAttribute="height" multiplier="0.7" id="pnE-e3-N8D"/>
+                                    <constraint firstItem="2Ac-nB-bnp" firstAttribute="width" secondItem="Ehj-j2-7Ez" secondAttribute="width" multiplier="0.3" id="rdS-hl-tbf"/>
+                                    <constraint firstItem="FRr-c2-Dg1" firstAttribute="centerY" secondItem="Ehj-j2-7Ez" secondAttribute="centerY" multiplier="0.8" id="ryR-oi-SD8"/>
+                                    <constraint firstItem="FRr-c2-Dg1" firstAttribute="centerX" secondItem="Ehj-j2-7Ez" secondAttribute="centerX" id="wH5-Su-NuL"/>
+                                    <constraint firstItem="1rJ-mH-Yj3" firstAttribute="top" secondItem="Ehj-j2-7Ez" secondAttribute="top" id="waq-wd-vc7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ehj-j2-7Ez" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="158-XG-YhJ"/>
+                            <constraint firstAttribute="bottom" secondItem="Ehj-j2-7Ez" secondAttribute="bottom" id="cAV-Hz-PFi"/>
+                            <constraint firstItem="Ehj-j2-7Ez" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="p8L-3D-8gj"/>
+                            <constraint firstItem="Ehj-j2-7Ez" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="utZ-wO-l4j"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="600" height="800"/>
+                    <connections>
+                        <outlet property="busBell" destination="9Kj-Lt-jRs" id="VRX-AX-RI6"/>
+                        <outlet property="busBellMissionBackground" destination="1rJ-mH-Yj3" id="WGJ-BD-vty"/>
+                        <outlet property="childLeftHand" destination="2Ac-nB-bnp" id="O2i-BI-d90"/>
+                        <outlet property="tapRecognizer" destination="YRz-ms-iWP" id="2vF-fg-XOU"/>
+                        <outlet property="tappedBusBell" destination="FRr-c2-Dg1" id="Tgy-Zm-aZp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66.666666666666671" y="56.919642857142854"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bell" width="175" height="175"/>
+        <image name="busBellMissionBackground" width="600" height="801"/>
+        <image name="childLeftHand" width="301" height="1103"/>
+        <image name="pushedBell" width="175" height="175"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
