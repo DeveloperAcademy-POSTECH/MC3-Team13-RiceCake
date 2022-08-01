@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
-        if runTime < 2 {
+        if runTime < 100 {
                 let storyboard = UIStoryboard(name: "Prologaue", bundle: nil)
                 let viewController = storyboard.instantiateViewController(withIdentifier: "PrologaueViewController") as! PrologaueViewController
                 navigationController?.pushViewController(viewController, animated: true)
