@@ -12,120 +12,96 @@ class MilkShakeMissionViewController: UIViewController {
     @IBOutlet weak var strawView: UIView!
     @IBOutlet weak var strawImage: UIImageView!
     
-    // Circle UIVew 변수
-    var greenCircle: UIView!
-    var blueCircle: UIView!
-    
-    // 좌표값 생성 변수
-    var initialCenter = CGPoint()
+    // Gesture Point UIVew 변수
+    var tapSmallStrawPoint: UIView!
+    var tapBigStrawPoint: UIView!
+    var longPressedMilkShakePoint: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Gesture생성
-        let longPressedGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressedStraw(_:)))
-        strawImage.addGestureRecognizer(longPressedGesture)
+        // 처음 이미지 확대하는 Tap Gesture생성
+        let tapImage: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedImage(_:)))
+        strawImage.addGestureRecognizer(tapImage)
         
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedImage(_:)))
-        strawImage.addGestureRecognizer(tapGesture)
-        
-        makeCircle()
-        
-        let (hMult, vMult) = computeMultipliers(angle: 30)
-        NSLayoutConstraint(item: greenCircle!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -60).isActive = true
-        NSLayoutConstraint(item: greenCircle!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: 110).isActive = true
-        NSLayoutConstraint(item: blueCircle!, attribute: .centerX, relatedBy: .equal, toItem: strawView!, attribute: .trailing, multiplier: hMult, constant: -120).isActive = true
-        NSLayoutConstraint(item: blueCircle!, attribute: .centerY, relatedBy: .equal, toItem: strawView!, attribute: .bottom, multiplier: vMult, constant: -90).isActive = true
-        
-    }
-    // View Drage 위한 Circle 생성
-    func makeCircle() {
-        greenCircle = UIView()
-        greenCircle.translatesAutoresizingMaskIntoConstraints = false
-        greenCircle.backgroundColor = .green
-        strawView.addSubview(greenCircle)
-        greenCircle.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        greenCircle.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        greenCircle.isUserInteractionEnabled = true
-        
-        blueCircle = UIView()
-        blueCircle.translatesAutoresizingMaskIntoConstraints = false
-        blueCircle.backgroundColor = .blue
-        strawView.addSubview(blueCircle)
-        blueCircle.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        blueCircle.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        greenCircle.isHidden = true
-        blueCircle.isHidden = true
     }
     
-    // Circle Layout 지정함수
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        greenCircle.layoutIfNeeded()
-        greenCircle.layer.cornerRadius = 0.5 * greenCircle.frame.height
-        blueCircle.layoutIfNeeded()
-        blueCircle.layer.cornerRadius = 0.5 * blueCircle.frame.height
+    // Gesture 발생되는 UIView 생성함수
+    func makeLongPressedMilkShakePoint() {
+        longPressedMilkShakePoint = UIView()
+        strawView.addSubview(longPressedMilkShakePoint)
+        longPressedMilkShakePoint.translatesAutoresizingMaskIntoConstraints = false
+        longPressedMilkShakePoint.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        longPressedMilkShakePoint.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        longPressedMilkShakePoint.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 55).isActive = true
+        longPressedMilkShakePoint.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+        
+        let longPressedMilkShake: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressedMilkShake(_:)))
+        longPressedMilkShakePoint.addGestureRecognizer(longPressedMilkShake)
+        longPressedMilkShakePoint.isUserInteractionEnabled = true
+    }
+    func makeTapSmallStrawPoint() {
+        tapSmallStrawPoint = UIView()
+        strawView.addSubview(tapSmallStrawPoint)
+        
+        tapSmallStrawPoint.translatesAutoresizingMaskIntoConstraints = false
+        tapSmallStrawPoint.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        tapSmallStrawPoint.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        tapSmallStrawPoint.centerYAnchor.constraint(equalTo: self.strawView.centerYAnchor).isActive = true
+        tapSmallStrawPoint.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
+        // Gesture 생성
+        let tapSmallStraw: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedSmallStraw(_:)))
+        tapSmallStrawPoint.addGestureRecognizer(tapSmallStraw)
+        tapSmallStrawPoint.isUserInteractionEnabled = true
     }
     
-    // Circle 원형틀 생성함수
-    func computeMultipliers(angle: CGFloat) -> (CGFloat, CGFloat) {
-        let radians = angle * .pi / 180
+    func makeTapBigStrawPoint() {
+        tapBigStrawPoint = UIView()
+        strawView.addSubview(tapBigStrawPoint)
+        tapBigStrawPoint.translatesAutoresizingMaskIntoConstraints = false
+        tapBigStrawPoint.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        tapBigStrawPoint.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        tapBigStrawPoint.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 100).isActive = true
+        tapBigStrawPoint.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        let otherTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedBigStraw(_:)))
+        tapBigStrawPoint?.addGestureRecognizer(otherTapGesture)
+        tapBigStrawPoint.isUserInteractionEnabled = true
         
-        let hall = (1.0 + cos(radians)) / 2
-        let vowl = (1.0 - sin(radians)) / 2
-        
-        return (hall, vowl)
     }
     
     // Gesture 발생될때 실행되는 함수정의
     @objc func tappedImage(_ sender: UITapGestureRecognizer) {
         strawImage.image = UIImage(named: "straw1")
+        strawImage.isUserInteractionEnabled = false
+        makeLongPressedMilkShakePoint()
     }
     
-    @objc func longPressedStraw(_ sender: UILongPressGestureRecognizer) {
+    @objc func longPressedMilkShake(_ sender: UILongPressGestureRecognizer) {
         strawImage.animationImages = animatedImages(name: "straw", initNum: 1, endNum: 3)
         strawImage.animationDuration = 3
         strawImage.animationRepeatCount = 0
         strawImage.image = strawImage.animationImages?.last
         strawImage.startAnimating()
-        let otherTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedStraw(_:)))
-        greenCircle?.addGestureRecognizer(otherTapGesture)
-        greenCircle.isHidden = false
+        self.longPressedMilkShakePoint.isUserInteractionEnabled = false
+        makeTapSmallStrawPoint()
     }
     
-    @objc func tappedStraw(_ sender: UITapGestureRecognizer) {
-        blueCircle.isHidden = false
+    @objc func tappedSmallStraw(_ sender: UITapGestureRecognizer) {
         strawImage.stopAnimating()
-        let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panStraw(_:)))
-        blueCircle?.addGestureRecognizer(panGesture)
+        self.tapSmallStrawPoint.isUserInteractionEnabled = false
+        makeTapBigStrawPoint()
     }
     
-    @objc func panStraw(_ sender: UIPanGestureRecognizer) {
-        greenCircle.isHidden = false
-        blueCircle.isHidden = false
-        switch sender.state {
-        case .began:
-            initialCenter = greenCircle.center
-        case .changed:
-            let translation = sender.translation(in: view)
-            
-            greenCircle.center = CGPoint(x: initialCenter.x + translation.x,
-                                          y: initialCenter.y + translation.y)
-        case .ended, .cancelled:
-            greenCircle.isHidden = true
-            blueCircle.isHidden = true
-            strawImage.animationImages = animatedImages(name: "straw", initNum: 5, endNum: 8)
-            strawImage.animationDuration = 3
-            strawImage.animationRepeatCount = 0
-            strawImage.image = strawImage.animationImages?.first
-            strawImage.startAnimating()
-        default:
-            break
-        }
+    @objc func tappedBigStraw(_ sender: UITapGestureRecognizer) {
+        strawImage.animationImages = animatedImages(name: "straw", initNum: 5, endNum: 8)
+        strawImage.animationDuration = 3
+        strawImage.animationRepeatCount = 0
+        strawImage.image = strawImage.animationImages?.first
+        strawImage.startAnimating()
+        self.tapBigStrawPoint.isUserInteractionEnabled = false
     }
     
-    // 이미지텍스처 생성함수
+    // 애니메이션텍스처 생성함수
     func animatedImages(name: String, initNum: Int, endNum: Int) -> [UIImage] {
         var images = [UIImage]()
         for count in initNum...endNum {
