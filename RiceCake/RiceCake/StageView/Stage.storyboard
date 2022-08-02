@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="EF_Diary.ttf">
+            <string>EF_Diary</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Stage View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="StageViewController" id="Y6W-OH-hqX" customClass="StageViewController" customModule="RiceCake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-mm-14u">
+                                <rect key="frame" x="323" y="342" width="250" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Acb-5G-qWn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="EF_Diary" family="EF_다이어리" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0V0-jx-BAX">
+                                <rect key="frame" x="279" y="345.5" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="SbA-MM-scX"/>
+                                    <constraint firstAttribute="width" constant="24" id="jQR-Cl-PpZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="mJl-68-en1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="leftButton" strokeWidth="0.0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="leftButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8tW-No-d7Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghe-om-1zg">
+                                <rect key="frame" x="593" y="345.5" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="Ing-oG-EVk"/>
+                                    <constraint firstAttribute="height" constant="24" id="N13-7q-HO9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="rightButton"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="rightButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="r1d-ut-5dr"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VCV-fY-OeW">
+                                <rect key="frame" x="0.0" y="50" width="896" height="262"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="txt-gi-2lw">
+                                    <size key="itemSize" width="312" height="204"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StageCell" id="5ID-ce-MDa" customClass="StageCell" customModule="RiceCake" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="312" height="204"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yEk-8q-3Ab">
+                                            <rect key="frame" x="0.0" y="0.0" width="312" height="204"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus" translatesAutoresizingMaskIntoConstraints="NO" id="yx8-FE-i5c">
+                                                    <rect key="frame" x="0.0" y="0.0" width="312" height="204"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="yx8-FE-i5c" secondAttribute="bottom" id="5aU-CP-pwf"/>
+                                                <constraint firstItem="yx8-FE-i5c" firstAttribute="top" secondItem="yEk-8q-3Ab" secondAttribute="top" id="B2K-60-AoS"/>
+                                                <constraint firstAttribute="trailing" secondItem="yx8-FE-i5c" secondAttribute="trailing" id="GfU-4O-ZyY"/>
+                                                <constraint firstItem="yx8-FE-i5c" firstAttribute="leading" secondItem="yEk-8q-3Ab" secondAttribute="leading" id="mGx-IF-u4t"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="312" height="204"/>
+                                        <connections>
+                                            <outlet property="stageImageView" destination="yx8-FE-i5c" id="HQB-VQ-Kul"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tfz-mm-14u" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="BgH-wa-YIP"/>
+                            <constraint firstAttribute="trailing" secondItem="VCV-fY-OeW" secondAttribute="trailing" id="ELO-qB-lHD"/>
+                            <constraint firstItem="Ghe-om-1zg" firstAttribute="centerY" secondItem="Tfz-mm-14u" secondAttribute="centerY" id="FaE-Gv-xqV"/>
+                            <constraint firstItem="0V0-jx-BAX" firstAttribute="centerY" secondItem="Tfz-mm-14u" secondAttribute="centerY" id="GeP-Xa-d2O"/>
+                            <constraint firstItem="Ghe-om-1zg" firstAttribute="leading" secondItem="Tfz-mm-14u" secondAttribute="trailing" constant="20" id="MPY-cO-hxA"/>
+                            <constraint firstItem="VCV-fY-OeW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="Top-Wc-kMz"/>
+                            <constraint firstItem="Tfz-mm-14u" firstAttribute="leading" secondItem="0V0-jx-BAX" secondAttribute="trailing" constant="20" id="dN5-Mc-Qyg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Tfz-mm-14u" secondAttribute="bottom" constant="20" id="hbo-sa-ESi"/>
+                            <constraint firstItem="VCV-fY-OeW" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="l9P-OS-BeT"/>
+                            <constraint firstItem="Tfz-mm-14u" firstAttribute="top" secondItem="VCV-fY-OeW" secondAttribute="bottom" constant="30" id="plT-Ex-dwY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="VCV-fY-OeW" id="VDl-0v-M2V"/>
+                        <outlet property="leftButton" destination="0V0-jx-BAX" id="1BB-S6-h8l"/>
+                        <outlet property="rightButton" destination="Ghe-om-1zg" id="bO2-oa-8jm"/>
+                        <outlet property="stageNameLabel" destination="Tfz-mm-14u" id="izy-UF-AjN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48.883928571428569" y="105.79710144927537"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bus" width="5315" height="5315"/>
+        <image name="leftButton" width="126" height="176"/>
+        <image name="rightButton" width="126" height="176"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" id="Y6W-OH-hqX" customClass="GameViewController" customModule="RiceCake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdY-4E-rdd">
+                                <rect key="frame" x="20" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="HFi-ls-oQV"/>
+                                    <constraint firstAttribute="height" constant="40" id="tCM-5f-amb"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="backButton"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UK2-e0-r1X"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nD5-IS-oBd">
+                                <rect key="frame" x="165.33333333333331" y="20" width="513.33333333333348" height="329"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mg-3h-lsX" customClass="SKView">
+                                        <rect key="frame" x="0.0" y="0.0" width="246.66666666666666" height="329"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="0Mg-3h-lsX" secondAttribute="height" multiplier="3:4" id="KWf-co-xE5"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZA-S9-Tjt" customClass="SKView">
+                                        <rect key="frame" x="266.66666666666663" y="0.0" width="246.66666666666663" height="329"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="oZA-S9-Tjt" secondAttribute="height" multiplier="3:4" id="cSQ-l7-wNF"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TdY-4E-rdd" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="20" id="Cja-MO-brH"/>
+                            <constraint firstItem="TdY-4E-rdd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="20" id="O7e-iE-Mco"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nD5-IS-oBd" secondAttribute="bottom" constant="20" id="QwS-54-JFJ"/>
+                            <constraint firstItem="nD5-IS-oBd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Y7J-1C-mZz"/>
+                            <constraint firstItem="nD5-IS-oBd" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Zpt-dX-pAt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="missionView" destination="oZA-S9-Tjt" id="zy6-IA-vq6"/>
+                        <outlet property="storyView" destination="0Mg-3h-lsX" id="SbM-qz-YDU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="86"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backButton" width="173" height="172"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

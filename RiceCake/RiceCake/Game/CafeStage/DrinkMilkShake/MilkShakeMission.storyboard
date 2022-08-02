@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Milk Shake Mission View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MilkShakeMissionViewController" id="Y6W-OH-hqX" customClass="MilkShakeMissionViewController" customModule="RiceCake" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flt-cr-MLW">
+                                <rect key="frame" x="59" y="20" width="808" height="393"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="straw0" translatesAutoresizingMaskIntoConstraints="NO" id="0La-CO-M1J" userLabel="StrawAction">
+                                        <rect key="frame" x="0.0" y="0.0" width="808" height="393"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="flt-cr-MLW" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="20" id="7pW-ZT-MEy"/>
+                            <constraint firstItem="flt-cr-MLW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="OAh-ID-C41"/>
+                            <constraint firstItem="flt-cr-MLW" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="15" id="iRQ-lf-V8l"/>
+                            <constraint firstItem="flt-cr-MLW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="jDL-Ye-L4N"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="strawImage" destination="0La-CO-M1J" id="yy6-eu-nzd"/>
+                        <outlet property="strawView" destination="flt-cr-MLW" id="qrj-kx-zAL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.4375" y="101.44927536231884"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="straw0" width="149" height="210"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
