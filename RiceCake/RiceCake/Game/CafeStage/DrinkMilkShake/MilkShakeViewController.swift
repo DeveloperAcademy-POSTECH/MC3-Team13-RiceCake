@@ -112,4 +112,3 @@ class MilkShakeMissionViewController: UIViewController {
         return images
     }
 }
-
